@@ -159,6 +159,11 @@ class GlobensServiceStub(object):
             request_serializer=gb__service__pb2.FetchPurchaseDetails.Request.SerializeToString,
             response_deserializer=gb__service__pb2.FetchPurchaseDetails.Response.FromString,
         )
+        self.testSum = channel.unary_unary(
+            '/GlobensService/testSum',
+            request_serializer=gb__service__pb2.TestSum.Request.SerializeToString,
+            response_deserializer=gb__service__pb2.TestSum.Response.FromString,
+        )
 
 
 class GlobensServiceServicer(object):
@@ -368,6 +373,13 @@ class GlobensServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def testSum(self, request, context):
+        """test proto (rpc)
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_GlobensServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -515,6 +527,11 @@ def add_GlobensServiceServicer_to_server(servicer, server):
             servicer.fetchPurchaseDetails,
             request_deserializer=gb__service__pb2.FetchPurchaseDetails.Request.FromString,
             response_serializer=gb__service__pb2.FetchPurchaseDetails.Response.SerializeToString,
+        ),
+        'testSum': grpc.unary_unary_rpc_method_handler(
+            servicer.testSum,
+            request_deserializer=gb__service__pb2.TestSum.Request.FromString,
+            response_serializer=gb__service__pb2.TestSum.Response.SerializeToString,
         ),
     }
     generic_handler = grpc.method_handlers_generic_handler(

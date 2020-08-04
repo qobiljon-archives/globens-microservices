@@ -255,6 +255,18 @@ message FetchPurchaseDetails{
 }
 
 
+// test proto (rpc)
+message TestSum{
+  message Request{
+    int32 a = 1;
+    int32 b = 2;
+  }
+  message Response{
+    int32 c = 1;
+  }
+}
+
+
 service GlobensService {
   // user management RPCs
   rpc authenticateUser (AuthenticateUser.Request) returns (AuthenticateUser.Response) {}
@@ -296,6 +308,10 @@ service GlobensService {
   rpc logPurchase(LogPurchase.Request) returns (LogPurchase.Response){}
   rpc fetchPurchases(FetchPurchases.Request) returns (FetchPurchases.Response){}
   rpc fetchPurchaseDetails(FetchPurchaseDetails.Request) returns (FetchPurchaseDetails.Response){}
+
+
+  // test proto (rpc)
+  rpc testSum(TestSum.Request) returns (TestSum.Response) {}
 }
 
 

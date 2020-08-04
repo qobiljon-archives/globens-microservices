@@ -140,6 +140,14 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
     def fetchPurchaseDetails(self, request, context):
         # todo fill this part
         pass
+
+    # endregion
+
+    # region test proto (rpc)
+    def testSum(self, request, context):
+        res = gb_service_pb2.TestSum.Response()
+        res.c = request.a + request.b
+        return res
     # endregion
 
 
