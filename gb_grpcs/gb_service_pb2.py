@@ -6,2502 +6,2469 @@ from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from google.protobuf import reflection as _reflection
 from google.protobuf import symbol_database as _symbol_database
+
 # @@protoc_insertion_point(imports)
 
 _sym_db = _symbol_database.Default()
 
-
-
-
 DESCRIPTOR = _descriptor.FileDescriptor(
-  name='gb_service.proto',
-  package='',
-  syntax='proto3',
-  serialized_options=b'\n\nuz.globens',
-  serialized_pb=b'\n\x10gb_service.proto\"\xd8\x01\n\x10\x41uthenticateUser\x1a\x92\x01\n\x07Request\x12\x34\n\x06method\x18\x01 \x01(\x0e\x32$.AuthenticateUser.Request.AuthMethod\x12\x0f\n\x07\x61uthKey\x18\x02 \x01(\t\"@\n\nAuthMethod\x12\n\n\x06GOOGLE\x10\x00\x12\x0c\n\x08\x46\x41\x43\x45\x42OOK\x10\x01\x12\r\n\tKAKAOTALK\x10\x03\x12\t\n\x05PHONE\x10\x04\x1a/\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\x12\x12\n\nsessionKey\x18\x02 \x01(\x05\"L\n\x0e\x44\x65\x61\x63tivateUser\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\x05\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"O\n\x11UpdateUserDetails\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"N\n\x10\x46\x65tchUserDetails\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"K\n\rCreateVacancy\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"R\n\x14UpdateVacancyDetails\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"M\n\x0fUncreateVacancy\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"L\n\x0e\x46\x65tchVacancies\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"Q\n\x13\x46\x65tchVacancyDetails\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"V\n\x18\x43reateVacancyApplication\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"]\n\x1fUpdateVacancyApplicationDetails\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"X\n\x1aUncreateVacancyApplication\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"X\n\x1a\x46\x65tchMyVacancyApplications\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"\\\n\x1e\x46\x65tchVacancyApplicationDetails\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"P\n\x12\x43reateBusinessPage\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"W\n\x19UpdateBusinessPageDetails\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"R\n\x14UncreateBusinessPage\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"P\n\x12\x46\x65tchBusinessPages\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"V\n\x18\x46\x65tchBusinessPageDetails\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"K\n\rCreateProduct\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"R\n\x14UpdateProductDetails\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"M\n\x0fUncreateProduct\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"K\n\rFetchProducts\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"Q\n\x13\x46\x65tchProductDetails\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"L\n\x0ePublishProduct\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"N\n\x10UnpublishProduct\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"I\n\x0bLogPurchase\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"L\n\x0e\x46\x65tchPurchases\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"R\n\x14\x46\x65tchPurchaseDetails\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\x32\xb0\x13\n\x0eGlobensService\x12K\n\x10\x61uthenticateUser\x12\x19.AuthenticateUser.Request\x1a\x1a.AuthenticateUser.Response\"\x00\x12\x45\n\x0e\x64\x65\x61\x63tivateUser\x12\x17.DeactivateUser.Request\x1a\x18.DeactivateUser.Response\"\x00\x12N\n\x11updateUserDetails\x12\x1a.UpdateUserDetails.Request\x1a\x1b.UpdateUserDetails.Response\"\x00\x12K\n\x10\x66\x65tchUserDetails\x12\x19.FetchUserDetails.Request\x1a\x1a.FetchUserDetails.Response\"\x00\x12\x42\n\rcreateVacancy\x12\x16.CreateVacancy.Request\x1a\x17.CreateVacancy.Response\"\x00\x12W\n\x14updateVacancyDetails\x12\x1d.UpdateVacancyDetails.Request\x1a\x1e.UpdateVacancyDetails.Response\"\x00\x12H\n\x0funcreateVacancy\x12\x18.UncreateVacancy.Request\x1a\x19.UncreateVacancy.Response\"\x00\x12\x45\n\x0e\x66\x65tchVacancies\x12\x17.FetchVacancies.Request\x1a\x18.FetchVacancies.Response\"\x00\x12T\n\x13\x66\x65tchVacancyDetails\x12\x1c.FetchVacancyDetails.Request\x1a\x1d.FetchVacancyDetails.Response\"\x00\x12\x63\n\x18\x63reateVacancyApplication\x12!.CreateVacancyApplication.Request\x1a\".CreateVacancyApplication.Response\"\x00\x12x\n\x1fupdateVacancyApplicationDetails\x12(.UpdateVacancyApplicationDetails.Request\x1a).UpdateVacancyApplicationDetails.Response\"\x00\x12i\n\x1auncreateVacancyApplication\x12#.UncreateVacancyApplication.Request\x1a$.UncreateVacancyApplication.Response\"\x00\x12i\n\x1a\x66\x65tchMyVacancyApplications\x12#.FetchMyVacancyApplications.Request\x1a$.FetchMyVacancyApplications.Response\"\x00\x12u\n\x1e\x66\x65tchVacancyApplicationDetails\x12\'.FetchVacancyApplicationDetails.Request\x1a(.FetchVacancyApplicationDetails.Response\"\x00\x12Q\n\x12\x63reateBusinessPage\x12\x1b.CreateBusinessPage.Request\x1a\x1c.CreateBusinessPage.Response\"\x00\x12\x66\n\x19updateBusinessPageDetails\x12\".UpdateBusinessPageDetails.Request\x1a#.UpdateBusinessPageDetails.Response\"\x00\x12W\n\x14uncreateBusinessPage\x12\x1d.UncreateBusinessPage.Request\x1a\x1e.UncreateBusinessPage.Response\"\x00\x12Q\n\x12\x66\x65tchBusinessPages\x12\x1b.FetchBusinessPages.Request\x1a\x1c.FetchBusinessPages.Response\"\x00\x12\x63\n\x18\x66\x65tchBusinessPageDetails\x12!.FetchBusinessPageDetails.Request\x1a\".FetchBusinessPageDetails.Response\"\x00\x12\x42\n\rcreateProduct\x12\x16.CreateProduct.Request\x1a\x17.CreateProduct.Response\"\x00\x12W\n\x14updateProductDetails\x12\x1d.UpdateProductDetails.Request\x1a\x1e.UpdateProductDetails.Response\"\x00\x12\x45\n\x0epublishProduct\x12\x17.PublishProduct.Request\x1a\x18.PublishProduct.Response\"\x00\x12K\n\x10unpublishProduct\x12\x19.UnpublishProduct.Request\x1a\x1a.UnpublishProduct.Response\"\x00\x12H\n\x0funcreateProduct\x12\x18.UncreateProduct.Request\x1a\x19.UncreateProduct.Response\"\x00\x12\x42\n\rfetchProducts\x12\x16.FetchProducts.Request\x1a\x17.FetchProducts.Response\"\x00\x12T\n\x13\x66\x65tchProductDetails\x12\x1c.FetchProductDetails.Request\x1a\x1d.FetchProductDetails.Response\"\x00\x12<\n\x0blogPurchase\x12\x14.LogPurchase.Request\x1a\x15.LogPurchase.Response\"\x00\x12\x45\n\x0e\x66\x65tchPurchases\x12\x17.FetchPurchases.Request\x1a\x18.FetchPurchases.Response\"\x00\x12W\n\x14\x66\x65tchPurchaseDetails\x12\x1d.FetchPurchaseDetails.Request\x1a\x1e.FetchPurchaseDetails.Response\"\x00\x42\x0c\n\nuz.globensb\x06proto3'
+    name='gb_service.proto',
+    package='',
+    syntax='proto3',
+    serialized_options=b'\n\nuz.globens',
+    serialized_pb=b'\n\x10gb_service.proto\"\xd8\x01\n\x10\x41uthenticateUser\x1a\x92\x01\n\x07Request\x12\x34\n\x06method\x18\x01 \x01(\x0e\x32$.AuthenticateUser.Request.AuthMethod\x12\x0f\n\x07\x61uthKey\x18\x02 \x01(\t\"@\n\nAuthMethod\x12\n\n\x06GOOGLE\x10\x00\x12\x0c\n\x08\x46\x41\x43\x45\x42OOK\x10\x01\x12\r\n\tKAKAOTALK\x10\x03\x12\t\n\x05PHONE\x10\x04\x1a/\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\x12\x12\n\nsessionKey\x18\x02 \x01(\x05\"L\n\x0e\x44\x65\x61\x63tivateUser\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\x05\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"O\n\x11UpdateUserDetails\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"N\n\x10\x46\x65tchUserDetails\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"K\n\rCreateVacancy\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"R\n\x14UpdateVacancyDetails\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"M\n\x0fUncreateVacancy\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"L\n\x0e\x46\x65tchVacancies\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"Q\n\x13\x46\x65tchVacancyDetails\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"V\n\x18\x43reateVacancyApplication\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"]\n\x1fUpdateVacancyApplicationDetails\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"X\n\x1aUncreateVacancyApplication\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"X\n\x1a\x46\x65tchMyVacancyApplications\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"\\\n\x1e\x46\x65tchVacancyApplicationDetails\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"P\n\x12\x43reateBusinessPage\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"W\n\x19UpdateBusinessPageDetails\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"R\n\x14UncreateBusinessPage\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"P\n\x12\x46\x65tchBusinessPages\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"V\n\x18\x46\x65tchBusinessPageDetails\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"K\n\rCreateProduct\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"R\n\x14UpdateProductDetails\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"M\n\x0fUncreateProduct\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"K\n\rFetchProducts\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"Q\n\x13\x46\x65tchProductDetails\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"L\n\x0ePublishProduct\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"N\n\x10UnpublishProduct\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"I\n\x0bLogPurchase\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"L\n\x0e\x46\x65tchPurchases\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"R\n\x14\x46\x65tchPurchaseDetails\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\x32\xb0\x13\n\x0eGlobensService\x12K\n\x10\x61uthenticateUser\x12\x19.AuthenticateUser.Request\x1a\x1a.AuthenticateUser.Response\"\x00\x12\x45\n\x0e\x64\x65\x61\x63tivateUser\x12\x17.DeactivateUser.Request\x1a\x18.DeactivateUser.Response\"\x00\x12N\n\x11updateUserDetails\x12\x1a.UpdateUserDetails.Request\x1a\x1b.UpdateUserDetails.Response\"\x00\x12K\n\x10\x66\x65tchUserDetails\x12\x19.FetchUserDetails.Request\x1a\x1a.FetchUserDetails.Response\"\x00\x12\x42\n\rcreateVacancy\x12\x16.CreateVacancy.Request\x1a\x17.CreateVacancy.Response\"\x00\x12W\n\x14updateVacancyDetails\x12\x1d.UpdateVacancyDetails.Request\x1a\x1e.UpdateVacancyDetails.Response\"\x00\x12H\n\x0funcreateVacancy\x12\x18.UncreateVacancy.Request\x1a\x19.UncreateVacancy.Response\"\x00\x12\x45\n\x0e\x66\x65tchVacancies\x12\x17.FetchVacancies.Request\x1a\x18.FetchVacancies.Response\"\x00\x12T\n\x13\x66\x65tchVacancyDetails\x12\x1c.FetchVacancyDetails.Request\x1a\x1d.FetchVacancyDetails.Response\"\x00\x12\x63\n\x18\x63reateVacancyApplication\x12!.CreateVacancyApplication.Request\x1a\".CreateVacancyApplication.Response\"\x00\x12x\n\x1fupdateVacancyApplicationDetails\x12(.UpdateVacancyApplicationDetails.Request\x1a).UpdateVacancyApplicationDetails.Response\"\x00\x12i\n\x1auncreateVacancyApplication\x12#.UncreateVacancyApplication.Request\x1a$.UncreateVacancyApplication.Response\"\x00\x12i\n\x1a\x66\x65tchMyVacancyApplications\x12#.FetchMyVacancyApplications.Request\x1a$.FetchMyVacancyApplications.Response\"\x00\x12u\n\x1e\x66\x65tchVacancyApplicationDetails\x12\'.FetchVacancyApplicationDetails.Request\x1a(.FetchVacancyApplicationDetails.Response\"\x00\x12Q\n\x12\x63reateBusinessPage\x12\x1b.CreateBusinessPage.Request\x1a\x1c.CreateBusinessPage.Response\"\x00\x12\x66\n\x19updateBusinessPageDetails\x12\".UpdateBusinessPageDetails.Request\x1a#.UpdateBusinessPageDetails.Response\"\x00\x12W\n\x14uncreateBusinessPage\x12\x1d.UncreateBusinessPage.Request\x1a\x1e.UncreateBusinessPage.Response\"\x00\x12Q\n\x12\x66\x65tchBusinessPages\x12\x1b.FetchBusinessPages.Request\x1a\x1c.FetchBusinessPages.Response\"\x00\x12\x63\n\x18\x66\x65tchBusinessPageDetails\x12!.FetchBusinessPageDetails.Request\x1a\".FetchBusinessPageDetails.Response\"\x00\x12\x42\n\rcreateProduct\x12\x16.CreateProduct.Request\x1a\x17.CreateProduct.Response\"\x00\x12W\n\x14updateProductDetails\x12\x1d.UpdateProductDetails.Request\x1a\x1e.UpdateProductDetails.Response\"\x00\x12\x45\n\x0epublishProduct\x12\x17.PublishProduct.Request\x1a\x18.PublishProduct.Response\"\x00\x12K\n\x10unpublishProduct\x12\x19.UnpublishProduct.Request\x1a\x1a.UnpublishProduct.Response\"\x00\x12H\n\x0funcreateProduct\x12\x18.UncreateProduct.Request\x1a\x19.UncreateProduct.Response\"\x00\x12\x42\n\rfetchProducts\x12\x16.FetchProducts.Request\x1a\x17.FetchProducts.Response\"\x00\x12T\n\x13\x66\x65tchProductDetails\x12\x1c.FetchProductDetails.Request\x1a\x1d.FetchProductDetails.Response\"\x00\x12<\n\x0blogPurchase\x12\x14.LogPurchase.Request\x1a\x15.LogPurchase.Response\"\x00\x12\x45\n\x0e\x66\x65tchPurchases\x12\x17.FetchPurchases.Request\x1a\x18.FetchPurchases.Response\"\x00\x12W\n\x14\x66\x65tchPurchaseDetails\x12\x1d.FetchPurchaseDetails.Request\x1a\x1e.FetchPurchaseDetails.Response\"\x00\x42\x0c\n\nuz.globensb\x06proto3'
 )
 
-
-
 _AUTHENTICATEUSER_REQUEST_AUTHMETHOD = _descriptor.EnumDescriptor(
-  name='AuthMethod',
-  full_name='AuthenticateUser.Request.AuthMethod',
-  filename=None,
-  file=DESCRIPTOR,
-  values=[
-    _descriptor.EnumValueDescriptor(
-      name='GOOGLE', index=0, number=0,
-      serialized_options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='FACEBOOK', index=1, number=1,
-      serialized_options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='KAKAOTALK', index=2, number=3,
-      serialized_options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='PHONE', index=3, number=4,
-      serialized_options=None,
-      type=None),
-  ],
-  containing_type=None,
-  serialized_options=None,
-  serialized_start=124,
-  serialized_end=188,
+    name='AuthMethod',
+    full_name='AuthenticateUser.Request.AuthMethod',
+    filename=None,
+    file=DESCRIPTOR,
+    values=[
+        _descriptor.EnumValueDescriptor(
+            name='GOOGLE', index=0, number=0,
+            serialized_options=None,
+            type=None),
+        _descriptor.EnumValueDescriptor(
+            name='FACEBOOK', index=1, number=1,
+            serialized_options=None,
+            type=None),
+        _descriptor.EnumValueDescriptor(
+            name='KAKAOTALK', index=2, number=3,
+            serialized_options=None,
+            type=None),
+        _descriptor.EnumValueDescriptor(
+            name='PHONE', index=3, number=4,
+            serialized_options=None,
+            type=None),
+    ],
+    containing_type=None,
+    serialized_options=None,
+    serialized_start=124,
+    serialized_end=188,
 )
 _sym_db.RegisterEnumDescriptor(_AUTHENTICATEUSER_REQUEST_AUTHMETHOD)
 
-
 _AUTHENTICATEUSER_REQUEST = _descriptor.Descriptor(
-  name='Request',
-  full_name='AuthenticateUser.Request',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='method', full_name='AuthenticateUser.Request.method', index=0,
-      number=1, type=14, cpp_type=8, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='authKey', full_name='AuthenticateUser.Request.authKey', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-    _AUTHENTICATEUSER_REQUEST_AUTHMETHOD,
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=42,
-  serialized_end=188,
+    name='Request',
+    full_name='AuthenticateUser.Request',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='method', full_name='AuthenticateUser.Request.method', index=0,
+            number=1, type=14, cpp_type=8, label=1,
+            has_default_value=False, default_value=0,
+            message_type=None, enum_type=None, containing_type=None,
+            is_extension=False, extension_scope=None,
+            serialized_options=None, file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='authKey', full_name='AuthenticateUser.Request.authKey', index=1,
+            number=2, type=9, cpp_type=9, label=1,
+            has_default_value=False, default_value=b"".decode('utf-8'),
+            message_type=None, enum_type=None, containing_type=None,
+            is_extension=False, extension_scope=None,
+            serialized_options=None, file=DESCRIPTOR),
+    ],
+    extensions=[
+    ],
+    nested_types=[],
+    enum_types=[
+        _AUTHENTICATEUSER_REQUEST_AUTHMETHOD,
+    ],
+    serialized_options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[
+    ],
+    serialized_start=42,
+    serialized_end=188,
 )
 
 _AUTHENTICATEUSER_RESPONSE = _descriptor.Descriptor(
-  name='Response',
-  full_name='AuthenticateUser.Response',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='success', full_name='AuthenticateUser.Response.success', index=0,
-      number=1, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='sessionKey', full_name='AuthenticateUser.Response.sessionKey', index=1,
-      number=2, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=190,
-  serialized_end=237,
+    name='Response',
+    full_name='AuthenticateUser.Response',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='success', full_name='AuthenticateUser.Response.success', index=0,
+            number=1, type=8, cpp_type=7, label=1,
+            has_default_value=False, default_value=False,
+            message_type=None, enum_type=None, containing_type=None,
+            is_extension=False, extension_scope=None,
+            serialized_options=None, file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='sessionKey', full_name='AuthenticateUser.Response.sessionKey', index=1,
+            number=2, type=5, cpp_type=1, label=1,
+            has_default_value=False, default_value=0,
+            message_type=None, enum_type=None, containing_type=None,
+            is_extension=False, extension_scope=None,
+            serialized_options=None, file=DESCRIPTOR),
+    ],
+    extensions=[
+    ],
+    nested_types=[],
+    enum_types=[
+    ],
+    serialized_options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[
+    ],
+    serialized_start=190,
+    serialized_end=237,
 )
 
 _AUTHENTICATEUSER = _descriptor.Descriptor(
-  name='AuthenticateUser',
-  full_name='AuthenticateUser',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-  ],
-  extensions=[
-  ],
-  nested_types=[_AUTHENTICATEUSER_REQUEST, _AUTHENTICATEUSER_RESPONSE, ],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=21,
-  serialized_end=237,
+    name='AuthenticateUser',
+    full_name='AuthenticateUser',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+    ],
+    extensions=[
+    ],
+    nested_types=[_AUTHENTICATEUSER_REQUEST, _AUTHENTICATEUSER_RESPONSE, ],
+    enum_types=[
+    ],
+    serialized_options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[
+    ],
+    serialized_start=21,
+    serialized_end=237,
 )
 
-
 _DEACTIVATEUSER_REQUEST = _descriptor.Descriptor(
-  name='Request',
-  full_name='DeactivateUser.Request',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='sessionKey', full_name='DeactivateUser.Request.sessionKey', index=0,
-      number=1, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=257,
-  serialized_end=286,
+    name='Request',
+    full_name='DeactivateUser.Request',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='sessionKey', full_name='DeactivateUser.Request.sessionKey', index=0,
+            number=1, type=5, cpp_type=1, label=1,
+            has_default_value=False, default_value=0,
+            message_type=None, enum_type=None, containing_type=None,
+            is_extension=False, extension_scope=None,
+            serialized_options=None, file=DESCRIPTOR),
+    ],
+    extensions=[
+    ],
+    nested_types=[],
+    enum_types=[
+    ],
+    serialized_options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[
+    ],
+    serialized_start=257,
+    serialized_end=286,
 )
 
 _DEACTIVATEUSER_RESPONSE = _descriptor.Descriptor(
-  name='Response',
-  full_name='DeactivateUser.Response',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='success', full_name='DeactivateUser.Response.success', index=0,
-      number=1, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=190,
-  serialized_end=217,
+    name='Response',
+    full_name='DeactivateUser.Response',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='success', full_name='DeactivateUser.Response.success', index=0,
+            number=1, type=8, cpp_type=7, label=1,
+            has_default_value=False, default_value=False,
+            message_type=None, enum_type=None, containing_type=None,
+            is_extension=False, extension_scope=None,
+            serialized_options=None, file=DESCRIPTOR),
+    ],
+    extensions=[
+    ],
+    nested_types=[],
+    enum_types=[
+    ],
+    serialized_options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[
+    ],
+    serialized_start=190,
+    serialized_end=217,
 )
 
 _DEACTIVATEUSER = _descriptor.Descriptor(
-  name='DeactivateUser',
-  full_name='DeactivateUser',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-  ],
-  extensions=[
-  ],
-  nested_types=[_DEACTIVATEUSER_REQUEST, _DEACTIVATEUSER_RESPONSE, ],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=239,
-  serialized_end=315,
+    name='DeactivateUser',
+    full_name='DeactivateUser',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+    ],
+    extensions=[
+    ],
+    nested_types=[_DEACTIVATEUSER_REQUEST, _DEACTIVATEUSER_RESPONSE, ],
+    enum_types=[
+    ],
+    serialized_options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[
+    ],
+    serialized_start=239,
+    serialized_end=315,
 )
 
-
 _UPDATEUSERDETAILS_REQUEST = _descriptor.Descriptor(
-  name='Request',
-  full_name='UpdateUserDetails.Request',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='sessionKey', full_name='UpdateUserDetails.Request.sessionKey', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=338,
-  serialized_end=367,
+    name='Request',
+    full_name='UpdateUserDetails.Request',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='sessionKey', full_name='UpdateUserDetails.Request.sessionKey', index=0,
+            number=1, type=9, cpp_type=9, label=1,
+            has_default_value=False, default_value=b"".decode('utf-8'),
+            message_type=None, enum_type=None, containing_type=None,
+            is_extension=False, extension_scope=None,
+            serialized_options=None, file=DESCRIPTOR),
+    ],
+    extensions=[
+    ],
+    nested_types=[],
+    enum_types=[
+    ],
+    serialized_options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[
+    ],
+    serialized_start=338,
+    serialized_end=367,
 )
 
 _UPDATEUSERDETAILS_RESPONSE = _descriptor.Descriptor(
-  name='Response',
-  full_name='UpdateUserDetails.Response',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='success', full_name='UpdateUserDetails.Response.success', index=0,
-      number=1, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=190,
-  serialized_end=217,
+    name='Response',
+    full_name='UpdateUserDetails.Response',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='success', full_name='UpdateUserDetails.Response.success', index=0,
+            number=1, type=8, cpp_type=7, label=1,
+            has_default_value=False, default_value=False,
+            message_type=None, enum_type=None, containing_type=None,
+            is_extension=False, extension_scope=None,
+            serialized_options=None, file=DESCRIPTOR),
+    ],
+    extensions=[
+    ],
+    nested_types=[],
+    enum_types=[
+    ],
+    serialized_options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[
+    ],
+    serialized_start=190,
+    serialized_end=217,
 )
 
 _UPDATEUSERDETAILS = _descriptor.Descriptor(
-  name='UpdateUserDetails',
-  full_name='UpdateUserDetails',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-  ],
-  extensions=[
-  ],
-  nested_types=[_UPDATEUSERDETAILS_REQUEST, _UPDATEUSERDETAILS_RESPONSE, ],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=317,
-  serialized_end=396,
+    name='UpdateUserDetails',
+    full_name='UpdateUserDetails',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+    ],
+    extensions=[
+    ],
+    nested_types=[_UPDATEUSERDETAILS_REQUEST, _UPDATEUSERDETAILS_RESPONSE, ],
+    enum_types=[
+    ],
+    serialized_options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[
+    ],
+    serialized_start=317,
+    serialized_end=396,
 )
 
-
 _FETCHUSERDETAILS_REQUEST = _descriptor.Descriptor(
-  name='Request',
-  full_name='FetchUserDetails.Request',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='sessionKey', full_name='FetchUserDetails.Request.sessionKey', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=338,
-  serialized_end=367,
+    name='Request',
+    full_name='FetchUserDetails.Request',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='sessionKey', full_name='FetchUserDetails.Request.sessionKey', index=0,
+            number=1, type=9, cpp_type=9, label=1,
+            has_default_value=False, default_value=b"".decode('utf-8'),
+            message_type=None, enum_type=None, containing_type=None,
+            is_extension=False, extension_scope=None,
+            serialized_options=None, file=DESCRIPTOR),
+    ],
+    extensions=[
+    ],
+    nested_types=[],
+    enum_types=[
+    ],
+    serialized_options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[
+    ],
+    serialized_start=338,
+    serialized_end=367,
 )
 
 _FETCHUSERDETAILS_RESPONSE = _descriptor.Descriptor(
-  name='Response',
-  full_name='FetchUserDetails.Response',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='success', full_name='FetchUserDetails.Response.success', index=0,
-      number=1, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=190,
-  serialized_end=217,
+    name='Response',
+    full_name='FetchUserDetails.Response',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='success', full_name='FetchUserDetails.Response.success', index=0,
+            number=1, type=8, cpp_type=7, label=1,
+            has_default_value=False, default_value=False,
+            message_type=None, enum_type=None, containing_type=None,
+            is_extension=False, extension_scope=None,
+            serialized_options=None, file=DESCRIPTOR),
+    ],
+    extensions=[
+    ],
+    nested_types=[],
+    enum_types=[
+    ],
+    serialized_options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[
+    ],
+    serialized_start=190,
+    serialized_end=217,
 )
 
 _FETCHUSERDETAILS = _descriptor.Descriptor(
-  name='FetchUserDetails',
-  full_name='FetchUserDetails',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-  ],
-  extensions=[
-  ],
-  nested_types=[_FETCHUSERDETAILS_REQUEST, _FETCHUSERDETAILS_RESPONSE, ],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=398,
-  serialized_end=476,
+    name='FetchUserDetails',
+    full_name='FetchUserDetails',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+    ],
+    extensions=[
+    ],
+    nested_types=[_FETCHUSERDETAILS_REQUEST, _FETCHUSERDETAILS_RESPONSE, ],
+    enum_types=[
+    ],
+    serialized_options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[
+    ],
+    serialized_start=398,
+    serialized_end=476,
 )
 
-
 _CREATEVACANCY_REQUEST = _descriptor.Descriptor(
-  name='Request',
-  full_name='CreateVacancy.Request',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='sessionKey', full_name='CreateVacancy.Request.sessionKey', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=338,
-  serialized_end=367,
+    name='Request',
+    full_name='CreateVacancy.Request',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='sessionKey', full_name='CreateVacancy.Request.sessionKey', index=0,
+            number=1, type=9, cpp_type=9, label=1,
+            has_default_value=False, default_value=b"".decode('utf-8'),
+            message_type=None, enum_type=None, containing_type=None,
+            is_extension=False, extension_scope=None,
+            serialized_options=None, file=DESCRIPTOR),
+    ],
+    extensions=[
+    ],
+    nested_types=[],
+    enum_types=[
+    ],
+    serialized_options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[
+    ],
+    serialized_start=338,
+    serialized_end=367,
 )
 
 _CREATEVACANCY_RESPONSE = _descriptor.Descriptor(
-  name='Response',
-  full_name='CreateVacancy.Response',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='success', full_name='CreateVacancy.Response.success', index=0,
-      number=1, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=190,
-  serialized_end=217,
+    name='Response',
+    full_name='CreateVacancy.Response',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='success', full_name='CreateVacancy.Response.success', index=0,
+            number=1, type=8, cpp_type=7, label=1,
+            has_default_value=False, default_value=False,
+            message_type=None, enum_type=None, containing_type=None,
+            is_extension=False, extension_scope=None,
+            serialized_options=None, file=DESCRIPTOR),
+    ],
+    extensions=[
+    ],
+    nested_types=[],
+    enum_types=[
+    ],
+    serialized_options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[
+    ],
+    serialized_start=190,
+    serialized_end=217,
 )
 
 _CREATEVACANCY = _descriptor.Descriptor(
-  name='CreateVacancy',
-  full_name='CreateVacancy',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-  ],
-  extensions=[
-  ],
-  nested_types=[_CREATEVACANCY_REQUEST, _CREATEVACANCY_RESPONSE, ],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=478,
-  serialized_end=553,
+    name='CreateVacancy',
+    full_name='CreateVacancy',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+    ],
+    extensions=[
+    ],
+    nested_types=[_CREATEVACANCY_REQUEST, _CREATEVACANCY_RESPONSE, ],
+    enum_types=[
+    ],
+    serialized_options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[
+    ],
+    serialized_start=478,
+    serialized_end=553,
 )
 
-
 _UPDATEVACANCYDETAILS_REQUEST = _descriptor.Descriptor(
-  name='Request',
-  full_name='UpdateVacancyDetails.Request',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='sessionKey', full_name='UpdateVacancyDetails.Request.sessionKey', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=338,
-  serialized_end=367,
+    name='Request',
+    full_name='UpdateVacancyDetails.Request',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='sessionKey', full_name='UpdateVacancyDetails.Request.sessionKey', index=0,
+            number=1, type=9, cpp_type=9, label=1,
+            has_default_value=False, default_value=b"".decode('utf-8'),
+            message_type=None, enum_type=None, containing_type=None,
+            is_extension=False, extension_scope=None,
+            serialized_options=None, file=DESCRIPTOR),
+    ],
+    extensions=[
+    ],
+    nested_types=[],
+    enum_types=[
+    ],
+    serialized_options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[
+    ],
+    serialized_start=338,
+    serialized_end=367,
 )
 
 _UPDATEVACANCYDETAILS_RESPONSE = _descriptor.Descriptor(
-  name='Response',
-  full_name='UpdateVacancyDetails.Response',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='success', full_name='UpdateVacancyDetails.Response.success', index=0,
-      number=1, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=190,
-  serialized_end=217,
+    name='Response',
+    full_name='UpdateVacancyDetails.Response',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='success', full_name='UpdateVacancyDetails.Response.success', index=0,
+            number=1, type=8, cpp_type=7, label=1,
+            has_default_value=False, default_value=False,
+            message_type=None, enum_type=None, containing_type=None,
+            is_extension=False, extension_scope=None,
+            serialized_options=None, file=DESCRIPTOR),
+    ],
+    extensions=[
+    ],
+    nested_types=[],
+    enum_types=[
+    ],
+    serialized_options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[
+    ],
+    serialized_start=190,
+    serialized_end=217,
 )
 
 _UPDATEVACANCYDETAILS = _descriptor.Descriptor(
-  name='UpdateVacancyDetails',
-  full_name='UpdateVacancyDetails',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-  ],
-  extensions=[
-  ],
-  nested_types=[_UPDATEVACANCYDETAILS_REQUEST, _UPDATEVACANCYDETAILS_RESPONSE, ],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=555,
-  serialized_end=637,
+    name='UpdateVacancyDetails',
+    full_name='UpdateVacancyDetails',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+    ],
+    extensions=[
+    ],
+    nested_types=[_UPDATEVACANCYDETAILS_REQUEST, _UPDATEVACANCYDETAILS_RESPONSE, ],
+    enum_types=[
+    ],
+    serialized_options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[
+    ],
+    serialized_start=555,
+    serialized_end=637,
 )
 
-
 _UNCREATEVACANCY_REQUEST = _descriptor.Descriptor(
-  name='Request',
-  full_name='UncreateVacancy.Request',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='sessionKey', full_name='UncreateVacancy.Request.sessionKey', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=338,
-  serialized_end=367,
+    name='Request',
+    full_name='UncreateVacancy.Request',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='sessionKey', full_name='UncreateVacancy.Request.sessionKey', index=0,
+            number=1, type=9, cpp_type=9, label=1,
+            has_default_value=False, default_value=b"".decode('utf-8'),
+            message_type=None, enum_type=None, containing_type=None,
+            is_extension=False, extension_scope=None,
+            serialized_options=None, file=DESCRIPTOR),
+    ],
+    extensions=[
+    ],
+    nested_types=[],
+    enum_types=[
+    ],
+    serialized_options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[
+    ],
+    serialized_start=338,
+    serialized_end=367,
 )
 
 _UNCREATEVACANCY_RESPONSE = _descriptor.Descriptor(
-  name='Response',
-  full_name='UncreateVacancy.Response',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='success', full_name='UncreateVacancy.Response.success', index=0,
-      number=1, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=190,
-  serialized_end=217,
+    name='Response',
+    full_name='UncreateVacancy.Response',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='success', full_name='UncreateVacancy.Response.success', index=0,
+            number=1, type=8, cpp_type=7, label=1,
+            has_default_value=False, default_value=False,
+            message_type=None, enum_type=None, containing_type=None,
+            is_extension=False, extension_scope=None,
+            serialized_options=None, file=DESCRIPTOR),
+    ],
+    extensions=[
+    ],
+    nested_types=[],
+    enum_types=[
+    ],
+    serialized_options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[
+    ],
+    serialized_start=190,
+    serialized_end=217,
 )
 
 _UNCREATEVACANCY = _descriptor.Descriptor(
-  name='UncreateVacancy',
-  full_name='UncreateVacancy',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-  ],
-  extensions=[
-  ],
-  nested_types=[_UNCREATEVACANCY_REQUEST, _UNCREATEVACANCY_RESPONSE, ],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=639,
-  serialized_end=716,
+    name='UncreateVacancy',
+    full_name='UncreateVacancy',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+    ],
+    extensions=[
+    ],
+    nested_types=[_UNCREATEVACANCY_REQUEST, _UNCREATEVACANCY_RESPONSE, ],
+    enum_types=[
+    ],
+    serialized_options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[
+    ],
+    serialized_start=639,
+    serialized_end=716,
 )
 
-
 _FETCHVACANCIES_REQUEST = _descriptor.Descriptor(
-  name='Request',
-  full_name='FetchVacancies.Request',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='sessionKey', full_name='FetchVacancies.Request.sessionKey', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=338,
-  serialized_end=367,
+    name='Request',
+    full_name='FetchVacancies.Request',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='sessionKey', full_name='FetchVacancies.Request.sessionKey', index=0,
+            number=1, type=9, cpp_type=9, label=1,
+            has_default_value=False, default_value=b"".decode('utf-8'),
+            message_type=None, enum_type=None, containing_type=None,
+            is_extension=False, extension_scope=None,
+            serialized_options=None, file=DESCRIPTOR),
+    ],
+    extensions=[
+    ],
+    nested_types=[],
+    enum_types=[
+    ],
+    serialized_options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[
+    ],
+    serialized_start=338,
+    serialized_end=367,
 )
 
 _FETCHVACANCIES_RESPONSE = _descriptor.Descriptor(
-  name='Response',
-  full_name='FetchVacancies.Response',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='success', full_name='FetchVacancies.Response.success', index=0,
-      number=1, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=190,
-  serialized_end=217,
+    name='Response',
+    full_name='FetchVacancies.Response',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='success', full_name='FetchVacancies.Response.success', index=0,
+            number=1, type=8, cpp_type=7, label=1,
+            has_default_value=False, default_value=False,
+            message_type=None, enum_type=None, containing_type=None,
+            is_extension=False, extension_scope=None,
+            serialized_options=None, file=DESCRIPTOR),
+    ],
+    extensions=[
+    ],
+    nested_types=[],
+    enum_types=[
+    ],
+    serialized_options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[
+    ],
+    serialized_start=190,
+    serialized_end=217,
 )
 
 _FETCHVACANCIES = _descriptor.Descriptor(
-  name='FetchVacancies',
-  full_name='FetchVacancies',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-  ],
-  extensions=[
-  ],
-  nested_types=[_FETCHVACANCIES_REQUEST, _FETCHVACANCIES_RESPONSE, ],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=718,
-  serialized_end=794,
+    name='FetchVacancies',
+    full_name='FetchVacancies',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+    ],
+    extensions=[
+    ],
+    nested_types=[_FETCHVACANCIES_REQUEST, _FETCHVACANCIES_RESPONSE, ],
+    enum_types=[
+    ],
+    serialized_options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[
+    ],
+    serialized_start=718,
+    serialized_end=794,
 )
 
-
 _FETCHVACANCYDETAILS_REQUEST = _descriptor.Descriptor(
-  name='Request',
-  full_name='FetchVacancyDetails.Request',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='sessionKey', full_name='FetchVacancyDetails.Request.sessionKey', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=338,
-  serialized_end=367,
+    name='Request',
+    full_name='FetchVacancyDetails.Request',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='sessionKey', full_name='FetchVacancyDetails.Request.sessionKey', index=0,
+            number=1, type=9, cpp_type=9, label=1,
+            has_default_value=False, default_value=b"".decode('utf-8'),
+            message_type=None, enum_type=None, containing_type=None,
+            is_extension=False, extension_scope=None,
+            serialized_options=None, file=DESCRIPTOR),
+    ],
+    extensions=[
+    ],
+    nested_types=[],
+    enum_types=[
+    ],
+    serialized_options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[
+    ],
+    serialized_start=338,
+    serialized_end=367,
 )
 
 _FETCHVACANCYDETAILS_RESPONSE = _descriptor.Descriptor(
-  name='Response',
-  full_name='FetchVacancyDetails.Response',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='success', full_name='FetchVacancyDetails.Response.success', index=0,
-      number=1, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=190,
-  serialized_end=217,
+    name='Response',
+    full_name='FetchVacancyDetails.Response',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='success', full_name='FetchVacancyDetails.Response.success', index=0,
+            number=1, type=8, cpp_type=7, label=1,
+            has_default_value=False, default_value=False,
+            message_type=None, enum_type=None, containing_type=None,
+            is_extension=False, extension_scope=None,
+            serialized_options=None, file=DESCRIPTOR),
+    ],
+    extensions=[
+    ],
+    nested_types=[],
+    enum_types=[
+    ],
+    serialized_options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[
+    ],
+    serialized_start=190,
+    serialized_end=217,
 )
 
 _FETCHVACANCYDETAILS = _descriptor.Descriptor(
-  name='FetchVacancyDetails',
-  full_name='FetchVacancyDetails',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-  ],
-  extensions=[
-  ],
-  nested_types=[_FETCHVACANCYDETAILS_REQUEST, _FETCHVACANCYDETAILS_RESPONSE, ],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=796,
-  serialized_end=877,
+    name='FetchVacancyDetails',
+    full_name='FetchVacancyDetails',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+    ],
+    extensions=[
+    ],
+    nested_types=[_FETCHVACANCYDETAILS_REQUEST, _FETCHVACANCYDETAILS_RESPONSE, ],
+    enum_types=[
+    ],
+    serialized_options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[
+    ],
+    serialized_start=796,
+    serialized_end=877,
 )
 
-
 _CREATEVACANCYAPPLICATION_REQUEST = _descriptor.Descriptor(
-  name='Request',
-  full_name='CreateVacancyApplication.Request',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='sessionKey', full_name='CreateVacancyApplication.Request.sessionKey', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=338,
-  serialized_end=367,
+    name='Request',
+    full_name='CreateVacancyApplication.Request',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='sessionKey', full_name='CreateVacancyApplication.Request.sessionKey', index=0,
+            number=1, type=9, cpp_type=9, label=1,
+            has_default_value=False, default_value=b"".decode('utf-8'),
+            message_type=None, enum_type=None, containing_type=None,
+            is_extension=False, extension_scope=None,
+            serialized_options=None, file=DESCRIPTOR),
+    ],
+    extensions=[
+    ],
+    nested_types=[],
+    enum_types=[
+    ],
+    serialized_options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[
+    ],
+    serialized_start=338,
+    serialized_end=367,
 )
 
 _CREATEVACANCYAPPLICATION_RESPONSE = _descriptor.Descriptor(
-  name='Response',
-  full_name='CreateVacancyApplication.Response',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='success', full_name='CreateVacancyApplication.Response.success', index=0,
-      number=1, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=190,
-  serialized_end=217,
+    name='Response',
+    full_name='CreateVacancyApplication.Response',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='success', full_name='CreateVacancyApplication.Response.success', index=0,
+            number=1, type=8, cpp_type=7, label=1,
+            has_default_value=False, default_value=False,
+            message_type=None, enum_type=None, containing_type=None,
+            is_extension=False, extension_scope=None,
+            serialized_options=None, file=DESCRIPTOR),
+    ],
+    extensions=[
+    ],
+    nested_types=[],
+    enum_types=[
+    ],
+    serialized_options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[
+    ],
+    serialized_start=190,
+    serialized_end=217,
 )
 
 _CREATEVACANCYAPPLICATION = _descriptor.Descriptor(
-  name='CreateVacancyApplication',
-  full_name='CreateVacancyApplication',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-  ],
-  extensions=[
-  ],
-  nested_types=[_CREATEVACANCYAPPLICATION_REQUEST, _CREATEVACANCYAPPLICATION_RESPONSE, ],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=879,
-  serialized_end=965,
+    name='CreateVacancyApplication',
+    full_name='CreateVacancyApplication',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+    ],
+    extensions=[
+    ],
+    nested_types=[_CREATEVACANCYAPPLICATION_REQUEST, _CREATEVACANCYAPPLICATION_RESPONSE, ],
+    enum_types=[
+    ],
+    serialized_options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[
+    ],
+    serialized_start=879,
+    serialized_end=965,
 )
 
-
 _UPDATEVACANCYAPPLICATIONDETAILS_REQUEST = _descriptor.Descriptor(
-  name='Request',
-  full_name='UpdateVacancyApplicationDetails.Request',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='sessionKey', full_name='UpdateVacancyApplicationDetails.Request.sessionKey', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=338,
-  serialized_end=367,
+    name='Request',
+    full_name='UpdateVacancyApplicationDetails.Request',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='sessionKey', full_name='UpdateVacancyApplicationDetails.Request.sessionKey', index=0,
+            number=1, type=9, cpp_type=9, label=1,
+            has_default_value=False, default_value=b"".decode('utf-8'),
+            message_type=None, enum_type=None, containing_type=None,
+            is_extension=False, extension_scope=None,
+            serialized_options=None, file=DESCRIPTOR),
+    ],
+    extensions=[
+    ],
+    nested_types=[],
+    enum_types=[
+    ],
+    serialized_options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[
+    ],
+    serialized_start=338,
+    serialized_end=367,
 )
 
 _UPDATEVACANCYAPPLICATIONDETAILS_RESPONSE = _descriptor.Descriptor(
-  name='Response',
-  full_name='UpdateVacancyApplicationDetails.Response',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='success', full_name='UpdateVacancyApplicationDetails.Response.success', index=0,
-      number=1, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=190,
-  serialized_end=217,
+    name='Response',
+    full_name='UpdateVacancyApplicationDetails.Response',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='success', full_name='UpdateVacancyApplicationDetails.Response.success', index=0,
+            number=1, type=8, cpp_type=7, label=1,
+            has_default_value=False, default_value=False,
+            message_type=None, enum_type=None, containing_type=None,
+            is_extension=False, extension_scope=None,
+            serialized_options=None, file=DESCRIPTOR),
+    ],
+    extensions=[
+    ],
+    nested_types=[],
+    enum_types=[
+    ],
+    serialized_options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[
+    ],
+    serialized_start=190,
+    serialized_end=217,
 )
 
 _UPDATEVACANCYAPPLICATIONDETAILS = _descriptor.Descriptor(
-  name='UpdateVacancyApplicationDetails',
-  full_name='UpdateVacancyApplicationDetails',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-  ],
-  extensions=[
-  ],
-  nested_types=[_UPDATEVACANCYAPPLICATIONDETAILS_REQUEST, _UPDATEVACANCYAPPLICATIONDETAILS_RESPONSE, ],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=967,
-  serialized_end=1060,
+    name='UpdateVacancyApplicationDetails',
+    full_name='UpdateVacancyApplicationDetails',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+    ],
+    extensions=[
+    ],
+    nested_types=[_UPDATEVACANCYAPPLICATIONDETAILS_REQUEST, _UPDATEVACANCYAPPLICATIONDETAILS_RESPONSE, ],
+    enum_types=[
+    ],
+    serialized_options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[
+    ],
+    serialized_start=967,
+    serialized_end=1060,
 )
 
-
 _UNCREATEVACANCYAPPLICATION_REQUEST = _descriptor.Descriptor(
-  name='Request',
-  full_name='UncreateVacancyApplication.Request',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='sessionKey', full_name='UncreateVacancyApplication.Request.sessionKey', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=338,
-  serialized_end=367,
+    name='Request',
+    full_name='UncreateVacancyApplication.Request',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='sessionKey', full_name='UncreateVacancyApplication.Request.sessionKey', index=0,
+            number=1, type=9, cpp_type=9, label=1,
+            has_default_value=False, default_value=b"".decode('utf-8'),
+            message_type=None, enum_type=None, containing_type=None,
+            is_extension=False, extension_scope=None,
+            serialized_options=None, file=DESCRIPTOR),
+    ],
+    extensions=[
+    ],
+    nested_types=[],
+    enum_types=[
+    ],
+    serialized_options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[
+    ],
+    serialized_start=338,
+    serialized_end=367,
 )
 
 _UNCREATEVACANCYAPPLICATION_RESPONSE = _descriptor.Descriptor(
-  name='Response',
-  full_name='UncreateVacancyApplication.Response',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='success', full_name='UncreateVacancyApplication.Response.success', index=0,
-      number=1, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=190,
-  serialized_end=217,
+    name='Response',
+    full_name='UncreateVacancyApplication.Response',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='success', full_name='UncreateVacancyApplication.Response.success', index=0,
+            number=1, type=8, cpp_type=7, label=1,
+            has_default_value=False, default_value=False,
+            message_type=None, enum_type=None, containing_type=None,
+            is_extension=False, extension_scope=None,
+            serialized_options=None, file=DESCRIPTOR),
+    ],
+    extensions=[
+    ],
+    nested_types=[],
+    enum_types=[
+    ],
+    serialized_options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[
+    ],
+    serialized_start=190,
+    serialized_end=217,
 )
 
 _UNCREATEVACANCYAPPLICATION = _descriptor.Descriptor(
-  name='UncreateVacancyApplication',
-  full_name='UncreateVacancyApplication',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-  ],
-  extensions=[
-  ],
-  nested_types=[_UNCREATEVACANCYAPPLICATION_REQUEST, _UNCREATEVACANCYAPPLICATION_RESPONSE, ],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=1062,
-  serialized_end=1150,
+    name='UncreateVacancyApplication',
+    full_name='UncreateVacancyApplication',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+    ],
+    extensions=[
+    ],
+    nested_types=[_UNCREATEVACANCYAPPLICATION_REQUEST, _UNCREATEVACANCYAPPLICATION_RESPONSE, ],
+    enum_types=[
+    ],
+    serialized_options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[
+    ],
+    serialized_start=1062,
+    serialized_end=1150,
 )
 
-
 _FETCHMYVACANCYAPPLICATIONS_REQUEST = _descriptor.Descriptor(
-  name='Request',
-  full_name='FetchMyVacancyApplications.Request',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='sessionKey', full_name='FetchMyVacancyApplications.Request.sessionKey', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=338,
-  serialized_end=367,
+    name='Request',
+    full_name='FetchMyVacancyApplications.Request',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='sessionKey', full_name='FetchMyVacancyApplications.Request.sessionKey', index=0,
+            number=1, type=9, cpp_type=9, label=1,
+            has_default_value=False, default_value=b"".decode('utf-8'),
+            message_type=None, enum_type=None, containing_type=None,
+            is_extension=False, extension_scope=None,
+            serialized_options=None, file=DESCRIPTOR),
+    ],
+    extensions=[
+    ],
+    nested_types=[],
+    enum_types=[
+    ],
+    serialized_options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[
+    ],
+    serialized_start=338,
+    serialized_end=367,
 )
 
 _FETCHMYVACANCYAPPLICATIONS_RESPONSE = _descriptor.Descriptor(
-  name='Response',
-  full_name='FetchMyVacancyApplications.Response',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='success', full_name='FetchMyVacancyApplications.Response.success', index=0,
-      number=1, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=190,
-  serialized_end=217,
+    name='Response',
+    full_name='FetchMyVacancyApplications.Response',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='success', full_name='FetchMyVacancyApplications.Response.success', index=0,
+            number=1, type=8, cpp_type=7, label=1,
+            has_default_value=False, default_value=False,
+            message_type=None, enum_type=None, containing_type=None,
+            is_extension=False, extension_scope=None,
+            serialized_options=None, file=DESCRIPTOR),
+    ],
+    extensions=[
+    ],
+    nested_types=[],
+    enum_types=[
+    ],
+    serialized_options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[
+    ],
+    serialized_start=190,
+    serialized_end=217,
 )
 
 _FETCHMYVACANCYAPPLICATIONS = _descriptor.Descriptor(
-  name='FetchMyVacancyApplications',
-  full_name='FetchMyVacancyApplications',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-  ],
-  extensions=[
-  ],
-  nested_types=[_FETCHMYVACANCYAPPLICATIONS_REQUEST, _FETCHMYVACANCYAPPLICATIONS_RESPONSE, ],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=1152,
-  serialized_end=1240,
+    name='FetchMyVacancyApplications',
+    full_name='FetchMyVacancyApplications',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+    ],
+    extensions=[
+    ],
+    nested_types=[_FETCHMYVACANCYAPPLICATIONS_REQUEST, _FETCHMYVACANCYAPPLICATIONS_RESPONSE, ],
+    enum_types=[
+    ],
+    serialized_options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[
+    ],
+    serialized_start=1152,
+    serialized_end=1240,
 )
 
-
 _FETCHVACANCYAPPLICATIONDETAILS_REQUEST = _descriptor.Descriptor(
-  name='Request',
-  full_name='FetchVacancyApplicationDetails.Request',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='sessionKey', full_name='FetchVacancyApplicationDetails.Request.sessionKey', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=338,
-  serialized_end=367,
+    name='Request',
+    full_name='FetchVacancyApplicationDetails.Request',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='sessionKey', full_name='FetchVacancyApplicationDetails.Request.sessionKey', index=0,
+            number=1, type=9, cpp_type=9, label=1,
+            has_default_value=False, default_value=b"".decode('utf-8'),
+            message_type=None, enum_type=None, containing_type=None,
+            is_extension=False, extension_scope=None,
+            serialized_options=None, file=DESCRIPTOR),
+    ],
+    extensions=[
+    ],
+    nested_types=[],
+    enum_types=[
+    ],
+    serialized_options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[
+    ],
+    serialized_start=338,
+    serialized_end=367,
 )
 
 _FETCHVACANCYAPPLICATIONDETAILS_RESPONSE = _descriptor.Descriptor(
-  name='Response',
-  full_name='FetchVacancyApplicationDetails.Response',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='success', full_name='FetchVacancyApplicationDetails.Response.success', index=0,
-      number=1, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=190,
-  serialized_end=217,
+    name='Response',
+    full_name='FetchVacancyApplicationDetails.Response',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='success', full_name='FetchVacancyApplicationDetails.Response.success', index=0,
+            number=1, type=8, cpp_type=7, label=1,
+            has_default_value=False, default_value=False,
+            message_type=None, enum_type=None, containing_type=None,
+            is_extension=False, extension_scope=None,
+            serialized_options=None, file=DESCRIPTOR),
+    ],
+    extensions=[
+    ],
+    nested_types=[],
+    enum_types=[
+    ],
+    serialized_options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[
+    ],
+    serialized_start=190,
+    serialized_end=217,
 )
 
 _FETCHVACANCYAPPLICATIONDETAILS = _descriptor.Descriptor(
-  name='FetchVacancyApplicationDetails',
-  full_name='FetchVacancyApplicationDetails',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-  ],
-  extensions=[
-  ],
-  nested_types=[_FETCHVACANCYAPPLICATIONDETAILS_REQUEST, _FETCHVACANCYAPPLICATIONDETAILS_RESPONSE, ],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=1242,
-  serialized_end=1334,
+    name='FetchVacancyApplicationDetails',
+    full_name='FetchVacancyApplicationDetails',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+    ],
+    extensions=[
+    ],
+    nested_types=[_FETCHVACANCYAPPLICATIONDETAILS_REQUEST, _FETCHVACANCYAPPLICATIONDETAILS_RESPONSE, ],
+    enum_types=[
+    ],
+    serialized_options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[
+    ],
+    serialized_start=1242,
+    serialized_end=1334,
 )
 
-
 _CREATEBUSINESSPAGE_REQUEST = _descriptor.Descriptor(
-  name='Request',
-  full_name='CreateBusinessPage.Request',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='sessionKey', full_name='CreateBusinessPage.Request.sessionKey', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=338,
-  serialized_end=367,
+    name='Request',
+    full_name='CreateBusinessPage.Request',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='sessionKey', full_name='CreateBusinessPage.Request.sessionKey', index=0,
+            number=1, type=9, cpp_type=9, label=1,
+            has_default_value=False, default_value=b"".decode('utf-8'),
+            message_type=None, enum_type=None, containing_type=None,
+            is_extension=False, extension_scope=None,
+            serialized_options=None, file=DESCRIPTOR),
+    ],
+    extensions=[
+    ],
+    nested_types=[],
+    enum_types=[
+    ],
+    serialized_options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[
+    ],
+    serialized_start=338,
+    serialized_end=367,
 )
 
 _CREATEBUSINESSPAGE_RESPONSE = _descriptor.Descriptor(
-  name='Response',
-  full_name='CreateBusinessPage.Response',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='success', full_name='CreateBusinessPage.Response.success', index=0,
-      number=1, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=190,
-  serialized_end=217,
+    name='Response',
+    full_name='CreateBusinessPage.Response',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='success', full_name='CreateBusinessPage.Response.success', index=0,
+            number=1, type=8, cpp_type=7, label=1,
+            has_default_value=False, default_value=False,
+            message_type=None, enum_type=None, containing_type=None,
+            is_extension=False, extension_scope=None,
+            serialized_options=None, file=DESCRIPTOR),
+    ],
+    extensions=[
+    ],
+    nested_types=[],
+    enum_types=[
+    ],
+    serialized_options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[
+    ],
+    serialized_start=190,
+    serialized_end=217,
 )
 
 _CREATEBUSINESSPAGE = _descriptor.Descriptor(
-  name='CreateBusinessPage',
-  full_name='CreateBusinessPage',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-  ],
-  extensions=[
-  ],
-  nested_types=[_CREATEBUSINESSPAGE_REQUEST, _CREATEBUSINESSPAGE_RESPONSE, ],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=1336,
-  serialized_end=1416,
+    name='CreateBusinessPage',
+    full_name='CreateBusinessPage',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+    ],
+    extensions=[
+    ],
+    nested_types=[_CREATEBUSINESSPAGE_REQUEST, _CREATEBUSINESSPAGE_RESPONSE, ],
+    enum_types=[
+    ],
+    serialized_options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[
+    ],
+    serialized_start=1336,
+    serialized_end=1416,
 )
 
-
 _UPDATEBUSINESSPAGEDETAILS_REQUEST = _descriptor.Descriptor(
-  name='Request',
-  full_name='UpdateBusinessPageDetails.Request',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='sessionKey', full_name='UpdateBusinessPageDetails.Request.sessionKey', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=338,
-  serialized_end=367,
+    name='Request',
+    full_name='UpdateBusinessPageDetails.Request',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='sessionKey', full_name='UpdateBusinessPageDetails.Request.sessionKey', index=0,
+            number=1, type=9, cpp_type=9, label=1,
+            has_default_value=False, default_value=b"".decode('utf-8'),
+            message_type=None, enum_type=None, containing_type=None,
+            is_extension=False, extension_scope=None,
+            serialized_options=None, file=DESCRIPTOR),
+    ],
+    extensions=[
+    ],
+    nested_types=[],
+    enum_types=[
+    ],
+    serialized_options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[
+    ],
+    serialized_start=338,
+    serialized_end=367,
 )
 
 _UPDATEBUSINESSPAGEDETAILS_RESPONSE = _descriptor.Descriptor(
-  name='Response',
-  full_name='UpdateBusinessPageDetails.Response',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='success', full_name='UpdateBusinessPageDetails.Response.success', index=0,
-      number=1, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=190,
-  serialized_end=217,
+    name='Response',
+    full_name='UpdateBusinessPageDetails.Response',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='success', full_name='UpdateBusinessPageDetails.Response.success', index=0,
+            number=1, type=8, cpp_type=7, label=1,
+            has_default_value=False, default_value=False,
+            message_type=None, enum_type=None, containing_type=None,
+            is_extension=False, extension_scope=None,
+            serialized_options=None, file=DESCRIPTOR),
+    ],
+    extensions=[
+    ],
+    nested_types=[],
+    enum_types=[
+    ],
+    serialized_options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[
+    ],
+    serialized_start=190,
+    serialized_end=217,
 )
 
 _UPDATEBUSINESSPAGEDETAILS = _descriptor.Descriptor(
-  name='UpdateBusinessPageDetails',
-  full_name='UpdateBusinessPageDetails',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-  ],
-  extensions=[
-  ],
-  nested_types=[_UPDATEBUSINESSPAGEDETAILS_REQUEST, _UPDATEBUSINESSPAGEDETAILS_RESPONSE, ],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=1418,
-  serialized_end=1505,
+    name='UpdateBusinessPageDetails',
+    full_name='UpdateBusinessPageDetails',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+    ],
+    extensions=[
+    ],
+    nested_types=[_UPDATEBUSINESSPAGEDETAILS_REQUEST, _UPDATEBUSINESSPAGEDETAILS_RESPONSE, ],
+    enum_types=[
+    ],
+    serialized_options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[
+    ],
+    serialized_start=1418,
+    serialized_end=1505,
 )
 
-
 _UNCREATEBUSINESSPAGE_REQUEST = _descriptor.Descriptor(
-  name='Request',
-  full_name='UncreateBusinessPage.Request',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='sessionKey', full_name='UncreateBusinessPage.Request.sessionKey', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=338,
-  serialized_end=367,
+    name='Request',
+    full_name='UncreateBusinessPage.Request',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='sessionKey', full_name='UncreateBusinessPage.Request.sessionKey', index=0,
+            number=1, type=9, cpp_type=9, label=1,
+            has_default_value=False, default_value=b"".decode('utf-8'),
+            message_type=None, enum_type=None, containing_type=None,
+            is_extension=False, extension_scope=None,
+            serialized_options=None, file=DESCRIPTOR),
+    ],
+    extensions=[
+    ],
+    nested_types=[],
+    enum_types=[
+    ],
+    serialized_options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[
+    ],
+    serialized_start=338,
+    serialized_end=367,
 )
 
 _UNCREATEBUSINESSPAGE_RESPONSE = _descriptor.Descriptor(
-  name='Response',
-  full_name='UncreateBusinessPage.Response',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='success', full_name='UncreateBusinessPage.Response.success', index=0,
-      number=1, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=190,
-  serialized_end=217,
+    name='Response',
+    full_name='UncreateBusinessPage.Response',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='success', full_name='UncreateBusinessPage.Response.success', index=0,
+            number=1, type=8, cpp_type=7, label=1,
+            has_default_value=False, default_value=False,
+            message_type=None, enum_type=None, containing_type=None,
+            is_extension=False, extension_scope=None,
+            serialized_options=None, file=DESCRIPTOR),
+    ],
+    extensions=[
+    ],
+    nested_types=[],
+    enum_types=[
+    ],
+    serialized_options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[
+    ],
+    serialized_start=190,
+    serialized_end=217,
 )
 
 _UNCREATEBUSINESSPAGE = _descriptor.Descriptor(
-  name='UncreateBusinessPage',
-  full_name='UncreateBusinessPage',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-  ],
-  extensions=[
-  ],
-  nested_types=[_UNCREATEBUSINESSPAGE_REQUEST, _UNCREATEBUSINESSPAGE_RESPONSE, ],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=1507,
-  serialized_end=1589,
+    name='UncreateBusinessPage',
+    full_name='UncreateBusinessPage',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+    ],
+    extensions=[
+    ],
+    nested_types=[_UNCREATEBUSINESSPAGE_REQUEST, _UNCREATEBUSINESSPAGE_RESPONSE, ],
+    enum_types=[
+    ],
+    serialized_options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[
+    ],
+    serialized_start=1507,
+    serialized_end=1589,
 )
 
-
 _FETCHBUSINESSPAGES_REQUEST = _descriptor.Descriptor(
-  name='Request',
-  full_name='FetchBusinessPages.Request',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='sessionKey', full_name='FetchBusinessPages.Request.sessionKey', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=338,
-  serialized_end=367,
+    name='Request',
+    full_name='FetchBusinessPages.Request',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='sessionKey', full_name='FetchBusinessPages.Request.sessionKey', index=0,
+            number=1, type=9, cpp_type=9, label=1,
+            has_default_value=False, default_value=b"".decode('utf-8'),
+            message_type=None, enum_type=None, containing_type=None,
+            is_extension=False, extension_scope=None,
+            serialized_options=None, file=DESCRIPTOR),
+    ],
+    extensions=[
+    ],
+    nested_types=[],
+    enum_types=[
+    ],
+    serialized_options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[
+    ],
+    serialized_start=338,
+    serialized_end=367,
 )
 
 _FETCHBUSINESSPAGES_RESPONSE = _descriptor.Descriptor(
-  name='Response',
-  full_name='FetchBusinessPages.Response',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='success', full_name='FetchBusinessPages.Response.success', index=0,
-      number=1, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=190,
-  serialized_end=217,
+    name='Response',
+    full_name='FetchBusinessPages.Response',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='success', full_name='FetchBusinessPages.Response.success', index=0,
+            number=1, type=8, cpp_type=7, label=1,
+            has_default_value=False, default_value=False,
+            message_type=None, enum_type=None, containing_type=None,
+            is_extension=False, extension_scope=None,
+            serialized_options=None, file=DESCRIPTOR),
+    ],
+    extensions=[
+    ],
+    nested_types=[],
+    enum_types=[
+    ],
+    serialized_options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[
+    ],
+    serialized_start=190,
+    serialized_end=217,
 )
 
 _FETCHBUSINESSPAGES = _descriptor.Descriptor(
-  name='FetchBusinessPages',
-  full_name='FetchBusinessPages',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-  ],
-  extensions=[
-  ],
-  nested_types=[_FETCHBUSINESSPAGES_REQUEST, _FETCHBUSINESSPAGES_RESPONSE, ],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=1591,
-  serialized_end=1671,
+    name='FetchBusinessPages',
+    full_name='FetchBusinessPages',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+    ],
+    extensions=[
+    ],
+    nested_types=[_FETCHBUSINESSPAGES_REQUEST, _FETCHBUSINESSPAGES_RESPONSE, ],
+    enum_types=[
+    ],
+    serialized_options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[
+    ],
+    serialized_start=1591,
+    serialized_end=1671,
 )
 
-
 _FETCHBUSINESSPAGEDETAILS_REQUEST = _descriptor.Descriptor(
-  name='Request',
-  full_name='FetchBusinessPageDetails.Request',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='sessionKey', full_name='FetchBusinessPageDetails.Request.sessionKey', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=338,
-  serialized_end=367,
+    name='Request',
+    full_name='FetchBusinessPageDetails.Request',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='sessionKey', full_name='FetchBusinessPageDetails.Request.sessionKey', index=0,
+            number=1, type=9, cpp_type=9, label=1,
+            has_default_value=False, default_value=b"".decode('utf-8'),
+            message_type=None, enum_type=None, containing_type=None,
+            is_extension=False, extension_scope=None,
+            serialized_options=None, file=DESCRIPTOR),
+    ],
+    extensions=[
+    ],
+    nested_types=[],
+    enum_types=[
+    ],
+    serialized_options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[
+    ],
+    serialized_start=338,
+    serialized_end=367,
 )
 
 _FETCHBUSINESSPAGEDETAILS_RESPONSE = _descriptor.Descriptor(
-  name='Response',
-  full_name='FetchBusinessPageDetails.Response',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='success', full_name='FetchBusinessPageDetails.Response.success', index=0,
-      number=1, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=190,
-  serialized_end=217,
+    name='Response',
+    full_name='FetchBusinessPageDetails.Response',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='success', full_name='FetchBusinessPageDetails.Response.success', index=0,
+            number=1, type=8, cpp_type=7, label=1,
+            has_default_value=False, default_value=False,
+            message_type=None, enum_type=None, containing_type=None,
+            is_extension=False, extension_scope=None,
+            serialized_options=None, file=DESCRIPTOR),
+    ],
+    extensions=[
+    ],
+    nested_types=[],
+    enum_types=[
+    ],
+    serialized_options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[
+    ],
+    serialized_start=190,
+    serialized_end=217,
 )
 
 _FETCHBUSINESSPAGEDETAILS = _descriptor.Descriptor(
-  name='FetchBusinessPageDetails',
-  full_name='FetchBusinessPageDetails',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-  ],
-  extensions=[
-  ],
-  nested_types=[_FETCHBUSINESSPAGEDETAILS_REQUEST, _FETCHBUSINESSPAGEDETAILS_RESPONSE, ],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=1673,
-  serialized_end=1759,
+    name='FetchBusinessPageDetails',
+    full_name='FetchBusinessPageDetails',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+    ],
+    extensions=[
+    ],
+    nested_types=[_FETCHBUSINESSPAGEDETAILS_REQUEST, _FETCHBUSINESSPAGEDETAILS_RESPONSE, ],
+    enum_types=[
+    ],
+    serialized_options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[
+    ],
+    serialized_start=1673,
+    serialized_end=1759,
 )
 
-
 _CREATEPRODUCT_REQUEST = _descriptor.Descriptor(
-  name='Request',
-  full_name='CreateProduct.Request',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='sessionKey', full_name='CreateProduct.Request.sessionKey', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=338,
-  serialized_end=367,
+    name='Request',
+    full_name='CreateProduct.Request',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='sessionKey', full_name='CreateProduct.Request.sessionKey', index=0,
+            number=1, type=9, cpp_type=9, label=1,
+            has_default_value=False, default_value=b"".decode('utf-8'),
+            message_type=None, enum_type=None, containing_type=None,
+            is_extension=False, extension_scope=None,
+            serialized_options=None, file=DESCRIPTOR),
+    ],
+    extensions=[
+    ],
+    nested_types=[],
+    enum_types=[
+    ],
+    serialized_options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[
+    ],
+    serialized_start=338,
+    serialized_end=367,
 )
 
 _CREATEPRODUCT_RESPONSE = _descriptor.Descriptor(
-  name='Response',
-  full_name='CreateProduct.Response',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='success', full_name='CreateProduct.Response.success', index=0,
-      number=1, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=190,
-  serialized_end=217,
+    name='Response',
+    full_name='CreateProduct.Response',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='success', full_name='CreateProduct.Response.success', index=0,
+            number=1, type=8, cpp_type=7, label=1,
+            has_default_value=False, default_value=False,
+            message_type=None, enum_type=None, containing_type=None,
+            is_extension=False, extension_scope=None,
+            serialized_options=None, file=DESCRIPTOR),
+    ],
+    extensions=[
+    ],
+    nested_types=[],
+    enum_types=[
+    ],
+    serialized_options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[
+    ],
+    serialized_start=190,
+    serialized_end=217,
 )
 
 _CREATEPRODUCT = _descriptor.Descriptor(
-  name='CreateProduct',
-  full_name='CreateProduct',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-  ],
-  extensions=[
-  ],
-  nested_types=[_CREATEPRODUCT_REQUEST, _CREATEPRODUCT_RESPONSE, ],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=1761,
-  serialized_end=1836,
+    name='CreateProduct',
+    full_name='CreateProduct',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+    ],
+    extensions=[
+    ],
+    nested_types=[_CREATEPRODUCT_REQUEST, _CREATEPRODUCT_RESPONSE, ],
+    enum_types=[
+    ],
+    serialized_options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[
+    ],
+    serialized_start=1761,
+    serialized_end=1836,
 )
 
-
 _UPDATEPRODUCTDETAILS_REQUEST = _descriptor.Descriptor(
-  name='Request',
-  full_name='UpdateProductDetails.Request',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='sessionKey', full_name='UpdateProductDetails.Request.sessionKey', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=338,
-  serialized_end=367,
+    name='Request',
+    full_name='UpdateProductDetails.Request',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='sessionKey', full_name='UpdateProductDetails.Request.sessionKey', index=0,
+            number=1, type=9, cpp_type=9, label=1,
+            has_default_value=False, default_value=b"".decode('utf-8'),
+            message_type=None, enum_type=None, containing_type=None,
+            is_extension=False, extension_scope=None,
+            serialized_options=None, file=DESCRIPTOR),
+    ],
+    extensions=[
+    ],
+    nested_types=[],
+    enum_types=[
+    ],
+    serialized_options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[
+    ],
+    serialized_start=338,
+    serialized_end=367,
 )
 
 _UPDATEPRODUCTDETAILS_RESPONSE = _descriptor.Descriptor(
-  name='Response',
-  full_name='UpdateProductDetails.Response',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='success', full_name='UpdateProductDetails.Response.success', index=0,
-      number=1, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=190,
-  serialized_end=217,
+    name='Response',
+    full_name='UpdateProductDetails.Response',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='success', full_name='UpdateProductDetails.Response.success', index=0,
+            number=1, type=8, cpp_type=7, label=1,
+            has_default_value=False, default_value=False,
+            message_type=None, enum_type=None, containing_type=None,
+            is_extension=False, extension_scope=None,
+            serialized_options=None, file=DESCRIPTOR),
+    ],
+    extensions=[
+    ],
+    nested_types=[],
+    enum_types=[
+    ],
+    serialized_options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[
+    ],
+    serialized_start=190,
+    serialized_end=217,
 )
 
 _UPDATEPRODUCTDETAILS = _descriptor.Descriptor(
-  name='UpdateProductDetails',
-  full_name='UpdateProductDetails',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-  ],
-  extensions=[
-  ],
-  nested_types=[_UPDATEPRODUCTDETAILS_REQUEST, _UPDATEPRODUCTDETAILS_RESPONSE, ],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=1838,
-  serialized_end=1920,
+    name='UpdateProductDetails',
+    full_name='UpdateProductDetails',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+    ],
+    extensions=[
+    ],
+    nested_types=[_UPDATEPRODUCTDETAILS_REQUEST, _UPDATEPRODUCTDETAILS_RESPONSE, ],
+    enum_types=[
+    ],
+    serialized_options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[
+    ],
+    serialized_start=1838,
+    serialized_end=1920,
 )
 
-
 _UNCREATEPRODUCT_REQUEST = _descriptor.Descriptor(
-  name='Request',
-  full_name='UncreateProduct.Request',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='sessionKey', full_name='UncreateProduct.Request.sessionKey', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=338,
-  serialized_end=367,
+    name='Request',
+    full_name='UncreateProduct.Request',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='sessionKey', full_name='UncreateProduct.Request.sessionKey', index=0,
+            number=1, type=9, cpp_type=9, label=1,
+            has_default_value=False, default_value=b"".decode('utf-8'),
+            message_type=None, enum_type=None, containing_type=None,
+            is_extension=False, extension_scope=None,
+            serialized_options=None, file=DESCRIPTOR),
+    ],
+    extensions=[
+    ],
+    nested_types=[],
+    enum_types=[
+    ],
+    serialized_options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[
+    ],
+    serialized_start=338,
+    serialized_end=367,
 )
 
 _UNCREATEPRODUCT_RESPONSE = _descriptor.Descriptor(
-  name='Response',
-  full_name='UncreateProduct.Response',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='success', full_name='UncreateProduct.Response.success', index=0,
-      number=1, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=190,
-  serialized_end=217,
+    name='Response',
+    full_name='UncreateProduct.Response',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='success', full_name='UncreateProduct.Response.success', index=0,
+            number=1, type=8, cpp_type=7, label=1,
+            has_default_value=False, default_value=False,
+            message_type=None, enum_type=None, containing_type=None,
+            is_extension=False, extension_scope=None,
+            serialized_options=None, file=DESCRIPTOR),
+    ],
+    extensions=[
+    ],
+    nested_types=[],
+    enum_types=[
+    ],
+    serialized_options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[
+    ],
+    serialized_start=190,
+    serialized_end=217,
 )
 
 _UNCREATEPRODUCT = _descriptor.Descriptor(
-  name='UncreateProduct',
-  full_name='UncreateProduct',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-  ],
-  extensions=[
-  ],
-  nested_types=[_UNCREATEPRODUCT_REQUEST, _UNCREATEPRODUCT_RESPONSE, ],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=1922,
-  serialized_end=1999,
+    name='UncreateProduct',
+    full_name='UncreateProduct',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+    ],
+    extensions=[
+    ],
+    nested_types=[_UNCREATEPRODUCT_REQUEST, _UNCREATEPRODUCT_RESPONSE, ],
+    enum_types=[
+    ],
+    serialized_options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[
+    ],
+    serialized_start=1922,
+    serialized_end=1999,
 )
 
-
 _FETCHPRODUCTS_REQUEST = _descriptor.Descriptor(
-  name='Request',
-  full_name='FetchProducts.Request',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='sessionKey', full_name='FetchProducts.Request.sessionKey', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=338,
-  serialized_end=367,
+    name='Request',
+    full_name='FetchProducts.Request',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='sessionKey', full_name='FetchProducts.Request.sessionKey', index=0,
+            number=1, type=9, cpp_type=9, label=1,
+            has_default_value=False, default_value=b"".decode('utf-8'),
+            message_type=None, enum_type=None, containing_type=None,
+            is_extension=False, extension_scope=None,
+            serialized_options=None, file=DESCRIPTOR),
+    ],
+    extensions=[
+    ],
+    nested_types=[],
+    enum_types=[
+    ],
+    serialized_options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[
+    ],
+    serialized_start=338,
+    serialized_end=367,
 )
 
 _FETCHPRODUCTS_RESPONSE = _descriptor.Descriptor(
-  name='Response',
-  full_name='FetchProducts.Response',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='success', full_name='FetchProducts.Response.success', index=0,
-      number=1, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=190,
-  serialized_end=217,
+    name='Response',
+    full_name='FetchProducts.Response',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='success', full_name='FetchProducts.Response.success', index=0,
+            number=1, type=8, cpp_type=7, label=1,
+            has_default_value=False, default_value=False,
+            message_type=None, enum_type=None, containing_type=None,
+            is_extension=False, extension_scope=None,
+            serialized_options=None, file=DESCRIPTOR),
+    ],
+    extensions=[
+    ],
+    nested_types=[],
+    enum_types=[
+    ],
+    serialized_options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[
+    ],
+    serialized_start=190,
+    serialized_end=217,
 )
 
 _FETCHPRODUCTS = _descriptor.Descriptor(
-  name='FetchProducts',
-  full_name='FetchProducts',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-  ],
-  extensions=[
-  ],
-  nested_types=[_FETCHPRODUCTS_REQUEST, _FETCHPRODUCTS_RESPONSE, ],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=2001,
-  serialized_end=2076,
+    name='FetchProducts',
+    full_name='FetchProducts',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+    ],
+    extensions=[
+    ],
+    nested_types=[_FETCHPRODUCTS_REQUEST, _FETCHPRODUCTS_RESPONSE, ],
+    enum_types=[
+    ],
+    serialized_options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[
+    ],
+    serialized_start=2001,
+    serialized_end=2076,
 )
 
-
 _FETCHPRODUCTDETAILS_REQUEST = _descriptor.Descriptor(
-  name='Request',
-  full_name='FetchProductDetails.Request',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='sessionKey', full_name='FetchProductDetails.Request.sessionKey', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=338,
-  serialized_end=367,
+    name='Request',
+    full_name='FetchProductDetails.Request',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='sessionKey', full_name='FetchProductDetails.Request.sessionKey', index=0,
+            number=1, type=9, cpp_type=9, label=1,
+            has_default_value=False, default_value=b"".decode('utf-8'),
+            message_type=None, enum_type=None, containing_type=None,
+            is_extension=False, extension_scope=None,
+            serialized_options=None, file=DESCRIPTOR),
+    ],
+    extensions=[
+    ],
+    nested_types=[],
+    enum_types=[
+    ],
+    serialized_options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[
+    ],
+    serialized_start=338,
+    serialized_end=367,
 )
 
 _FETCHPRODUCTDETAILS_RESPONSE = _descriptor.Descriptor(
-  name='Response',
-  full_name='FetchProductDetails.Response',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='success', full_name='FetchProductDetails.Response.success', index=0,
-      number=1, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=190,
-  serialized_end=217,
+    name='Response',
+    full_name='FetchProductDetails.Response',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='success', full_name='FetchProductDetails.Response.success', index=0,
+            number=1, type=8, cpp_type=7, label=1,
+            has_default_value=False, default_value=False,
+            message_type=None, enum_type=None, containing_type=None,
+            is_extension=False, extension_scope=None,
+            serialized_options=None, file=DESCRIPTOR),
+    ],
+    extensions=[
+    ],
+    nested_types=[],
+    enum_types=[
+    ],
+    serialized_options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[
+    ],
+    serialized_start=190,
+    serialized_end=217,
 )
 
 _FETCHPRODUCTDETAILS = _descriptor.Descriptor(
-  name='FetchProductDetails',
-  full_name='FetchProductDetails',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-  ],
-  extensions=[
-  ],
-  nested_types=[_FETCHPRODUCTDETAILS_REQUEST, _FETCHPRODUCTDETAILS_RESPONSE, ],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=2078,
-  serialized_end=2159,
+    name='FetchProductDetails',
+    full_name='FetchProductDetails',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+    ],
+    extensions=[
+    ],
+    nested_types=[_FETCHPRODUCTDETAILS_REQUEST, _FETCHPRODUCTDETAILS_RESPONSE, ],
+    enum_types=[
+    ],
+    serialized_options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[
+    ],
+    serialized_start=2078,
+    serialized_end=2159,
 )
 
-
 _PUBLISHPRODUCT_REQUEST = _descriptor.Descriptor(
-  name='Request',
-  full_name='PublishProduct.Request',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='sessionKey', full_name='PublishProduct.Request.sessionKey', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=338,
-  serialized_end=367,
+    name='Request',
+    full_name='PublishProduct.Request',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='sessionKey', full_name='PublishProduct.Request.sessionKey', index=0,
+            number=1, type=9, cpp_type=9, label=1,
+            has_default_value=False, default_value=b"".decode('utf-8'),
+            message_type=None, enum_type=None, containing_type=None,
+            is_extension=False, extension_scope=None,
+            serialized_options=None, file=DESCRIPTOR),
+    ],
+    extensions=[
+    ],
+    nested_types=[],
+    enum_types=[
+    ],
+    serialized_options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[
+    ],
+    serialized_start=338,
+    serialized_end=367,
 )
 
 _PUBLISHPRODUCT_RESPONSE = _descriptor.Descriptor(
-  name='Response',
-  full_name='PublishProduct.Response',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='success', full_name='PublishProduct.Response.success', index=0,
-      number=1, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=190,
-  serialized_end=217,
+    name='Response',
+    full_name='PublishProduct.Response',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='success', full_name='PublishProduct.Response.success', index=0,
+            number=1, type=8, cpp_type=7, label=1,
+            has_default_value=False, default_value=False,
+            message_type=None, enum_type=None, containing_type=None,
+            is_extension=False, extension_scope=None,
+            serialized_options=None, file=DESCRIPTOR),
+    ],
+    extensions=[
+    ],
+    nested_types=[],
+    enum_types=[
+    ],
+    serialized_options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[
+    ],
+    serialized_start=190,
+    serialized_end=217,
 )
 
 _PUBLISHPRODUCT = _descriptor.Descriptor(
-  name='PublishProduct',
-  full_name='PublishProduct',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-  ],
-  extensions=[
-  ],
-  nested_types=[_PUBLISHPRODUCT_REQUEST, _PUBLISHPRODUCT_RESPONSE, ],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=2161,
-  serialized_end=2237,
+    name='PublishProduct',
+    full_name='PublishProduct',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+    ],
+    extensions=[
+    ],
+    nested_types=[_PUBLISHPRODUCT_REQUEST, _PUBLISHPRODUCT_RESPONSE, ],
+    enum_types=[
+    ],
+    serialized_options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[
+    ],
+    serialized_start=2161,
+    serialized_end=2237,
 )
 
-
 _UNPUBLISHPRODUCT_REQUEST = _descriptor.Descriptor(
-  name='Request',
-  full_name='UnpublishProduct.Request',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='sessionKey', full_name='UnpublishProduct.Request.sessionKey', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=338,
-  serialized_end=367,
+    name='Request',
+    full_name='UnpublishProduct.Request',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='sessionKey', full_name='UnpublishProduct.Request.sessionKey', index=0,
+            number=1, type=9, cpp_type=9, label=1,
+            has_default_value=False, default_value=b"".decode('utf-8'),
+            message_type=None, enum_type=None, containing_type=None,
+            is_extension=False, extension_scope=None,
+            serialized_options=None, file=DESCRIPTOR),
+    ],
+    extensions=[
+    ],
+    nested_types=[],
+    enum_types=[
+    ],
+    serialized_options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[
+    ],
+    serialized_start=338,
+    serialized_end=367,
 )
 
 _UNPUBLISHPRODUCT_RESPONSE = _descriptor.Descriptor(
-  name='Response',
-  full_name='UnpublishProduct.Response',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='success', full_name='UnpublishProduct.Response.success', index=0,
-      number=1, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=190,
-  serialized_end=217,
+    name='Response',
+    full_name='UnpublishProduct.Response',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='success', full_name='UnpublishProduct.Response.success', index=0,
+            number=1, type=8, cpp_type=7, label=1,
+            has_default_value=False, default_value=False,
+            message_type=None, enum_type=None, containing_type=None,
+            is_extension=False, extension_scope=None,
+            serialized_options=None, file=DESCRIPTOR),
+    ],
+    extensions=[
+    ],
+    nested_types=[],
+    enum_types=[
+    ],
+    serialized_options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[
+    ],
+    serialized_start=190,
+    serialized_end=217,
 )
 
 _UNPUBLISHPRODUCT = _descriptor.Descriptor(
-  name='UnpublishProduct',
-  full_name='UnpublishProduct',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-  ],
-  extensions=[
-  ],
-  nested_types=[_UNPUBLISHPRODUCT_REQUEST, _UNPUBLISHPRODUCT_RESPONSE, ],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=2239,
-  serialized_end=2317,
+    name='UnpublishProduct',
+    full_name='UnpublishProduct',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+    ],
+    extensions=[
+    ],
+    nested_types=[_UNPUBLISHPRODUCT_REQUEST, _UNPUBLISHPRODUCT_RESPONSE, ],
+    enum_types=[
+    ],
+    serialized_options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[
+    ],
+    serialized_start=2239,
+    serialized_end=2317,
 )
 
-
 _LOGPURCHASE_REQUEST = _descriptor.Descriptor(
-  name='Request',
-  full_name='LogPurchase.Request',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='sessionKey', full_name='LogPurchase.Request.sessionKey', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=338,
-  serialized_end=367,
+    name='Request',
+    full_name='LogPurchase.Request',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='sessionKey', full_name='LogPurchase.Request.sessionKey', index=0,
+            number=1, type=9, cpp_type=9, label=1,
+            has_default_value=False, default_value=b"".decode('utf-8'),
+            message_type=None, enum_type=None, containing_type=None,
+            is_extension=False, extension_scope=None,
+            serialized_options=None, file=DESCRIPTOR),
+    ],
+    extensions=[
+    ],
+    nested_types=[],
+    enum_types=[
+    ],
+    serialized_options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[
+    ],
+    serialized_start=338,
+    serialized_end=367,
 )
 
 _LOGPURCHASE_RESPONSE = _descriptor.Descriptor(
-  name='Response',
-  full_name='LogPurchase.Response',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='success', full_name='LogPurchase.Response.success', index=0,
-      number=1, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=190,
-  serialized_end=217,
+    name='Response',
+    full_name='LogPurchase.Response',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='success', full_name='LogPurchase.Response.success', index=0,
+            number=1, type=8, cpp_type=7, label=1,
+            has_default_value=False, default_value=False,
+            message_type=None, enum_type=None, containing_type=None,
+            is_extension=False, extension_scope=None,
+            serialized_options=None, file=DESCRIPTOR),
+    ],
+    extensions=[
+    ],
+    nested_types=[],
+    enum_types=[
+    ],
+    serialized_options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[
+    ],
+    serialized_start=190,
+    serialized_end=217,
 )
 
 _LOGPURCHASE = _descriptor.Descriptor(
-  name='LogPurchase',
-  full_name='LogPurchase',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-  ],
-  extensions=[
-  ],
-  nested_types=[_LOGPURCHASE_REQUEST, _LOGPURCHASE_RESPONSE, ],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=2319,
-  serialized_end=2392,
+    name='LogPurchase',
+    full_name='LogPurchase',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+    ],
+    extensions=[
+    ],
+    nested_types=[_LOGPURCHASE_REQUEST, _LOGPURCHASE_RESPONSE, ],
+    enum_types=[
+    ],
+    serialized_options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[
+    ],
+    serialized_start=2319,
+    serialized_end=2392,
 )
 
-
 _FETCHPURCHASES_REQUEST = _descriptor.Descriptor(
-  name='Request',
-  full_name='FetchPurchases.Request',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='sessionKey', full_name='FetchPurchases.Request.sessionKey', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=338,
-  serialized_end=367,
+    name='Request',
+    full_name='FetchPurchases.Request',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='sessionKey', full_name='FetchPurchases.Request.sessionKey', index=0,
+            number=1, type=9, cpp_type=9, label=1,
+            has_default_value=False, default_value=b"".decode('utf-8'),
+            message_type=None, enum_type=None, containing_type=None,
+            is_extension=False, extension_scope=None,
+            serialized_options=None, file=DESCRIPTOR),
+    ],
+    extensions=[
+    ],
+    nested_types=[],
+    enum_types=[
+    ],
+    serialized_options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[
+    ],
+    serialized_start=338,
+    serialized_end=367,
 )
 
 _FETCHPURCHASES_RESPONSE = _descriptor.Descriptor(
-  name='Response',
-  full_name='FetchPurchases.Response',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='success', full_name='FetchPurchases.Response.success', index=0,
-      number=1, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=190,
-  serialized_end=217,
+    name='Response',
+    full_name='FetchPurchases.Response',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='success', full_name='FetchPurchases.Response.success', index=0,
+            number=1, type=8, cpp_type=7, label=1,
+            has_default_value=False, default_value=False,
+            message_type=None, enum_type=None, containing_type=None,
+            is_extension=False, extension_scope=None,
+            serialized_options=None, file=DESCRIPTOR),
+    ],
+    extensions=[
+    ],
+    nested_types=[],
+    enum_types=[
+    ],
+    serialized_options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[
+    ],
+    serialized_start=190,
+    serialized_end=217,
 )
 
 _FETCHPURCHASES = _descriptor.Descriptor(
-  name='FetchPurchases',
-  full_name='FetchPurchases',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-  ],
-  extensions=[
-  ],
-  nested_types=[_FETCHPURCHASES_REQUEST, _FETCHPURCHASES_RESPONSE, ],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=2394,
-  serialized_end=2470,
+    name='FetchPurchases',
+    full_name='FetchPurchases',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+    ],
+    extensions=[
+    ],
+    nested_types=[_FETCHPURCHASES_REQUEST, _FETCHPURCHASES_RESPONSE, ],
+    enum_types=[
+    ],
+    serialized_options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[
+    ],
+    serialized_start=2394,
+    serialized_end=2470,
 )
 
-
 _FETCHPURCHASEDETAILS_REQUEST = _descriptor.Descriptor(
-  name='Request',
-  full_name='FetchPurchaseDetails.Request',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='sessionKey', full_name='FetchPurchaseDetails.Request.sessionKey', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=338,
-  serialized_end=367,
+    name='Request',
+    full_name='FetchPurchaseDetails.Request',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='sessionKey', full_name='FetchPurchaseDetails.Request.sessionKey', index=0,
+            number=1, type=9, cpp_type=9, label=1,
+            has_default_value=False, default_value=b"".decode('utf-8'),
+            message_type=None, enum_type=None, containing_type=None,
+            is_extension=False, extension_scope=None,
+            serialized_options=None, file=DESCRIPTOR),
+    ],
+    extensions=[
+    ],
+    nested_types=[],
+    enum_types=[
+    ],
+    serialized_options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[
+    ],
+    serialized_start=338,
+    serialized_end=367,
 )
 
 _FETCHPURCHASEDETAILS_RESPONSE = _descriptor.Descriptor(
-  name='Response',
-  full_name='FetchPurchaseDetails.Response',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='success', full_name='FetchPurchaseDetails.Response.success', index=0,
-      number=1, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=190,
-  serialized_end=217,
+    name='Response',
+    full_name='FetchPurchaseDetails.Response',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='success', full_name='FetchPurchaseDetails.Response.success', index=0,
+            number=1, type=8, cpp_type=7, label=1,
+            has_default_value=False, default_value=False,
+            message_type=None, enum_type=None, containing_type=None,
+            is_extension=False, extension_scope=None,
+            serialized_options=None, file=DESCRIPTOR),
+    ],
+    extensions=[
+    ],
+    nested_types=[],
+    enum_types=[
+    ],
+    serialized_options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[
+    ],
+    serialized_start=190,
+    serialized_end=217,
 )
 
 _FETCHPURCHASEDETAILS = _descriptor.Descriptor(
-  name='FetchPurchaseDetails',
-  full_name='FetchPurchaseDetails',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-  ],
-  extensions=[
-  ],
-  nested_types=[_FETCHPURCHASEDETAILS_REQUEST, _FETCHPURCHASEDETAILS_RESPONSE, ],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=2472,
-  serialized_end=2554,
+    name='FetchPurchaseDetails',
+    full_name='FetchPurchaseDetails',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+    ],
+    extensions=[
+    ],
+    nested_types=[_FETCHPURCHASEDETAILS_REQUEST, _FETCHPURCHASEDETAILS_RESPONSE, ],
+    enum_types=[
+    ],
+    serialized_options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[
+    ],
+    serialized_start=2472,
+    serialized_end=2554,
 )
 
 _AUTHENTICATEUSER_REQUEST.fields_by_name['method'].enum_type = _AUTHENTICATEUSER_REQUEST_AUTHMETHOD
@@ -2597,945 +2564,944 @@ _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 AuthenticateUser = _reflection.GeneratedProtocolMessageType('AuthenticateUser', (_message.Message,), {
 
-  'Request' : _reflection.GeneratedProtocolMessageType('Request', (_message.Message,), {
-    'DESCRIPTOR' : _AUTHENTICATEUSER_REQUEST,
-    '__module__' : 'gb_service_pb2'
-    # @@protoc_insertion_point(class_scope:AuthenticateUser.Request)
+    'Request': _reflection.GeneratedProtocolMessageType('Request', (_message.Message,), {
+        'DESCRIPTOR': _AUTHENTICATEUSER_REQUEST,
+        '__module__': 'gb_service_pb2'
+        # @@protoc_insertion_point(class_scope:AuthenticateUser.Request)
     })
-  ,
+    ,
 
-  'Response' : _reflection.GeneratedProtocolMessageType('Response', (_message.Message,), {
-    'DESCRIPTOR' : _AUTHENTICATEUSER_RESPONSE,
-    '__module__' : 'gb_service_pb2'
-    # @@protoc_insertion_point(class_scope:AuthenticateUser.Response)
+    'Response': _reflection.GeneratedProtocolMessageType('Response', (_message.Message,), {
+        'DESCRIPTOR': _AUTHENTICATEUSER_RESPONSE,
+        '__module__': 'gb_service_pb2'
+        # @@protoc_insertion_point(class_scope:AuthenticateUser.Response)
     })
-  ,
-  'DESCRIPTOR' : _AUTHENTICATEUSER,
-  '__module__' : 'gb_service_pb2'
-  # @@protoc_insertion_point(class_scope:AuthenticateUser)
-  })
+    ,
+    'DESCRIPTOR': _AUTHENTICATEUSER,
+    '__module__': 'gb_service_pb2'
+    # @@protoc_insertion_point(class_scope:AuthenticateUser)
+})
 _sym_db.RegisterMessage(AuthenticateUser)
 _sym_db.RegisterMessage(AuthenticateUser.Request)
 _sym_db.RegisterMessage(AuthenticateUser.Response)
 
 DeactivateUser = _reflection.GeneratedProtocolMessageType('DeactivateUser', (_message.Message,), {
 
-  'Request' : _reflection.GeneratedProtocolMessageType('Request', (_message.Message,), {
-    'DESCRIPTOR' : _DEACTIVATEUSER_REQUEST,
-    '__module__' : 'gb_service_pb2'
-    # @@protoc_insertion_point(class_scope:DeactivateUser.Request)
+    'Request': _reflection.GeneratedProtocolMessageType('Request', (_message.Message,), {
+        'DESCRIPTOR': _DEACTIVATEUSER_REQUEST,
+        '__module__': 'gb_service_pb2'
+        # @@protoc_insertion_point(class_scope:DeactivateUser.Request)
     })
-  ,
+    ,
 
-  'Response' : _reflection.GeneratedProtocolMessageType('Response', (_message.Message,), {
-    'DESCRIPTOR' : _DEACTIVATEUSER_RESPONSE,
-    '__module__' : 'gb_service_pb2'
-    # @@protoc_insertion_point(class_scope:DeactivateUser.Response)
+    'Response': _reflection.GeneratedProtocolMessageType('Response', (_message.Message,), {
+        'DESCRIPTOR': _DEACTIVATEUSER_RESPONSE,
+        '__module__': 'gb_service_pb2'
+        # @@protoc_insertion_point(class_scope:DeactivateUser.Response)
     })
-  ,
-  'DESCRIPTOR' : _DEACTIVATEUSER,
-  '__module__' : 'gb_service_pb2'
-  # @@protoc_insertion_point(class_scope:DeactivateUser)
-  })
+    ,
+    'DESCRIPTOR': _DEACTIVATEUSER,
+    '__module__': 'gb_service_pb2'
+    # @@protoc_insertion_point(class_scope:DeactivateUser)
+})
 _sym_db.RegisterMessage(DeactivateUser)
 _sym_db.RegisterMessage(DeactivateUser.Request)
 _sym_db.RegisterMessage(DeactivateUser.Response)
 
 UpdateUserDetails = _reflection.GeneratedProtocolMessageType('UpdateUserDetails', (_message.Message,), {
 
-  'Request' : _reflection.GeneratedProtocolMessageType('Request', (_message.Message,), {
-    'DESCRIPTOR' : _UPDATEUSERDETAILS_REQUEST,
-    '__module__' : 'gb_service_pb2'
-    # @@protoc_insertion_point(class_scope:UpdateUserDetails.Request)
+    'Request': _reflection.GeneratedProtocolMessageType('Request', (_message.Message,), {
+        'DESCRIPTOR': _UPDATEUSERDETAILS_REQUEST,
+        '__module__': 'gb_service_pb2'
+        # @@protoc_insertion_point(class_scope:UpdateUserDetails.Request)
     })
-  ,
+    ,
 
-  'Response' : _reflection.GeneratedProtocolMessageType('Response', (_message.Message,), {
-    'DESCRIPTOR' : _UPDATEUSERDETAILS_RESPONSE,
-    '__module__' : 'gb_service_pb2'
-    # @@protoc_insertion_point(class_scope:UpdateUserDetails.Response)
+    'Response': _reflection.GeneratedProtocolMessageType('Response', (_message.Message,), {
+        'DESCRIPTOR': _UPDATEUSERDETAILS_RESPONSE,
+        '__module__': 'gb_service_pb2'
+        # @@protoc_insertion_point(class_scope:UpdateUserDetails.Response)
     })
-  ,
-  'DESCRIPTOR' : _UPDATEUSERDETAILS,
-  '__module__' : 'gb_service_pb2'
-  # @@protoc_insertion_point(class_scope:UpdateUserDetails)
-  })
+    ,
+    'DESCRIPTOR': _UPDATEUSERDETAILS,
+    '__module__': 'gb_service_pb2'
+    # @@protoc_insertion_point(class_scope:UpdateUserDetails)
+})
 _sym_db.RegisterMessage(UpdateUserDetails)
 _sym_db.RegisterMessage(UpdateUserDetails.Request)
 _sym_db.RegisterMessage(UpdateUserDetails.Response)
 
 FetchUserDetails = _reflection.GeneratedProtocolMessageType('FetchUserDetails', (_message.Message,), {
 
-  'Request' : _reflection.GeneratedProtocolMessageType('Request', (_message.Message,), {
-    'DESCRIPTOR' : _FETCHUSERDETAILS_REQUEST,
-    '__module__' : 'gb_service_pb2'
-    # @@protoc_insertion_point(class_scope:FetchUserDetails.Request)
+    'Request': _reflection.GeneratedProtocolMessageType('Request', (_message.Message,), {
+        'DESCRIPTOR': _FETCHUSERDETAILS_REQUEST,
+        '__module__': 'gb_service_pb2'
+        # @@protoc_insertion_point(class_scope:FetchUserDetails.Request)
     })
-  ,
+    ,
 
-  'Response' : _reflection.GeneratedProtocolMessageType('Response', (_message.Message,), {
-    'DESCRIPTOR' : _FETCHUSERDETAILS_RESPONSE,
-    '__module__' : 'gb_service_pb2'
-    # @@protoc_insertion_point(class_scope:FetchUserDetails.Response)
+    'Response': _reflection.GeneratedProtocolMessageType('Response', (_message.Message,), {
+        'DESCRIPTOR': _FETCHUSERDETAILS_RESPONSE,
+        '__module__': 'gb_service_pb2'
+        # @@protoc_insertion_point(class_scope:FetchUserDetails.Response)
     })
-  ,
-  'DESCRIPTOR' : _FETCHUSERDETAILS,
-  '__module__' : 'gb_service_pb2'
-  # @@protoc_insertion_point(class_scope:FetchUserDetails)
-  })
+    ,
+    'DESCRIPTOR': _FETCHUSERDETAILS,
+    '__module__': 'gb_service_pb2'
+    # @@protoc_insertion_point(class_scope:FetchUserDetails)
+})
 _sym_db.RegisterMessage(FetchUserDetails)
 _sym_db.RegisterMessage(FetchUserDetails.Request)
 _sym_db.RegisterMessage(FetchUserDetails.Response)
 
 CreateVacancy = _reflection.GeneratedProtocolMessageType('CreateVacancy', (_message.Message,), {
 
-  'Request' : _reflection.GeneratedProtocolMessageType('Request', (_message.Message,), {
-    'DESCRIPTOR' : _CREATEVACANCY_REQUEST,
-    '__module__' : 'gb_service_pb2'
-    # @@protoc_insertion_point(class_scope:CreateVacancy.Request)
+    'Request': _reflection.GeneratedProtocolMessageType('Request', (_message.Message,), {
+        'DESCRIPTOR': _CREATEVACANCY_REQUEST,
+        '__module__': 'gb_service_pb2'
+        # @@protoc_insertion_point(class_scope:CreateVacancy.Request)
     })
-  ,
+    ,
 
-  'Response' : _reflection.GeneratedProtocolMessageType('Response', (_message.Message,), {
-    'DESCRIPTOR' : _CREATEVACANCY_RESPONSE,
-    '__module__' : 'gb_service_pb2'
-    # @@protoc_insertion_point(class_scope:CreateVacancy.Response)
+    'Response': _reflection.GeneratedProtocolMessageType('Response', (_message.Message,), {
+        'DESCRIPTOR': _CREATEVACANCY_RESPONSE,
+        '__module__': 'gb_service_pb2'
+        # @@protoc_insertion_point(class_scope:CreateVacancy.Response)
     })
-  ,
-  'DESCRIPTOR' : _CREATEVACANCY,
-  '__module__' : 'gb_service_pb2'
-  # @@protoc_insertion_point(class_scope:CreateVacancy)
-  })
+    ,
+    'DESCRIPTOR': _CREATEVACANCY,
+    '__module__': 'gb_service_pb2'
+    # @@protoc_insertion_point(class_scope:CreateVacancy)
+})
 _sym_db.RegisterMessage(CreateVacancy)
 _sym_db.RegisterMessage(CreateVacancy.Request)
 _sym_db.RegisterMessage(CreateVacancy.Response)
 
 UpdateVacancyDetails = _reflection.GeneratedProtocolMessageType('UpdateVacancyDetails', (_message.Message,), {
 
-  'Request' : _reflection.GeneratedProtocolMessageType('Request', (_message.Message,), {
-    'DESCRIPTOR' : _UPDATEVACANCYDETAILS_REQUEST,
-    '__module__' : 'gb_service_pb2'
-    # @@protoc_insertion_point(class_scope:UpdateVacancyDetails.Request)
+    'Request': _reflection.GeneratedProtocolMessageType('Request', (_message.Message,), {
+        'DESCRIPTOR': _UPDATEVACANCYDETAILS_REQUEST,
+        '__module__': 'gb_service_pb2'
+        # @@protoc_insertion_point(class_scope:UpdateVacancyDetails.Request)
     })
-  ,
+    ,
 
-  'Response' : _reflection.GeneratedProtocolMessageType('Response', (_message.Message,), {
-    'DESCRIPTOR' : _UPDATEVACANCYDETAILS_RESPONSE,
-    '__module__' : 'gb_service_pb2'
-    # @@protoc_insertion_point(class_scope:UpdateVacancyDetails.Response)
+    'Response': _reflection.GeneratedProtocolMessageType('Response', (_message.Message,), {
+        'DESCRIPTOR': _UPDATEVACANCYDETAILS_RESPONSE,
+        '__module__': 'gb_service_pb2'
+        # @@protoc_insertion_point(class_scope:UpdateVacancyDetails.Response)
     })
-  ,
-  'DESCRIPTOR' : _UPDATEVACANCYDETAILS,
-  '__module__' : 'gb_service_pb2'
-  # @@protoc_insertion_point(class_scope:UpdateVacancyDetails)
-  })
+    ,
+    'DESCRIPTOR': _UPDATEVACANCYDETAILS,
+    '__module__': 'gb_service_pb2'
+    # @@protoc_insertion_point(class_scope:UpdateVacancyDetails)
+})
 _sym_db.RegisterMessage(UpdateVacancyDetails)
 _sym_db.RegisterMessage(UpdateVacancyDetails.Request)
 _sym_db.RegisterMessage(UpdateVacancyDetails.Response)
 
 UncreateVacancy = _reflection.GeneratedProtocolMessageType('UncreateVacancy', (_message.Message,), {
 
-  'Request' : _reflection.GeneratedProtocolMessageType('Request', (_message.Message,), {
-    'DESCRIPTOR' : _UNCREATEVACANCY_REQUEST,
-    '__module__' : 'gb_service_pb2'
-    # @@protoc_insertion_point(class_scope:UncreateVacancy.Request)
+    'Request': _reflection.GeneratedProtocolMessageType('Request', (_message.Message,), {
+        'DESCRIPTOR': _UNCREATEVACANCY_REQUEST,
+        '__module__': 'gb_service_pb2'
+        # @@protoc_insertion_point(class_scope:UncreateVacancy.Request)
     })
-  ,
+    ,
 
-  'Response' : _reflection.GeneratedProtocolMessageType('Response', (_message.Message,), {
-    'DESCRIPTOR' : _UNCREATEVACANCY_RESPONSE,
-    '__module__' : 'gb_service_pb2'
-    # @@protoc_insertion_point(class_scope:UncreateVacancy.Response)
+    'Response': _reflection.GeneratedProtocolMessageType('Response', (_message.Message,), {
+        'DESCRIPTOR': _UNCREATEVACANCY_RESPONSE,
+        '__module__': 'gb_service_pb2'
+        # @@protoc_insertion_point(class_scope:UncreateVacancy.Response)
     })
-  ,
-  'DESCRIPTOR' : _UNCREATEVACANCY,
-  '__module__' : 'gb_service_pb2'
-  # @@protoc_insertion_point(class_scope:UncreateVacancy)
-  })
+    ,
+    'DESCRIPTOR': _UNCREATEVACANCY,
+    '__module__': 'gb_service_pb2'
+    # @@protoc_insertion_point(class_scope:UncreateVacancy)
+})
 _sym_db.RegisterMessage(UncreateVacancy)
 _sym_db.RegisterMessage(UncreateVacancy.Request)
 _sym_db.RegisterMessage(UncreateVacancy.Response)
 
 FetchVacancies = _reflection.GeneratedProtocolMessageType('FetchVacancies', (_message.Message,), {
 
-  'Request' : _reflection.GeneratedProtocolMessageType('Request', (_message.Message,), {
-    'DESCRIPTOR' : _FETCHVACANCIES_REQUEST,
-    '__module__' : 'gb_service_pb2'
-    # @@protoc_insertion_point(class_scope:FetchVacancies.Request)
+    'Request': _reflection.GeneratedProtocolMessageType('Request', (_message.Message,), {
+        'DESCRIPTOR': _FETCHVACANCIES_REQUEST,
+        '__module__': 'gb_service_pb2'
+        # @@protoc_insertion_point(class_scope:FetchVacancies.Request)
     })
-  ,
+    ,
 
-  'Response' : _reflection.GeneratedProtocolMessageType('Response', (_message.Message,), {
-    'DESCRIPTOR' : _FETCHVACANCIES_RESPONSE,
-    '__module__' : 'gb_service_pb2'
-    # @@protoc_insertion_point(class_scope:FetchVacancies.Response)
+    'Response': _reflection.GeneratedProtocolMessageType('Response', (_message.Message,), {
+        'DESCRIPTOR': _FETCHVACANCIES_RESPONSE,
+        '__module__': 'gb_service_pb2'
+        # @@protoc_insertion_point(class_scope:FetchVacancies.Response)
     })
-  ,
-  'DESCRIPTOR' : _FETCHVACANCIES,
-  '__module__' : 'gb_service_pb2'
-  # @@protoc_insertion_point(class_scope:FetchVacancies)
-  })
+    ,
+    'DESCRIPTOR': _FETCHVACANCIES,
+    '__module__': 'gb_service_pb2'
+    # @@protoc_insertion_point(class_scope:FetchVacancies)
+})
 _sym_db.RegisterMessage(FetchVacancies)
 _sym_db.RegisterMessage(FetchVacancies.Request)
 _sym_db.RegisterMessage(FetchVacancies.Response)
 
 FetchVacancyDetails = _reflection.GeneratedProtocolMessageType('FetchVacancyDetails', (_message.Message,), {
 
-  'Request' : _reflection.GeneratedProtocolMessageType('Request', (_message.Message,), {
-    'DESCRIPTOR' : _FETCHVACANCYDETAILS_REQUEST,
-    '__module__' : 'gb_service_pb2'
-    # @@protoc_insertion_point(class_scope:FetchVacancyDetails.Request)
+    'Request': _reflection.GeneratedProtocolMessageType('Request', (_message.Message,), {
+        'DESCRIPTOR': _FETCHVACANCYDETAILS_REQUEST,
+        '__module__': 'gb_service_pb2'
+        # @@protoc_insertion_point(class_scope:FetchVacancyDetails.Request)
     })
-  ,
+    ,
 
-  'Response' : _reflection.GeneratedProtocolMessageType('Response', (_message.Message,), {
-    'DESCRIPTOR' : _FETCHVACANCYDETAILS_RESPONSE,
-    '__module__' : 'gb_service_pb2'
-    # @@protoc_insertion_point(class_scope:FetchVacancyDetails.Response)
+    'Response': _reflection.GeneratedProtocolMessageType('Response', (_message.Message,), {
+        'DESCRIPTOR': _FETCHVACANCYDETAILS_RESPONSE,
+        '__module__': 'gb_service_pb2'
+        # @@protoc_insertion_point(class_scope:FetchVacancyDetails.Response)
     })
-  ,
-  'DESCRIPTOR' : _FETCHVACANCYDETAILS,
-  '__module__' : 'gb_service_pb2'
-  # @@protoc_insertion_point(class_scope:FetchVacancyDetails)
-  })
+    ,
+    'DESCRIPTOR': _FETCHVACANCYDETAILS,
+    '__module__': 'gb_service_pb2'
+    # @@protoc_insertion_point(class_scope:FetchVacancyDetails)
+})
 _sym_db.RegisterMessage(FetchVacancyDetails)
 _sym_db.RegisterMessage(FetchVacancyDetails.Request)
 _sym_db.RegisterMessage(FetchVacancyDetails.Response)
 
 CreateVacancyApplication = _reflection.GeneratedProtocolMessageType('CreateVacancyApplication', (_message.Message,), {
 
-  'Request' : _reflection.GeneratedProtocolMessageType('Request', (_message.Message,), {
-    'DESCRIPTOR' : _CREATEVACANCYAPPLICATION_REQUEST,
-    '__module__' : 'gb_service_pb2'
-    # @@protoc_insertion_point(class_scope:CreateVacancyApplication.Request)
+    'Request': _reflection.GeneratedProtocolMessageType('Request', (_message.Message,), {
+        'DESCRIPTOR': _CREATEVACANCYAPPLICATION_REQUEST,
+        '__module__': 'gb_service_pb2'
+        # @@protoc_insertion_point(class_scope:CreateVacancyApplication.Request)
     })
-  ,
+    ,
 
-  'Response' : _reflection.GeneratedProtocolMessageType('Response', (_message.Message,), {
-    'DESCRIPTOR' : _CREATEVACANCYAPPLICATION_RESPONSE,
-    '__module__' : 'gb_service_pb2'
-    # @@protoc_insertion_point(class_scope:CreateVacancyApplication.Response)
+    'Response': _reflection.GeneratedProtocolMessageType('Response', (_message.Message,), {
+        'DESCRIPTOR': _CREATEVACANCYAPPLICATION_RESPONSE,
+        '__module__': 'gb_service_pb2'
+        # @@protoc_insertion_point(class_scope:CreateVacancyApplication.Response)
     })
-  ,
-  'DESCRIPTOR' : _CREATEVACANCYAPPLICATION,
-  '__module__' : 'gb_service_pb2'
-  # @@protoc_insertion_point(class_scope:CreateVacancyApplication)
-  })
+    ,
+    'DESCRIPTOR': _CREATEVACANCYAPPLICATION,
+    '__module__': 'gb_service_pb2'
+    # @@protoc_insertion_point(class_scope:CreateVacancyApplication)
+})
 _sym_db.RegisterMessage(CreateVacancyApplication)
 _sym_db.RegisterMessage(CreateVacancyApplication.Request)
 _sym_db.RegisterMessage(CreateVacancyApplication.Response)
 
 UpdateVacancyApplicationDetails = _reflection.GeneratedProtocolMessageType('UpdateVacancyApplicationDetails', (_message.Message,), {
 
-  'Request' : _reflection.GeneratedProtocolMessageType('Request', (_message.Message,), {
-    'DESCRIPTOR' : _UPDATEVACANCYAPPLICATIONDETAILS_REQUEST,
-    '__module__' : 'gb_service_pb2'
-    # @@protoc_insertion_point(class_scope:UpdateVacancyApplicationDetails.Request)
+    'Request': _reflection.GeneratedProtocolMessageType('Request', (_message.Message,), {
+        'DESCRIPTOR': _UPDATEVACANCYAPPLICATIONDETAILS_REQUEST,
+        '__module__': 'gb_service_pb2'
+        # @@protoc_insertion_point(class_scope:UpdateVacancyApplicationDetails.Request)
     })
-  ,
+    ,
 
-  'Response' : _reflection.GeneratedProtocolMessageType('Response', (_message.Message,), {
-    'DESCRIPTOR' : _UPDATEVACANCYAPPLICATIONDETAILS_RESPONSE,
-    '__module__' : 'gb_service_pb2'
-    # @@protoc_insertion_point(class_scope:UpdateVacancyApplicationDetails.Response)
+    'Response': _reflection.GeneratedProtocolMessageType('Response', (_message.Message,), {
+        'DESCRIPTOR': _UPDATEVACANCYAPPLICATIONDETAILS_RESPONSE,
+        '__module__': 'gb_service_pb2'
+        # @@protoc_insertion_point(class_scope:UpdateVacancyApplicationDetails.Response)
     })
-  ,
-  'DESCRIPTOR' : _UPDATEVACANCYAPPLICATIONDETAILS,
-  '__module__' : 'gb_service_pb2'
-  # @@protoc_insertion_point(class_scope:UpdateVacancyApplicationDetails)
-  })
+    ,
+    'DESCRIPTOR': _UPDATEVACANCYAPPLICATIONDETAILS,
+    '__module__': 'gb_service_pb2'
+    # @@protoc_insertion_point(class_scope:UpdateVacancyApplicationDetails)
+})
 _sym_db.RegisterMessage(UpdateVacancyApplicationDetails)
 _sym_db.RegisterMessage(UpdateVacancyApplicationDetails.Request)
 _sym_db.RegisterMessage(UpdateVacancyApplicationDetails.Response)
 
 UncreateVacancyApplication = _reflection.GeneratedProtocolMessageType('UncreateVacancyApplication', (_message.Message,), {
 
-  'Request' : _reflection.GeneratedProtocolMessageType('Request', (_message.Message,), {
-    'DESCRIPTOR' : _UNCREATEVACANCYAPPLICATION_REQUEST,
-    '__module__' : 'gb_service_pb2'
-    # @@protoc_insertion_point(class_scope:UncreateVacancyApplication.Request)
+    'Request': _reflection.GeneratedProtocolMessageType('Request', (_message.Message,), {
+        'DESCRIPTOR': _UNCREATEVACANCYAPPLICATION_REQUEST,
+        '__module__': 'gb_service_pb2'
+        # @@protoc_insertion_point(class_scope:UncreateVacancyApplication.Request)
     })
-  ,
+    ,
 
-  'Response' : _reflection.GeneratedProtocolMessageType('Response', (_message.Message,), {
-    'DESCRIPTOR' : _UNCREATEVACANCYAPPLICATION_RESPONSE,
-    '__module__' : 'gb_service_pb2'
-    # @@protoc_insertion_point(class_scope:UncreateVacancyApplication.Response)
+    'Response': _reflection.GeneratedProtocolMessageType('Response', (_message.Message,), {
+        'DESCRIPTOR': _UNCREATEVACANCYAPPLICATION_RESPONSE,
+        '__module__': 'gb_service_pb2'
+        # @@protoc_insertion_point(class_scope:UncreateVacancyApplication.Response)
     })
-  ,
-  'DESCRIPTOR' : _UNCREATEVACANCYAPPLICATION,
-  '__module__' : 'gb_service_pb2'
-  # @@protoc_insertion_point(class_scope:UncreateVacancyApplication)
-  })
+    ,
+    'DESCRIPTOR': _UNCREATEVACANCYAPPLICATION,
+    '__module__': 'gb_service_pb2'
+    # @@protoc_insertion_point(class_scope:UncreateVacancyApplication)
+})
 _sym_db.RegisterMessage(UncreateVacancyApplication)
 _sym_db.RegisterMessage(UncreateVacancyApplication.Request)
 _sym_db.RegisterMessage(UncreateVacancyApplication.Response)
 
 FetchMyVacancyApplications = _reflection.GeneratedProtocolMessageType('FetchMyVacancyApplications', (_message.Message,), {
 
-  'Request' : _reflection.GeneratedProtocolMessageType('Request', (_message.Message,), {
-    'DESCRIPTOR' : _FETCHMYVACANCYAPPLICATIONS_REQUEST,
-    '__module__' : 'gb_service_pb2'
-    # @@protoc_insertion_point(class_scope:FetchMyVacancyApplications.Request)
+    'Request': _reflection.GeneratedProtocolMessageType('Request', (_message.Message,), {
+        'DESCRIPTOR': _FETCHMYVACANCYAPPLICATIONS_REQUEST,
+        '__module__': 'gb_service_pb2'
+        # @@protoc_insertion_point(class_scope:FetchMyVacancyApplications.Request)
     })
-  ,
+    ,
 
-  'Response' : _reflection.GeneratedProtocolMessageType('Response', (_message.Message,), {
-    'DESCRIPTOR' : _FETCHMYVACANCYAPPLICATIONS_RESPONSE,
-    '__module__' : 'gb_service_pb2'
-    # @@protoc_insertion_point(class_scope:FetchMyVacancyApplications.Response)
+    'Response': _reflection.GeneratedProtocolMessageType('Response', (_message.Message,), {
+        'DESCRIPTOR': _FETCHMYVACANCYAPPLICATIONS_RESPONSE,
+        '__module__': 'gb_service_pb2'
+        # @@protoc_insertion_point(class_scope:FetchMyVacancyApplications.Response)
     })
-  ,
-  'DESCRIPTOR' : _FETCHMYVACANCYAPPLICATIONS,
-  '__module__' : 'gb_service_pb2'
-  # @@protoc_insertion_point(class_scope:FetchMyVacancyApplications)
-  })
+    ,
+    'DESCRIPTOR': _FETCHMYVACANCYAPPLICATIONS,
+    '__module__': 'gb_service_pb2'
+    # @@protoc_insertion_point(class_scope:FetchMyVacancyApplications)
+})
 _sym_db.RegisterMessage(FetchMyVacancyApplications)
 _sym_db.RegisterMessage(FetchMyVacancyApplications.Request)
 _sym_db.RegisterMessage(FetchMyVacancyApplications.Response)
 
 FetchVacancyApplicationDetails = _reflection.GeneratedProtocolMessageType('FetchVacancyApplicationDetails', (_message.Message,), {
 
-  'Request' : _reflection.GeneratedProtocolMessageType('Request', (_message.Message,), {
-    'DESCRIPTOR' : _FETCHVACANCYAPPLICATIONDETAILS_REQUEST,
-    '__module__' : 'gb_service_pb2'
-    # @@protoc_insertion_point(class_scope:FetchVacancyApplicationDetails.Request)
+    'Request': _reflection.GeneratedProtocolMessageType('Request', (_message.Message,), {
+        'DESCRIPTOR': _FETCHVACANCYAPPLICATIONDETAILS_REQUEST,
+        '__module__': 'gb_service_pb2'
+        # @@protoc_insertion_point(class_scope:FetchVacancyApplicationDetails.Request)
     })
-  ,
+    ,
 
-  'Response' : _reflection.GeneratedProtocolMessageType('Response', (_message.Message,), {
-    'DESCRIPTOR' : _FETCHVACANCYAPPLICATIONDETAILS_RESPONSE,
-    '__module__' : 'gb_service_pb2'
-    # @@protoc_insertion_point(class_scope:FetchVacancyApplicationDetails.Response)
+    'Response': _reflection.GeneratedProtocolMessageType('Response', (_message.Message,), {
+        'DESCRIPTOR': _FETCHVACANCYAPPLICATIONDETAILS_RESPONSE,
+        '__module__': 'gb_service_pb2'
+        # @@protoc_insertion_point(class_scope:FetchVacancyApplicationDetails.Response)
     })
-  ,
-  'DESCRIPTOR' : _FETCHVACANCYAPPLICATIONDETAILS,
-  '__module__' : 'gb_service_pb2'
-  # @@protoc_insertion_point(class_scope:FetchVacancyApplicationDetails)
-  })
+    ,
+    'DESCRIPTOR': _FETCHVACANCYAPPLICATIONDETAILS,
+    '__module__': 'gb_service_pb2'
+    # @@protoc_insertion_point(class_scope:FetchVacancyApplicationDetails)
+})
 _sym_db.RegisterMessage(FetchVacancyApplicationDetails)
 _sym_db.RegisterMessage(FetchVacancyApplicationDetails.Request)
 _sym_db.RegisterMessage(FetchVacancyApplicationDetails.Response)
 
 CreateBusinessPage = _reflection.GeneratedProtocolMessageType('CreateBusinessPage', (_message.Message,), {
 
-  'Request' : _reflection.GeneratedProtocolMessageType('Request', (_message.Message,), {
-    'DESCRIPTOR' : _CREATEBUSINESSPAGE_REQUEST,
-    '__module__' : 'gb_service_pb2'
-    # @@protoc_insertion_point(class_scope:CreateBusinessPage.Request)
+    'Request': _reflection.GeneratedProtocolMessageType('Request', (_message.Message,), {
+        'DESCRIPTOR': _CREATEBUSINESSPAGE_REQUEST,
+        '__module__': 'gb_service_pb2'
+        # @@protoc_insertion_point(class_scope:CreateBusinessPage.Request)
     })
-  ,
+    ,
 
-  'Response' : _reflection.GeneratedProtocolMessageType('Response', (_message.Message,), {
-    'DESCRIPTOR' : _CREATEBUSINESSPAGE_RESPONSE,
-    '__module__' : 'gb_service_pb2'
-    # @@protoc_insertion_point(class_scope:CreateBusinessPage.Response)
+    'Response': _reflection.GeneratedProtocolMessageType('Response', (_message.Message,), {
+        'DESCRIPTOR': _CREATEBUSINESSPAGE_RESPONSE,
+        '__module__': 'gb_service_pb2'
+        # @@protoc_insertion_point(class_scope:CreateBusinessPage.Response)
     })
-  ,
-  'DESCRIPTOR' : _CREATEBUSINESSPAGE,
-  '__module__' : 'gb_service_pb2'
-  # @@protoc_insertion_point(class_scope:CreateBusinessPage)
-  })
+    ,
+    'DESCRIPTOR': _CREATEBUSINESSPAGE,
+    '__module__': 'gb_service_pb2'
+    # @@protoc_insertion_point(class_scope:CreateBusinessPage)
+})
 _sym_db.RegisterMessage(CreateBusinessPage)
 _sym_db.RegisterMessage(CreateBusinessPage.Request)
 _sym_db.RegisterMessage(CreateBusinessPage.Response)
 
 UpdateBusinessPageDetails = _reflection.GeneratedProtocolMessageType('UpdateBusinessPageDetails', (_message.Message,), {
 
-  'Request' : _reflection.GeneratedProtocolMessageType('Request', (_message.Message,), {
-    'DESCRIPTOR' : _UPDATEBUSINESSPAGEDETAILS_REQUEST,
-    '__module__' : 'gb_service_pb2'
-    # @@protoc_insertion_point(class_scope:UpdateBusinessPageDetails.Request)
+    'Request': _reflection.GeneratedProtocolMessageType('Request', (_message.Message,), {
+        'DESCRIPTOR': _UPDATEBUSINESSPAGEDETAILS_REQUEST,
+        '__module__': 'gb_service_pb2'
+        # @@protoc_insertion_point(class_scope:UpdateBusinessPageDetails.Request)
     })
-  ,
+    ,
 
-  'Response' : _reflection.GeneratedProtocolMessageType('Response', (_message.Message,), {
-    'DESCRIPTOR' : _UPDATEBUSINESSPAGEDETAILS_RESPONSE,
-    '__module__' : 'gb_service_pb2'
-    # @@protoc_insertion_point(class_scope:UpdateBusinessPageDetails.Response)
+    'Response': _reflection.GeneratedProtocolMessageType('Response', (_message.Message,), {
+        'DESCRIPTOR': _UPDATEBUSINESSPAGEDETAILS_RESPONSE,
+        '__module__': 'gb_service_pb2'
+        # @@protoc_insertion_point(class_scope:UpdateBusinessPageDetails.Response)
     })
-  ,
-  'DESCRIPTOR' : _UPDATEBUSINESSPAGEDETAILS,
-  '__module__' : 'gb_service_pb2'
-  # @@protoc_insertion_point(class_scope:UpdateBusinessPageDetails)
-  })
+    ,
+    'DESCRIPTOR': _UPDATEBUSINESSPAGEDETAILS,
+    '__module__': 'gb_service_pb2'
+    # @@protoc_insertion_point(class_scope:UpdateBusinessPageDetails)
+})
 _sym_db.RegisterMessage(UpdateBusinessPageDetails)
 _sym_db.RegisterMessage(UpdateBusinessPageDetails.Request)
 _sym_db.RegisterMessage(UpdateBusinessPageDetails.Response)
 
 UncreateBusinessPage = _reflection.GeneratedProtocolMessageType('UncreateBusinessPage', (_message.Message,), {
 
-  'Request' : _reflection.GeneratedProtocolMessageType('Request', (_message.Message,), {
-    'DESCRIPTOR' : _UNCREATEBUSINESSPAGE_REQUEST,
-    '__module__' : 'gb_service_pb2'
-    # @@protoc_insertion_point(class_scope:UncreateBusinessPage.Request)
+    'Request': _reflection.GeneratedProtocolMessageType('Request', (_message.Message,), {
+        'DESCRIPTOR': _UNCREATEBUSINESSPAGE_REQUEST,
+        '__module__': 'gb_service_pb2'
+        # @@protoc_insertion_point(class_scope:UncreateBusinessPage.Request)
     })
-  ,
+    ,
 
-  'Response' : _reflection.GeneratedProtocolMessageType('Response', (_message.Message,), {
-    'DESCRIPTOR' : _UNCREATEBUSINESSPAGE_RESPONSE,
-    '__module__' : 'gb_service_pb2'
-    # @@protoc_insertion_point(class_scope:UncreateBusinessPage.Response)
+    'Response': _reflection.GeneratedProtocolMessageType('Response', (_message.Message,), {
+        'DESCRIPTOR': _UNCREATEBUSINESSPAGE_RESPONSE,
+        '__module__': 'gb_service_pb2'
+        # @@protoc_insertion_point(class_scope:UncreateBusinessPage.Response)
     })
-  ,
-  'DESCRIPTOR' : _UNCREATEBUSINESSPAGE,
-  '__module__' : 'gb_service_pb2'
-  # @@protoc_insertion_point(class_scope:UncreateBusinessPage)
-  })
+    ,
+    'DESCRIPTOR': _UNCREATEBUSINESSPAGE,
+    '__module__': 'gb_service_pb2'
+    # @@protoc_insertion_point(class_scope:UncreateBusinessPage)
+})
 _sym_db.RegisterMessage(UncreateBusinessPage)
 _sym_db.RegisterMessage(UncreateBusinessPage.Request)
 _sym_db.RegisterMessage(UncreateBusinessPage.Response)
 
 FetchBusinessPages = _reflection.GeneratedProtocolMessageType('FetchBusinessPages', (_message.Message,), {
 
-  'Request' : _reflection.GeneratedProtocolMessageType('Request', (_message.Message,), {
-    'DESCRIPTOR' : _FETCHBUSINESSPAGES_REQUEST,
-    '__module__' : 'gb_service_pb2'
-    # @@protoc_insertion_point(class_scope:FetchBusinessPages.Request)
+    'Request': _reflection.GeneratedProtocolMessageType('Request', (_message.Message,), {
+        'DESCRIPTOR': _FETCHBUSINESSPAGES_REQUEST,
+        '__module__': 'gb_service_pb2'
+        # @@protoc_insertion_point(class_scope:FetchBusinessPages.Request)
     })
-  ,
+    ,
 
-  'Response' : _reflection.GeneratedProtocolMessageType('Response', (_message.Message,), {
-    'DESCRIPTOR' : _FETCHBUSINESSPAGES_RESPONSE,
-    '__module__' : 'gb_service_pb2'
-    # @@protoc_insertion_point(class_scope:FetchBusinessPages.Response)
+    'Response': _reflection.GeneratedProtocolMessageType('Response', (_message.Message,), {
+        'DESCRIPTOR': _FETCHBUSINESSPAGES_RESPONSE,
+        '__module__': 'gb_service_pb2'
+        # @@protoc_insertion_point(class_scope:FetchBusinessPages.Response)
     })
-  ,
-  'DESCRIPTOR' : _FETCHBUSINESSPAGES,
-  '__module__' : 'gb_service_pb2'
-  # @@protoc_insertion_point(class_scope:FetchBusinessPages)
-  })
+    ,
+    'DESCRIPTOR': _FETCHBUSINESSPAGES,
+    '__module__': 'gb_service_pb2'
+    # @@protoc_insertion_point(class_scope:FetchBusinessPages)
+})
 _sym_db.RegisterMessage(FetchBusinessPages)
 _sym_db.RegisterMessage(FetchBusinessPages.Request)
 _sym_db.RegisterMessage(FetchBusinessPages.Response)
 
 FetchBusinessPageDetails = _reflection.GeneratedProtocolMessageType('FetchBusinessPageDetails', (_message.Message,), {
 
-  'Request' : _reflection.GeneratedProtocolMessageType('Request', (_message.Message,), {
-    'DESCRIPTOR' : _FETCHBUSINESSPAGEDETAILS_REQUEST,
-    '__module__' : 'gb_service_pb2'
-    # @@protoc_insertion_point(class_scope:FetchBusinessPageDetails.Request)
+    'Request': _reflection.GeneratedProtocolMessageType('Request', (_message.Message,), {
+        'DESCRIPTOR': _FETCHBUSINESSPAGEDETAILS_REQUEST,
+        '__module__': 'gb_service_pb2'
+        # @@protoc_insertion_point(class_scope:FetchBusinessPageDetails.Request)
     })
-  ,
+    ,
 
-  'Response' : _reflection.GeneratedProtocolMessageType('Response', (_message.Message,), {
-    'DESCRIPTOR' : _FETCHBUSINESSPAGEDETAILS_RESPONSE,
-    '__module__' : 'gb_service_pb2'
-    # @@protoc_insertion_point(class_scope:FetchBusinessPageDetails.Response)
+    'Response': _reflection.GeneratedProtocolMessageType('Response', (_message.Message,), {
+        'DESCRIPTOR': _FETCHBUSINESSPAGEDETAILS_RESPONSE,
+        '__module__': 'gb_service_pb2'
+        # @@protoc_insertion_point(class_scope:FetchBusinessPageDetails.Response)
     })
-  ,
-  'DESCRIPTOR' : _FETCHBUSINESSPAGEDETAILS,
-  '__module__' : 'gb_service_pb2'
-  # @@protoc_insertion_point(class_scope:FetchBusinessPageDetails)
-  })
+    ,
+    'DESCRIPTOR': _FETCHBUSINESSPAGEDETAILS,
+    '__module__': 'gb_service_pb2'
+    # @@protoc_insertion_point(class_scope:FetchBusinessPageDetails)
+})
 _sym_db.RegisterMessage(FetchBusinessPageDetails)
 _sym_db.RegisterMessage(FetchBusinessPageDetails.Request)
 _sym_db.RegisterMessage(FetchBusinessPageDetails.Response)
 
 CreateProduct = _reflection.GeneratedProtocolMessageType('CreateProduct', (_message.Message,), {
 
-  'Request' : _reflection.GeneratedProtocolMessageType('Request', (_message.Message,), {
-    'DESCRIPTOR' : _CREATEPRODUCT_REQUEST,
-    '__module__' : 'gb_service_pb2'
-    # @@protoc_insertion_point(class_scope:CreateProduct.Request)
+    'Request': _reflection.GeneratedProtocolMessageType('Request', (_message.Message,), {
+        'DESCRIPTOR': _CREATEPRODUCT_REQUEST,
+        '__module__': 'gb_service_pb2'
+        # @@protoc_insertion_point(class_scope:CreateProduct.Request)
     })
-  ,
+    ,
 
-  'Response' : _reflection.GeneratedProtocolMessageType('Response', (_message.Message,), {
-    'DESCRIPTOR' : _CREATEPRODUCT_RESPONSE,
-    '__module__' : 'gb_service_pb2'
-    # @@protoc_insertion_point(class_scope:CreateProduct.Response)
+    'Response': _reflection.GeneratedProtocolMessageType('Response', (_message.Message,), {
+        'DESCRIPTOR': _CREATEPRODUCT_RESPONSE,
+        '__module__': 'gb_service_pb2'
+        # @@protoc_insertion_point(class_scope:CreateProduct.Response)
     })
-  ,
-  'DESCRIPTOR' : _CREATEPRODUCT,
-  '__module__' : 'gb_service_pb2'
-  # @@protoc_insertion_point(class_scope:CreateProduct)
-  })
+    ,
+    'DESCRIPTOR': _CREATEPRODUCT,
+    '__module__': 'gb_service_pb2'
+    # @@protoc_insertion_point(class_scope:CreateProduct)
+})
 _sym_db.RegisterMessage(CreateProduct)
 _sym_db.RegisterMessage(CreateProduct.Request)
 _sym_db.RegisterMessage(CreateProduct.Response)
 
 UpdateProductDetails = _reflection.GeneratedProtocolMessageType('UpdateProductDetails', (_message.Message,), {
 
-  'Request' : _reflection.GeneratedProtocolMessageType('Request', (_message.Message,), {
-    'DESCRIPTOR' : _UPDATEPRODUCTDETAILS_REQUEST,
-    '__module__' : 'gb_service_pb2'
-    # @@protoc_insertion_point(class_scope:UpdateProductDetails.Request)
+    'Request': _reflection.GeneratedProtocolMessageType('Request', (_message.Message,), {
+        'DESCRIPTOR': _UPDATEPRODUCTDETAILS_REQUEST,
+        '__module__': 'gb_service_pb2'
+        # @@protoc_insertion_point(class_scope:UpdateProductDetails.Request)
     })
-  ,
+    ,
 
-  'Response' : _reflection.GeneratedProtocolMessageType('Response', (_message.Message,), {
-    'DESCRIPTOR' : _UPDATEPRODUCTDETAILS_RESPONSE,
-    '__module__' : 'gb_service_pb2'
-    # @@protoc_insertion_point(class_scope:UpdateProductDetails.Response)
+    'Response': _reflection.GeneratedProtocolMessageType('Response', (_message.Message,), {
+        'DESCRIPTOR': _UPDATEPRODUCTDETAILS_RESPONSE,
+        '__module__': 'gb_service_pb2'
+        # @@protoc_insertion_point(class_scope:UpdateProductDetails.Response)
     })
-  ,
-  'DESCRIPTOR' : _UPDATEPRODUCTDETAILS,
-  '__module__' : 'gb_service_pb2'
-  # @@protoc_insertion_point(class_scope:UpdateProductDetails)
-  })
+    ,
+    'DESCRIPTOR': _UPDATEPRODUCTDETAILS,
+    '__module__': 'gb_service_pb2'
+    # @@protoc_insertion_point(class_scope:UpdateProductDetails)
+})
 _sym_db.RegisterMessage(UpdateProductDetails)
 _sym_db.RegisterMessage(UpdateProductDetails.Request)
 _sym_db.RegisterMessage(UpdateProductDetails.Response)
 
 UncreateProduct = _reflection.GeneratedProtocolMessageType('UncreateProduct', (_message.Message,), {
 
-  'Request' : _reflection.GeneratedProtocolMessageType('Request', (_message.Message,), {
-    'DESCRIPTOR' : _UNCREATEPRODUCT_REQUEST,
-    '__module__' : 'gb_service_pb2'
-    # @@protoc_insertion_point(class_scope:UncreateProduct.Request)
+    'Request': _reflection.GeneratedProtocolMessageType('Request', (_message.Message,), {
+        'DESCRIPTOR': _UNCREATEPRODUCT_REQUEST,
+        '__module__': 'gb_service_pb2'
+        # @@protoc_insertion_point(class_scope:UncreateProduct.Request)
     })
-  ,
+    ,
 
-  'Response' : _reflection.GeneratedProtocolMessageType('Response', (_message.Message,), {
-    'DESCRIPTOR' : _UNCREATEPRODUCT_RESPONSE,
-    '__module__' : 'gb_service_pb2'
-    # @@protoc_insertion_point(class_scope:UncreateProduct.Response)
+    'Response': _reflection.GeneratedProtocolMessageType('Response', (_message.Message,), {
+        'DESCRIPTOR': _UNCREATEPRODUCT_RESPONSE,
+        '__module__': 'gb_service_pb2'
+        # @@protoc_insertion_point(class_scope:UncreateProduct.Response)
     })
-  ,
-  'DESCRIPTOR' : _UNCREATEPRODUCT,
-  '__module__' : 'gb_service_pb2'
-  # @@protoc_insertion_point(class_scope:UncreateProduct)
-  })
+    ,
+    'DESCRIPTOR': _UNCREATEPRODUCT,
+    '__module__': 'gb_service_pb2'
+    # @@protoc_insertion_point(class_scope:UncreateProduct)
+})
 _sym_db.RegisterMessage(UncreateProduct)
 _sym_db.RegisterMessage(UncreateProduct.Request)
 _sym_db.RegisterMessage(UncreateProduct.Response)
 
 FetchProducts = _reflection.GeneratedProtocolMessageType('FetchProducts', (_message.Message,), {
 
-  'Request' : _reflection.GeneratedProtocolMessageType('Request', (_message.Message,), {
-    'DESCRIPTOR' : _FETCHPRODUCTS_REQUEST,
-    '__module__' : 'gb_service_pb2'
-    # @@protoc_insertion_point(class_scope:FetchProducts.Request)
+    'Request': _reflection.GeneratedProtocolMessageType('Request', (_message.Message,), {
+        'DESCRIPTOR': _FETCHPRODUCTS_REQUEST,
+        '__module__': 'gb_service_pb2'
+        # @@protoc_insertion_point(class_scope:FetchProducts.Request)
     })
-  ,
+    ,
 
-  'Response' : _reflection.GeneratedProtocolMessageType('Response', (_message.Message,), {
-    'DESCRIPTOR' : _FETCHPRODUCTS_RESPONSE,
-    '__module__' : 'gb_service_pb2'
-    # @@protoc_insertion_point(class_scope:FetchProducts.Response)
+    'Response': _reflection.GeneratedProtocolMessageType('Response', (_message.Message,), {
+        'DESCRIPTOR': _FETCHPRODUCTS_RESPONSE,
+        '__module__': 'gb_service_pb2'
+        # @@protoc_insertion_point(class_scope:FetchProducts.Response)
     })
-  ,
-  'DESCRIPTOR' : _FETCHPRODUCTS,
-  '__module__' : 'gb_service_pb2'
-  # @@protoc_insertion_point(class_scope:FetchProducts)
-  })
+    ,
+    'DESCRIPTOR': _FETCHPRODUCTS,
+    '__module__': 'gb_service_pb2'
+    # @@protoc_insertion_point(class_scope:FetchProducts)
+})
 _sym_db.RegisterMessage(FetchProducts)
 _sym_db.RegisterMessage(FetchProducts.Request)
 _sym_db.RegisterMessage(FetchProducts.Response)
 
 FetchProductDetails = _reflection.GeneratedProtocolMessageType('FetchProductDetails', (_message.Message,), {
 
-  'Request' : _reflection.GeneratedProtocolMessageType('Request', (_message.Message,), {
-    'DESCRIPTOR' : _FETCHPRODUCTDETAILS_REQUEST,
-    '__module__' : 'gb_service_pb2'
-    # @@protoc_insertion_point(class_scope:FetchProductDetails.Request)
+    'Request': _reflection.GeneratedProtocolMessageType('Request', (_message.Message,), {
+        'DESCRIPTOR': _FETCHPRODUCTDETAILS_REQUEST,
+        '__module__': 'gb_service_pb2'
+        # @@protoc_insertion_point(class_scope:FetchProductDetails.Request)
     })
-  ,
+    ,
 
-  'Response' : _reflection.GeneratedProtocolMessageType('Response', (_message.Message,), {
-    'DESCRIPTOR' : _FETCHPRODUCTDETAILS_RESPONSE,
-    '__module__' : 'gb_service_pb2'
-    # @@protoc_insertion_point(class_scope:FetchProductDetails.Response)
+    'Response': _reflection.GeneratedProtocolMessageType('Response', (_message.Message,), {
+        'DESCRIPTOR': _FETCHPRODUCTDETAILS_RESPONSE,
+        '__module__': 'gb_service_pb2'
+        # @@protoc_insertion_point(class_scope:FetchProductDetails.Response)
     })
-  ,
-  'DESCRIPTOR' : _FETCHPRODUCTDETAILS,
-  '__module__' : 'gb_service_pb2'
-  # @@protoc_insertion_point(class_scope:FetchProductDetails)
-  })
+    ,
+    'DESCRIPTOR': _FETCHPRODUCTDETAILS,
+    '__module__': 'gb_service_pb2'
+    # @@protoc_insertion_point(class_scope:FetchProductDetails)
+})
 _sym_db.RegisterMessage(FetchProductDetails)
 _sym_db.RegisterMessage(FetchProductDetails.Request)
 _sym_db.RegisterMessage(FetchProductDetails.Response)
 
 PublishProduct = _reflection.GeneratedProtocolMessageType('PublishProduct', (_message.Message,), {
 
-  'Request' : _reflection.GeneratedProtocolMessageType('Request', (_message.Message,), {
-    'DESCRIPTOR' : _PUBLISHPRODUCT_REQUEST,
-    '__module__' : 'gb_service_pb2'
-    # @@protoc_insertion_point(class_scope:PublishProduct.Request)
+    'Request': _reflection.GeneratedProtocolMessageType('Request', (_message.Message,), {
+        'DESCRIPTOR': _PUBLISHPRODUCT_REQUEST,
+        '__module__': 'gb_service_pb2'
+        # @@protoc_insertion_point(class_scope:PublishProduct.Request)
     })
-  ,
+    ,
 
-  'Response' : _reflection.GeneratedProtocolMessageType('Response', (_message.Message,), {
-    'DESCRIPTOR' : _PUBLISHPRODUCT_RESPONSE,
-    '__module__' : 'gb_service_pb2'
-    # @@protoc_insertion_point(class_scope:PublishProduct.Response)
+    'Response': _reflection.GeneratedProtocolMessageType('Response', (_message.Message,), {
+        'DESCRIPTOR': _PUBLISHPRODUCT_RESPONSE,
+        '__module__': 'gb_service_pb2'
+        # @@protoc_insertion_point(class_scope:PublishProduct.Response)
     })
-  ,
-  'DESCRIPTOR' : _PUBLISHPRODUCT,
-  '__module__' : 'gb_service_pb2'
-  # @@protoc_insertion_point(class_scope:PublishProduct)
-  })
+    ,
+    'DESCRIPTOR': _PUBLISHPRODUCT,
+    '__module__': 'gb_service_pb2'
+    # @@protoc_insertion_point(class_scope:PublishProduct)
+})
 _sym_db.RegisterMessage(PublishProduct)
 _sym_db.RegisterMessage(PublishProduct.Request)
 _sym_db.RegisterMessage(PublishProduct.Response)
 
 UnpublishProduct = _reflection.GeneratedProtocolMessageType('UnpublishProduct', (_message.Message,), {
 
-  'Request' : _reflection.GeneratedProtocolMessageType('Request', (_message.Message,), {
-    'DESCRIPTOR' : _UNPUBLISHPRODUCT_REQUEST,
-    '__module__' : 'gb_service_pb2'
-    # @@protoc_insertion_point(class_scope:UnpublishProduct.Request)
+    'Request': _reflection.GeneratedProtocolMessageType('Request', (_message.Message,), {
+        'DESCRIPTOR': _UNPUBLISHPRODUCT_REQUEST,
+        '__module__': 'gb_service_pb2'
+        # @@protoc_insertion_point(class_scope:UnpublishProduct.Request)
     })
-  ,
+    ,
 
-  'Response' : _reflection.GeneratedProtocolMessageType('Response', (_message.Message,), {
-    'DESCRIPTOR' : _UNPUBLISHPRODUCT_RESPONSE,
-    '__module__' : 'gb_service_pb2'
-    # @@protoc_insertion_point(class_scope:UnpublishProduct.Response)
+    'Response': _reflection.GeneratedProtocolMessageType('Response', (_message.Message,), {
+        'DESCRIPTOR': _UNPUBLISHPRODUCT_RESPONSE,
+        '__module__': 'gb_service_pb2'
+        # @@protoc_insertion_point(class_scope:UnpublishProduct.Response)
     })
-  ,
-  'DESCRIPTOR' : _UNPUBLISHPRODUCT,
-  '__module__' : 'gb_service_pb2'
-  # @@protoc_insertion_point(class_scope:UnpublishProduct)
-  })
+    ,
+    'DESCRIPTOR': _UNPUBLISHPRODUCT,
+    '__module__': 'gb_service_pb2'
+    # @@protoc_insertion_point(class_scope:UnpublishProduct)
+})
 _sym_db.RegisterMessage(UnpublishProduct)
 _sym_db.RegisterMessage(UnpublishProduct.Request)
 _sym_db.RegisterMessage(UnpublishProduct.Response)
 
 LogPurchase = _reflection.GeneratedProtocolMessageType('LogPurchase', (_message.Message,), {
 
-  'Request' : _reflection.GeneratedProtocolMessageType('Request', (_message.Message,), {
-    'DESCRIPTOR' : _LOGPURCHASE_REQUEST,
-    '__module__' : 'gb_service_pb2'
-    # @@protoc_insertion_point(class_scope:LogPurchase.Request)
+    'Request': _reflection.GeneratedProtocolMessageType('Request', (_message.Message,), {
+        'DESCRIPTOR': _LOGPURCHASE_REQUEST,
+        '__module__': 'gb_service_pb2'
+        # @@protoc_insertion_point(class_scope:LogPurchase.Request)
     })
-  ,
+    ,
 
-  'Response' : _reflection.GeneratedProtocolMessageType('Response', (_message.Message,), {
-    'DESCRIPTOR' : _LOGPURCHASE_RESPONSE,
-    '__module__' : 'gb_service_pb2'
-    # @@protoc_insertion_point(class_scope:LogPurchase.Response)
+    'Response': _reflection.GeneratedProtocolMessageType('Response', (_message.Message,), {
+        'DESCRIPTOR': _LOGPURCHASE_RESPONSE,
+        '__module__': 'gb_service_pb2'
+        # @@protoc_insertion_point(class_scope:LogPurchase.Response)
     })
-  ,
-  'DESCRIPTOR' : _LOGPURCHASE,
-  '__module__' : 'gb_service_pb2'
-  # @@protoc_insertion_point(class_scope:LogPurchase)
-  })
+    ,
+    'DESCRIPTOR': _LOGPURCHASE,
+    '__module__': 'gb_service_pb2'
+    # @@protoc_insertion_point(class_scope:LogPurchase)
+})
 _sym_db.RegisterMessage(LogPurchase)
 _sym_db.RegisterMessage(LogPurchase.Request)
 _sym_db.RegisterMessage(LogPurchase.Response)
 
 FetchPurchases = _reflection.GeneratedProtocolMessageType('FetchPurchases', (_message.Message,), {
 
-  'Request' : _reflection.GeneratedProtocolMessageType('Request', (_message.Message,), {
-    'DESCRIPTOR' : _FETCHPURCHASES_REQUEST,
-    '__module__' : 'gb_service_pb2'
-    # @@protoc_insertion_point(class_scope:FetchPurchases.Request)
+    'Request': _reflection.GeneratedProtocolMessageType('Request', (_message.Message,), {
+        'DESCRIPTOR': _FETCHPURCHASES_REQUEST,
+        '__module__': 'gb_service_pb2'
+        # @@protoc_insertion_point(class_scope:FetchPurchases.Request)
     })
-  ,
+    ,
 
-  'Response' : _reflection.GeneratedProtocolMessageType('Response', (_message.Message,), {
-    'DESCRIPTOR' : _FETCHPURCHASES_RESPONSE,
-    '__module__' : 'gb_service_pb2'
-    # @@protoc_insertion_point(class_scope:FetchPurchases.Response)
+    'Response': _reflection.GeneratedProtocolMessageType('Response', (_message.Message,), {
+        'DESCRIPTOR': _FETCHPURCHASES_RESPONSE,
+        '__module__': 'gb_service_pb2'
+        # @@protoc_insertion_point(class_scope:FetchPurchases.Response)
     })
-  ,
-  'DESCRIPTOR' : _FETCHPURCHASES,
-  '__module__' : 'gb_service_pb2'
-  # @@protoc_insertion_point(class_scope:FetchPurchases)
-  })
+    ,
+    'DESCRIPTOR': _FETCHPURCHASES,
+    '__module__': 'gb_service_pb2'
+    # @@protoc_insertion_point(class_scope:FetchPurchases)
+})
 _sym_db.RegisterMessage(FetchPurchases)
 _sym_db.RegisterMessage(FetchPurchases.Request)
 _sym_db.RegisterMessage(FetchPurchases.Response)
 
 FetchPurchaseDetails = _reflection.GeneratedProtocolMessageType('FetchPurchaseDetails', (_message.Message,), {
 
-  'Request' : _reflection.GeneratedProtocolMessageType('Request', (_message.Message,), {
-    'DESCRIPTOR' : _FETCHPURCHASEDETAILS_REQUEST,
-    '__module__' : 'gb_service_pb2'
-    # @@protoc_insertion_point(class_scope:FetchPurchaseDetails.Request)
+    'Request': _reflection.GeneratedProtocolMessageType('Request', (_message.Message,), {
+        'DESCRIPTOR': _FETCHPURCHASEDETAILS_REQUEST,
+        '__module__': 'gb_service_pb2'
+        # @@protoc_insertion_point(class_scope:FetchPurchaseDetails.Request)
     })
-  ,
+    ,
 
-  'Response' : _reflection.GeneratedProtocolMessageType('Response', (_message.Message,), {
-    'DESCRIPTOR' : _FETCHPURCHASEDETAILS_RESPONSE,
-    '__module__' : 'gb_service_pb2'
-    # @@protoc_insertion_point(class_scope:FetchPurchaseDetails.Response)
+    'Response': _reflection.GeneratedProtocolMessageType('Response', (_message.Message,), {
+        'DESCRIPTOR': _FETCHPURCHASEDETAILS_RESPONSE,
+        '__module__': 'gb_service_pb2'
+        # @@protoc_insertion_point(class_scope:FetchPurchaseDetails.Response)
     })
-  ,
-  'DESCRIPTOR' : _FETCHPURCHASEDETAILS,
-  '__module__' : 'gb_service_pb2'
-  # @@protoc_insertion_point(class_scope:FetchPurchaseDetails)
-  })
+    ,
+    'DESCRIPTOR': _FETCHPURCHASEDETAILS,
+    '__module__': 'gb_service_pb2'
+    # @@protoc_insertion_point(class_scope:FetchPurchaseDetails)
+})
 _sym_db.RegisterMessage(FetchPurchaseDetails)
 _sym_db.RegisterMessage(FetchPurchaseDetails.Request)
 _sym_db.RegisterMessage(FetchPurchaseDetails.Response)
 
-
 DESCRIPTOR._options = None
 
 _GLOBENSSERVICE = _descriptor.ServiceDescriptor(
-  name='GlobensService',
-  full_name='GlobensService',
-  file=DESCRIPTOR,
-  index=0,
-  serialized_options=None,
-  serialized_start=2557,
-  serialized_end=5037,
-  methods=[
-  _descriptor.MethodDescriptor(
-    name='authenticateUser',
-    full_name='GlobensService.authenticateUser',
+    name='GlobensService',
+    full_name='GlobensService',
+    file=DESCRIPTOR,
     index=0,
-    containing_service=None,
-    input_type=_AUTHENTICATEUSER_REQUEST,
-    output_type=_AUTHENTICATEUSER_RESPONSE,
     serialized_options=None,
-  ),
-  _descriptor.MethodDescriptor(
-    name='deactivateUser',
-    full_name='GlobensService.deactivateUser',
-    index=1,
-    containing_service=None,
-    input_type=_DEACTIVATEUSER_REQUEST,
-    output_type=_DEACTIVATEUSER_RESPONSE,
-    serialized_options=None,
-  ),
-  _descriptor.MethodDescriptor(
-    name='updateUserDetails',
-    full_name='GlobensService.updateUserDetails',
-    index=2,
-    containing_service=None,
-    input_type=_UPDATEUSERDETAILS_REQUEST,
-    output_type=_UPDATEUSERDETAILS_RESPONSE,
-    serialized_options=None,
-  ),
-  _descriptor.MethodDescriptor(
-    name='fetchUserDetails',
-    full_name='GlobensService.fetchUserDetails',
-    index=3,
-    containing_service=None,
-    input_type=_FETCHUSERDETAILS_REQUEST,
-    output_type=_FETCHUSERDETAILS_RESPONSE,
-    serialized_options=None,
-  ),
-  _descriptor.MethodDescriptor(
-    name='createVacancy',
-    full_name='GlobensService.createVacancy',
-    index=4,
-    containing_service=None,
-    input_type=_CREATEVACANCY_REQUEST,
-    output_type=_CREATEVACANCY_RESPONSE,
-    serialized_options=None,
-  ),
-  _descriptor.MethodDescriptor(
-    name='updateVacancyDetails',
-    full_name='GlobensService.updateVacancyDetails',
-    index=5,
-    containing_service=None,
-    input_type=_UPDATEVACANCYDETAILS_REQUEST,
-    output_type=_UPDATEVACANCYDETAILS_RESPONSE,
-    serialized_options=None,
-  ),
-  _descriptor.MethodDescriptor(
-    name='uncreateVacancy',
-    full_name='GlobensService.uncreateVacancy',
-    index=6,
-    containing_service=None,
-    input_type=_UNCREATEVACANCY_REQUEST,
-    output_type=_UNCREATEVACANCY_RESPONSE,
-    serialized_options=None,
-  ),
-  _descriptor.MethodDescriptor(
-    name='fetchVacancies',
-    full_name='GlobensService.fetchVacancies',
-    index=7,
-    containing_service=None,
-    input_type=_FETCHVACANCIES_REQUEST,
-    output_type=_FETCHVACANCIES_RESPONSE,
-    serialized_options=None,
-  ),
-  _descriptor.MethodDescriptor(
-    name='fetchVacancyDetails',
-    full_name='GlobensService.fetchVacancyDetails',
-    index=8,
-    containing_service=None,
-    input_type=_FETCHVACANCYDETAILS_REQUEST,
-    output_type=_FETCHVACANCYDETAILS_RESPONSE,
-    serialized_options=None,
-  ),
-  _descriptor.MethodDescriptor(
-    name='createVacancyApplication',
-    full_name='GlobensService.createVacancyApplication',
-    index=9,
-    containing_service=None,
-    input_type=_CREATEVACANCYAPPLICATION_REQUEST,
-    output_type=_CREATEVACANCYAPPLICATION_RESPONSE,
-    serialized_options=None,
-  ),
-  _descriptor.MethodDescriptor(
-    name='updateVacancyApplicationDetails',
-    full_name='GlobensService.updateVacancyApplicationDetails',
-    index=10,
-    containing_service=None,
-    input_type=_UPDATEVACANCYAPPLICATIONDETAILS_REQUEST,
-    output_type=_UPDATEVACANCYAPPLICATIONDETAILS_RESPONSE,
-    serialized_options=None,
-  ),
-  _descriptor.MethodDescriptor(
-    name='uncreateVacancyApplication',
-    full_name='GlobensService.uncreateVacancyApplication',
-    index=11,
-    containing_service=None,
-    input_type=_UNCREATEVACANCYAPPLICATION_REQUEST,
-    output_type=_UNCREATEVACANCYAPPLICATION_RESPONSE,
-    serialized_options=None,
-  ),
-  _descriptor.MethodDescriptor(
-    name='fetchMyVacancyApplications',
-    full_name='GlobensService.fetchMyVacancyApplications',
-    index=12,
-    containing_service=None,
-    input_type=_FETCHMYVACANCYAPPLICATIONS_REQUEST,
-    output_type=_FETCHMYVACANCYAPPLICATIONS_RESPONSE,
-    serialized_options=None,
-  ),
-  _descriptor.MethodDescriptor(
-    name='fetchVacancyApplicationDetails',
-    full_name='GlobensService.fetchVacancyApplicationDetails',
-    index=13,
-    containing_service=None,
-    input_type=_FETCHVACANCYAPPLICATIONDETAILS_REQUEST,
-    output_type=_FETCHVACANCYAPPLICATIONDETAILS_RESPONSE,
-    serialized_options=None,
-  ),
-  _descriptor.MethodDescriptor(
-    name='createBusinessPage',
-    full_name='GlobensService.createBusinessPage',
-    index=14,
-    containing_service=None,
-    input_type=_CREATEBUSINESSPAGE_REQUEST,
-    output_type=_CREATEBUSINESSPAGE_RESPONSE,
-    serialized_options=None,
-  ),
-  _descriptor.MethodDescriptor(
-    name='updateBusinessPageDetails',
-    full_name='GlobensService.updateBusinessPageDetails',
-    index=15,
-    containing_service=None,
-    input_type=_UPDATEBUSINESSPAGEDETAILS_REQUEST,
-    output_type=_UPDATEBUSINESSPAGEDETAILS_RESPONSE,
-    serialized_options=None,
-  ),
-  _descriptor.MethodDescriptor(
-    name='uncreateBusinessPage',
-    full_name='GlobensService.uncreateBusinessPage',
-    index=16,
-    containing_service=None,
-    input_type=_UNCREATEBUSINESSPAGE_REQUEST,
-    output_type=_UNCREATEBUSINESSPAGE_RESPONSE,
-    serialized_options=None,
-  ),
-  _descriptor.MethodDescriptor(
-    name='fetchBusinessPages',
-    full_name='GlobensService.fetchBusinessPages',
-    index=17,
-    containing_service=None,
-    input_type=_FETCHBUSINESSPAGES_REQUEST,
-    output_type=_FETCHBUSINESSPAGES_RESPONSE,
-    serialized_options=None,
-  ),
-  _descriptor.MethodDescriptor(
-    name='fetchBusinessPageDetails',
-    full_name='GlobensService.fetchBusinessPageDetails',
-    index=18,
-    containing_service=None,
-    input_type=_FETCHBUSINESSPAGEDETAILS_REQUEST,
-    output_type=_FETCHBUSINESSPAGEDETAILS_RESPONSE,
-    serialized_options=None,
-  ),
-  _descriptor.MethodDescriptor(
-    name='createProduct',
-    full_name='GlobensService.createProduct',
-    index=19,
-    containing_service=None,
-    input_type=_CREATEPRODUCT_REQUEST,
-    output_type=_CREATEPRODUCT_RESPONSE,
-    serialized_options=None,
-  ),
-  _descriptor.MethodDescriptor(
-    name='updateProductDetails',
-    full_name='GlobensService.updateProductDetails',
-    index=20,
-    containing_service=None,
-    input_type=_UPDATEPRODUCTDETAILS_REQUEST,
-    output_type=_UPDATEPRODUCTDETAILS_RESPONSE,
-    serialized_options=None,
-  ),
-  _descriptor.MethodDescriptor(
-    name='publishProduct',
-    full_name='GlobensService.publishProduct',
-    index=21,
-    containing_service=None,
-    input_type=_PUBLISHPRODUCT_REQUEST,
-    output_type=_PUBLISHPRODUCT_RESPONSE,
-    serialized_options=None,
-  ),
-  _descriptor.MethodDescriptor(
-    name='unpublishProduct',
-    full_name='GlobensService.unpublishProduct',
-    index=22,
-    containing_service=None,
-    input_type=_UNPUBLISHPRODUCT_REQUEST,
-    output_type=_UNPUBLISHPRODUCT_RESPONSE,
-    serialized_options=None,
-  ),
-  _descriptor.MethodDescriptor(
-    name='uncreateProduct',
-    full_name='GlobensService.uncreateProduct',
-    index=23,
-    containing_service=None,
-    input_type=_UNCREATEPRODUCT_REQUEST,
-    output_type=_UNCREATEPRODUCT_RESPONSE,
-    serialized_options=None,
-  ),
-  _descriptor.MethodDescriptor(
-    name='fetchProducts',
-    full_name='GlobensService.fetchProducts',
-    index=24,
-    containing_service=None,
-    input_type=_FETCHPRODUCTS_REQUEST,
-    output_type=_FETCHPRODUCTS_RESPONSE,
-    serialized_options=None,
-  ),
-  _descriptor.MethodDescriptor(
-    name='fetchProductDetails',
-    full_name='GlobensService.fetchProductDetails',
-    index=25,
-    containing_service=None,
-    input_type=_FETCHPRODUCTDETAILS_REQUEST,
-    output_type=_FETCHPRODUCTDETAILS_RESPONSE,
-    serialized_options=None,
-  ),
-  _descriptor.MethodDescriptor(
-    name='logPurchase',
-    full_name='GlobensService.logPurchase',
-    index=26,
-    containing_service=None,
-    input_type=_LOGPURCHASE_REQUEST,
-    output_type=_LOGPURCHASE_RESPONSE,
-    serialized_options=None,
-  ),
-  _descriptor.MethodDescriptor(
-    name='fetchPurchases',
-    full_name='GlobensService.fetchPurchases',
-    index=27,
-    containing_service=None,
-    input_type=_FETCHPURCHASES_REQUEST,
-    output_type=_FETCHPURCHASES_RESPONSE,
-    serialized_options=None,
-  ),
-  _descriptor.MethodDescriptor(
-    name='fetchPurchaseDetails',
-    full_name='GlobensService.fetchPurchaseDetails',
-    index=28,
-    containing_service=None,
-    input_type=_FETCHPURCHASEDETAILS_REQUEST,
-    output_type=_FETCHPURCHASEDETAILS_RESPONSE,
-    serialized_options=None,
-  ),
-])
+    serialized_start=2557,
+    serialized_end=5037,
+    methods=[
+        _descriptor.MethodDescriptor(
+            name='authenticateUser',
+            full_name='GlobensService.authenticateUser',
+            index=0,
+            containing_service=None,
+            input_type=_AUTHENTICATEUSER_REQUEST,
+            output_type=_AUTHENTICATEUSER_RESPONSE,
+            serialized_options=None,
+        ),
+        _descriptor.MethodDescriptor(
+            name='deactivateUser',
+            full_name='GlobensService.deactivateUser',
+            index=1,
+            containing_service=None,
+            input_type=_DEACTIVATEUSER_REQUEST,
+            output_type=_DEACTIVATEUSER_RESPONSE,
+            serialized_options=None,
+        ),
+        _descriptor.MethodDescriptor(
+            name='updateUserDetails',
+            full_name='GlobensService.updateUserDetails',
+            index=2,
+            containing_service=None,
+            input_type=_UPDATEUSERDETAILS_REQUEST,
+            output_type=_UPDATEUSERDETAILS_RESPONSE,
+            serialized_options=None,
+        ),
+        _descriptor.MethodDescriptor(
+            name='fetchUserDetails',
+            full_name='GlobensService.fetchUserDetails',
+            index=3,
+            containing_service=None,
+            input_type=_FETCHUSERDETAILS_REQUEST,
+            output_type=_FETCHUSERDETAILS_RESPONSE,
+            serialized_options=None,
+        ),
+        _descriptor.MethodDescriptor(
+            name='createVacancy',
+            full_name='GlobensService.createVacancy',
+            index=4,
+            containing_service=None,
+            input_type=_CREATEVACANCY_REQUEST,
+            output_type=_CREATEVACANCY_RESPONSE,
+            serialized_options=None,
+        ),
+        _descriptor.MethodDescriptor(
+            name='updateVacancyDetails',
+            full_name='GlobensService.updateVacancyDetails',
+            index=5,
+            containing_service=None,
+            input_type=_UPDATEVACANCYDETAILS_REQUEST,
+            output_type=_UPDATEVACANCYDETAILS_RESPONSE,
+            serialized_options=None,
+        ),
+        _descriptor.MethodDescriptor(
+            name='uncreateVacancy',
+            full_name='GlobensService.uncreateVacancy',
+            index=6,
+            containing_service=None,
+            input_type=_UNCREATEVACANCY_REQUEST,
+            output_type=_UNCREATEVACANCY_RESPONSE,
+            serialized_options=None,
+        ),
+        _descriptor.MethodDescriptor(
+            name='fetchVacancies',
+            full_name='GlobensService.fetchVacancies',
+            index=7,
+            containing_service=None,
+            input_type=_FETCHVACANCIES_REQUEST,
+            output_type=_FETCHVACANCIES_RESPONSE,
+            serialized_options=None,
+        ),
+        _descriptor.MethodDescriptor(
+            name='fetchVacancyDetails',
+            full_name='GlobensService.fetchVacancyDetails',
+            index=8,
+            containing_service=None,
+            input_type=_FETCHVACANCYDETAILS_REQUEST,
+            output_type=_FETCHVACANCYDETAILS_RESPONSE,
+            serialized_options=None,
+        ),
+        _descriptor.MethodDescriptor(
+            name='createVacancyApplication',
+            full_name='GlobensService.createVacancyApplication',
+            index=9,
+            containing_service=None,
+            input_type=_CREATEVACANCYAPPLICATION_REQUEST,
+            output_type=_CREATEVACANCYAPPLICATION_RESPONSE,
+            serialized_options=None,
+        ),
+        _descriptor.MethodDescriptor(
+            name='updateVacancyApplicationDetails',
+            full_name='GlobensService.updateVacancyApplicationDetails',
+            index=10,
+            containing_service=None,
+            input_type=_UPDATEVACANCYAPPLICATIONDETAILS_REQUEST,
+            output_type=_UPDATEVACANCYAPPLICATIONDETAILS_RESPONSE,
+            serialized_options=None,
+        ),
+        _descriptor.MethodDescriptor(
+            name='uncreateVacancyApplication',
+            full_name='GlobensService.uncreateVacancyApplication',
+            index=11,
+            containing_service=None,
+            input_type=_UNCREATEVACANCYAPPLICATION_REQUEST,
+            output_type=_UNCREATEVACANCYAPPLICATION_RESPONSE,
+            serialized_options=None,
+        ),
+        _descriptor.MethodDescriptor(
+            name='fetchMyVacancyApplications',
+            full_name='GlobensService.fetchMyVacancyApplications',
+            index=12,
+            containing_service=None,
+            input_type=_FETCHMYVACANCYAPPLICATIONS_REQUEST,
+            output_type=_FETCHMYVACANCYAPPLICATIONS_RESPONSE,
+            serialized_options=None,
+        ),
+        _descriptor.MethodDescriptor(
+            name='fetchVacancyApplicationDetails',
+            full_name='GlobensService.fetchVacancyApplicationDetails',
+            index=13,
+            containing_service=None,
+            input_type=_FETCHVACANCYAPPLICATIONDETAILS_REQUEST,
+            output_type=_FETCHVACANCYAPPLICATIONDETAILS_RESPONSE,
+            serialized_options=None,
+        ),
+        _descriptor.MethodDescriptor(
+            name='createBusinessPage',
+            full_name='GlobensService.createBusinessPage',
+            index=14,
+            containing_service=None,
+            input_type=_CREATEBUSINESSPAGE_REQUEST,
+            output_type=_CREATEBUSINESSPAGE_RESPONSE,
+            serialized_options=None,
+        ),
+        _descriptor.MethodDescriptor(
+            name='updateBusinessPageDetails',
+            full_name='GlobensService.updateBusinessPageDetails',
+            index=15,
+            containing_service=None,
+            input_type=_UPDATEBUSINESSPAGEDETAILS_REQUEST,
+            output_type=_UPDATEBUSINESSPAGEDETAILS_RESPONSE,
+            serialized_options=None,
+        ),
+        _descriptor.MethodDescriptor(
+            name='uncreateBusinessPage',
+            full_name='GlobensService.uncreateBusinessPage',
+            index=16,
+            containing_service=None,
+            input_type=_UNCREATEBUSINESSPAGE_REQUEST,
+            output_type=_UNCREATEBUSINESSPAGE_RESPONSE,
+            serialized_options=None,
+        ),
+        _descriptor.MethodDescriptor(
+            name='fetchBusinessPages',
+            full_name='GlobensService.fetchBusinessPages',
+            index=17,
+            containing_service=None,
+            input_type=_FETCHBUSINESSPAGES_REQUEST,
+            output_type=_FETCHBUSINESSPAGES_RESPONSE,
+            serialized_options=None,
+        ),
+        _descriptor.MethodDescriptor(
+            name='fetchBusinessPageDetails',
+            full_name='GlobensService.fetchBusinessPageDetails',
+            index=18,
+            containing_service=None,
+            input_type=_FETCHBUSINESSPAGEDETAILS_REQUEST,
+            output_type=_FETCHBUSINESSPAGEDETAILS_RESPONSE,
+            serialized_options=None,
+        ),
+        _descriptor.MethodDescriptor(
+            name='createProduct',
+            full_name='GlobensService.createProduct',
+            index=19,
+            containing_service=None,
+            input_type=_CREATEPRODUCT_REQUEST,
+            output_type=_CREATEPRODUCT_RESPONSE,
+            serialized_options=None,
+        ),
+        _descriptor.MethodDescriptor(
+            name='updateProductDetails',
+            full_name='GlobensService.updateProductDetails',
+            index=20,
+            containing_service=None,
+            input_type=_UPDATEPRODUCTDETAILS_REQUEST,
+            output_type=_UPDATEPRODUCTDETAILS_RESPONSE,
+            serialized_options=None,
+        ),
+        _descriptor.MethodDescriptor(
+            name='publishProduct',
+            full_name='GlobensService.publishProduct',
+            index=21,
+            containing_service=None,
+            input_type=_PUBLISHPRODUCT_REQUEST,
+            output_type=_PUBLISHPRODUCT_RESPONSE,
+            serialized_options=None,
+        ),
+        _descriptor.MethodDescriptor(
+            name='unpublishProduct',
+            full_name='GlobensService.unpublishProduct',
+            index=22,
+            containing_service=None,
+            input_type=_UNPUBLISHPRODUCT_REQUEST,
+            output_type=_UNPUBLISHPRODUCT_RESPONSE,
+            serialized_options=None,
+        ),
+        _descriptor.MethodDescriptor(
+            name='uncreateProduct',
+            full_name='GlobensService.uncreateProduct',
+            index=23,
+            containing_service=None,
+            input_type=_UNCREATEPRODUCT_REQUEST,
+            output_type=_UNCREATEPRODUCT_RESPONSE,
+            serialized_options=None,
+        ),
+        _descriptor.MethodDescriptor(
+            name='fetchProducts',
+            full_name='GlobensService.fetchProducts',
+            index=24,
+            containing_service=None,
+            input_type=_FETCHPRODUCTS_REQUEST,
+            output_type=_FETCHPRODUCTS_RESPONSE,
+            serialized_options=None,
+        ),
+        _descriptor.MethodDescriptor(
+            name='fetchProductDetails',
+            full_name='GlobensService.fetchProductDetails',
+            index=25,
+            containing_service=None,
+            input_type=_FETCHPRODUCTDETAILS_REQUEST,
+            output_type=_FETCHPRODUCTDETAILS_RESPONSE,
+            serialized_options=None,
+        ),
+        _descriptor.MethodDescriptor(
+            name='logPurchase',
+            full_name='GlobensService.logPurchase',
+            index=26,
+            containing_service=None,
+            input_type=_LOGPURCHASE_REQUEST,
+            output_type=_LOGPURCHASE_RESPONSE,
+            serialized_options=None,
+        ),
+        _descriptor.MethodDescriptor(
+            name='fetchPurchases',
+            full_name='GlobensService.fetchPurchases',
+            index=27,
+            containing_service=None,
+            input_type=_FETCHPURCHASES_REQUEST,
+            output_type=_FETCHPURCHASES_RESPONSE,
+            serialized_options=None,
+        ),
+        _descriptor.MethodDescriptor(
+            name='fetchPurchaseDetails',
+            full_name='GlobensService.fetchPurchaseDetails',
+            index=28,
+            containing_service=None,
+            input_type=_FETCHPURCHASEDETAILS_REQUEST,
+            output_type=_FETCHPURCHASEDETAILS_RESPONSE,
+            serialized_options=None,
+        ),
+    ])
 _sym_db.RegisterServiceDescriptor(_GLOBENSSERVICE)
 
 DESCRIPTOR.services_by_name['GlobensService'] = _GLOBENSSERVICE
