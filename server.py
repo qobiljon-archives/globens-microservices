@@ -1,18 +1,33 @@
-import grpc
+# import the generated grpcs
+from gb_grpcs import gb_service_pb2_grpc
+from gb_grpcs import gb_service_pb2
+# others
 from concurrent import futures
 from tools import db_mgr as db
+from tools import utils
+import grpc
 import time
-
-# import the generated classes
-from gb_grpcs import gb_service_pb2
-from gb_grpcs import gb_service_pb2_grpc
 
 
 class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
     # region user management module
     def authenticateUser(self, request, context):
-        # todo fill this part
-        pass
+        result = gb_service_pb2.AuthenticateUser.Response()
+
+        if request.method == gb_service_pb2.AuthenticateUser.AuthMethod.GOOGLE:
+            google_profile = utils.load_google_profile(id_token=request.accessToken)
+            print(google_profile)
+        elif request.method == gb_service_pb2.AuthenticateUser.AuthMethod.FACEBOOK:
+            print(request.accessToken)
+        elif request.method == gb_service_pb2.AuthenticateUser.AuthMethod.KAKAOTALK:
+            print(request.accessToken)
+        elif request.method == gb_service_pb2.AuthenticateUser.AuthMethod.PHONE:
+            print(request.accessToken)
+        elif request.method == gb_service_pb2.AuthenticateUser.AuthMethod.APPLE:
+            print(request.accessToken)
+
+        result.success = True
+        return result
 
     def deactivateUser(self, request, context):
         # todo fill this part

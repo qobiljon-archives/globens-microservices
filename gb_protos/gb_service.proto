@@ -4,15 +4,16 @@ option java_package = "uz.globens";
 
 // user management management requests/responses
 message AuthenticateUser {
+  enum AuthMethod {
+    GOOGLE = 0;
+    FACEBOOK = 1;
+    KAKAOTALK = 3;
+    PHONE = 4;
+    APPLE = 5;
+  }
   message Request{
-    enum AuthMethod {
-      GOOGLE = 0;
-      FACEBOOK = 1;
-      KAKAOTALK = 3;
-      PHONE = 4;
-    }
     AuthMethod method = 1;
-    string authToken = 2; // could be : auth token, phone number, etc.
+    string accessToken = 2; // could be : auth token, phone number, etc.
   }
   message Response{
     bool success = 1;
