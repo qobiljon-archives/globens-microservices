@@ -12,7 +12,7 @@ message AuthenticateUser {
       PHONE = 4;
     }
     AuthMethod method = 1;
-    string authKey = 2; // could be : auth token, phone number, etc.
+    string authToken = 2; // could be : auth token, phone number, etc.
   }
   message Response{
     bool success = 1;
@@ -324,6 +324,6 @@ Compile into java source:
     protoc --java_out=[output directory] --grpc_java_out=[output directory] [file name].proto
 Compile into dart / flutter:
     protoc -I=[input directory] --dart_out=grpc:[output directory] [file name].proto
-    protoc -I=protos --dart_out=grpc:lib/src/generated gb_service.proto
+    protoc -I=protos --dart_out=grpc:lib/generated_protos gb_service.proto
 etc.
 */

@@ -1,8 +1,9 @@
 -- region 1. platform entity --> consumer or producer
 create table if not exists "user"
 (
-    "id"   serial primary key,
-    "name" varchar(70)
+    "id"    serial primary key,
+    "email" varchar(70),
+    "name"  varchar(70)
 );
 -- endregion
 

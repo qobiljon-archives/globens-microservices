@@ -156,7 +156,7 @@ if __name__ == '__main__':
     db.init()
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
     gb_service_pb2_grpc.add_GlobensServiceServicer_to_server(servicer=GlobensServiceServicer(), server=server)
-    server.add_insecure_port('165.246.42.172:50052')  # TODO: check the address!!!
+    server.add_insecure_port('0.0.0.0:50052')  # TODO: check the address!!!
     server.start()
 
     try:
