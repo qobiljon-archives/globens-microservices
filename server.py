@@ -7,26 +7,47 @@ from tools import db_mgr as db
 from tools import utils
 import grpc
 import time
+import json
 
 
 class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
     # region user management module
     def authenticateUser(self, request, context):
         result = gb_service_pb2.AuthenticateUser.Response()
+        result.success = False
 
-        if request.method == gb_service_pb2.AuthenticateUser.AuthMethod.GOOGLE:
-            google_profile = utils.load_google_profile(id_token=request.accessToken)
-            print(google_profile)
-        elif request.method == gb_service_pb2.AuthenticateUser.AuthMethod.FACEBOOK:
-            print(request.accessToken)
-        elif request.method == gb_service_pb2.AuthenticateUser.AuthMethod.KAKAOTALK:
-            print(request.accessToken)
-        elif request.method == gb_service_pb2.AuthenticateUser.AuthMethod.PHONE:
-            print(request.accessToken)
-        elif request.method == gb_service_pb2.AuthenticateUser.AuthMethod.APPLE:
-            print(request.accessToken)
+        method = request.method
+        tokens = json.loads(s=request.tokensJson)
 
-        result.success = True
+        if method == gb_service_pb2.AuthenticateUser.AuthMethod.GOOGLE:
+            print(tokens)
+            user_profile = utils.load_google_profile(id_token=tokens['idToken'])
+            db_user, session_key = db.create_or_update_user(
+                email=user_profile['email'],
+                name=user_profile['name'],
+                picture=user_profile['picture'],
+                tokens=request.tokensJson
+            )
+            result.sessionKey = session_key
+            result.success = True
+        elif method == gb_service_pb2.AuthenticateUser.AuthMethod.FACEBOOK:
+            print(request.tokensJson)
+            user_profile = utils.load_facebook_profile(access_token=tokens['accessToken'])
+            db_user, session_key = db.create_or_update_user(
+                email=user_profile['email'],
+                name=user_profile['name'],
+                picture=user_profile['picture'],
+                tokens=request.tokensJson
+            )
+            result.sessionKey = session_key
+            result.success = True
+        elif method == gb_service_pb2.AuthenticateUser.AuthMethod.KAKAOTALK:
+            print(tokens['accessToken'])
+        elif method == gb_service_pb2.AuthenticateUser.AuthMethod.PHONE:
+            print(tokens)
+        elif method == gb_service_pb2.AuthenticateUser.AuthMethod.APPLE:
+            print(tokens)
+
         return result
 
     def deactivateUser(self, request, context):
@@ -168,7 +189,6 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
 
 if __name__ == '__main__':
     print('Starting gRPC server on port 50052.')
-    db.init()
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
     gb_service_pb2_grpc.add_GlobensServiceServicer_to_server(servicer=GlobensServiceServicer(), server=server)
     server.add_insecure_port('0.0.0.0:50052')  # TODO: check the address!!!

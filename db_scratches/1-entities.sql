@@ -1,9 +1,12 @@
 -- region 1. platform entity --> consumer or producer
-create table if not exists "user"
+create table if not exists "gb_user"
 (
-    "id"    serial primary key,
-    "email" varchar(70),
-    "name"  varchar(70)
+    "id"         serial primary key,
+    "email"      text unique,
+    "name"       varchar(300),
+    "picture"    text,
+    "tokens"     text,
+    "sessionKey" varchar(300) default null
 );
 -- endregion
 
@@ -11,7 +14,7 @@ create table if not exists "user"
 -- region 2. vacancy --> users create/occupy vacancy in business page
 -- role type for vacancy --> business owner, employee, or individual entrepreneur
 create type "gb_vacancy_role" as enum ('business owner', 'employee', 'individual entrepreneur');
-create table if not exists "vacancy"
+create table if not exists "gb_vacancy"
 (
     "id"    serial primary key,
     "role"  gb_vacancy_role,
@@ -21,7 +24,7 @@ create table if not exists "vacancy"
 
 
 -- region 3. vacancy_applications --> users apply for a vacancy
-create table if not exists "vacancy_application"
+create table if not exists "gb_vacancy_application"
 (
     "id" serial primary key
 );
@@ -31,7 +34,7 @@ create table if not exists "vacancy_application"
 -- region 4. business page for creating/publishing products
 -- business page for creating/publishing products
 create type "gb_business_page_type" as enum ('small business', 'large business');
-create table if not exists "business_page"
+create table if not exists "gb_business_page"
 (
     "id"    serial primary key,
     "type"  gb_business_page_type,
@@ -41,7 +44,7 @@ create table if not exists "business_page"
 
 
 -- region 5. product : platform entity
-create table if not exists "product"
+create table if not exists "gb_product"
 (
     "id"        serial primary key,
     "name"      varchar(250), -- todo check 250 character length for our products
@@ -51,9 +54,14 @@ create table if not exists "product"
 
 
 -- region 6. log of purchases --> consumer buys a product from producer
-create table if not exists "purchase"
+create table if not exists "gb_purchase"
 (
     "id"            serial primary key,
     "purchase_time" timestamp
 );
+-- endregion
+
+
+--  region 7. others
+
 -- endregion

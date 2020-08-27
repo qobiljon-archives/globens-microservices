@@ -16,7 +16,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
     package='',
     syntax='proto3',
     serialized_options=b'\n\nuz.globens',
-    serialized_pb=b'\n\x10gb_service.proto\"\xde\x01\n\x10\x41uthenticateUser\x1aL\n\x07Request\x12,\n\x06method\x18\x01 \x01(\x0e\x32\x1c.AuthenticateUser.AuthMethod\x12\x13\n\x0b\x61\x63\x63\x65ssToken\x18\x02 \x01(\t\x1a/\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\x12\x12\n\nsessionKey\x18\x02 \x01(\x05\"K\n\nAuthMethod\x12\n\n\x06GOOGLE\x10\x00\x12\x0c\n\x08\x46\x41\x43\x45\x42OOK\x10\x01\x12\r\n\tKAKAOTALK\x10\x03\x12\t\n\x05PHONE\x10\x04\x12\t\n\x05\x41PPLE\x10\x05\"L\n\x0e\x44\x65\x61\x63tivateUser\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\x05\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"O\n\x11UpdateUserDetails\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"N\n\x10\x46\x65tchUserDetails\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"K\n\rCreateVacancy\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"R\n\x14UpdateVacancyDetails\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"M\n\x0fUncreateVacancy\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"L\n\x0e\x46\x65tchVacancies\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"Q\n\x13\x46\x65tchVacancyDetails\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"V\n\x18\x43reateVacancyApplication\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"]\n\x1fUpdateVacancyApplicationDetails\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"X\n\x1aUncreateVacancyApplication\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"X\n\x1a\x46\x65tchMyVacancyApplications\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"\\\n\x1e\x46\x65tchVacancyApplicationDetails\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"P\n\x12\x43reateBusinessPage\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"W\n\x19UpdateBusinessPageDetails\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"R\n\x14UncreateBusinessPage\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"P\n\x12\x46\x65tchBusinessPages\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"V\n\x18\x46\x65tchBusinessPageDetails\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"K\n\rCreateProduct\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"R\n\x14UpdateProductDetails\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"M\n\x0fUncreateProduct\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"K\n\rFetchProducts\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"Q\n\x13\x46\x65tchProductDetails\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"L\n\x0ePublishProduct\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"N\n\x10UnpublishProduct\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"I\n\x0bLogPurchase\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"L\n\x0e\x46\x65tchPurchases\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"R\n\x14\x46\x65tchPurchaseDetails\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"A\n\x07TestSum\x1a\x1f\n\x07Request\x12\t\n\x01\x61\x18\x01 \x01(\x05\x12\t\n\x01\x62\x18\x02 \x01(\x05\x1a\x15\n\x08Response\x12\t\n\x01\x63\x18\x01 \x01(\x05\x32\xe2\x13\n\x0eGlobensService\x12K\n\x10\x61uthenticateUser\x12\x19.AuthenticateUser.Request\x1a\x1a.AuthenticateUser.Response\"\x00\x12\x45\n\x0e\x64\x65\x61\x63tivateUser\x12\x17.DeactivateUser.Request\x1a\x18.DeactivateUser.Response\"\x00\x12N\n\x11updateUserDetails\x12\x1a.UpdateUserDetails.Request\x1a\x1b.UpdateUserDetails.Response\"\x00\x12K\n\x10\x66\x65tchUserDetails\x12\x19.FetchUserDetails.Request\x1a\x1a.FetchUserDetails.Response\"\x00\x12\x42\n\rcreateVacancy\x12\x16.CreateVacancy.Request\x1a\x17.CreateVacancy.Response\"\x00\x12W\n\x14updateVacancyDetails\x12\x1d.UpdateVacancyDetails.Request\x1a\x1e.UpdateVacancyDetails.Response\"\x00\x12H\n\x0funcreateVacancy\x12\x18.UncreateVacancy.Request\x1a\x19.UncreateVacancy.Response\"\x00\x12\x45\n\x0e\x66\x65tchVacancies\x12\x17.FetchVacancies.Request\x1a\x18.FetchVacancies.Response\"\x00\x12T\n\x13\x66\x65tchVacancyDetails\x12\x1c.FetchVacancyDetails.Request\x1a\x1d.FetchVacancyDetails.Response\"\x00\x12\x63\n\x18\x63reateVacancyApplication\x12!.CreateVacancyApplication.Request\x1a\".CreateVacancyApplication.Response\"\x00\x12x\n\x1fupdateVacancyApplicationDetails\x12(.UpdateVacancyApplicationDetails.Request\x1a).UpdateVacancyApplicationDetails.Response\"\x00\x12i\n\x1auncreateVacancyApplication\x12#.UncreateVacancyApplication.Request\x1a$.UncreateVacancyApplication.Response\"\x00\x12i\n\x1a\x66\x65tchMyVacancyApplications\x12#.FetchMyVacancyApplications.Request\x1a$.FetchMyVacancyApplications.Response\"\x00\x12u\n\x1e\x66\x65tchVacancyApplicationDetails\x12\'.FetchVacancyApplicationDetails.Request\x1a(.FetchVacancyApplicationDetails.Response\"\x00\x12Q\n\x12\x63reateBusinessPage\x12\x1b.CreateBusinessPage.Request\x1a\x1c.CreateBusinessPage.Response\"\x00\x12\x66\n\x19updateBusinessPageDetails\x12\".UpdateBusinessPageDetails.Request\x1a#.UpdateBusinessPageDetails.Response\"\x00\x12W\n\x14uncreateBusinessPage\x12\x1d.UncreateBusinessPage.Request\x1a\x1e.UncreateBusinessPage.Response\"\x00\x12Q\n\x12\x66\x65tchBusinessPages\x12\x1b.FetchBusinessPages.Request\x1a\x1c.FetchBusinessPages.Response\"\x00\x12\x63\n\x18\x66\x65tchBusinessPageDetails\x12!.FetchBusinessPageDetails.Request\x1a\".FetchBusinessPageDetails.Response\"\x00\x12\x42\n\rcreateProduct\x12\x16.CreateProduct.Request\x1a\x17.CreateProduct.Response\"\x00\x12W\n\x14updateProductDetails\x12\x1d.UpdateProductDetails.Request\x1a\x1e.UpdateProductDetails.Response\"\x00\x12\x45\n\x0epublishProduct\x12\x17.PublishProduct.Request\x1a\x18.PublishProduct.Response\"\x00\x12K\n\x10unpublishProduct\x12\x19.UnpublishProduct.Request\x1a\x1a.UnpublishProduct.Response\"\x00\x12H\n\x0funcreateProduct\x12\x18.UncreateProduct.Request\x1a\x19.UncreateProduct.Response\"\x00\x12\x42\n\rfetchProducts\x12\x16.FetchProducts.Request\x1a\x17.FetchProducts.Response\"\x00\x12T\n\x13\x66\x65tchProductDetails\x12\x1c.FetchProductDetails.Request\x1a\x1d.FetchProductDetails.Response\"\x00\x12<\n\x0blogPurchase\x12\x14.LogPurchase.Request\x1a\x15.LogPurchase.Response\"\x00\x12\x45\n\x0e\x66\x65tchPurchases\x12\x17.FetchPurchases.Request\x1a\x18.FetchPurchases.Response\"\x00\x12W\n\x14\x66\x65tchPurchaseDetails\x12\x1d.FetchPurchaseDetails.Request\x1a\x1e.FetchPurchaseDetails.Response\"\x00\x12\x30\n\x07testSum\x12\x10.TestSum.Request\x1a\x11.TestSum.Response\"\x00\x42\x0c\n\nuz.globensb\x06proto3'
+    serialized_pb=b'\n\x10gb_service.proto\"\xdd\x01\n\x10\x41uthenticateUser\x1aK\n\x07Request\x12,\n\x06method\x18\x01 \x01(\x0e\x32\x1c.AuthenticateUser.AuthMethod\x12\x12\n\ntokensJson\x18\x02 \x01(\t\x1a/\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\x12\x12\n\nsessionKey\x18\x02 \x01(\t\"K\n\nAuthMethod\x12\n\n\x06GOOGLE\x10\x00\x12\x0c\n\x08\x46\x41\x43\x45\x42OOK\x10\x01\x12\r\n\tKAKAOTALK\x10\x03\x12\t\n\x05PHONE\x10\x04\x12\t\n\x05\x41PPLE\x10\x05\"L\n\x0e\x44\x65\x61\x63tivateUser\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\x05\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"O\n\x11UpdateUserDetails\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"N\n\x10\x46\x65tchUserDetails\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"K\n\rCreateVacancy\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"R\n\x14UpdateVacancyDetails\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"M\n\x0fUncreateVacancy\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"L\n\x0e\x46\x65tchVacancies\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"Q\n\x13\x46\x65tchVacancyDetails\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"V\n\x18\x43reateVacancyApplication\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"]\n\x1fUpdateVacancyApplicationDetails\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"X\n\x1aUncreateVacancyApplication\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"X\n\x1a\x46\x65tchMyVacancyApplications\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"\\\n\x1e\x46\x65tchVacancyApplicationDetails\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"P\n\x12\x43reateBusinessPage\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"W\n\x19UpdateBusinessPageDetails\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"R\n\x14UncreateBusinessPage\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"P\n\x12\x46\x65tchBusinessPages\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"V\n\x18\x46\x65tchBusinessPageDetails\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"K\n\rCreateProduct\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"R\n\x14UpdateProductDetails\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"M\n\x0fUncreateProduct\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"K\n\rFetchProducts\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"Q\n\x13\x46\x65tchProductDetails\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"L\n\x0ePublishProduct\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"N\n\x10UnpublishProduct\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"I\n\x0bLogPurchase\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"L\n\x0e\x46\x65tchPurchases\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"R\n\x14\x46\x65tchPurchaseDetails\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"A\n\x07TestSum\x1a\x1f\n\x07Request\x12\t\n\x01\x61\x18\x01 \x01(\x05\x12\t\n\x01\x62\x18\x02 \x01(\x05\x1a\x15\n\x08Response\x12\t\n\x01\x63\x18\x01 \x01(\x05\x32\xe2\x13\n\x0eGlobensService\x12K\n\x10\x61uthenticateUser\x12\x19.AuthenticateUser.Request\x1a\x1a.AuthenticateUser.Response\"\x00\x12\x45\n\x0e\x64\x65\x61\x63tivateUser\x12\x17.DeactivateUser.Request\x1a\x18.DeactivateUser.Response\"\x00\x12N\n\x11updateUserDetails\x12\x1a.UpdateUserDetails.Request\x1a\x1b.UpdateUserDetails.Response\"\x00\x12K\n\x10\x66\x65tchUserDetails\x12\x19.FetchUserDetails.Request\x1a\x1a.FetchUserDetails.Response\"\x00\x12\x42\n\rcreateVacancy\x12\x16.CreateVacancy.Request\x1a\x17.CreateVacancy.Response\"\x00\x12W\n\x14updateVacancyDetails\x12\x1d.UpdateVacancyDetails.Request\x1a\x1e.UpdateVacancyDetails.Response\"\x00\x12H\n\x0funcreateVacancy\x12\x18.UncreateVacancy.Request\x1a\x19.UncreateVacancy.Response\"\x00\x12\x45\n\x0e\x66\x65tchVacancies\x12\x17.FetchVacancies.Request\x1a\x18.FetchVacancies.Response\"\x00\x12T\n\x13\x66\x65tchVacancyDetails\x12\x1c.FetchVacancyDetails.Request\x1a\x1d.FetchVacancyDetails.Response\"\x00\x12\x63\n\x18\x63reateVacancyApplication\x12!.CreateVacancyApplication.Request\x1a\".CreateVacancyApplication.Response\"\x00\x12x\n\x1fupdateVacancyApplicationDetails\x12(.UpdateVacancyApplicationDetails.Request\x1a).UpdateVacancyApplicationDetails.Response\"\x00\x12i\n\x1auncreateVacancyApplication\x12#.UncreateVacancyApplication.Request\x1a$.UncreateVacancyApplication.Response\"\x00\x12i\n\x1a\x66\x65tchMyVacancyApplications\x12#.FetchMyVacancyApplications.Request\x1a$.FetchMyVacancyApplications.Response\"\x00\x12u\n\x1e\x66\x65tchVacancyApplicationDetails\x12\'.FetchVacancyApplicationDetails.Request\x1a(.FetchVacancyApplicationDetails.Response\"\x00\x12Q\n\x12\x63reateBusinessPage\x12\x1b.CreateBusinessPage.Request\x1a\x1c.CreateBusinessPage.Response\"\x00\x12\x66\n\x19updateBusinessPageDetails\x12\".UpdateBusinessPageDetails.Request\x1a#.UpdateBusinessPageDetails.Response\"\x00\x12W\n\x14uncreateBusinessPage\x12\x1d.UncreateBusinessPage.Request\x1a\x1e.UncreateBusinessPage.Response\"\x00\x12Q\n\x12\x66\x65tchBusinessPages\x12\x1b.FetchBusinessPages.Request\x1a\x1c.FetchBusinessPages.Response\"\x00\x12\x63\n\x18\x66\x65tchBusinessPageDetails\x12!.FetchBusinessPageDetails.Request\x1a\".FetchBusinessPageDetails.Response\"\x00\x12\x42\n\rcreateProduct\x12\x16.CreateProduct.Request\x1a\x17.CreateProduct.Response\"\x00\x12W\n\x14updateProductDetails\x12\x1d.UpdateProductDetails.Request\x1a\x1e.UpdateProductDetails.Response\"\x00\x12\x45\n\x0epublishProduct\x12\x17.PublishProduct.Request\x1a\x18.PublishProduct.Response\"\x00\x12K\n\x10unpublishProduct\x12\x19.UnpublishProduct.Request\x1a\x1a.UnpublishProduct.Response\"\x00\x12H\n\x0funcreateProduct\x12\x18.UncreateProduct.Request\x1a\x19.UncreateProduct.Response\"\x00\x12\x42\n\rfetchProducts\x12\x16.FetchProducts.Request\x1a\x17.FetchProducts.Response\"\x00\x12T\n\x13\x66\x65tchProductDetails\x12\x1c.FetchProductDetails.Request\x1a\x1d.FetchProductDetails.Response\"\x00\x12<\n\x0blogPurchase\x12\x14.LogPurchase.Request\x1a\x15.LogPurchase.Response\"\x00\x12\x45\n\x0e\x66\x65tchPurchases\x12\x17.FetchPurchases.Request\x1a\x18.FetchPurchases.Response\"\x00\x12W\n\x14\x66\x65tchPurchaseDetails\x12\x1d.FetchPurchaseDetails.Request\x1a\x1e.FetchPurchaseDetails.Response\"\x00\x12\x30\n\x07testSum\x12\x10.TestSum.Request\x1a\x11.TestSum.Response\"\x00\x42\x0c\n\nuz.globensb\x06proto3'
 )
 
 _AUTHENTICATEUSER_AUTHMETHOD = _descriptor.EnumDescriptor(
@@ -48,8 +48,8 @@ _AUTHENTICATEUSER_AUTHMETHOD = _descriptor.EnumDescriptor(
     ],
     containing_type=None,
     serialized_options=None,
-    serialized_start=168,
-    serialized_end=243,
+    serialized_start=167,
+    serialized_end=242,
 )
 _sym_db.RegisterEnumDescriptor(_AUTHENTICATEUSER_AUTHMETHOD)
 
@@ -68,7 +68,7 @@ _AUTHENTICATEUSER_REQUEST = _descriptor.Descriptor(
             is_extension=False, extension_scope=None,
             serialized_options=None, file=DESCRIPTOR),
         _descriptor.FieldDescriptor(
-            name='accessToken', full_name='AuthenticateUser.Request.accessToken', index=1,
+            name='tokensJson', full_name='AuthenticateUser.Request.tokensJson', index=1,
             number=2, type=9, cpp_type=9, label=1,
             has_default_value=False, default_value=b"".decode('utf-8'),
             message_type=None, enum_type=None, containing_type=None,
@@ -87,7 +87,7 @@ _AUTHENTICATEUSER_REQUEST = _descriptor.Descriptor(
     oneofs=[
     ],
     serialized_start=41,
-    serialized_end=117,
+    serialized_end=116,
 )
 
 _AUTHENTICATEUSER_RESPONSE = _descriptor.Descriptor(
@@ -106,8 +106,8 @@ _AUTHENTICATEUSER_RESPONSE = _descriptor.Descriptor(
             serialized_options=None, file=DESCRIPTOR),
         _descriptor.FieldDescriptor(
             name='sessionKey', full_name='AuthenticateUser.Response.sessionKey', index=1,
-            number=2, type=5, cpp_type=1, label=1,
-            has_default_value=False, default_value=0,
+            number=2, type=9, cpp_type=9, label=1,
+            has_default_value=False, default_value=b"".decode('utf-8'),
             message_type=None, enum_type=None, containing_type=None,
             is_extension=False, extension_scope=None,
             serialized_options=None, file=DESCRIPTOR),
@@ -123,8 +123,8 @@ _AUTHENTICATEUSER_RESPONSE = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=119,
-    serialized_end=166,
+    serialized_start=118,
+    serialized_end=165,
 )
 
 _AUTHENTICATEUSER = _descriptor.Descriptor(
@@ -148,7 +148,7 @@ _AUTHENTICATEUSER = _descriptor.Descriptor(
     oneofs=[
     ],
     serialized_start=21,
-    serialized_end=243,
+    serialized_end=242,
 )
 
 _DEACTIVATEUSER_REQUEST = _descriptor.Descriptor(
@@ -177,8 +177,8 @@ _DEACTIVATEUSER_REQUEST = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=263,
-    serialized_end=292,
+    serialized_start=262,
+    serialized_end=291,
 )
 
 _DEACTIVATEUSER_RESPONSE = _descriptor.Descriptor(
@@ -207,8 +207,8 @@ _DEACTIVATEUSER_RESPONSE = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=119,
-    serialized_end=146,
+    serialized_start=118,
+    serialized_end=145,
 )
 
 _DEACTIVATEUSER = _descriptor.Descriptor(
@@ -230,8 +230,8 @@ _DEACTIVATEUSER = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=245,
-    serialized_end=321,
+    serialized_start=244,
+    serialized_end=320,
 )
 
 _UPDATEUSERDETAILS_REQUEST = _descriptor.Descriptor(
@@ -260,8 +260,8 @@ _UPDATEUSERDETAILS_REQUEST = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=344,
-    serialized_end=373,
+    serialized_start=343,
+    serialized_end=372,
 )
 
 _UPDATEUSERDETAILS_RESPONSE = _descriptor.Descriptor(
@@ -290,8 +290,8 @@ _UPDATEUSERDETAILS_RESPONSE = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=119,
-    serialized_end=146,
+    serialized_start=118,
+    serialized_end=145,
 )
 
 _UPDATEUSERDETAILS = _descriptor.Descriptor(
@@ -313,8 +313,8 @@ _UPDATEUSERDETAILS = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=323,
-    serialized_end=402,
+    serialized_start=322,
+    serialized_end=401,
 )
 
 _FETCHUSERDETAILS_REQUEST = _descriptor.Descriptor(
@@ -343,8 +343,8 @@ _FETCHUSERDETAILS_REQUEST = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=344,
-    serialized_end=373,
+    serialized_start=343,
+    serialized_end=372,
 )
 
 _FETCHUSERDETAILS_RESPONSE = _descriptor.Descriptor(
@@ -373,8 +373,8 @@ _FETCHUSERDETAILS_RESPONSE = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=119,
-    serialized_end=146,
+    serialized_start=118,
+    serialized_end=145,
 )
 
 _FETCHUSERDETAILS = _descriptor.Descriptor(
@@ -396,8 +396,8 @@ _FETCHUSERDETAILS = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=404,
-    serialized_end=482,
+    serialized_start=403,
+    serialized_end=481,
 )
 
 _CREATEVACANCY_REQUEST = _descriptor.Descriptor(
@@ -426,8 +426,8 @@ _CREATEVACANCY_REQUEST = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=344,
-    serialized_end=373,
+    serialized_start=343,
+    serialized_end=372,
 )
 
 _CREATEVACANCY_RESPONSE = _descriptor.Descriptor(
@@ -456,8 +456,8 @@ _CREATEVACANCY_RESPONSE = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=119,
-    serialized_end=146,
+    serialized_start=118,
+    serialized_end=145,
 )
 
 _CREATEVACANCY = _descriptor.Descriptor(
@@ -479,8 +479,8 @@ _CREATEVACANCY = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=484,
-    serialized_end=559,
+    serialized_start=483,
+    serialized_end=558,
 )
 
 _UPDATEVACANCYDETAILS_REQUEST = _descriptor.Descriptor(
@@ -509,8 +509,8 @@ _UPDATEVACANCYDETAILS_REQUEST = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=344,
-    serialized_end=373,
+    serialized_start=343,
+    serialized_end=372,
 )
 
 _UPDATEVACANCYDETAILS_RESPONSE = _descriptor.Descriptor(
@@ -539,8 +539,8 @@ _UPDATEVACANCYDETAILS_RESPONSE = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=119,
-    serialized_end=146,
+    serialized_start=118,
+    serialized_end=145,
 )
 
 _UPDATEVACANCYDETAILS = _descriptor.Descriptor(
@@ -562,8 +562,8 @@ _UPDATEVACANCYDETAILS = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=561,
-    serialized_end=643,
+    serialized_start=560,
+    serialized_end=642,
 )
 
 _UNCREATEVACANCY_REQUEST = _descriptor.Descriptor(
@@ -592,8 +592,8 @@ _UNCREATEVACANCY_REQUEST = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=344,
-    serialized_end=373,
+    serialized_start=343,
+    serialized_end=372,
 )
 
 _UNCREATEVACANCY_RESPONSE = _descriptor.Descriptor(
@@ -622,8 +622,8 @@ _UNCREATEVACANCY_RESPONSE = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=119,
-    serialized_end=146,
+    serialized_start=118,
+    serialized_end=145,
 )
 
 _UNCREATEVACANCY = _descriptor.Descriptor(
@@ -645,8 +645,8 @@ _UNCREATEVACANCY = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=645,
-    serialized_end=722,
+    serialized_start=644,
+    serialized_end=721,
 )
 
 _FETCHVACANCIES_REQUEST = _descriptor.Descriptor(
@@ -675,8 +675,8 @@ _FETCHVACANCIES_REQUEST = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=344,
-    serialized_end=373,
+    serialized_start=343,
+    serialized_end=372,
 )
 
 _FETCHVACANCIES_RESPONSE = _descriptor.Descriptor(
@@ -705,8 +705,8 @@ _FETCHVACANCIES_RESPONSE = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=119,
-    serialized_end=146,
+    serialized_start=118,
+    serialized_end=145,
 )
 
 _FETCHVACANCIES = _descriptor.Descriptor(
@@ -728,8 +728,8 @@ _FETCHVACANCIES = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=724,
-    serialized_end=800,
+    serialized_start=723,
+    serialized_end=799,
 )
 
 _FETCHVACANCYDETAILS_REQUEST = _descriptor.Descriptor(
@@ -758,8 +758,8 @@ _FETCHVACANCYDETAILS_REQUEST = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=344,
-    serialized_end=373,
+    serialized_start=343,
+    serialized_end=372,
 )
 
 _FETCHVACANCYDETAILS_RESPONSE = _descriptor.Descriptor(
@@ -788,8 +788,8 @@ _FETCHVACANCYDETAILS_RESPONSE = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=119,
-    serialized_end=146,
+    serialized_start=118,
+    serialized_end=145,
 )
 
 _FETCHVACANCYDETAILS = _descriptor.Descriptor(
@@ -811,8 +811,8 @@ _FETCHVACANCYDETAILS = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=802,
-    serialized_end=883,
+    serialized_start=801,
+    serialized_end=882,
 )
 
 _CREATEVACANCYAPPLICATION_REQUEST = _descriptor.Descriptor(
@@ -841,8 +841,8 @@ _CREATEVACANCYAPPLICATION_REQUEST = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=344,
-    serialized_end=373,
+    serialized_start=343,
+    serialized_end=372,
 )
 
 _CREATEVACANCYAPPLICATION_RESPONSE = _descriptor.Descriptor(
@@ -871,8 +871,8 @@ _CREATEVACANCYAPPLICATION_RESPONSE = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=119,
-    serialized_end=146,
+    serialized_start=118,
+    serialized_end=145,
 )
 
 _CREATEVACANCYAPPLICATION = _descriptor.Descriptor(
@@ -894,8 +894,8 @@ _CREATEVACANCYAPPLICATION = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=885,
-    serialized_end=971,
+    serialized_start=884,
+    serialized_end=970,
 )
 
 _UPDATEVACANCYAPPLICATIONDETAILS_REQUEST = _descriptor.Descriptor(
@@ -924,8 +924,8 @@ _UPDATEVACANCYAPPLICATIONDETAILS_REQUEST = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=344,
-    serialized_end=373,
+    serialized_start=343,
+    serialized_end=372,
 )
 
 _UPDATEVACANCYAPPLICATIONDETAILS_RESPONSE = _descriptor.Descriptor(
@@ -954,8 +954,8 @@ _UPDATEVACANCYAPPLICATIONDETAILS_RESPONSE = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=119,
-    serialized_end=146,
+    serialized_start=118,
+    serialized_end=145,
 )
 
 _UPDATEVACANCYAPPLICATIONDETAILS = _descriptor.Descriptor(
@@ -977,8 +977,8 @@ _UPDATEVACANCYAPPLICATIONDETAILS = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=973,
-    serialized_end=1066,
+    serialized_start=972,
+    serialized_end=1065,
 )
 
 _UNCREATEVACANCYAPPLICATION_REQUEST = _descriptor.Descriptor(
@@ -1007,8 +1007,8 @@ _UNCREATEVACANCYAPPLICATION_REQUEST = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=344,
-    serialized_end=373,
+    serialized_start=343,
+    serialized_end=372,
 )
 
 _UNCREATEVACANCYAPPLICATION_RESPONSE = _descriptor.Descriptor(
@@ -1037,8 +1037,8 @@ _UNCREATEVACANCYAPPLICATION_RESPONSE = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=119,
-    serialized_end=146,
+    serialized_start=118,
+    serialized_end=145,
 )
 
 _UNCREATEVACANCYAPPLICATION = _descriptor.Descriptor(
@@ -1060,8 +1060,8 @@ _UNCREATEVACANCYAPPLICATION = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=1068,
-    serialized_end=1156,
+    serialized_start=1067,
+    serialized_end=1155,
 )
 
 _FETCHMYVACANCYAPPLICATIONS_REQUEST = _descriptor.Descriptor(
@@ -1090,8 +1090,8 @@ _FETCHMYVACANCYAPPLICATIONS_REQUEST = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=344,
-    serialized_end=373,
+    serialized_start=343,
+    serialized_end=372,
 )
 
 _FETCHMYVACANCYAPPLICATIONS_RESPONSE = _descriptor.Descriptor(
@@ -1120,8 +1120,8 @@ _FETCHMYVACANCYAPPLICATIONS_RESPONSE = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=119,
-    serialized_end=146,
+    serialized_start=118,
+    serialized_end=145,
 )
 
 _FETCHMYVACANCYAPPLICATIONS = _descriptor.Descriptor(
@@ -1143,8 +1143,8 @@ _FETCHMYVACANCYAPPLICATIONS = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=1158,
-    serialized_end=1246,
+    serialized_start=1157,
+    serialized_end=1245,
 )
 
 _FETCHVACANCYAPPLICATIONDETAILS_REQUEST = _descriptor.Descriptor(
@@ -1173,8 +1173,8 @@ _FETCHVACANCYAPPLICATIONDETAILS_REQUEST = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=344,
-    serialized_end=373,
+    serialized_start=343,
+    serialized_end=372,
 )
 
 _FETCHVACANCYAPPLICATIONDETAILS_RESPONSE = _descriptor.Descriptor(
@@ -1203,8 +1203,8 @@ _FETCHVACANCYAPPLICATIONDETAILS_RESPONSE = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=119,
-    serialized_end=146,
+    serialized_start=118,
+    serialized_end=145,
 )
 
 _FETCHVACANCYAPPLICATIONDETAILS = _descriptor.Descriptor(
@@ -1226,8 +1226,8 @@ _FETCHVACANCYAPPLICATIONDETAILS = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=1248,
-    serialized_end=1340,
+    serialized_start=1247,
+    serialized_end=1339,
 )
 
 _CREATEBUSINESSPAGE_REQUEST = _descriptor.Descriptor(
@@ -1256,8 +1256,8 @@ _CREATEBUSINESSPAGE_REQUEST = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=344,
-    serialized_end=373,
+    serialized_start=343,
+    serialized_end=372,
 )
 
 _CREATEBUSINESSPAGE_RESPONSE = _descriptor.Descriptor(
@@ -1286,8 +1286,8 @@ _CREATEBUSINESSPAGE_RESPONSE = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=119,
-    serialized_end=146,
+    serialized_start=118,
+    serialized_end=145,
 )
 
 _CREATEBUSINESSPAGE = _descriptor.Descriptor(
@@ -1309,8 +1309,8 @@ _CREATEBUSINESSPAGE = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=1342,
-    serialized_end=1422,
+    serialized_start=1341,
+    serialized_end=1421,
 )
 
 _UPDATEBUSINESSPAGEDETAILS_REQUEST = _descriptor.Descriptor(
@@ -1339,8 +1339,8 @@ _UPDATEBUSINESSPAGEDETAILS_REQUEST = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=344,
-    serialized_end=373,
+    serialized_start=343,
+    serialized_end=372,
 )
 
 _UPDATEBUSINESSPAGEDETAILS_RESPONSE = _descriptor.Descriptor(
@@ -1369,8 +1369,8 @@ _UPDATEBUSINESSPAGEDETAILS_RESPONSE = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=119,
-    serialized_end=146,
+    serialized_start=118,
+    serialized_end=145,
 )
 
 _UPDATEBUSINESSPAGEDETAILS = _descriptor.Descriptor(
@@ -1392,8 +1392,8 @@ _UPDATEBUSINESSPAGEDETAILS = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=1424,
-    serialized_end=1511,
+    serialized_start=1423,
+    serialized_end=1510,
 )
 
 _UNCREATEBUSINESSPAGE_REQUEST = _descriptor.Descriptor(
@@ -1422,8 +1422,8 @@ _UNCREATEBUSINESSPAGE_REQUEST = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=344,
-    serialized_end=373,
+    serialized_start=343,
+    serialized_end=372,
 )
 
 _UNCREATEBUSINESSPAGE_RESPONSE = _descriptor.Descriptor(
@@ -1452,8 +1452,8 @@ _UNCREATEBUSINESSPAGE_RESPONSE = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=119,
-    serialized_end=146,
+    serialized_start=118,
+    serialized_end=145,
 )
 
 _UNCREATEBUSINESSPAGE = _descriptor.Descriptor(
@@ -1475,8 +1475,8 @@ _UNCREATEBUSINESSPAGE = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=1513,
-    serialized_end=1595,
+    serialized_start=1512,
+    serialized_end=1594,
 )
 
 _FETCHBUSINESSPAGES_REQUEST = _descriptor.Descriptor(
@@ -1505,8 +1505,8 @@ _FETCHBUSINESSPAGES_REQUEST = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=344,
-    serialized_end=373,
+    serialized_start=343,
+    serialized_end=372,
 )
 
 _FETCHBUSINESSPAGES_RESPONSE = _descriptor.Descriptor(
@@ -1535,8 +1535,8 @@ _FETCHBUSINESSPAGES_RESPONSE = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=119,
-    serialized_end=146,
+    serialized_start=118,
+    serialized_end=145,
 )
 
 _FETCHBUSINESSPAGES = _descriptor.Descriptor(
@@ -1558,8 +1558,8 @@ _FETCHBUSINESSPAGES = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=1597,
-    serialized_end=1677,
+    serialized_start=1596,
+    serialized_end=1676,
 )
 
 _FETCHBUSINESSPAGEDETAILS_REQUEST = _descriptor.Descriptor(
@@ -1588,8 +1588,8 @@ _FETCHBUSINESSPAGEDETAILS_REQUEST = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=344,
-    serialized_end=373,
+    serialized_start=343,
+    serialized_end=372,
 )
 
 _FETCHBUSINESSPAGEDETAILS_RESPONSE = _descriptor.Descriptor(
@@ -1618,8 +1618,8 @@ _FETCHBUSINESSPAGEDETAILS_RESPONSE = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=119,
-    serialized_end=146,
+    serialized_start=118,
+    serialized_end=145,
 )
 
 _FETCHBUSINESSPAGEDETAILS = _descriptor.Descriptor(
@@ -1641,8 +1641,8 @@ _FETCHBUSINESSPAGEDETAILS = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=1679,
-    serialized_end=1765,
+    serialized_start=1678,
+    serialized_end=1764,
 )
 
 _CREATEPRODUCT_REQUEST = _descriptor.Descriptor(
@@ -1671,8 +1671,8 @@ _CREATEPRODUCT_REQUEST = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=344,
-    serialized_end=373,
+    serialized_start=343,
+    serialized_end=372,
 )
 
 _CREATEPRODUCT_RESPONSE = _descriptor.Descriptor(
@@ -1701,8 +1701,8 @@ _CREATEPRODUCT_RESPONSE = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=119,
-    serialized_end=146,
+    serialized_start=118,
+    serialized_end=145,
 )
 
 _CREATEPRODUCT = _descriptor.Descriptor(
@@ -1724,8 +1724,8 @@ _CREATEPRODUCT = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=1767,
-    serialized_end=1842,
+    serialized_start=1766,
+    serialized_end=1841,
 )
 
 _UPDATEPRODUCTDETAILS_REQUEST = _descriptor.Descriptor(
@@ -1754,8 +1754,8 @@ _UPDATEPRODUCTDETAILS_REQUEST = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=344,
-    serialized_end=373,
+    serialized_start=343,
+    serialized_end=372,
 )
 
 _UPDATEPRODUCTDETAILS_RESPONSE = _descriptor.Descriptor(
@@ -1784,8 +1784,8 @@ _UPDATEPRODUCTDETAILS_RESPONSE = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=119,
-    serialized_end=146,
+    serialized_start=118,
+    serialized_end=145,
 )
 
 _UPDATEPRODUCTDETAILS = _descriptor.Descriptor(
@@ -1807,8 +1807,8 @@ _UPDATEPRODUCTDETAILS = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=1844,
-    serialized_end=1926,
+    serialized_start=1843,
+    serialized_end=1925,
 )
 
 _UNCREATEPRODUCT_REQUEST = _descriptor.Descriptor(
@@ -1837,8 +1837,8 @@ _UNCREATEPRODUCT_REQUEST = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=344,
-    serialized_end=373,
+    serialized_start=343,
+    serialized_end=372,
 )
 
 _UNCREATEPRODUCT_RESPONSE = _descriptor.Descriptor(
@@ -1867,8 +1867,8 @@ _UNCREATEPRODUCT_RESPONSE = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=119,
-    serialized_end=146,
+    serialized_start=118,
+    serialized_end=145,
 )
 
 _UNCREATEPRODUCT = _descriptor.Descriptor(
@@ -1890,8 +1890,8 @@ _UNCREATEPRODUCT = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=1928,
-    serialized_end=2005,
+    serialized_start=1927,
+    serialized_end=2004,
 )
 
 _FETCHPRODUCTS_REQUEST = _descriptor.Descriptor(
@@ -1920,8 +1920,8 @@ _FETCHPRODUCTS_REQUEST = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=344,
-    serialized_end=373,
+    serialized_start=343,
+    serialized_end=372,
 )
 
 _FETCHPRODUCTS_RESPONSE = _descriptor.Descriptor(
@@ -1950,8 +1950,8 @@ _FETCHPRODUCTS_RESPONSE = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=119,
-    serialized_end=146,
+    serialized_start=118,
+    serialized_end=145,
 )
 
 _FETCHPRODUCTS = _descriptor.Descriptor(
@@ -1973,8 +1973,8 @@ _FETCHPRODUCTS = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=2007,
-    serialized_end=2082,
+    serialized_start=2006,
+    serialized_end=2081,
 )
 
 _FETCHPRODUCTDETAILS_REQUEST = _descriptor.Descriptor(
@@ -2003,8 +2003,8 @@ _FETCHPRODUCTDETAILS_REQUEST = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=344,
-    serialized_end=373,
+    serialized_start=343,
+    serialized_end=372,
 )
 
 _FETCHPRODUCTDETAILS_RESPONSE = _descriptor.Descriptor(
@@ -2033,8 +2033,8 @@ _FETCHPRODUCTDETAILS_RESPONSE = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=119,
-    serialized_end=146,
+    serialized_start=118,
+    serialized_end=145,
 )
 
 _FETCHPRODUCTDETAILS = _descriptor.Descriptor(
@@ -2056,8 +2056,8 @@ _FETCHPRODUCTDETAILS = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=2084,
-    serialized_end=2165,
+    serialized_start=2083,
+    serialized_end=2164,
 )
 
 _PUBLISHPRODUCT_REQUEST = _descriptor.Descriptor(
@@ -2086,8 +2086,8 @@ _PUBLISHPRODUCT_REQUEST = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=344,
-    serialized_end=373,
+    serialized_start=343,
+    serialized_end=372,
 )
 
 _PUBLISHPRODUCT_RESPONSE = _descriptor.Descriptor(
@@ -2116,8 +2116,8 @@ _PUBLISHPRODUCT_RESPONSE = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=119,
-    serialized_end=146,
+    serialized_start=118,
+    serialized_end=145,
 )
 
 _PUBLISHPRODUCT = _descriptor.Descriptor(
@@ -2139,8 +2139,8 @@ _PUBLISHPRODUCT = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=2167,
-    serialized_end=2243,
+    serialized_start=2166,
+    serialized_end=2242,
 )
 
 _UNPUBLISHPRODUCT_REQUEST = _descriptor.Descriptor(
@@ -2169,8 +2169,8 @@ _UNPUBLISHPRODUCT_REQUEST = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=344,
-    serialized_end=373,
+    serialized_start=343,
+    serialized_end=372,
 )
 
 _UNPUBLISHPRODUCT_RESPONSE = _descriptor.Descriptor(
@@ -2199,8 +2199,8 @@ _UNPUBLISHPRODUCT_RESPONSE = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=119,
-    serialized_end=146,
+    serialized_start=118,
+    serialized_end=145,
 )
 
 _UNPUBLISHPRODUCT = _descriptor.Descriptor(
@@ -2222,8 +2222,8 @@ _UNPUBLISHPRODUCT = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=2245,
-    serialized_end=2323,
+    serialized_start=2244,
+    serialized_end=2322,
 )
 
 _LOGPURCHASE_REQUEST = _descriptor.Descriptor(
@@ -2252,8 +2252,8 @@ _LOGPURCHASE_REQUEST = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=344,
-    serialized_end=373,
+    serialized_start=343,
+    serialized_end=372,
 )
 
 _LOGPURCHASE_RESPONSE = _descriptor.Descriptor(
@@ -2282,8 +2282,8 @@ _LOGPURCHASE_RESPONSE = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=119,
-    serialized_end=146,
+    serialized_start=118,
+    serialized_end=145,
 )
 
 _LOGPURCHASE = _descriptor.Descriptor(
@@ -2305,8 +2305,8 @@ _LOGPURCHASE = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=2325,
-    serialized_end=2398,
+    serialized_start=2324,
+    serialized_end=2397,
 )
 
 _FETCHPURCHASES_REQUEST = _descriptor.Descriptor(
@@ -2335,8 +2335,8 @@ _FETCHPURCHASES_REQUEST = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=344,
-    serialized_end=373,
+    serialized_start=343,
+    serialized_end=372,
 )
 
 _FETCHPURCHASES_RESPONSE = _descriptor.Descriptor(
@@ -2365,8 +2365,8 @@ _FETCHPURCHASES_RESPONSE = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=119,
-    serialized_end=146,
+    serialized_start=118,
+    serialized_end=145,
 )
 
 _FETCHPURCHASES = _descriptor.Descriptor(
@@ -2388,8 +2388,8 @@ _FETCHPURCHASES = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=2400,
-    serialized_end=2476,
+    serialized_start=2399,
+    serialized_end=2475,
 )
 
 _FETCHPURCHASEDETAILS_REQUEST = _descriptor.Descriptor(
@@ -2418,8 +2418,8 @@ _FETCHPURCHASEDETAILS_REQUEST = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=344,
-    serialized_end=373,
+    serialized_start=343,
+    serialized_end=372,
 )
 
 _FETCHPURCHASEDETAILS_RESPONSE = _descriptor.Descriptor(
@@ -2448,8 +2448,8 @@ _FETCHPURCHASEDETAILS_RESPONSE = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=119,
-    serialized_end=146,
+    serialized_start=118,
+    serialized_end=145,
 )
 
 _FETCHPURCHASEDETAILS = _descriptor.Descriptor(
@@ -2471,8 +2471,8 @@ _FETCHPURCHASEDETAILS = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=2478,
-    serialized_end=2560,
+    serialized_start=2477,
+    serialized_end=2559,
 )
 
 _TESTSUM_REQUEST = _descriptor.Descriptor(
@@ -2508,8 +2508,8 @@ _TESTSUM_REQUEST = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=2573,
-    serialized_end=2604,
+    serialized_start=2572,
+    serialized_end=2603,
 )
 
 _TESTSUM_RESPONSE = _descriptor.Descriptor(
@@ -2538,8 +2538,8 @@ _TESTSUM_RESPONSE = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=2606,
-    serialized_end=2627,
+    serialized_start=2605,
+    serialized_end=2626,
 )
 
 _TESTSUM = _descriptor.Descriptor(
@@ -2561,8 +2561,8 @@ _TESTSUM = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=2562,
-    serialized_end=2627,
+    serialized_start=2561,
+    serialized_end=2626,
 )
 
 _AUTHENTICATEUSER_REQUEST.fields_by_name['method'].enum_type = _AUTHENTICATEUSER_AUTHMETHOD
@@ -3357,8 +3357,8 @@ _GLOBENSSERVICE = _descriptor.ServiceDescriptor(
     file=DESCRIPTOR,
     index=0,
     serialized_options=None,
-    serialized_start=2630,
-    serialized_end=5160,
+    serialized_start=2629,
+    serialized_end=5159,
     methods=[
         _descriptor.MethodDescriptor(
             name='authenticateUser',

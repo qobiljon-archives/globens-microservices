@@ -13,11 +13,11 @@ message AuthenticateUser {
   }
   message Request{
     AuthMethod method = 1;
-    string accessToken = 2; // could be : auth token, phone number, etc.
+    string tokensJson = 2; // could be : auth token, phone number, etc.
   }
   message Response{
     bool success = 1;
-    int32 sessionKey = 2;
+    string sessionKey = 2;
   }
 }
 message DeactivateUser{
