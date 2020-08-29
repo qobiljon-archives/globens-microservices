@@ -21,7 +21,7 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
 
         if method == gb_service_pb2.AuthenticateUser.AuthMethod.GOOGLE:
             user_profile = utils.load_google_profile(id_token=tokens['idToken'])
-            db_user, session_key = db.create_or_update_user(
+            gb_user, session_key = db.create_or_update_user(
                 email=user_profile['email'],
                 name=user_profile['name'],
                 picture=user_profile['picture'],
@@ -31,7 +31,7 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
             result.success = True
         elif method == gb_service_pb2.AuthenticateUser.AuthMethod.FACEBOOK:
             user_profile = utils.load_facebook_profile(access_token=tokens['accessToken'])
-            db_user, session_key = db.create_or_update_user(
+            gb_user, session_key = db.create_or_update_user(
                 email=user_profile['email'],
                 name=user_profile['name'],
                 picture=user_profile['picture'],
@@ -49,130 +49,143 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
         return result
 
     def deactivateUser(self, request, context):
-        # todo fill this part
+        # todo deactivate user
         pass
 
     def updateUserDetails(self, request, context):
-        # todo fill this part
+        # todo update user details
         pass
 
     def fetchUserDetails(self, request, context):
-        # todo fill this part
+        # todo fetch user details
         pass
 
     # endregion
 
     # region vacancy management module
     def createVacancy(self, request, context):
-        # todo fill this part
+        # todo create vacancy
         pass
 
     def updateVacancyDetails(self, request, context):
-        # todo fill this part
+        # todo update vacancy details
         pass
 
     def uncreateVacancy(self, request, context):
-        # todo fill this part
+        # todo uncreate vacancy
         pass
 
     def fetchVacancies(self, request, context):
-        # todo fill this part
+        # todo fetch vacancies
         pass
 
     def fetchVacancyDetails(self, request, context):
-        # todo fill this part
+        # todo fetch vacancy details
         pass
 
     # endregion
 
     # region vacancy application management module
     def createVacancyApplication(self, request, context):
-        # todo fill this part
+        # todo create vacancy application
         pass
 
     def updateVacancyApplicationDetails(self, request, context):
-        # todo fill this part
+        # todo update vacancy application
         pass
 
     def uncreateVacancyApplication(self, request, context):
-        # todo fill this part
+        # todo uncreate vacancy application
         pass
 
     def fetchMyVacancyApplications(self, request, context):
-        # todo fill this part
+        # todo fetch my vacancy applications
         pass
 
     def fetchVacancyApplicationDetails(self, request, context):
-        # todo fill this part
+        # todo fetch vacancy application details
         pass
 
     # endregion
 
     # region business page management module
     def createBusinessPage(self, request, context):
-        # todo fill this part
+        # todo create business page
         pass
 
     def updateBusinessPageDetails(self, request, context):
-        # todo fill this part
+        # todo update business page details
         pass
 
     def uncreateBusinessPage(self, request, context):
-        # todo fill this part
+        # todo uncreate business page
         pass
 
     def fetchBusinessPages(self, request, context):
-        # todo fill this part
-        pass
+        result = gb_service_pb2.AuthenticateUser.Response()
+        result.success = False
+
+        gb_user = db.get_user_by_session(session_key=request.sessionKey)
+
+        if gb_user is not None:
+            for gb_business_page, gb_vacancy in db.get_business_pages(gb_user=gb_user):
+                result.id.extend(gb_business_page['id'])
+                result.title.extend(gb_business_page['title'])
+                result.type.extend(gb_business_page['type'])
+                result.pictureBlob.extend(gb_business_page['pictureBlob'])
+                result.role.extend(gb_vacancy['role'])
+            result.success = True
+
+        return result
 
     def fetchBusinessPageDetails(self, request, context):
-        # todo fill this part
+        # todo fetch business page details
         pass
 
     # endregion
 
     # region product management module
     def createProduct(self, request, context):
-        # todo fill this part
+        # todo create product
         pass
 
     def updateProductDetails(self, request, context):
-        # todo fill this part
+        # todo update product details
         pass
 
     def uncreateProduct(self, request, context):
-        # todo fill this part
+        # todo uncreate product
         pass
 
     def publishProduct(self, request, context):
-        # todo fill this part
+        # todo publish product
         pass
 
     def unpublishProduct(self, request, context):
-        # todo fill this part
+        # todo unpublish product
         pass
 
     def fetchProducts(self, request, context):
-        # todo fill this part
+        # todo fetch products
         pass
 
     def fetchProductDetails(self, request, context):
-        # todo fill this part
+        # todo fetch product details
         pass
 
     # endregion
 
     # region purchase management module
     def logPurchase(self, request, context):
-        # todo fill this part
+        # todo log purchase
         pass
 
     def fetchPurchases(self, request, context):
-        # todo fill this part
+        # todo fetch purchases
         pass
 
     def fetchPurchaseDetails(self, request, context):
-        # todo fill this part
+        # todo fetch purchase details
         pass
 
     # endregion

@@ -36,6 +36,19 @@ def get_user(email):
     return gb_user
 
 
+def get_user_by_session(session_key):
+    if session_key is None:
+        return None
+
+    cur = get_db_connection().cursor(cursor_factory=psycopg2_extras.DictCursor)
+    cur.execute('select * from "gb_user" where "sessionKey" = %s;', (
+        session_key,
+    ))
+    gb_user = cur.fetchone()
+    cur.close()
+    return gb_user
+
+
 def user_exists(email):
     return get_user(email=email) is not None
 
@@ -66,3 +79,26 @@ def create_or_update_user(email, name, picture, tokens):
     cur.close()
     get_db_connection().commit()
     return get_user(email=email), session_key
+
+
+def get_business_pages(gb_user):
+    cur = get_db_connection().cursor(cursor_factory=psycopg2_extras.DictCursor)
+
+    # step 1 : get user's jobs (from vacancies table)
+    cur.execute('select * from "gb_vacancy" where "user_id"=%s;', (
+        gb_user['id'],
+    ))
+    gb_vacancies = cur.fetchall()
+
+    # step 2 : get unique campaigns related of the jobs/vacancies
+    res = {}
+    for gb_vacancy in gb_vacancies:
+        cur.execute('select * from "gb_business_page" where "id" = %s;', (
+            gb_vacancy['business_page_id'],
+        ))
+        gb_business_page = cur.fetchone()
+        if gb_business_page not in res:
+            res[gb_business_page] = gb_vacancy
+
+    cur.close()
+    return [(x, res[x]) for x in res]  # [(gb_business_page, gb_vacancy),]

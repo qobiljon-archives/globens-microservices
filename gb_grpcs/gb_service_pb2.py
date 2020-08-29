@@ -16,7 +16,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
     package='',
     syntax='proto3',
     serialized_options=b'\n\nuz.globens',
-    serialized_pb=b'\n\x10gb_service.proto\"\xdd\x01\n\x10\x41uthenticateUser\x1aK\n\x07Request\x12,\n\x06method\x18\x01 \x01(\x0e\x32\x1c.AuthenticateUser.AuthMethod\x12\x12\n\ntokensJson\x18\x02 \x01(\t\x1a/\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\x12\x12\n\nsessionKey\x18\x02 \x01(\t\"K\n\nAuthMethod\x12\n\n\x06GOOGLE\x10\x00\x12\x0c\n\x08\x46\x41\x43\x45\x42OOK\x10\x01\x12\r\n\tKAKAOTALK\x10\x03\x12\t\n\x05PHONE\x10\x04\x12\t\n\x05\x41PPLE\x10\x05\"L\n\x0e\x44\x65\x61\x63tivateUser\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\x05\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"O\n\x11UpdateUserDetails\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"N\n\x10\x46\x65tchUserDetails\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"K\n\rCreateVacancy\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"R\n\x14UpdateVacancyDetails\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"M\n\x0fUncreateVacancy\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"L\n\x0e\x46\x65tchVacancies\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"Q\n\x13\x46\x65tchVacancyDetails\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"V\n\x18\x43reateVacancyApplication\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"]\n\x1fUpdateVacancyApplicationDetails\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"X\n\x1aUncreateVacancyApplication\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"X\n\x1a\x46\x65tchMyVacancyApplications\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"\\\n\x1e\x46\x65tchVacancyApplicationDetails\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"P\n\x12\x43reateBusinessPage\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"W\n\x19UpdateBusinessPageDetails\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"R\n\x14UncreateBusinessPage\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"P\n\x12\x46\x65tchBusinessPages\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"V\n\x18\x46\x65tchBusinessPageDetails\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"K\n\rCreateProduct\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"R\n\x14UpdateProductDetails\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"M\n\x0fUncreateProduct\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"K\n\rFetchProducts\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"Q\n\x13\x46\x65tchProductDetails\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"L\n\x0ePublishProduct\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"N\n\x10UnpublishProduct\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"I\n\x0bLogPurchase\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"L\n\x0e\x46\x65tchPurchases\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"R\n\x14\x46\x65tchPurchaseDetails\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"A\n\x07TestSum\x1a\x1f\n\x07Request\x12\t\n\x01\x61\x18\x01 \x01(\x05\x12\t\n\x01\x62\x18\x02 \x01(\x05\x1a\x15\n\x08Response\x12\t\n\x01\x63\x18\x01 \x01(\x05\x32\xe2\x13\n\x0eGlobensService\x12K\n\x10\x61uthenticateUser\x12\x19.AuthenticateUser.Request\x1a\x1a.AuthenticateUser.Response\"\x00\x12\x45\n\x0e\x64\x65\x61\x63tivateUser\x12\x17.DeactivateUser.Request\x1a\x18.DeactivateUser.Response\"\x00\x12N\n\x11updateUserDetails\x12\x1a.UpdateUserDetails.Request\x1a\x1b.UpdateUserDetails.Response\"\x00\x12K\n\x10\x66\x65tchUserDetails\x12\x19.FetchUserDetails.Request\x1a\x1a.FetchUserDetails.Response\"\x00\x12\x42\n\rcreateVacancy\x12\x16.CreateVacancy.Request\x1a\x17.CreateVacancy.Response\"\x00\x12W\n\x14updateVacancyDetails\x12\x1d.UpdateVacancyDetails.Request\x1a\x1e.UpdateVacancyDetails.Response\"\x00\x12H\n\x0funcreateVacancy\x12\x18.UncreateVacancy.Request\x1a\x19.UncreateVacancy.Response\"\x00\x12\x45\n\x0e\x66\x65tchVacancies\x12\x17.FetchVacancies.Request\x1a\x18.FetchVacancies.Response\"\x00\x12T\n\x13\x66\x65tchVacancyDetails\x12\x1c.FetchVacancyDetails.Request\x1a\x1d.FetchVacancyDetails.Response\"\x00\x12\x63\n\x18\x63reateVacancyApplication\x12!.CreateVacancyApplication.Request\x1a\".CreateVacancyApplication.Response\"\x00\x12x\n\x1fupdateVacancyApplicationDetails\x12(.UpdateVacancyApplicationDetails.Request\x1a).UpdateVacancyApplicationDetails.Response\"\x00\x12i\n\x1auncreateVacancyApplication\x12#.UncreateVacancyApplication.Request\x1a$.UncreateVacancyApplication.Response\"\x00\x12i\n\x1a\x66\x65tchMyVacancyApplications\x12#.FetchMyVacancyApplications.Request\x1a$.FetchMyVacancyApplications.Response\"\x00\x12u\n\x1e\x66\x65tchVacancyApplicationDetails\x12\'.FetchVacancyApplicationDetails.Request\x1a(.FetchVacancyApplicationDetails.Response\"\x00\x12Q\n\x12\x63reateBusinessPage\x12\x1b.CreateBusinessPage.Request\x1a\x1c.CreateBusinessPage.Response\"\x00\x12\x66\n\x19updateBusinessPageDetails\x12\".UpdateBusinessPageDetails.Request\x1a#.UpdateBusinessPageDetails.Response\"\x00\x12W\n\x14uncreateBusinessPage\x12\x1d.UncreateBusinessPage.Request\x1a\x1e.UncreateBusinessPage.Response\"\x00\x12Q\n\x12\x66\x65tchBusinessPages\x12\x1b.FetchBusinessPages.Request\x1a\x1c.FetchBusinessPages.Response\"\x00\x12\x63\n\x18\x66\x65tchBusinessPageDetails\x12!.FetchBusinessPageDetails.Request\x1a\".FetchBusinessPageDetails.Response\"\x00\x12\x42\n\rcreateProduct\x12\x16.CreateProduct.Request\x1a\x17.CreateProduct.Response\"\x00\x12W\n\x14updateProductDetails\x12\x1d.UpdateProductDetails.Request\x1a\x1e.UpdateProductDetails.Response\"\x00\x12\x45\n\x0epublishProduct\x12\x17.PublishProduct.Request\x1a\x18.PublishProduct.Response\"\x00\x12K\n\x10unpublishProduct\x12\x19.UnpublishProduct.Request\x1a\x1a.UnpublishProduct.Response\"\x00\x12H\n\x0funcreateProduct\x12\x18.UncreateProduct.Request\x1a\x19.UncreateProduct.Response\"\x00\x12\x42\n\rfetchProducts\x12\x16.FetchProducts.Request\x1a\x17.FetchProducts.Response\"\x00\x12T\n\x13\x66\x65tchProductDetails\x12\x1c.FetchProductDetails.Request\x1a\x1d.FetchProductDetails.Response\"\x00\x12<\n\x0blogPurchase\x12\x14.LogPurchase.Request\x1a\x15.LogPurchase.Response\"\x00\x12\x45\n\x0e\x66\x65tchPurchases\x12\x17.FetchPurchases.Request\x1a\x18.FetchPurchases.Response\"\x00\x12W\n\x14\x66\x65tchPurchaseDetails\x12\x1d.FetchPurchaseDetails.Request\x1a\x1e.FetchPurchaseDetails.Response\"\x00\x12\x30\n\x07testSum\x12\x10.TestSum.Request\x1a\x11.TestSum.Response\"\x00\x42\x0c\n\nuz.globensb\x06proto3'
+    serialized_pb=b'\n\x10gb_service.proto\"\xdd\x01\n\x10\x41uthenticateUser\x1aK\n\x07Request\x12,\n\x06method\x18\x01 \x01(\x0e\x32\x1c.AuthenticateUser.AuthMethod\x12\x12\n\ntokensJson\x18\x02 \x01(\t\x1a/\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\x12\x12\n\nsessionKey\x18\x02 \x01(\t\"K\n\nAuthMethod\x12\n\n\x06GOOGLE\x10\x00\x12\x0c\n\x08\x46\x41\x43\x45\x42OOK\x10\x01\x12\r\n\tKAKAOTALK\x10\x03\x12\t\n\x05PHONE\x10\x04\x12\t\n\x05\x41PPLE\x10\x05\"L\n\x0e\x44\x65\x61\x63tivateUser\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\x05\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"O\n\x11UpdateUserDetails\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"N\n\x10\x46\x65tchUserDetails\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"K\n\rCreateVacancy\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"R\n\x14UpdateVacancyDetails\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"M\n\x0fUncreateVacancy\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"L\n\x0e\x46\x65tchVacancies\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"Q\n\x13\x46\x65tchVacancyDetails\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"V\n\x18\x43reateVacancyApplication\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"]\n\x1fUpdateVacancyApplicationDetails\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"X\n\x1aUncreateVacancyApplication\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"X\n\x1a\x46\x65tchMyVacancyApplications\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"\\\n\x1e\x46\x65tchVacancyApplicationDetails\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"P\n\x12\x43reateBusinessPage\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"W\n\x19UpdateBusinessPageDetails\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"R\n\x14UncreateBusinessPage\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"\x9c\x01\n\x12\x46\x65tchBusinessPages\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1ag\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\x12\n\n\x02id\x18\x02 \x03(\x05\x12\r\n\x05title\x18\x03 \x03(\t\x12\x0c\n\x04type\x18\x04 \x03(\t\x12\x13\n\x0bpictureBlob\x18\x05 \x03(\x0c\x12\x0c\n\x04role\x18\x06 \x03(\t\"V\n\x18\x46\x65tchBusinessPageDetails\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"K\n\rCreateProduct\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"R\n\x14UpdateProductDetails\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"M\n\x0fUncreateProduct\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"K\n\rFetchProducts\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"Q\n\x13\x46\x65tchProductDetails\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"L\n\x0ePublishProduct\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"N\n\x10UnpublishProduct\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"I\n\x0bLogPurchase\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"L\n\x0e\x46\x65tchPurchases\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"R\n\x14\x46\x65tchPurchaseDetails\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"A\n\x07TestSum\x1a\x1f\n\x07Request\x12\t\n\x01\x61\x18\x01 \x01(\x05\x12\t\n\x01\x62\x18\x02 \x01(\x05\x1a\x15\n\x08Response\x12\t\n\x01\x63\x18\x01 \x01(\x05\x32\xe2\x13\n\x0eGlobensService\x12K\n\x10\x61uthenticateUser\x12\x19.AuthenticateUser.Request\x1a\x1a.AuthenticateUser.Response\"\x00\x12\x45\n\x0e\x64\x65\x61\x63tivateUser\x12\x17.DeactivateUser.Request\x1a\x18.DeactivateUser.Response\"\x00\x12N\n\x11updateUserDetails\x12\x1a.UpdateUserDetails.Request\x1a\x1b.UpdateUserDetails.Response\"\x00\x12K\n\x10\x66\x65tchUserDetails\x12\x19.FetchUserDetails.Request\x1a\x1a.FetchUserDetails.Response\"\x00\x12\x42\n\rcreateVacancy\x12\x16.CreateVacancy.Request\x1a\x17.CreateVacancy.Response\"\x00\x12W\n\x14updateVacancyDetails\x12\x1d.UpdateVacancyDetails.Request\x1a\x1e.UpdateVacancyDetails.Response\"\x00\x12H\n\x0funcreateVacancy\x12\x18.UncreateVacancy.Request\x1a\x19.UncreateVacancy.Response\"\x00\x12\x45\n\x0e\x66\x65tchVacancies\x12\x17.FetchVacancies.Request\x1a\x18.FetchVacancies.Response\"\x00\x12T\n\x13\x66\x65tchVacancyDetails\x12\x1c.FetchVacancyDetails.Request\x1a\x1d.FetchVacancyDetails.Response\"\x00\x12\x63\n\x18\x63reateVacancyApplication\x12!.CreateVacancyApplication.Request\x1a\".CreateVacancyApplication.Response\"\x00\x12x\n\x1fupdateVacancyApplicationDetails\x12(.UpdateVacancyApplicationDetails.Request\x1a).UpdateVacancyApplicationDetails.Response\"\x00\x12i\n\x1auncreateVacancyApplication\x12#.UncreateVacancyApplication.Request\x1a$.UncreateVacancyApplication.Response\"\x00\x12i\n\x1a\x66\x65tchMyVacancyApplications\x12#.FetchMyVacancyApplications.Request\x1a$.FetchMyVacancyApplications.Response\"\x00\x12u\n\x1e\x66\x65tchVacancyApplicationDetails\x12\'.FetchVacancyApplicationDetails.Request\x1a(.FetchVacancyApplicationDetails.Response\"\x00\x12Q\n\x12\x63reateBusinessPage\x12\x1b.CreateBusinessPage.Request\x1a\x1c.CreateBusinessPage.Response\"\x00\x12\x66\n\x19updateBusinessPageDetails\x12\".UpdateBusinessPageDetails.Request\x1a#.UpdateBusinessPageDetails.Response\"\x00\x12W\n\x14uncreateBusinessPage\x12\x1d.UncreateBusinessPage.Request\x1a\x1e.UncreateBusinessPage.Response\"\x00\x12Q\n\x12\x66\x65tchBusinessPages\x12\x1b.FetchBusinessPages.Request\x1a\x1c.FetchBusinessPages.Response\"\x00\x12\x63\n\x18\x66\x65tchBusinessPageDetails\x12!.FetchBusinessPageDetails.Request\x1a\".FetchBusinessPageDetails.Response\"\x00\x12\x42\n\rcreateProduct\x12\x16.CreateProduct.Request\x1a\x17.CreateProduct.Response\"\x00\x12W\n\x14updateProductDetails\x12\x1d.UpdateProductDetails.Request\x1a\x1e.UpdateProductDetails.Response\"\x00\x12\x45\n\x0epublishProduct\x12\x17.PublishProduct.Request\x1a\x18.PublishProduct.Response\"\x00\x12K\n\x10unpublishProduct\x12\x19.UnpublishProduct.Request\x1a\x1a.UnpublishProduct.Response\"\x00\x12H\n\x0funcreateProduct\x12\x18.UncreateProduct.Request\x1a\x19.UncreateProduct.Response\"\x00\x12\x42\n\rfetchProducts\x12\x16.FetchProducts.Request\x1a\x17.FetchProducts.Response\"\x00\x12T\n\x13\x66\x65tchProductDetails\x12\x1c.FetchProductDetails.Request\x1a\x1d.FetchProductDetails.Response\"\x00\x12<\n\x0blogPurchase\x12\x14.LogPurchase.Request\x1a\x15.LogPurchase.Response\"\x00\x12\x45\n\x0e\x66\x65tchPurchases\x12\x17.FetchPurchases.Request\x1a\x18.FetchPurchases.Response\"\x00\x12W\n\x14\x66\x65tchPurchaseDetails\x12\x1d.FetchPurchaseDetails.Request\x1a\x1e.FetchPurchaseDetails.Response\"\x00\x12\x30\n\x07testSum\x12\x10.TestSum.Request\x1a\x11.TestSum.Response\"\x00\x42\x0c\n\nuz.globensb\x06proto3'
 )
 
 _AUTHENTICATEUSER_AUTHMETHOD = _descriptor.EnumDescriptor(
@@ -1523,6 +1523,41 @@ _FETCHBUSINESSPAGES_RESPONSE = _descriptor.Descriptor(
             message_type=None, enum_type=None, containing_type=None,
             is_extension=False, extension_scope=None,
             serialized_options=None, file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='id', full_name='FetchBusinessPages.Response.id', index=1,
+            number=2, type=5, cpp_type=1, label=3,
+            has_default_value=False, default_value=[],
+            message_type=None, enum_type=None, containing_type=None,
+            is_extension=False, extension_scope=None,
+            serialized_options=None, file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='title', full_name='FetchBusinessPages.Response.title', index=2,
+            number=3, type=9, cpp_type=9, label=3,
+            has_default_value=False, default_value=[],
+            message_type=None, enum_type=None, containing_type=None,
+            is_extension=False, extension_scope=None,
+            serialized_options=None, file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='type', full_name='FetchBusinessPages.Response.type', index=3,
+            number=4, type=9, cpp_type=9, label=3,
+            has_default_value=False, default_value=[],
+            message_type=None, enum_type=None, containing_type=None,
+            is_extension=False, extension_scope=None,
+            serialized_options=None, file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='pictureBlob', full_name='FetchBusinessPages.Response.pictureBlob', index=4,
+            number=5, type=12, cpp_type=9, label=3,
+            has_default_value=False, default_value=[],
+            message_type=None, enum_type=None, containing_type=None,
+            is_extension=False, extension_scope=None,
+            serialized_options=None, file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='role', full_name='FetchBusinessPages.Response.role', index=5,
+            number=6, type=9, cpp_type=9, label=3,
+            has_default_value=False, default_value=[],
+            message_type=None, enum_type=None, containing_type=None,
+            is_extension=False, extension_scope=None,
+            serialized_options=None, file=DESCRIPTOR),
     ],
     extensions=[
     ],
@@ -1535,8 +1570,8 @@ _FETCHBUSINESSPAGES_RESPONSE = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=118,
-    serialized_end=145,
+    serialized_start=1650,
+    serialized_end=1753,
 )
 
 _FETCHBUSINESSPAGES = _descriptor.Descriptor(
@@ -1558,8 +1593,8 @@ _FETCHBUSINESSPAGES = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=1596,
-    serialized_end=1676,
+    serialized_start=1597,
+    serialized_end=1753,
 )
 
 _FETCHBUSINESSPAGEDETAILS_REQUEST = _descriptor.Descriptor(
@@ -1641,8 +1676,8 @@ _FETCHBUSINESSPAGEDETAILS = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=1678,
-    serialized_end=1764,
+    serialized_start=1755,
+    serialized_end=1841,
 )
 
 _CREATEPRODUCT_REQUEST = _descriptor.Descriptor(
@@ -1724,8 +1759,8 @@ _CREATEPRODUCT = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=1766,
-    serialized_end=1841,
+    serialized_start=1843,
+    serialized_end=1918,
 )
 
 _UPDATEPRODUCTDETAILS_REQUEST = _descriptor.Descriptor(
@@ -1807,8 +1842,8 @@ _UPDATEPRODUCTDETAILS = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=1843,
-    serialized_end=1925,
+    serialized_start=1920,
+    serialized_end=2002,
 )
 
 _UNCREATEPRODUCT_REQUEST = _descriptor.Descriptor(
@@ -1890,8 +1925,8 @@ _UNCREATEPRODUCT = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=1927,
-    serialized_end=2004,
+    serialized_start=2004,
+    serialized_end=2081,
 )
 
 _FETCHPRODUCTS_REQUEST = _descriptor.Descriptor(
@@ -1973,8 +2008,8 @@ _FETCHPRODUCTS = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=2006,
-    serialized_end=2081,
+    serialized_start=2083,
+    serialized_end=2158,
 )
 
 _FETCHPRODUCTDETAILS_REQUEST = _descriptor.Descriptor(
@@ -2056,8 +2091,8 @@ _FETCHPRODUCTDETAILS = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=2083,
-    serialized_end=2164,
+    serialized_start=2160,
+    serialized_end=2241,
 )
 
 _PUBLISHPRODUCT_REQUEST = _descriptor.Descriptor(
@@ -2139,8 +2174,8 @@ _PUBLISHPRODUCT = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=2166,
-    serialized_end=2242,
+    serialized_start=2243,
+    serialized_end=2319,
 )
 
 _UNPUBLISHPRODUCT_REQUEST = _descriptor.Descriptor(
@@ -2222,8 +2257,8 @@ _UNPUBLISHPRODUCT = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=2244,
-    serialized_end=2322,
+    serialized_start=2321,
+    serialized_end=2399,
 )
 
 _LOGPURCHASE_REQUEST = _descriptor.Descriptor(
@@ -2305,8 +2340,8 @@ _LOGPURCHASE = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=2324,
-    serialized_end=2397,
+    serialized_start=2401,
+    serialized_end=2474,
 )
 
 _FETCHPURCHASES_REQUEST = _descriptor.Descriptor(
@@ -2388,8 +2423,8 @@ _FETCHPURCHASES = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=2399,
-    serialized_end=2475,
+    serialized_start=2476,
+    serialized_end=2552,
 )
 
 _FETCHPURCHASEDETAILS_REQUEST = _descriptor.Descriptor(
@@ -2471,8 +2506,8 @@ _FETCHPURCHASEDETAILS = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=2477,
-    serialized_end=2559,
+    serialized_start=2554,
+    serialized_end=2636,
 )
 
 _TESTSUM_REQUEST = _descriptor.Descriptor(
@@ -2508,8 +2543,8 @@ _TESTSUM_REQUEST = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=2572,
-    serialized_end=2603,
+    serialized_start=2649,
+    serialized_end=2680,
 )
 
 _TESTSUM_RESPONSE = _descriptor.Descriptor(
@@ -2538,8 +2573,8 @@ _TESTSUM_RESPONSE = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=2605,
-    serialized_end=2626,
+    serialized_start=2682,
+    serialized_end=2703,
 )
 
 _TESTSUM = _descriptor.Descriptor(
@@ -2561,8 +2596,8 @@ _TESTSUM = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=2561,
-    serialized_end=2626,
+    serialized_start=2638,
+    serialized_end=2703,
 )
 
 _AUTHENTICATEUSER_REQUEST.fields_by_name['method'].enum_type = _AUTHENTICATEUSER_AUTHMETHOD
@@ -3357,8 +3392,8 @@ _GLOBENSSERVICE = _descriptor.ServiceDescriptor(
     file=DESCRIPTOR,
     index=0,
     serialized_options=None,
-    serialized_start=2629,
-    serialized_end=5159,
+    serialized_start=2706,
+    serialized_end=5236,
     methods=[
         _descriptor.MethodDescriptor(
             name='authenticateUser',
