@@ -20,7 +20,6 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
         tokens = json.loads(s=request.tokensJson)
 
         if method == gb_service_pb2.AuthenticateUser.AuthMethod.GOOGLE:
-            print(tokens)
             user_profile = utils.load_google_profile(id_token=tokens['idToken'])
             db_user, session_key = db.create_or_update_user(
                 email=user_profile['email'],
@@ -31,7 +30,6 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
             result.sessionKey = session_key
             result.success = True
         elif method == gb_service_pb2.AuthenticateUser.AuthMethod.FACEBOOK:
-            print(request.tokensJson)
             user_profile = utils.load_facebook_profile(access_token=tokens['accessToken'])
             db_user, session_key = db.create_or_update_user(
                 email=user_profile['email'],

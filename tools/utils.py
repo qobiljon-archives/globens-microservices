@@ -25,7 +25,6 @@ def load_google_profile(id_token):
 
 def load_facebook_profile(access_token):
     req = requests.request(method='GET', url='https://graph.facebook.com/v2.12/me?fields=name,first_name,last_name,picture,email&access_token=' + access_token)
-    print(req.status_code, access_token)
     if req.status_code == 200:
         user = json.loads(s=req.text)
         return {
