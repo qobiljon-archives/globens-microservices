@@ -37,6 +37,13 @@ def load_facebook_profile(access_token):
     return None
 
 
+def load_picture_bytes(picture):
+    res = requests.get(picture)
+    if res.status_code == 200:
+        return res.content
+    return None
+
+
 def now_ms():
     return int(time.time() * 1000)
 

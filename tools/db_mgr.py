@@ -45,18 +45,20 @@ def create_or_update_user(email, name, picture, tokens):
 
     session_key = utils.md5(value=f'{email}{utils.now_us()}')
     if user_exists(email=email):
-        cur.execute('update "gb_user" set name = %s, "picture" = %s, "tokens" = %s, "sessionKey" = %s where "email"=%s;', (
+        cur.execute('update "gb_user" set name = %s, "picture" = %s, "pictureBlob" = %s, "tokens" = %s, "sessionKey" = %s where "email"=%s;', (
             name,
             picture,
+            utils.load_picture_bytes(picture=picture),
             tokens,
             session_key,
             email
         ))
     else:
-        cur.execute('insert into "gb_user"("email", "name", "picture","tokens","sessionKey") values (%s,%s,%s,%s,%s);', (
+        cur.execute('insert into "gb_user"("email", "name", "picture","pictureBlob","tokens","sessionKey") values (%s,%s,%s,%s,%s,%s);', (
             email,
             name,
             picture,
+            utils.load_picture_bytes(picture=picture),
             tokens,
             session_key
         ))

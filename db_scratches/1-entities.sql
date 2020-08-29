@@ -1,12 +1,13 @@
 -- region 1. platform entity --> consumer or producer
 create table if not exists "gb_user"
 (
-    "id"         serial primary key,
-    "email"      text unique,
-    "name"       varchar(300),
-    "picture"    text,
-    "tokens"     text,
-    "sessionKey" varchar(300) default null
+    "id"          serial primary key,
+    "email"       text unique,
+    "name"        varchar(300),
+    "picture"     text,
+    "pictureBlob" bytea,
+    "tokens"      text,
+    "sessionKey"  varchar(300) default null
 );
 -- endregion
 
@@ -36,9 +37,10 @@ create table if not exists "gb_vacancy_application"
 create type "gb_business_page_type" as enum ('small business', 'large business');
 create table if not exists "gb_business_page"
 (
-    "id"    serial primary key,
-    "type"  gb_business_page_type,
-    "title" varchar(250) -- todo check 250 character length for our business pages
+    "id"          serial primary key,
+    "type"        gb_business_page_type,
+    "title"       text,
+    "pictureBlob" bytea
 );
 -- endregion
 
