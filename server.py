@@ -13,8 +13,8 @@ import json
 class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
     # region user management module
     def authenticateUser(self, request, context):
-        result = gb_service_pb2.AuthenticateUser.Response()
-        result.success = False
+        response = gb_service_pb2.AuthenticateUser.Response()
+        response.success = False
 
         method = request.method
         tokens = json.loads(s=request.tokensJson)
@@ -27,8 +27,8 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
                 picture=user_profile['picture'],
                 tokens=request.tokensJson
             )
-            result.sessionKey = session_key
-            result.success = True
+            response.sessionKey = session_key
+            response.success = True
         elif method == gb_service_pb2.AuthenticateUser.AuthMethod.FACEBOOK:
             user_profile = utils.load_facebook_profile(access_token=tokens['accessToken'])
             gb_user, session_key = db.create_or_update_user(
@@ -37,8 +37,8 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
                 picture=user_profile['picture'],
                 tokens=request.tokensJson
             )
-            result.sessionKey = session_key
-            result.success = True
+            response.sessionKey = session_key
+            response.success = True
         elif method == gb_service_pb2.AuthenticateUser.AuthMethod.KAKAOTALK:
             print(tokens['accessToken'])
         elif method == gb_service_pb2.AuthenticateUser.AuthMethod.PHONE:
@@ -46,7 +46,8 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
         elif method == gb_service_pb2.AuthenticateUser.AuthMethod.APPLE:
             print(tokens)
 
-        return result
+        print(f' authenticateUser, success={response.success}')
+        return response
 
     def deactivateUser(self, request, context):
         # todo deactivate user
@@ -110,8 +111,17 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
 
     # region business page management module
     def createBusinessPage(self, request, context):
-        # todo create business page
-        pass
+        response = gb_service_pb2.CreateBusinessPage.Response()
+        response.success = False
+
+        gb_user = db.get_user_by_session(session_key=request.sessionKey)
+
+        if gb_user is not None:
+            db.create_business_page(gb_user=gb_user, title=request.title, picture_blob=request.pictureBlob)
+            response.success = True
+
+        print(f' createBusinessPage, success={response.success}')
+        return response
 
     def updateBusinessPageDetails(self, request, context):
         # todo update business page details
@@ -147,7 +157,7 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
 
     # region product management module
     def createProduct(self, request, context):
-        # todo create product
+
         pass
 
     def updateProductDetails(self, request, context):

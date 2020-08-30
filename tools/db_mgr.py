@@ -101,3 +101,32 @@ def get_business_pages(gb_user):
 
     cur.close()
     return res
+
+
+def create_business_page(gb_user, title, picture_blob):
+    cur = get_db_connection().cursor(cursor_factory=psycopg2_extras.DictCursor)
+
+    # create an individual/small business page
+    cur.execute('insert into "gb_business_page"("title", "type", "pictureBlob") values (%s,%s,%s) returning "id";', (
+        title,
+        'large business',
+        psycopg2.Binary(picture_blob)
+    ))
+    business_page_id = cur.fetchone()[0]
+
+    # create business owner vacancy/position for the business page
+    cur.execute('insert into "gb_vacancy"("title", "role", "business_page_id") values (%s,%s,%s) returning "id";', (
+        'Business owner',
+        'business owner',
+        business_page_id
+    ))
+    business_owner_vacancy_id = cur.fetchone()[0]
+
+    # map the user with the business owner vacancy/position
+    cur.execute('update "gb_vacancy" set "user_id" = %s where "id" = %s;', (
+        gb_user['id'],
+        business_owner_vacancy_id
+    ))
+
+    cur.close()
+    get_db_connection().commit()
