@@ -2924,94 +2924,106 @@ _sym_db.RegisterMessage(CreateVacancyApplication)
 _sym_db.RegisterMessage(CreateVacancyApplication.Request)
 _sym_db.RegisterMessage(CreateVacancyApplication.Response)
 
-UpdateVacancyApplicationDetails = _reflection.GeneratedProtocolMessageType('UpdateVacancyApplicationDetails', (_message.Message,), {
+UpdateVacancyApplicationDetails = _reflection.GeneratedProtocolMessageType('UpdateVacancyApplicationDetails',
+                                                                           (_message.Message,), {
 
-    'Request': _reflection.GeneratedProtocolMessageType('Request', (_message.Message,), {
-        'DESCRIPTOR': _UPDATEVACANCYAPPLICATIONDETAILS_REQUEST,
-        '__module__': 'gb_service_pb2'
-        # @@protoc_insertion_point(class_scope:UpdateVacancyApplicationDetails.Request)
-    })
-    ,
+                                                                               'Request': _reflection.GeneratedProtocolMessageType(
+                                                                                   'Request', (_message.Message,), {
+                                                                                       'DESCRIPTOR': _UPDATEVACANCYAPPLICATIONDETAILS_REQUEST,
+                                                                                       '__module__': 'gb_service_pb2'
+                                                                                       # @@protoc_insertion_point(class_scope:UpdateVacancyApplicationDetails.Request)
+                                                                                   })
+                                                                               ,
 
-    'Response': _reflection.GeneratedProtocolMessageType('Response', (_message.Message,), {
-        'DESCRIPTOR': _UPDATEVACANCYAPPLICATIONDETAILS_RESPONSE,
-        '__module__': 'gb_service_pb2'
-        # @@protoc_insertion_point(class_scope:UpdateVacancyApplicationDetails.Response)
-    })
-    ,
-    'DESCRIPTOR': _UPDATEVACANCYAPPLICATIONDETAILS,
-    '__module__': 'gb_service_pb2'
-    # @@protoc_insertion_point(class_scope:UpdateVacancyApplicationDetails)
-})
+                                                                               'Response': _reflection.GeneratedProtocolMessageType(
+                                                                                   'Response', (_message.Message,), {
+                                                                                       'DESCRIPTOR': _UPDATEVACANCYAPPLICATIONDETAILS_RESPONSE,
+                                                                                       '__module__': 'gb_service_pb2'
+                                                                                       # @@protoc_insertion_point(class_scope:UpdateVacancyApplicationDetails.Response)
+                                                                                   })
+                                                                               ,
+                                                                               'DESCRIPTOR': _UPDATEVACANCYAPPLICATIONDETAILS,
+                                                                               '__module__': 'gb_service_pb2'
+                                                                               # @@protoc_insertion_point(class_scope:UpdateVacancyApplicationDetails)
+                                                                           })
 _sym_db.RegisterMessage(UpdateVacancyApplicationDetails)
 _sym_db.RegisterMessage(UpdateVacancyApplicationDetails.Request)
 _sym_db.RegisterMessage(UpdateVacancyApplicationDetails.Response)
 
-UncreateVacancyApplication = _reflection.GeneratedProtocolMessageType('UncreateVacancyApplication', (_message.Message,), {
+UncreateVacancyApplication = _reflection.GeneratedProtocolMessageType('UncreateVacancyApplication', (_message.Message,),
+                                                                      {
 
-    'Request': _reflection.GeneratedProtocolMessageType('Request', (_message.Message,), {
-        'DESCRIPTOR': _UNCREATEVACANCYAPPLICATION_REQUEST,
-        '__module__': 'gb_service_pb2'
-        # @@protoc_insertion_point(class_scope:UncreateVacancyApplication.Request)
-    })
-    ,
+                                                                          'Request': _reflection.GeneratedProtocolMessageType(
+                                                                              'Request', (_message.Message,), {
+                                                                                  'DESCRIPTOR': _UNCREATEVACANCYAPPLICATION_REQUEST,
+                                                                                  '__module__': 'gb_service_pb2'
+                                                                                  # @@protoc_insertion_point(class_scope:UncreateVacancyApplication.Request)
+                                                                              })
+                                                                          ,
 
-    'Response': _reflection.GeneratedProtocolMessageType('Response', (_message.Message,), {
-        'DESCRIPTOR': _UNCREATEVACANCYAPPLICATION_RESPONSE,
-        '__module__': 'gb_service_pb2'
-        # @@protoc_insertion_point(class_scope:UncreateVacancyApplication.Response)
-    })
-    ,
-    'DESCRIPTOR': _UNCREATEVACANCYAPPLICATION,
-    '__module__': 'gb_service_pb2'
-    # @@protoc_insertion_point(class_scope:UncreateVacancyApplication)
-})
+                                                                          'Response': _reflection.GeneratedProtocolMessageType(
+                                                                              'Response', (_message.Message,), {
+                                                                                  'DESCRIPTOR': _UNCREATEVACANCYAPPLICATION_RESPONSE,
+                                                                                  '__module__': 'gb_service_pb2'
+                                                                                  # @@protoc_insertion_point(class_scope:UncreateVacancyApplication.Response)
+                                                                              })
+                                                                          ,
+                                                                          'DESCRIPTOR': _UNCREATEVACANCYAPPLICATION,
+                                                                          '__module__': 'gb_service_pb2'
+                                                                          # @@protoc_insertion_point(class_scope:UncreateVacancyApplication)
+                                                                      })
 _sym_db.RegisterMessage(UncreateVacancyApplication)
 _sym_db.RegisterMessage(UncreateVacancyApplication.Request)
 _sym_db.RegisterMessage(UncreateVacancyApplication.Response)
 
-FetchMyVacancyApplications = _reflection.GeneratedProtocolMessageType('FetchMyVacancyApplications', (_message.Message,), {
+FetchMyVacancyApplications = _reflection.GeneratedProtocolMessageType('FetchMyVacancyApplications', (_message.Message,),
+                                                                      {
 
-    'Request': _reflection.GeneratedProtocolMessageType('Request', (_message.Message,), {
-        'DESCRIPTOR': _FETCHMYVACANCYAPPLICATIONS_REQUEST,
-        '__module__': 'gb_service_pb2'
-        # @@protoc_insertion_point(class_scope:FetchMyVacancyApplications.Request)
-    })
-    ,
+                                                                          'Request': _reflection.GeneratedProtocolMessageType(
+                                                                              'Request', (_message.Message,), {
+                                                                                  'DESCRIPTOR': _FETCHMYVACANCYAPPLICATIONS_REQUEST,
+                                                                                  '__module__': 'gb_service_pb2'
+                                                                                  # @@protoc_insertion_point(class_scope:FetchMyVacancyApplications.Request)
+                                                                              })
+                                                                          ,
 
-    'Response': _reflection.GeneratedProtocolMessageType('Response', (_message.Message,), {
-        'DESCRIPTOR': _FETCHMYVACANCYAPPLICATIONS_RESPONSE,
-        '__module__': 'gb_service_pb2'
-        # @@protoc_insertion_point(class_scope:FetchMyVacancyApplications.Response)
-    })
-    ,
-    'DESCRIPTOR': _FETCHMYVACANCYAPPLICATIONS,
-    '__module__': 'gb_service_pb2'
-    # @@protoc_insertion_point(class_scope:FetchMyVacancyApplications)
-})
+                                                                          'Response': _reflection.GeneratedProtocolMessageType(
+                                                                              'Response', (_message.Message,), {
+                                                                                  'DESCRIPTOR': _FETCHMYVACANCYAPPLICATIONS_RESPONSE,
+                                                                                  '__module__': 'gb_service_pb2'
+                                                                                  # @@protoc_insertion_point(class_scope:FetchMyVacancyApplications.Response)
+                                                                              })
+                                                                          ,
+                                                                          'DESCRIPTOR': _FETCHMYVACANCYAPPLICATIONS,
+                                                                          '__module__': 'gb_service_pb2'
+                                                                          # @@protoc_insertion_point(class_scope:FetchMyVacancyApplications)
+                                                                      })
 _sym_db.RegisterMessage(FetchMyVacancyApplications)
 _sym_db.RegisterMessage(FetchMyVacancyApplications.Request)
 _sym_db.RegisterMessage(FetchMyVacancyApplications.Response)
 
-FetchVacancyApplicationDetails = _reflection.GeneratedProtocolMessageType('FetchVacancyApplicationDetails', (_message.Message,), {
+FetchVacancyApplicationDetails = _reflection.GeneratedProtocolMessageType('FetchVacancyApplicationDetails',
+                                                                          (_message.Message,), {
 
-    'Request': _reflection.GeneratedProtocolMessageType('Request', (_message.Message,), {
-        'DESCRIPTOR': _FETCHVACANCYAPPLICATIONDETAILS_REQUEST,
-        '__module__': 'gb_service_pb2'
-        # @@protoc_insertion_point(class_scope:FetchVacancyApplicationDetails.Request)
-    })
-    ,
+                                                                              'Request': _reflection.GeneratedProtocolMessageType(
+                                                                                  'Request', (_message.Message,), {
+                                                                                      'DESCRIPTOR': _FETCHVACANCYAPPLICATIONDETAILS_REQUEST,
+                                                                                      '__module__': 'gb_service_pb2'
+                                                                                      # @@protoc_insertion_point(class_scope:FetchVacancyApplicationDetails.Request)
+                                                                                  })
+                                                                              ,
 
-    'Response': _reflection.GeneratedProtocolMessageType('Response', (_message.Message,), {
-        'DESCRIPTOR': _FETCHVACANCYAPPLICATIONDETAILS_RESPONSE,
-        '__module__': 'gb_service_pb2'
-        # @@protoc_insertion_point(class_scope:FetchVacancyApplicationDetails.Response)
-    })
-    ,
-    'DESCRIPTOR': _FETCHVACANCYAPPLICATIONDETAILS,
-    '__module__': 'gb_service_pb2'
-    # @@protoc_insertion_point(class_scope:FetchVacancyApplicationDetails)
-})
+                                                                              'Response': _reflection.GeneratedProtocolMessageType(
+                                                                                  'Response', (_message.Message,), {
+                                                                                      'DESCRIPTOR': _FETCHVACANCYAPPLICATIONDETAILS_RESPONSE,
+                                                                                      '__module__': 'gb_service_pb2'
+                                                                                      # @@protoc_insertion_point(class_scope:FetchVacancyApplicationDetails.Response)
+                                                                                  })
+                                                                              ,
+                                                                              'DESCRIPTOR': _FETCHVACANCYAPPLICATIONDETAILS,
+                                                                              '__module__': 'gb_service_pb2'
+                                                                              # @@protoc_insertion_point(class_scope:FetchVacancyApplicationDetails)
+                                                                          })
 _sym_db.RegisterMessage(FetchVacancyApplicationDetails)
 _sym_db.RegisterMessage(FetchVacancyApplicationDetails.Request)
 _sym_db.RegisterMessage(FetchVacancyApplicationDetails.Response)

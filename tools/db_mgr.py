@@ -91,14 +91,15 @@ def get_business_pages(gb_user):
     gb_vacancies = cur.fetchall()
 
     # step 2 : get unique campaigns related of the jobs/vacancies
-    res = {}
+    res = []
     for gb_vacancy in gb_vacancies:
         cur.execute('select * from "gb_business_page" where "id" = %s;', (
             gb_vacancy['business_page_id'],
         ))
         gb_business_page = cur.fetchone()
-        if gb_business_page not in res:
-            res[gb_business_page] = gb_vacancy
+        tp = (gb_business_page, gb_vacancy)
+        if tp not in res:
+            res += [tp]
 
     cur.close()
-    return [(x, res[x]) for x in res]  # [(gb_business_page, gb_vacancy),]
+    return res

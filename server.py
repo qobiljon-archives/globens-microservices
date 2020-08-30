@@ -1,4 +1,4 @@
-# import the generated grpcs
+# import the generated gRPCs
 from gb_grpcs import gb_service_pb2_grpc
 from gb_grpcs import gb_service_pb2
 # others
@@ -122,21 +122,22 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
         pass
 
     def fetchBusinessPages(self, request, context):
-        result = gb_service_pb2.AuthenticateUser.Response()
-        result.success = False
+        response = gb_service_pb2.FetchBusinessPages.Response()
+        response.success = False
 
         gb_user = db.get_user_by_session(session_key=request.sessionKey)
 
         if gb_user is not None:
             for gb_business_page, gb_vacancy in db.get_business_pages(gb_user=gb_user):
-                result.id.extend(gb_business_page['id'])
-                result.title.extend(gb_business_page['title'])
-                result.type.extend(gb_business_page['type'])
-                result.pictureBlob.extend(gb_business_page['pictureBlob'])
-                result.role.extend(gb_vacancy['role'])
-            result.success = True
+                response.id.extend([gb_business_page['id']])
+                response.title.extend([gb_business_page['title']])
+                response.type.extend([gb_business_page['type']])
+                response.pictureBlob.extend([bytes(gb_business_page['pictureBlob'])])
+                response.role.extend([gb_vacancy['role']])
+            response.success = True
 
-        return result
+        # print(f' fetchBusinessPages, success={response.success}')
+        return response
 
     def fetchBusinessPageDetails(self, request, context):
         # todo fetch business page details
