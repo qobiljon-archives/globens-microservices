@@ -10,10 +10,10 @@ conn = None
 def get_db_connection():
     if settings.db_conn is None:
         settings.db_conn = psycopg2.connect(
-            host='165.246.42.172',
-            database='globens_db',
-            user='postgres',
-            password='postgres'
+            host=settings.db_settings['host'],
+            database=settings.db_settings['database'],
+            user=settings.db_settings['user'],
+            password=settings.db_settings['password']
         )
         print('database initialized', settings.db_conn)
     return settings.db_conn
