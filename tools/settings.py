@@ -1,5 +1,5 @@
 db_settings = {
-    'host': '127.0.0.1',
+    'host': '165.246.42.173',
     'database': 'globens_db',
     'user': 'postgres',
     'password': 'postgres'
