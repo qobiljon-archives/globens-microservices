@@ -19,7 +19,7 @@ create table if not exists "gb_business_page"
 (
     -- data
     "id"          serial primary key,
-    "type"        gb_business_page_type,
+    "type"        "gb_business_page_type",
     "title"       text,
     "pictureBlob" bytea default null
 );
@@ -32,7 +32,7 @@ create table if not exists "gb_product"
     "id"               serial primary key,
     "name"             text,
     "published"        boolean default false,
-    "picture"          bytea   default null,
+    "pictureBlob"      bytea   default null,
     -- relations
     "business_page_id" integer not null references "gb_business_page" ("id") on delete cascade
 );
@@ -45,7 +45,7 @@ create table if not exists "gb_vacancy"
 (
     -- data
     "id"               serial primary key,
-    "role"             gb_vacancy_role,
+    "role"             "gb_vacancy_role",
     "title"            text,
     -- relations
     "user_id"          integer references "gb_user" ("id") default null,
@@ -67,7 +67,7 @@ create table if not exists "gb_vacancy_application"
 
 
 -- purchase log entry : i.e., log of how consumer buys a product from producer
-create table if not exists "gb_purchase"
+create table if not exists "gb_purchase_log"
 (
     -- data
     "id"            serial primary key,
@@ -78,3 +78,17 @@ create table if not exists "gb_purchase"
     -- constraints
     unique ("buyer_id", "product_id")
 );
+
+
+-- action on product : e.g., create, edit, publish, etc.
+create type "gb_product_action" as enum ('create', 'uncreate', 'publish', 'unpublish');
+-- product log entry : e.g., created by A, edited by B, published by C, etc.
+create table if not exists "gb_product_log"
+(
+    -- data
+    "timestamp"  timestamp,
+    "action"     "gb_product_action",
+    -- relations
+    "product_id" integer not null references "gb_product" ("id") on delete cascade,
+    "user_id"    integer references "gb_user" ("id") on delete set null
+)

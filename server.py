@@ -114,7 +114,7 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
         response = gb_service_pb2.CreateBusinessPage.Response()
         response.success = False
 
-        gb_user = db.get_user_by_session(session_key=request.sessionKey)
+        gb_user = db.get_user(session_key=request.sessionKey)
 
         if gb_user is not None:
             db.create_business_page(gb_user=gb_user, title=request.title, picture_blob=request.pictureBlob)
@@ -135,7 +135,7 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
         response = gb_service_pb2.FetchBusinessPages.Response()
         response.success = False
 
-        gb_user = db.get_user_by_session(session_key=request.sessionKey)
+        gb_user = db.get_user(session_key=request.sessionKey)
 
         if gb_user is not None:
             for gb_business_page, gb_vacancy in db.get_business_pages(gb_user=gb_user):
@@ -157,8 +157,18 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
 
     # region product management module
     def createProduct(self, request, context):
+        response = gb_service_pb2.CreateProduct.Response()
+        response.success = False
 
-        pass
+        gb_user = db.get_user(session_key=request.sessionKey)
+        gb_business_page = db.get_business_page(business_page_id=request.businessPageId)
+
+        if None not in [gb_user, gb_business_page]:
+            db.create_product(gb_user=gb_user, gb_business_page=gb_business_page, name=request.name, picture_blob=request.pictureBlob)
+            response.success = True
+
+        print(f' createProduct, success={response.success}')
+        return response
 
     def updateProductDetails(self, request, context):
         # todo update product details
@@ -177,8 +187,22 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
         pass
 
     def fetchProducts(self, request, context):
-        # todo fetch products
-        pass
+        response = gb_service_pb2.FetchProducts.Response()
+        response.success = False
+
+        gb_user = db.get_user(session_key=request.sessionKey)
+        gb_business_page = db.get_business_page(business_page_id=request.businessPageId)
+
+        if None not in [gb_user, gb_business_page]:
+            for gb_product in db.get_products(gb_business_page=gb_business_page):
+                response.id.extend([gb_product['id']])
+                response.name.extend([gb_product['name']])
+                response.published.extend([gb_product['published']])
+                response.pictureBlob.extend([bytes(gb_product['pictureBlob'])])
+            response.success = True
+
+        # print(f' fetchProducts, success={response.success}')
+        return response
 
     def fetchProductDetails(self, request, context):
         # todo fetch product details

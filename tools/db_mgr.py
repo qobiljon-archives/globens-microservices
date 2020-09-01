@@ -1,4 +1,5 @@
 from psycopg2 import extras as psycopg2_extras
+from datetime import datetime
 from tools import settings
 from tools import utils
 import psycopg2
@@ -24,24 +25,16 @@ def end():
 # endregion
 
 
-def get_user(email):
+def get_user(email=None, session_key=None):
     cur = get_db_connection().cursor(cursor_factory=psycopg2_extras.DictCursor)
-    cur.execute('select * from "gb_user" where "email" = %s;', (
-        email,
-    ))
-    gb_user = cur.fetchone()
-    cur.close()
-    return gb_user
-
-
-def get_user_by_session(session_key):
-    if session_key is None:
-        return None
-
-    cur = get_db_connection().cursor(cursor_factory=psycopg2_extras.DictCursor)
-    cur.execute('select * from "gb_user" where "sessionKey" = %s;', (
-        session_key,
-    ))
+    if email is not None:
+        cur.execute('select * from "gb_user" where "email" = %s;', (
+            email,
+        ))
+    elif session_key is not None:
+        cur.execute('select * from "gb_user" where "sessionKey" = %s;', (
+            session_key,
+        ))
     gb_user = cur.fetchone()
     cur.close()
     return gb_user
@@ -77,6 +70,18 @@ def create_or_update_user(email, name, picture, tokens):
     cur.close()
     get_db_connection().commit()
     return get_user(email=email), session_key
+
+
+def get_business_page(business_page_id):
+    cur = get_db_connection().cursor(cursor_factory=psycopg2_extras.DictCursor)
+
+    cur.execute('select * from "gb_business_page" where "id" = %s;', (
+        business_page_id,
+    ))
+    gb_business_page = cur.fetchone()
+
+    cur.close()
+    return gb_business_page
 
 
 def get_business_pages(gb_user):
@@ -126,6 +131,39 @@ def create_business_page(gb_user, title, picture_blob):
     cur.execute('update "gb_vacancy" set "user_id" = %s where "id" = %s;', (
         gb_user['id'],
         business_owner_vacancy_id
+    ))
+
+    cur.close()
+    get_db_connection().commit()
+
+
+def get_products(gb_business_page):
+    cur = get_db_connection().cursor(cursor_factory=psycopg2_extras.DictCursor)
+
+    cur.execute('select * from "gb_product" where "business_page_id" = %s;', (
+        gb_business_page['id'],
+    ))
+    gb_products = cur.fetchall()
+
+    cur.close()
+    return gb_products
+
+
+def create_product(gb_user, gb_business_page, name, picture_blob):
+    cur = get_db_connection().cursor(cursor_factory=psycopg2_extras.DictCursor)
+
+    cur.execute('insert into "gb_product"("name", "pictureBlob", "business_page_id") values (%s,%s,%s) returning "id";', (
+        name,
+        picture_blob,
+        gb_business_page['id']
+    ))
+    new_product_id = cur.fetchone()[0]
+
+    cur.execute('insert into "gb_product_log"("timestamp", "action", "product_id", "user_id") values (%s,%s,%s,%s);', (
+        datetime.now(),
+        'create',
+        new_product_id,
+        gb_user['id']
     ))
 
     cur.close()
