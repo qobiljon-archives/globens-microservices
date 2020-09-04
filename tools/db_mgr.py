@@ -168,3 +168,42 @@ def create_product(gb_user, gb_business_page, name, picture_blob):
 
     cur.close()
     get_db_connection().commit()
+
+
+def create_vacancy(gb_user, gb_business_page, title):
+    cur = get_db_connection().cursor(cursor_factory=psycopg2_extras.DictCursor)
+
+    cur.execute('insert into "gb_vacancy"("title", "role", "user_id", "business_page_id") values (%s,%s,%s,%s) returning "id";', (
+        title,
+        'employee',
+        gb_user['id'],
+        gb_business_page['id']
+    ))
+    new_vacancy_id = cur.fetchone()[0]
+
+    cur.execute('insert into "gb_vacancy_log"("timestamp", "action", "vacancy_id", "user_id") values (%s,%s,%s,%s);', (
+        datetime.now(),
+        'create',
+        new_vacancy_id,
+        gb_user['id']
+    ))
+
+    cur.close()
+    get_db_connection().commit()
+
+
+def get_vacancies(gb_business_page, only_unoccupied=True):
+    cur = get_db_connection().cursor(cursor_factory=psycopg2_extras.DictCursor)
+
+    if only_unoccupied:
+        cur.execute('select * from "gb_vacancy" where "business_page_id" = %s and "user_id" is null;', (
+            gb_business_page['id'],
+        ))
+    else:
+        cur.execute('select * from "gb_vacancy" where "business_page_id" = %s;', (
+            gb_business_page['id'],
+        ))
+    gb_vacancies = cur.fetchall()
+
+    cur.close()
+    return gb_vacancies

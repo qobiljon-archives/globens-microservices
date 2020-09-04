@@ -91,4 +91,18 @@ create table if not exists "gb_product_log"
     -- relations
     "product_id" integer not null references "gb_product" ("id") on delete cascade,
     "user_id"    integer references "gb_user" ("id") on delete set null
-)
+);
+
+
+-- action on product : e.g., create, edit, publish, etc.
+create type "gb_vacancy_action" as enum ('create', 'uncreate');
+-- product log entry : e.g., created by A, edited by B, published by C, etc.
+create table if not exists "gb_vacancy_log"
+(
+    -- data
+    "timestamp"  timestamp,
+    "action"     "gb_vacancy_action",
+    -- relations
+    "vacancy_id" integer not null references "gb_vacancy" ("id") on delete cascade,
+    "user_id"    integer references "gb_user" ("id") on delete set null
+);

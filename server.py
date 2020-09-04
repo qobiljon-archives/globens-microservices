@@ -65,8 +65,18 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
 
     # region vacancy management module
     def createVacancy(self, request, context):
-        # todo create vacancy
-        pass
+        response = gb_service_pb2.CreateVacancy.Response()
+        response.success = False
+
+        gb_user = db.get_user(session_key=request.sessionKey)
+        gb_business_page = db.get_business_page(business_page_id=request.businessPageId)
+
+        if None not in [gb_user, gb_business_page]:
+            db.create_vacancy(gb_user=gb_user, gb_business_page=gb_business_page, title=request.title)
+            response.success = True
+
+        print(f' createVacancy, success={response.success}')
+        return response
 
     def updateVacancyDetails(self, request, context):
         # todo update vacancy details
@@ -77,8 +87,21 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
         pass
 
     def fetchVacancies(self, request, context):
-        # todo fetch vacancies
-        pass
+        response = gb_service_pb2.FetchVacancies.Response()
+        response.success = False
+
+        gb_user = db.get_user(session_key=request.sessionKey)
+        gb_business_page = db.get_business_page(business_page_id=request.businessPageId)
+
+        if None not in [gb_user, gb_business_page]:
+            for gb_vacancy in db.get_vacancies(gb_business_page=gb_business_page):
+                response.id.extend([gb_vacancy['id']])
+                response.role.extend([gb_vacancy['role']])
+                response.title.extend([gb_vacancy['title']])
+            response.success = True
+
+        # print(f' fetchVacancies, success={response.success}')
+        return response
 
     def fetchVacancyDetails(self, request, context):
         # todo fetch vacancy details
