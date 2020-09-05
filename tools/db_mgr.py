@@ -173,10 +173,9 @@ def create_product(gb_user, gb_business_page, name, picture_blob):
 def create_vacancy(gb_user, gb_business_page, title):
     cur = get_db_connection().cursor(cursor_factory=psycopg2_extras.DictCursor)
 
-    cur.execute('insert into "gb_vacancy"("title", "role", "user_id", "business_page_id") values (%s,%s,%s,%s) returning "id";', (
+    cur.execute('insert into "gb_vacancy"("title", "role", "business_page_id") values (%s,%s,%s) returning "id";', (
         title,
         'employee',
-        gb_user['id'],
         gb_business_page['id']
     ))
     new_vacancy_id = cur.fetchone()[0]
