@@ -26,11 +26,15 @@ def end():
 
 
 # region user management
-def get_user(email=None, session_key=None):
+def get_user(email=None, user_id=None, session_key=None):
     cur = get_db_connection().cursor(cursor_factory=psycopg2_extras.DictCursor)
     if email is not None:
         cur.execute('select * from "gb_user" where "email" = %s;', (
             email,
+        ))
+    elif user_id is not None:
+        cur.execute('select * from "gb_user" where "id" = %s;', (
+            user_id,
         ))
     elif session_key is not None:
         cur.execute('select * from "gb_user" where "sessionKey" = %s;', (

@@ -58,8 +58,22 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
         pass
 
     def fetchUserDetails(self, request, context):
-        # todo fetch user details
-        pass
+        response = gb_service_pb2.FetchUserDetails.Response()
+        response.success = False
+
+        gb_user = db.get_user(session_key=request.sessionKey)
+        gb_target_user = db.get_user(user_id=request.userId)
+
+        if None not in [gb_user, gb_target_user]:
+            response.id = gb_target_user['id']
+            response.email = gb_target_user['email']
+            response.name = gb_target_user['name']
+            response.picture = gb_target_user['picture']
+            response.pictureBlob = gb_target_user['pictureBlob']
+            response.success = True
+
+        # print(f' fetchUserDetails, success={response.success}')
+        return response
 
     # endregion
 
@@ -202,7 +216,7 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
         gb_business_page = db.get_business_page(business_page_id=request.businessPageId)
 
         if None not in [gb_user, gb_business_page]:
-            response.id = gb_business_page['title']
+            response.id = gb_business_page['id']
             response.title = gb_business_page['title']
             response.type = gb_business_page['type']
             response.pictureBlob = bytes(gb_business_page['pictureBlob'])
