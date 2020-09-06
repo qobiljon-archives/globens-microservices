@@ -151,25 +151,85 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
     # endregion
 
     # region vacancy application management module
-    def createVacancyApplication(self, request, context):
-        # todo create vacancy application
-        pass
+    def createJobApplication(self, request, context):
+        response = gb_service_pb2.CreateJobApplication.Response()
+        response.success = False
 
-    def updateVacancyApplicationDetails(self, request, context):
+        gb_user = db.get_user(session_key=request.sessionKey)
+        gb_job = db.get_job(job_id=request.jobId)
+
+        if None not in [gb_user, gb_job]:
+            db.create_job_application(gb_user=gb_user, gb_job=gb_job, message=request.message)
+            response.success = True
+
+        print(f' createJobApplication, success={response.success}')
+        return response
+
+    def updateJobApplicationDetails(self, request, context):
         # todo update vacancy application
         pass
 
-    def uncreateVacancyApplication(self, request, context):
+    def uncreateJobApplication(self, request, context):
         # todo uncreate vacancy application
         pass
 
-    def fetchMyVacancyApplicationIds(self, request, context):
-        # todo fetch my vacancy applications
-        pass
+    def fetchJobApplicationIds(self, request, context):
+        response = gb_service_pb2.FetchJobApplicationIds.Response()
+        response.success = False
 
-    def fetchVacancyApplicationDetails(self, request, context):
-        # todo fetch vacancy application details
-        pass
+        gb_user = db.get_user(session_key=request.sessionKey)
+        gb_job = db.get_job(job_id=request.jobId)
+
+        if None not in [gb_user, gb_job]:
+            response.id.extend(db.get_job_application_ids(gb_job=gb_job))
+            response.success = True
+
+        # print(f' fetchJobApplicationIds, success={response.success}')
+        return response
+
+    def fetchJobApplicationDetails(self, request, context):
+        response = gb_service_pb2.FetchJobApplicationDetails.Response()
+        response.success = False
+
+        gb_user = db.get_user(session_key=request.sessionKey)
+        gb_job_application = db.get_job_application(job_application_id=request.jobApplicationId)
+
+        if None not in [gb_user, gb_job_application]:
+            response.id = gb_job_application['id']
+            response.message = gb_job_application['message']
+            response.applicantId = gb_job_application['user_id']
+            response.success = True
+
+        # print(f' fetchJobApplicationDetails, success={response.success}')
+        return response
+
+    def approveJobApplication(self, request, context):
+        response = gb_service_pb2.ApproveJobApplication.Response()
+        response.success = False
+
+        gb_user = db.get_user(session_key=request.sessionKey)
+        gb_job_application = db.get_job_application(job_application_id=request.jobApplicationId)
+
+        if None not in [gb_user, gb_job_application]:
+            db.approve_job_application(gb_job_application=gb_job_application)
+            response.success = True
+
+        # print(f' approveJobApplication, success={response.success}')
+        return response
+
+    def declineJobApplication(self, request, context):
+        response = gb_service_pb2.DeclineJobApplication.Response()
+        response.success = False
+
+        gb_user = db.get_user(session_key=request.sessionKey)
+        gb_job_application = db.get_job_application(job_application_id=request.jobApplicationId)
+
+        if None not in [gb_user, gb_job_application]:
+            db.decline_job_application(gb_job_application=gb_job_application)
+            response.success = True
+
+        # print(f' declineJobApplication, success={response.success}')
+        return response
 
     # endregion
 

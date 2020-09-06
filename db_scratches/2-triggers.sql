@@ -40,7 +40,7 @@ begin
     returning "id" into businessOwnerJobId;
 
     -- map the user with the business owner vacancy (empty job position)
-    update gb_job set "user_id" = userId where "id" = businessOwnerJobId;
+    update "gb_job" set "user_id" = userId where "id" = businessOwnerJobId;
 
     return new;
 end
@@ -52,4 +52,43 @@ create trigger "gb_check_user_creation"
     on "gb_user"
     for each row
 execute procedure "gb_user_create_procedure"();
+-- endregion
+
+-- region 3. trigger : vacancy occupation --> vacancy applications removal
+create or replace function "gb_remove_job_applications_procedure"() returns trigger as
+$gb_remove_job_applications_procedure$
+begin
+    -- if the vacancy was occupied, remove the pending job applications
+    if new."user_id" is not null
+    then
+        delete from "gb_job_application" where "job_id" = new."id";
+    end if;
+    return new;
+end
+$gb_remove_job_applications_procedure$ language plpgsql;
+
+drop trigger if exists "gb_check_vacancy_occupation" on "gb_user";
+create trigger "gb_check_vacancy_occupation"
+    after update
+    on "gb_job"
+    for each row
+execute procedure "gb_remove_job_applications_procedure"();
+-- endregion
+
+-- region 4. trigger : job application creation --> remove old one
+create or replace function "gb_remove_old_job_application"() returns trigger as
+$gb_remove_old_job_application$
+begin
+    -- remove old entry if exists
+    delete from "gb_job_application" where "user_id" = new."user_id" and "job_id" = new."job_id";
+    return new;
+end
+$gb_remove_old_job_application$ language plpgsql;
+
+drop trigger if exists "gb_check_previous_job_application" on "gb_user";
+create trigger "gb_check_previous_job_application"
+    before insert
+    on "gb_job_application"
+    for each row
+execute procedure "gb_remove_old_job_application"();
 -- endregion

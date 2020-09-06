@@ -223,7 +223,7 @@ def get_product(product_id):
 def create_vacant_job(gb_user, gb_business_page, title):
     cur = get_db_connection().cursor(cursor_factory=psycopg2_extras.DictCursor)
 
-    cur.execute('insert into gb_job("title", "role", "business_page_id") values (%s,%s,%s) returning "id";', (
+    cur.execute('insert into "gb_job"("title", "role", "business_page_id") values (%s,%s,%s) returning "id";', (
         title,
         'employee',
         gb_business_page['id']
@@ -282,4 +282,69 @@ def get_job(job_id):
 
     cur.close()
     return gb_job
+
+
+# endregion
+
+
+# region job/vacancy application management
+def create_job_application(gb_user, gb_job, message):
+    cur = get_db_connection().cursor(cursor_factory=psycopg2_extras.DictCursor)
+
+    cur.execute('insert into "gb_job_application"("message", "user_id", "job_id") values (%s,%s,%s);', (
+        message,
+        gb_user['id'],
+        gb_job['id']
+    ))
+
+    cur.close()
+    get_db_connection().commit()
+
+
+def get_job_application_ids(gb_job):
+    cur = get_db_connection().cursor(cursor_factory=psycopg2_extras.DictCursor)
+
+    cur.execute('select "id" from "gb_job_application" where "job_id" = %s;', (
+        gb_job['id'],
+    ))
+    job_ids = [job_id[0] for job_id in cur.fetchall()]
+
+    cur.close()
+    return job_ids
+
+
+def get_job_application(job_application_id):
+    cur = get_db_connection().cursor(cursor_factory=psycopg2_extras.DictCursor)
+
+    cur.execute('select * from "gb_job_application" where "id" = %s;', (
+        job_application_id,
+    ))
+    gb_job = cur.fetchone()
+
+    cur.close()
+    return gb_job
+
+
+def approve_job_application(gb_job_application):
+    cur = get_db_connection().cursor(cursor_factory=psycopg2_extras.DictCursor)
+
+    cur.execute('update "gb_job" set "user_id" = %s where "id" = %s;', (
+        gb_job_application['user_id'],
+        gb_job_application['job_id']
+    ))
+
+    cur.close()
+    get_db_connection().commit()
+
+
+def decline_job_application(gb_job_application):
+    cur = get_db_connection().cursor(cursor_factory=psycopg2_extras.DictCursor)
+
+    cur.execute('delete from "gb_job_application" where "id"=%s;', (
+        gb_job_application['id'],
+    ))
+
+    cur.close()
+    get_db_connection().commit()
+
 # endregion

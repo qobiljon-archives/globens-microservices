@@ -39,9 +39,9 @@ create table if not exists "gb_product"
 
 
 -- job role : i.e., business owner, employee, or individual entrepreneur
-create type gb_job_role as enum ('business owner', 'employee', 'individual entrepreneur');
+create type "gb_job_role" as enum ('business owner', 'employee', 'individual entrepreneur');
 -- job : i.e., jobs in a business page
-create table if not exists gb_job
+create table if not exists "gb_job"
 (
     -- data
     "id"               serial primary key,
@@ -56,21 +56,22 @@ create table if not exists gb_job
 
 
 -- job application : i.e., user's application for a vacancy (empty job position)
-create table if not exists gb_job_application
+create table if not exists "gb_job_application"
 (
     -- data
     "id"      serial primary key,
+    "message" text,
     -- relations
     "user_id" integer not null references "gb_user" ("id") on delete cascade,
-    job_id    integer not null references gb_job ("id") on delete cascade,
+    "job_id"  integer not null references gb_job ("id") on delete cascade,
     -- constraints
-    unique (job_id, "user_id")
+    unique ("job_id", "user_id")
 );
 
 -- action on product : e.g., create, edit, publish, etc.
-create type gb_job_action as enum ('create', 'uncreate');
+create type "gb_job_action" as enum ('create', 'uncreate');
 -- product log entry : e.g., created by A, edited by B, published by C, etc.
-create table if not exists gb_job_log
+create table if not exists "gb_job_log"
 (
     -- data
     "timestamp" timestamp,
