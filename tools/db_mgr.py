@@ -157,24 +157,24 @@ def create_business_page(gb_user, title, picture_blob):
 
 
 def get_business_page_job_ids(gb_business_page):
-    cur = get_db_connection().cursor()
+    cur = get_db_connection().cursor(cursor_factory=psycopg2_extras.DictCursor)
 
     cur.execute('select "id" from "gb_job" where "business_page_id" = %s;', (
         gb_business_page['id'],
     ))
-    job_ids = cur.fetchall()
+    job_ids = [job_id[0] for job_id in cur.fetchall()]
 
     cur.close()
     return job_ids
 
 
 def get_business_page_product_ids(gb_business_page):
-    cur = get_db_connection().cursor()
+    cur = get_db_connection().cursor(cursor_factory=psycopg2_extras.DictCursor)
 
     cur.execute('select "id" from "gb_product" where "business_page_id" = %s;', (
         gb_business_page['id'],
     ))
-    product_ids = cur.fetchall()
+    product_ids = [product_id[0] for product_id in cur.fetchall()]
 
     cur.close()
     return product_ids
