@@ -72,6 +72,27 @@ def create_or_update_user(email, name, picture, tokens):
     return get_user(email=email), session_key
 
 
+def get_business_page_ids(gb_user):
+    cur = get_db_connection().cursor(cursor_factory=psycopg2_extras.DictCursor)
+
+    # step 1 : get user's jobs (from vacancies table)
+    cur.execute('select * from "gb_job" where "user_id"=%s;', (
+        gb_user['id'],
+    ))
+    gb_job = cur.fetchall()
+
+    # step 2 : get unique campaigns related of the jobs/vacancies
+    business_page_ids = set()
+    for gb_job in gb_job:
+        cur.execute('select "id" from "gb_business_page" where "id" = %s;', (
+            gb_job['business_page_id'],
+        ))
+        business_page_ids.add(cur.fetchone()[0])
+
+    cur.close()
+    return list(business_page_ids)
+
+
 def get_business_page(business_page_id):
     cur = get_db_connection().cursor(cursor_factory=psycopg2_extras.DictCursor)
 
@@ -84,34 +105,23 @@ def get_business_page(business_page_id):
     return gb_business_page
 
 
-def get_business_pages(gb_user):
-    cur = get_db_connection().cursor(cursor_factory=psycopg2_extras.DictCursor)
+def get_user_role_in_business_page(gb_user, gb_business_page):
+    cur = get_db_connection().cursor()
 
-    # step 1 : get user's jobs (from vacancies table)
-    cur.execute('select * from "gb_vacancy" where "user_id"=%s;', (
+    cur.execute('select "role" from "gb_job" where "user_id" = %s and "business_page_id" = %s;', (
         gb_user['id'],
+        gb_business_page['id'],
     ))
-    gb_vacancies = cur.fetchall()
-
-    # step 2 : get unique campaigns related of the jobs/vacancies
-    res = []
-    for gb_vacancy in gb_vacancies:
-        cur.execute('select * from "gb_business_page" where "id" = %s;', (
-            gb_vacancy['business_page_id'],
-        ))
-        gb_business_page = cur.fetchone()
-        tp = (gb_business_page, gb_vacancy)
-        if tp not in res:
-            res += [tp]
+    gb_job = cur.fetchone()
 
     cur.close()
-    return res
+    return "consumer" if gb_job is None else gb_job[0]
 
 
 def create_business_page(gb_user, title, picture_blob):
     cur = get_db_connection().cursor(cursor_factory=psycopg2_extras.DictCursor)
 
-    # create an individual/small business page
+    # create a large business page
     cur.execute('insert into "gb_business_page"("title", "type", "pictureBlob") values (%s,%s,%s) returning "id";', (
         title,
         'large business',
@@ -119,25 +129,37 @@ def create_business_page(gb_user, title, picture_blob):
     ))
     business_page_id = cur.fetchone()[0]
 
-    # create business owner vacancy/position for the business page
-    cur.execute('insert into "gb_vacancy"("title", "role", "business_page_id") values (%s,%s,%s) returning "id";', (
+    # create business owner job position for the business page
+    cur.execute('insert into gb_job("title", "role", "business_page_id") values (%s,%s,%s) returning "id";', (
         'Business owner',
         'business owner',
         business_page_id
     ))
-    business_owner_vacancy_id = cur.fetchone()[0]
+    business_owner_job_id = cur.fetchone()[0]
 
-    # map the user with the business owner vacancy/position
-    cur.execute('update "gb_vacancy" set "user_id" = %s where "id" = %s;', (
+    # map the user with the business owner vacancy (empty job position)
+    cur.execute('update gb_job set "user_id" = %s where "id" = %s;', (
         gb_user['id'],
-        business_owner_vacancy_id
+        business_owner_job_id
     ))
 
     cur.close()
     get_db_connection().commit()
 
 
-def get_products(gb_business_page):
+def get_business_page_job_ids(gb_business_page):
+    cur = get_db_connection().cursor()
+
+    cur.execute('select "id" from "gb_job" where "business_page_id" = %s;', (
+        gb_business_page['id'],
+    ))
+    gb_vacancies = cur.fetchall()
+
+    cur.close()
+    return gb_vacancies
+
+
+def get_business_page_products(gb_business_page):
     cur = get_db_connection().cursor(cursor_factory=psycopg2_extras.DictCursor)
 
     cur.execute('select * from "gb_product" where "business_page_id" = %s;', (
@@ -170,20 +192,20 @@ def create_product(gb_user, gb_business_page, name, picture_blob):
     get_db_connection().commit()
 
 
-def create_vacancy(gb_user, gb_business_page, title):
+def create_vacant_job(gb_user, gb_business_page, title):
     cur = get_db_connection().cursor(cursor_factory=psycopg2_extras.DictCursor)
 
-    cur.execute('insert into "gb_vacancy"("title", "role", "business_page_id") values (%s,%s,%s) returning "id";', (
+    cur.execute('insert into gb_job("title", "role", "business_page_id") values (%s,%s,%s) returning "id";', (
         title,
         'employee',
         gb_business_page['id']
     ))
-    new_vacancy_id = cur.fetchone()[0]
+    new_job_id = cur.fetchone()[0]
 
-    cur.execute('insert into "gb_vacancy_log"("timestamp", "action", "vacancy_id", "user_id") values (%s,%s,%s,%s);', (
+    cur.execute('insert into "gb_job_log"("timestamp", "action", "job_id", "user_id") values (%s,%s,%s,%s);', (
         datetime.now(),
         'create',
-        new_vacancy_id,
+        new_job_id,
         gb_user['id']
     ))
 
@@ -191,18 +213,44 @@ def create_vacancy(gb_user, gb_business_page, title):
     get_db_connection().commit()
 
 
-def get_vacancies(gb_business_page, only_unoccupied=True):
+def get_next_k_vacant_jobs(previous_vacant_job_id, k, filter_details):
     cur = get_db_connection().cursor(cursor_factory=psycopg2_extras.DictCursor)
 
-    if only_unoccupied:
-        cur.execute('select * from "gb_vacancy" where "business_page_id" = %s and "user_id" is null;', (
-            gb_business_page['id'],
-        ))
+    if filter_details.useFilter:
+        if previous_vacant_job_id is None:
+            cur.execute('select * from "gb_job" where "user_id" is null and "title" like %s order by "id" limit %s;', (
+                f'%{filter_details.filterText}%',
+                k
+            ))
+        else:
+            cur.execute('select * from "gb_job" where "id" > %s and "user_id" is null and "title" like %s order by "id" limit %s;', (
+                previous_vacant_job_id,
+                f'%{filter_details.filterText}%',
+                k
+            ))
     else:
-        cur.execute('select * from "gb_vacancy" where "business_page_id" = %s;', (
-            gb_business_page['id'],
-        ))
+        if previous_vacant_job_id is None:
+            cur.execute('select * from "gb_job" where "user_id" is null order by "id" limit %s;', (
+                k
+            ))
+        else:
+            cur.execute('select * from "gb_job" where "id" > %s and "user_id" is null order by "id" limit %s;', (
+                previous_vacant_job_id,
+                k
+            ))
     gb_vacancies = cur.fetchall()
 
     cur.close()
     return gb_vacancies
+
+
+def get_job(job_id):
+    cur = get_db_connection().cursor(cursor_factory=psycopg2_extras.DictCursor)
+
+    cur.execute('select * from "gb_job" where "id" = %s;', (
+        job_id
+    ))
+    gb_job = cur.fetchone()
+
+    cur.close()
+    return gb_job

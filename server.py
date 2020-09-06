@@ -63,49 +63,76 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
 
     # endregion
 
-    # region vacancy management module
-    def createVacancy(self, request, context):
-        response = gb_service_pb2.CreateVacancy.Response()
+    # region job/vacancy management module
+    def createVacantJob(self, request, context):
+        response = gb_service_pb2.CreateVacantJob.Response()
         response.success = False
 
         gb_user = db.get_user(session_key=request.sessionKey)
         gb_business_page = db.get_business_page(business_page_id=request.businessPageId)
 
         if None not in [gb_user, gb_business_page]:
-            db.create_vacancy(gb_user=gb_user, gb_business_page=gb_business_page, title=request.title)
+            db.create_vacant_job(gb_user=gb_user, gb_business_page=gb_business_page, title=request.title)
             response.success = True
 
         print(f' createVacancy, success={response.success}')
         return response
 
-    def updateVacancyDetails(self, request, context):
-        # todo update vacancy details
+    def updateJobDetails(self, request, context):
+        # todo update job details
         pass
 
-    def uncreateVacancy(self, request, context):
-        # todo uncreate vacancy
+    def uncreateJob(self, request, context):
+        # todo uncreate job
         pass
 
-    def fetchVacancies(self, request, context):
-        response = gb_service_pb2.FetchVacancies.Response()
+    def fetchBusinessPageJobIds(self, request, context):
+        response = gb_service_pb2.FetchBusinessPageJobIds.Response()
         response.success = False
 
         gb_user = db.get_user(session_key=request.sessionKey)
         gb_business_page = db.get_business_page(business_page_id=request.businessPageId)
 
         if None not in [gb_user, gb_business_page]:
-            for gb_vacancy in db.get_vacancies(gb_business_page=gb_business_page):
-                response.id.extend([gb_vacancy['id']])
-                response.role.extend([gb_vacancy['role']])
-                response.title.extend([gb_vacancy['title']])
+            response.id.extend(db.get_business_page_job_ids(gb_business_page=gb_business_page))
+            response.success = True
+
+        # print(f' fetchBusinessPageJobIds, success={response.success}')
+        return response
+
+    def fetchNextKVacantJobIds(self, request, context):
+        response = gb_service_pb2.FetchNextKVacantJobIds.Response()
+        response.success = False
+
+        gb_user = db.get_user(session_key=request.sessionKey)
+        k = request.k
+        filter_details = request.filterDetails
+        previous_vacant_job_id = request.previousVacantJobId
+
+        if None not in [gb_user, k, filter_details] and k <= 250:
+            for gb_vacant_job in db.get_next_k_vacant_jobs(previous_vacant_job_id=previous_vacant_job_id, k=k, filter_details=filter_details):
+                response.id.extend([gb_vacant_job['id']])
+            response.success = True
+
+        # print(f' fetchNextKVacancyJobIds, success={response.success}')
+        return response
+
+    def fetchJobDetails(self, request, context):
+        response = gb_service_pb2.FetchJobDetails.Response()
+        response.success = False
+
+        gb_user = db.get_user(session_key=request.sessionKey)
+        gb_job = db.get_job(job_id=request.jobId)
+
+        if None not in [gb_user, gb_job]:
+            response.id = gb_job['id']
+            response.role = gb_job['role']
+            response.title = gb_job['title']
+            response.isVacant = gb_job['title']
             response.success = True
 
         # print(f' fetchVacancies, success={response.success}')
         return response
-
-    def fetchVacancyDetails(self, request, context):
-        # todo fetch vacancy details
-        pass
 
     # endregion
 
@@ -122,7 +149,7 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
         # todo uncreate vacancy application
         pass
 
-    def fetchMyVacancyApplications(self, request, context):
+    def fetchMyVacancyApplicationIds(self, request, context):
         # todo fetch my vacancy applications
         pass
 
@@ -154,27 +181,36 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
         # todo uncreate business page
         pass
 
-    def fetchBusinessPages(self, request, context):
-        response = gb_service_pb2.FetchBusinessPages.Response()
+    def fetchMyBusinessPageIds(self, request, context):
+        response = gb_service_pb2.FetchMyBusinessPageIds.Response()
         response.success = False
 
         gb_user = db.get_user(session_key=request.sessionKey)
 
         if gb_user is not None:
-            for gb_business_page, gb_vacancy in db.get_business_pages(gb_user=gb_user):
-                response.id.extend([gb_business_page['id']])
-                response.title.extend([gb_business_page['title']])
-                response.type.extend([gb_business_page['type']])
-                response.pictureBlob.extend([bytes(gb_business_page['pictureBlob'])])
-                response.role.extend([gb_vacancy['role']])
+            response.id.extend(db.get_business_page_ids(gb_user=gb_user))
             response.success = True
 
-        # print(f' fetchBusinessPages, success={response.success}')
+        # print(f' fetchMyBusinessPageIds, success={response.success}')
         return response
 
     def fetchBusinessPageDetails(self, request, context):
-        # todo fetch business page details
-        pass
+        response = gb_service_pb2.FetchMyBusinessPageIds.Response()
+        response.success = False
+
+        gb_user = db.get_user(session_key=request.sessionKey)
+        gb_business_page = db.get_business_page(business_page_id=request.businessPageId)
+
+        if None not in [gb_user, gb_business_page]:
+            response.id = gb_business_page['title']
+            response.title = gb_business_page['title']
+            response.type = gb_business_page['type']
+            response.pictureBlob = bytes(gb_business_page['pictureBlob'])
+            response.role = db.get_user_role_in_business_page(gb_user=gb_user, gb_business_page=gb_business_page)
+            response.success = True
+
+            # print(f' fetchBusinessPageDetails, success={response.success}')
+        return response
 
     # endregion
 
@@ -209,15 +245,15 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
         # todo unpublish product
         pass
 
-    def fetchProducts(self, request, context):
-        response = gb_service_pb2.FetchProducts.Response()
+    def fetchBusinessPageProducts(self, request, context):
+        response = gb_service_pb2.FetchBusinessPageProducts.Response()
         response.success = False
 
         gb_user = db.get_user(session_key=request.sessionKey)
         gb_business_page = db.get_business_page(business_page_id=request.businessPageId)
 
         if None not in [gb_user, gb_business_page]:
-            for gb_product in db.get_products(gb_business_page=gb_business_page):
+            for gb_product in db.get_business_page_products(gb_business_page=gb_business_page):
                 response.id.extend([gb_product['id']])
                 response.name.extend([gb_product['name']])
                 response.published.extend([gb_product['published']])
@@ -246,13 +282,6 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
         # todo fetch purchase details
         pass
 
-    # endregion
-
-    # region test proto (rpc)
-    def testSum(self, request, context):
-        res = gb_service_pb2.TestSum.Response()
-        res.c = request.a + request.b
-        return res
     # endregion
 
 

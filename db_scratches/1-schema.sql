@@ -38,31 +38,46 @@ create table if not exists "gb_product"
 );
 
 
--- vacancy role : i.e., business owner, employee, or individual entrepreneur
-create type "gb_vacancy_role" as enum ('business owner', 'employee', 'individual entrepreneur');
--- vacancy : i.e., jobs in a business page
-create table if not exists "gb_vacancy"
+-- job role : i.e., business owner, employee, or individual entrepreneur
+create type gb_job_role as enum ('business owner', 'employee', 'individual entrepreneur');
+-- job : i.e., jobs in a business page
+create table if not exists gb_job
 (
     -- data
     "id"               serial primary key,
-    "role"             "gb_vacancy_role",
+    "role"             gb_job_role,
     "title"            text,
     -- relations
     "user_id"          integer references "gb_user" ("id") default null,
-    "business_page_id" integer not null references "gb_business_page" ("id") on delete cascade
+    "business_page_id" integer not null references "gb_business_page" ("id") on delete cascade,
+    -- constraints
+    unique ("user_id", "business_page_id")
 );
 
 
--- vacancy application : i.e., user's application for a vacancy
-create table if not exists "gb_vacancy_application"
+-- job application : i.e., user's application for a vacancy (empty job position)
+create table if not exists gb_job_application
 (
     -- data
-    "id"         serial primary key,
+    "id"      serial primary key,
     -- relations
-    "user_id"    integer not null references "gb_user" ("id") on delete cascade,
-    "vacancy_id" integer not null references "gb_vacancy" ("id") on delete cascade,
+    "user_id" integer not null references "gb_user" ("id") on delete cascade,
+    job_id    integer not null references gb_job ("id") on delete cascade,
     -- constraints
-    unique ("vacancy_id", "user_id")
+    unique (job_id, "user_id")
+);
+
+-- action on product : e.g., create, edit, publish, etc.
+create type gb_job_action as enum ('create', 'uncreate');
+-- product log entry : e.g., created by A, edited by B, published by C, etc.
+create table if not exists gb_job_log
+(
+    -- data
+    "timestamp" timestamp,
+    "action"    gb_job_action,
+    -- relations
+    "job_id"    integer not null references gb_job ("id") on delete cascade,
+    "user_id"   integer references "gb_user" ("id") on delete set null
 );
 
 
@@ -90,19 +105,5 @@ create table if not exists "gb_product_log"
     "action"     "gb_product_action",
     -- relations
     "product_id" integer not null references "gb_product" ("id") on delete cascade,
-    "user_id"    integer references "gb_user" ("id") on delete set null
-);
-
-
--- action on product : e.g., create, edit, publish, etc.
-create type "gb_vacancy_action" as enum ('create', 'uncreate');
--- product log entry : e.g., created by A, edited by B, published by C, etc.
-create table if not exists "gb_vacancy_log"
-(
-    -- data
-    "timestamp"  timestamp,
-    "action"     "gb_vacancy_action",
-    -- relations
-    "vacancy_id" integer not null references "gb_vacancy" ("id") on delete cascade,
     "user_id"    integer references "gb_user" ("id") on delete set null
 );

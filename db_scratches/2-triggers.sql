@@ -20,10 +20,10 @@ execute procedure "gb_product_update_procedure"();
 create or replace function "gb_user_create_procedure"() returns trigger as
 $gb_user_create_procedure$
 declare
-    userId                 "gb_user"."id"%type;
-    pictureBlob            "gb_user"."pictureBlob"%type;
-    businessPageId         "gb_business_page"."id"%type;
-    businessOwnerVacancyId "gb_vacancy"."id"%type;
+    userId             "gb_user"."id"%type;
+    pictureBlob        "gb_user"."pictureBlob"%type;
+    businessPageId     "gb_business_page"."id"%type;
+    businessOwnerJobId "gb_job"."id"%type;
 begin
     -- load new user's details for individual business page
     userId = new."id";
@@ -34,13 +34,13 @@ begin
     values (E'Individual entrepreneur\'s page', 'small business', pictureBlob)
     returning "id" into businessPageId;
 
-    -- create business owner vacancy/position for the business page
-    insert into "gb_vacancy"("title", "role", "business_page_id")
+    -- create business owner job position for the business page
+    insert into gb_job("title", "role", "business_page_id")
     values ('Business owner', 'individual entrepreneur', businessPageId)
-    returning "id" into businessOwnerVacancyId;
+    returning "id" into businessOwnerJobId;
 
-    -- map the user with the business owner vacancy/position
-    update "gb_vacancy" set "user_id" = userId where "id" = businessOwnerVacancyId;
+    -- map the user with the business owner vacancy (empty job position)
+    update gb_job set "user_id" = userId where "id" = businessOwnerJobId;
 
     return new;
 end

@@ -34,30 +34,35 @@ class GlobensServiceStub(object):
             request_serializer=gb__service__pb2.FetchUserDetails.Request.SerializeToString,
             response_deserializer=gb__service__pb2.FetchUserDetails.Response.FromString,
         )
-        self.createVacancy = channel.unary_unary(
-            '/GlobensService/createVacancy',
-            request_serializer=gb__service__pb2.CreateVacancy.Request.SerializeToString,
-            response_deserializer=gb__service__pb2.CreateVacancy.Response.FromString,
+        self.createVacantJob = channel.unary_unary(
+            '/GlobensService/createVacantJob',
+            request_serializer=gb__service__pb2.CreateVacantJob.Request.SerializeToString,
+            response_deserializer=gb__service__pb2.CreateVacantJob.Response.FromString,
         )
-        self.updateVacancyDetails = channel.unary_unary(
-            '/GlobensService/updateVacancyDetails',
-            request_serializer=gb__service__pb2.UpdateVacancyDetails.Request.SerializeToString,
-            response_deserializer=gb__service__pb2.UpdateVacancyDetails.Response.FromString,
+        self.updateJobDetails = channel.unary_unary(
+            '/GlobensService/updateJobDetails',
+            request_serializer=gb__service__pb2.UpdateJobDetails.Request.SerializeToString,
+            response_deserializer=gb__service__pb2.UpdateJobDetails.Response.FromString,
         )
-        self.uncreateVacancy = channel.unary_unary(
-            '/GlobensService/uncreateVacancy',
-            request_serializer=gb__service__pb2.UncreateVacancy.Request.SerializeToString,
-            response_deserializer=gb__service__pb2.UncreateVacancy.Response.FromString,
+        self.uncreateJob = channel.unary_unary(
+            '/GlobensService/uncreateJob',
+            request_serializer=gb__service__pb2.UncreateJob.Request.SerializeToString,
+            response_deserializer=gb__service__pb2.UncreateJob.Response.FromString,
         )
-        self.fetchVacancies = channel.unary_unary(
-            '/GlobensService/fetchVacancies',
-            request_serializer=gb__service__pb2.FetchVacancies.Request.SerializeToString,
-            response_deserializer=gb__service__pb2.FetchVacancies.Response.FromString,
+        self.fetchBusinessPageJobIds = channel.unary_unary(
+            '/GlobensService/fetchBusinessPageJobIds',
+            request_serializer=gb__service__pb2.FetchBusinessPageJobIds.Request.SerializeToString,
+            response_deserializer=gb__service__pb2.FetchBusinessPageJobIds.Response.FromString,
         )
-        self.fetchVacancyDetails = channel.unary_unary(
-            '/GlobensService/fetchVacancyDetails',
-            request_serializer=gb__service__pb2.FetchVacancyDetails.Request.SerializeToString,
-            response_deserializer=gb__service__pb2.FetchVacancyDetails.Response.FromString,
+        self.fetchNextKVacantJobIds = channel.unary_unary(
+            '/GlobensService/fetchNextKVacantJobIds',
+            request_serializer=gb__service__pb2.FetchNextKVacantJobIds.Request.SerializeToString,
+            response_deserializer=gb__service__pb2.FetchNextKVacantJobIds.Response.FromString,
+        )
+        self.fetchJobDetails = channel.unary_unary(
+            '/GlobensService/fetchJobDetails',
+            request_serializer=gb__service__pb2.FetchJobDetails.Request.SerializeToString,
+            response_deserializer=gb__service__pb2.FetchJobDetails.Response.FromString,
         )
         self.createVacancyApplication = channel.unary_unary(
             '/GlobensService/createVacancyApplication',
@@ -74,10 +79,10 @@ class GlobensServiceStub(object):
             request_serializer=gb__service__pb2.UncreateVacancyApplication.Request.SerializeToString,
             response_deserializer=gb__service__pb2.UncreateVacancyApplication.Response.FromString,
         )
-        self.fetchMyVacancyApplications = channel.unary_unary(
-            '/GlobensService/fetchMyVacancyApplications',
-            request_serializer=gb__service__pb2.FetchMyVacancyApplications.Request.SerializeToString,
-            response_deserializer=gb__service__pb2.FetchMyVacancyApplications.Response.FromString,
+        self.fetchMyVacancyApplicationIds = channel.unary_unary(
+            '/GlobensService/fetchMyVacancyApplicationIds',
+            request_serializer=gb__service__pb2.FetchMyVacancyApplicationIds.Request.SerializeToString,
+            response_deserializer=gb__service__pb2.FetchMyVacancyApplicationIds.Response.FromString,
         )
         self.fetchVacancyApplicationDetails = channel.unary_unary(
             '/GlobensService/fetchVacancyApplicationDetails',
@@ -99,10 +104,10 @@ class GlobensServiceStub(object):
             request_serializer=gb__service__pb2.UncreateBusinessPage.Request.SerializeToString,
             response_deserializer=gb__service__pb2.UncreateBusinessPage.Response.FromString,
         )
-        self.fetchBusinessPages = channel.unary_unary(
-            '/GlobensService/fetchBusinessPages',
-            request_serializer=gb__service__pb2.FetchBusinessPages.Request.SerializeToString,
-            response_deserializer=gb__service__pb2.FetchBusinessPages.Response.FromString,
+        self.fetchMyBusinessPageIds = channel.unary_unary(
+            '/GlobensService/fetchMyBusinessPageIds',
+            request_serializer=gb__service__pb2.FetchMyBusinessPageIds.Request.SerializeToString,
+            response_deserializer=gb__service__pb2.FetchMyBusinessPageIds.Response.FromString,
         )
         self.fetchBusinessPageDetails = channel.unary_unary(
             '/GlobensService/fetchBusinessPageDetails',
@@ -134,10 +139,10 @@ class GlobensServiceStub(object):
             request_serializer=gb__service__pb2.UncreateProduct.Request.SerializeToString,
             response_deserializer=gb__service__pb2.UncreateProduct.Response.FromString,
         )
-        self.fetchProducts = channel.unary_unary(
-            '/GlobensService/fetchProducts',
-            request_serializer=gb__service__pb2.FetchProducts.Request.SerializeToString,
-            response_deserializer=gb__service__pb2.FetchProducts.Response.FromString,
+        self.fetchBusinessPageProducts = channel.unary_unary(
+            '/GlobensService/fetchBusinessPageProducts',
+            request_serializer=gb__service__pb2.FetchBusinessPageProducts.Request.SerializeToString,
+            response_deserializer=gb__service__pb2.FetchBusinessPageProducts.Response.FromString,
         )
         self.fetchProductDetails = channel.unary_unary(
             '/GlobensService/fetchProductDetails',
@@ -158,11 +163,6 @@ class GlobensServiceStub(object):
             '/GlobensService/fetchPurchaseDetails',
             request_serializer=gb__service__pb2.FetchPurchaseDetails.Request.SerializeToString,
             response_deserializer=gb__service__pb2.FetchPurchaseDetails.Response.FromString,
-        )
-        self.testSum = channel.unary_unary(
-            '/GlobensService/testSum',
-            request_serializer=gb__service__pb2.TestSum.Request.SerializeToString,
-            response_deserializer=gb__service__pb2.TestSum.Response.FromString,
         )
 
 
@@ -198,35 +198,42 @@ class GlobensServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def createVacancy(self, request, context):
+    def createVacantJob(self, request, context):
         """vacancy management RPCs
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def updateVacancyDetails(self, request, context):
+    def updateJobDetails(self, request, context):
         # missing associated documentation comment in .proto file
         pass
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def uncreateVacancy(self, request, context):
+    def uncreateJob(self, request, context):
         # missing associated documentation comment in .proto file
         pass
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def fetchVacancies(self, request, context):
+    def fetchBusinessPageJobIds(self, request, context):
         # missing associated documentation comment in .proto file
         pass
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def fetchVacancyDetails(self, request, context):
+    def fetchNextKVacantJobIds(self, request, context):
+        # missing associated documentation comment in .proto file
+        pass
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def fetchJobDetails(self, request, context):
         # missing associated documentation comment in .proto file
         pass
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -254,7 +261,7 @@ class GlobensServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def fetchMyVacancyApplications(self, request, context):
+    def fetchMyVacancyApplicationIds(self, request, context):
         # missing associated documentation comment in .proto file
         pass
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -289,7 +296,7 @@ class GlobensServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def fetchBusinessPages(self, request, context):
+    def fetchMyBusinessPageIds(self, request, context):
         # missing associated documentation comment in .proto file
         pass
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -338,7 +345,7 @@ class GlobensServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def fetchProducts(self, request, context):
+    def fetchBusinessPageProducts(self, request, context):
         # missing associated documentation comment in .proto file
         pass
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -373,13 +380,6 @@ class GlobensServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def testSum(self, request, context):
-        """test proto (rpc)
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
 
 def add_GlobensServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -403,30 +403,35 @@ def add_GlobensServiceServicer_to_server(servicer, server):
             request_deserializer=gb__service__pb2.FetchUserDetails.Request.FromString,
             response_serializer=gb__service__pb2.FetchUserDetails.Response.SerializeToString,
         ),
-        'createVacancy': grpc.unary_unary_rpc_method_handler(
-            servicer.createVacancy,
-            request_deserializer=gb__service__pb2.CreateVacancy.Request.FromString,
-            response_serializer=gb__service__pb2.CreateVacancy.Response.SerializeToString,
+        'createVacantJob': grpc.unary_unary_rpc_method_handler(
+            servicer.createVacantJob,
+            request_deserializer=gb__service__pb2.CreateVacantJob.Request.FromString,
+            response_serializer=gb__service__pb2.CreateVacantJob.Response.SerializeToString,
         ),
-        'updateVacancyDetails': grpc.unary_unary_rpc_method_handler(
-            servicer.updateVacancyDetails,
-            request_deserializer=gb__service__pb2.UpdateVacancyDetails.Request.FromString,
-            response_serializer=gb__service__pb2.UpdateVacancyDetails.Response.SerializeToString,
+        'updateJobDetails': grpc.unary_unary_rpc_method_handler(
+            servicer.updateJobDetails,
+            request_deserializer=gb__service__pb2.UpdateJobDetails.Request.FromString,
+            response_serializer=gb__service__pb2.UpdateJobDetails.Response.SerializeToString,
         ),
-        'uncreateVacancy': grpc.unary_unary_rpc_method_handler(
-            servicer.uncreateVacancy,
-            request_deserializer=gb__service__pb2.UncreateVacancy.Request.FromString,
-            response_serializer=gb__service__pb2.UncreateVacancy.Response.SerializeToString,
+        'uncreateJob': grpc.unary_unary_rpc_method_handler(
+            servicer.uncreateJob,
+            request_deserializer=gb__service__pb2.UncreateJob.Request.FromString,
+            response_serializer=gb__service__pb2.UncreateJob.Response.SerializeToString,
         ),
-        'fetchVacancies': grpc.unary_unary_rpc_method_handler(
-            servicer.fetchVacancies,
-            request_deserializer=gb__service__pb2.FetchVacancies.Request.FromString,
-            response_serializer=gb__service__pb2.FetchVacancies.Response.SerializeToString,
+        'fetchBusinessPageJobIds': grpc.unary_unary_rpc_method_handler(
+            servicer.fetchBusinessPageJobIds,
+            request_deserializer=gb__service__pb2.FetchBusinessPageJobIds.Request.FromString,
+            response_serializer=gb__service__pb2.FetchBusinessPageJobIds.Response.SerializeToString,
         ),
-        'fetchVacancyDetails': grpc.unary_unary_rpc_method_handler(
-            servicer.fetchVacancyDetails,
-            request_deserializer=gb__service__pb2.FetchVacancyDetails.Request.FromString,
-            response_serializer=gb__service__pb2.FetchVacancyDetails.Response.SerializeToString,
+        'fetchNextKVacantJobIds': grpc.unary_unary_rpc_method_handler(
+            servicer.fetchNextKVacantJobIds,
+            request_deserializer=gb__service__pb2.FetchNextKVacantJobIds.Request.FromString,
+            response_serializer=gb__service__pb2.FetchNextKVacantJobIds.Response.SerializeToString,
+        ),
+        'fetchJobDetails': grpc.unary_unary_rpc_method_handler(
+            servicer.fetchJobDetails,
+            request_deserializer=gb__service__pb2.FetchJobDetails.Request.FromString,
+            response_serializer=gb__service__pb2.FetchJobDetails.Response.SerializeToString,
         ),
         'createVacancyApplication': grpc.unary_unary_rpc_method_handler(
             servicer.createVacancyApplication,
@@ -443,10 +448,10 @@ def add_GlobensServiceServicer_to_server(servicer, server):
             request_deserializer=gb__service__pb2.UncreateVacancyApplication.Request.FromString,
             response_serializer=gb__service__pb2.UncreateVacancyApplication.Response.SerializeToString,
         ),
-        'fetchMyVacancyApplications': grpc.unary_unary_rpc_method_handler(
-            servicer.fetchMyVacancyApplications,
-            request_deserializer=gb__service__pb2.FetchMyVacancyApplications.Request.FromString,
-            response_serializer=gb__service__pb2.FetchMyVacancyApplications.Response.SerializeToString,
+        'fetchMyVacancyApplicationIds': grpc.unary_unary_rpc_method_handler(
+            servicer.fetchMyVacancyApplicationIds,
+            request_deserializer=gb__service__pb2.FetchMyVacancyApplicationIds.Request.FromString,
+            response_serializer=gb__service__pb2.FetchMyVacancyApplicationIds.Response.SerializeToString,
         ),
         'fetchVacancyApplicationDetails': grpc.unary_unary_rpc_method_handler(
             servicer.fetchVacancyApplicationDetails,
@@ -468,10 +473,10 @@ def add_GlobensServiceServicer_to_server(servicer, server):
             request_deserializer=gb__service__pb2.UncreateBusinessPage.Request.FromString,
             response_serializer=gb__service__pb2.UncreateBusinessPage.Response.SerializeToString,
         ),
-        'fetchBusinessPages': grpc.unary_unary_rpc_method_handler(
-            servicer.fetchBusinessPages,
-            request_deserializer=gb__service__pb2.FetchBusinessPages.Request.FromString,
-            response_serializer=gb__service__pb2.FetchBusinessPages.Response.SerializeToString,
+        'fetchMyBusinessPageIds': grpc.unary_unary_rpc_method_handler(
+            servicer.fetchMyBusinessPageIds,
+            request_deserializer=gb__service__pb2.FetchMyBusinessPageIds.Request.FromString,
+            response_serializer=gb__service__pb2.FetchMyBusinessPageIds.Response.SerializeToString,
         ),
         'fetchBusinessPageDetails': grpc.unary_unary_rpc_method_handler(
             servicer.fetchBusinessPageDetails,
@@ -503,10 +508,10 @@ def add_GlobensServiceServicer_to_server(servicer, server):
             request_deserializer=gb__service__pb2.UncreateProduct.Request.FromString,
             response_serializer=gb__service__pb2.UncreateProduct.Response.SerializeToString,
         ),
-        'fetchProducts': grpc.unary_unary_rpc_method_handler(
-            servicer.fetchProducts,
-            request_deserializer=gb__service__pb2.FetchProducts.Request.FromString,
-            response_serializer=gb__service__pb2.FetchProducts.Response.SerializeToString,
+        'fetchBusinessPageProducts': grpc.unary_unary_rpc_method_handler(
+            servicer.fetchBusinessPageProducts,
+            request_deserializer=gb__service__pb2.FetchBusinessPageProducts.Request.FromString,
+            response_serializer=gb__service__pb2.FetchBusinessPageProducts.Response.SerializeToString,
         ),
         'fetchProductDetails': grpc.unary_unary_rpc_method_handler(
             servicer.fetchProductDetails,
@@ -527,11 +532,6 @@ def add_GlobensServiceServicer_to_server(servicer, server):
             servicer.fetchPurchaseDetails,
             request_deserializer=gb__service__pb2.FetchPurchaseDetails.Request.FromString,
             response_serializer=gb__service__pb2.FetchPurchaseDetails.Response.SerializeToString,
-        ),
-        'testSum': grpc.unary_unary_rpc_method_handler(
-            servicer.testSum,
-            request_deserializer=gb__service__pb2.TestSum.Request.FromString,
-            response_serializer=gb__service__pb2.TestSum.Response.SerializeToString,
         ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
