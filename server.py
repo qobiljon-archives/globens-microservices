@@ -128,7 +128,7 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
             response.id = gb_job['id']
             response.role = gb_job['role']
             response.title = gb_job['title']
-            response.isVacant = gb_job['title']
+            response.hiredUserId = gb_job['user_id']
             response.success = True
 
         # print(f' fetchVacancies, success={response.success}')

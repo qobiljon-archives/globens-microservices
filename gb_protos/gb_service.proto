@@ -110,7 +110,7 @@ message FetchJobDetails{
     int32 id = 2;
     string role = 3;
     string title = 4;
-    bool isVacant = 5;
+    int32 hiredUserId = 5;
   }
 }
 
