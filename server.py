@@ -195,7 +195,7 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
         return response
 
     def fetchBusinessPageDetails(self, request, context):
-        response = gb_service_pb2.FetchMyBusinessPageIds.Response()
+        response = gb_service_pb2.FetchBusinessPageDetails.Response()
         response.success = False
 
         gb_user = db.get_user(session_key=request.sessionKey)
@@ -260,7 +260,7 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
         return response
 
     def fetchProductDetails(self, request, context):
-        response = gb_service_pb2.FetchBusinessPageProductIds.Response()
+        response = gb_service_pb2.FetchProductDetails.Response()
         response.success = False
 
         gb_user = db.get_user(session_key=request.sessionKey)
