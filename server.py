@@ -111,7 +111,7 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
             response.id.extend(db.get_business_page_job_ids(gb_business_page=gb_business_page))
             response.success = True
 
-        print(f' fetchBusinessPageJobIds, success={response.success}')
+        # print(f' fetchBusinessPageJobIds, success={response.success}')
         return response
 
     def fetchNextKVacantJobIds(self, request, context):
@@ -142,10 +142,10 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
             response.id = gb_job['id']
             response.role = gb_job['role']
             response.title = gb_job['title']
-            response.hiredUserId = gb_job['user_id']
+            response.hiredUserId = gb_job['user_id'] if gb_job['user_id'] is not None else -1
             response.success = True
 
-        # print(f' fetchVacancies, success={response.success}')
+        # print(f' fetchJobDetails, success={response.success}')
         return response
 
     # endregion
@@ -270,7 +270,7 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
             response.id.extend(db.get_business_page_product_ids(gb_business_page=gb_business_page))
             response.success = True
 
-        print(f' fetchBusinessPageProductIds, success={response.success}')
+        # print(f' fetchBusinessPageProductIds, success={response.success}')
         return response
 
     def fetchProductDetails(self, request, context):
@@ -279,7 +279,6 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
 
         gb_user = db.get_user(session_key=request.sessionKey)
         gb_product = db.get_product(product_id=request.productId)
-
         if None not in [gb_user, gb_product]:
             response.id = gb_product['id']
             response.name = gb_product['name']

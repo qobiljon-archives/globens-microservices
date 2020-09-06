@@ -207,9 +207,8 @@ def create_product(gb_user, gb_business_page, name, picture_blob):
 
 def get_product(product_id):
     cur = get_db_connection().cursor(cursor_factory=psycopg2_extras.DictCursor)
-
     cur.execute('select * from "gb_product" where "id" = %s;', (
-        product_id
+        product_id,
     ))
     gb_product = cur.fetchone()
 
@@ -277,7 +276,7 @@ def get_job(job_id):
     cur = get_db_connection().cursor(cursor_factory=psycopg2_extras.DictCursor)
 
     cur.execute('select * from "gb_job" where "id" = %s;', (
-        job_id
+        job_id,
     ))
     gb_job = cur.fetchone()
 
