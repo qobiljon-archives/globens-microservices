@@ -245,27 +245,36 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
         # todo unpublish product
         pass
 
-    def fetchBusinessPageProducts(self, request, context):
-        response = gb_service_pb2.FetchBusinessPageProducts.Response()
+    def fetchBusinessPageProductIds(self, request, context):
+        response = gb_service_pb2.FetchBusinessPageProductIds.Response()
         response.success = False
 
         gb_user = db.get_user(session_key=request.sessionKey)
         gb_business_page = db.get_business_page(business_page_id=request.businessPageId)
 
         if None not in [gb_user, gb_business_page]:
-            for gb_product in db.get_business_page_products(gb_business_page=gb_business_page):
-                response.id.extend([gb_product['id']])
-                response.name.extend([gb_product['name']])
-                response.published.extend([gb_product['published']])
-                response.pictureBlob.extend([bytes(gb_product['pictureBlob'])])
+            response.id.extend(db.get_business_page_product_ids(gb_business_page=gb_business_page))
             response.success = True
 
-        # print(f' fetchProducts, success={response.success}')
+        # print(f' fetchBusinessPageProductIds, success={response.success}')
         return response
 
     def fetchProductDetails(self, request, context):
-        # todo fetch product details
-        pass
+        response = gb_service_pb2.FetchBusinessPageProductIds.Response()
+        response.success = False
+
+        gb_user = db.get_user(session_key=request.sessionKey)
+        gb_product = db.get_product(product_id=request.productId)
+
+        if None not in [gb_user, gb_product]:
+            response.id = gb_product['id']
+            response.name = gb_product['name']
+            response.published = gb_product['published']
+            response.pictureBlob = bytes(gb_product['pictureBlob'])
+            response.success = True
+
+        # print(f' fetchProductDetails, success={response.success}')
+        return response
 
     # endregion
 

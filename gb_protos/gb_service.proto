@@ -235,7 +235,7 @@ message UncreateProduct{
     bool success = 1;
   }
 }
-message FetchBusinessPageProducts{
+message FetchBusinessPageProductIds{
   message Request{
     string sessionKey = 1;
     int32 businessPageId = 2;
@@ -243,17 +243,19 @@ message FetchBusinessPageProducts{
   message Response{
     bool success = 1;
     repeated int32 id = 2;
-    repeated string name = 3;
-    repeated bool published = 4;
-    repeated bytes pictureBlob = 5;
   }
 }
 message FetchProductDetails{
   message Request{
     string sessionKey = 1;
+    int32 productId = 2;
   }
   message Response{
     bool success = 1;
+    int32 id = 2;
+    string name = 3;
+    bool published = 4;
+    bytes pictureBlob = 5;
   }
 }
 message PublishProduct{
@@ -335,7 +337,7 @@ service GlobensService {
   rpc publishProduct(PublishProduct.Request) returns (PublishProduct.Response) {}
   rpc unpublishProduct(UnpublishProduct.Request) returns (UnpublishProduct.Response) {}
   rpc uncreateProduct(UncreateProduct.Request) returns (UncreateProduct.Response) {}
-  rpc fetchBusinessPageProducts(FetchBusinessPageProducts.Request) returns (FetchBusinessPageProducts.Response) {}
+  rpc fetchBusinessPageProductIds(FetchBusinessPageProductIds.Request) returns (FetchBusinessPageProductIds.Response) {}
   rpc fetchProductDetails(FetchProductDetails.Request) returns (FetchProductDetails.Response) {}
 
   // purchase management RPCs

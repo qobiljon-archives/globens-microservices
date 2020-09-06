@@ -5,7 +5,7 @@ from tools import utils
 import psycopg2
 
 
-# region initializing and terminating db connection
+# region commons
 def get_db_connection():
     if settings.db_conn is None:
         settings.db_conn = psycopg2.connect(
@@ -25,6 +25,7 @@ def end():
 # endregion
 
 
+# region user management
 def get_user(email=None, session_key=None):
     cur = get_db_connection().cursor(cursor_factory=psycopg2_extras.DictCursor)
     if email is not None:
@@ -72,6 +73,10 @@ def create_or_update_user(email, name, picture, tokens):
     return get_user(email=email), session_key
 
 
+# endregion
+
+
+# region business page management
 def get_business_page_ids(gb_user):
     cur = get_db_connection().cursor(cursor_factory=psycopg2_extras.DictCursor)
 
@@ -153,24 +158,28 @@ def get_business_page_job_ids(gb_business_page):
     cur.execute('select "id" from "gb_job" where "business_page_id" = %s;', (
         gb_business_page['id'],
     ))
-    gb_vacancies = cur.fetchall()
+    job_ids = cur.fetchall()
 
     cur.close()
-    return gb_vacancies
+    return job_ids
 
 
-def get_business_page_products(gb_business_page):
-    cur = get_db_connection().cursor(cursor_factory=psycopg2_extras.DictCursor)
+def get_business_page_product_ids(gb_business_page):
+    cur = get_db_connection().cursor()
 
-    cur.execute('select * from "gb_product" where "business_page_id" = %s;', (
+    cur.execute('select "id" from "gb_product" where "business_page_id" = %s;', (
         gb_business_page['id'],
     ))
-    gb_products = cur.fetchall()
+    product_ids = cur.fetchall()
 
     cur.close()
-    return gb_products
+    return product_ids
 
 
+# endregion
+
+
+# region product management
 def create_product(gb_user, gb_business_page, name, picture_blob):
     cur = get_db_connection().cursor(cursor_factory=psycopg2_extras.DictCursor)
 
@@ -192,6 +201,22 @@ def create_product(gb_user, gb_business_page, name, picture_blob):
     get_db_connection().commit()
 
 
+def get_product(product_id):
+    cur = get_db_connection().cursor(cursor_factory=psycopg2_extras.DictCursor)
+
+    cur.execute('select * from "gb_product" where "id" = %s;', (
+        product_id
+    ))
+    gb_product = cur.fetchone()
+
+    cur.close()
+    return gb_product
+
+
+# endregion
+
+
+# region job/vacancy management
 def create_vacant_job(gb_user, gb_business_page, title):
     cur = get_db_connection().cursor(cursor_factory=psycopg2_extras.DictCursor)
 
@@ -254,3 +279,4 @@ def get_job(job_id):
 
     cur.close()
     return gb_job
+# endregion
