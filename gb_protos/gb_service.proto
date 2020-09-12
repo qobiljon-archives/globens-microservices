@@ -23,7 +23,8 @@ message AuthenticateUser {
   }
   message Response{
     bool success = 1;
-    string sessionKey = 2;
+    int32 userId = 2;
+    string sessionKey = 3;
   }
 }
 message DeactivateUser{
