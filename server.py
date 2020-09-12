@@ -71,7 +71,7 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
             response.email = gb_target_user['email']
             response.name = gb_target_user['name']
             response.picture = gb_target_user['picture']
-            response.pictureBlob = gb_target_user['pictureBlob']
+            response.pictureBlob = bytes(gb_target_user['pictureBlob'])
             response.success = True
 
         # print(f' fetchUserDetails, success={response.success}')
