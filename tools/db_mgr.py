@@ -291,22 +291,14 @@ def get_job(job_id):
 def create_job_application(gb_user, gb_job, message):
     cur = get_db_connection().cursor(cursor_factory=psycopg2_extras.DictCursor)
 
-    cur.execute('select exists(select * from "gb_job_application" where "user_id"=%s and "job_id"=%s);', (
+    cur.execute('insert into "gb_job_application"("message", "user_id", "job_id") values (%s,%s,%s);', (
+        message,
         gb_user['id'],
         gb_job['id']
     ))
-    exists = cur.fetchone()[0]
-
-    if not exists:
-        cur.execute('insert into "gb_job_application"("message", "user_id", "job_id") values (%s,%s,%s);', (
-            message,
-            gb_user['id'],
-            gb_job['id']
-        ))
 
     cur.close()
     get_db_connection().commit()
-    return exists
 
 
 def get_job_application_ids(gb_job):
@@ -331,6 +323,19 @@ def get_job_application(job_application_id):
 
     cur.close()
     return gb_job
+
+
+def job_application_exists(gb_user, gb_job):
+    cur = get_db_connection().cursor(cursor_factory=psycopg2_extras.DictCursor)
+
+    cur.execute('select exists(select * from "gb_job_application" where "user_id"=%s and "job_id"=%s);', (
+        gb_user['id'],
+        gb_job['id']
+    ))
+    exists = cur.fetchone()[0]
+
+    cur.close()
+    return exists
 
 
 def approve_job_application(gb_job_application):

@@ -160,8 +160,9 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
         gb_user = db.get_user(session_key=request.sessionKey)
         gb_job = db.get_job(job_id=request.jobId)
 
-        if None not in [gb_user, gb_job]:
-            response.success = db.create_job_application(gb_user=gb_user, gb_job=gb_job, message=request.message)
+        if None not in [gb_user, gb_job] and gb_job['user_id'] is None and not db.job_application_exists(gb_user=gb_user, gb_job=gb_job):
+            db.create_job_application(gb_user=gb_user, gb_job=gb_job, message=request.message)
+            response.success = True
 
         print(f' createJobApplication, success={response.success}')
         return response
