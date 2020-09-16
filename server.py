@@ -13,6 +13,7 @@ import json
 class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
     # region user management module
     def authenticateUser(self, request, context):
+        print(f' authenticateUser')
         response = gb_service_pb2.AuthenticateUser.Response()
         response.success = False
 
@@ -52,14 +53,17 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
         return response
 
     def deactivateUser(self, request, context):
+        print(f' deactivateUser')
         # todo deactivate user
-        pass
+        print(f' deactivateUser')
 
     def updateUserDetails(self, request, context):
+        print(f' updateUserDetails')
         # todo update user details
-        pass
+        print(f' updateUserDetails')
 
     def fetchUserDetails(self, request, context):
+        # print(f' fetchUserDetails')
         response = gb_service_pb2.FetchUserDetails.Response()
         response.success = False
 
@@ -81,6 +85,7 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
 
     # region job/vacancy management module
     def createVacantJob(self, request, context):
+        print(f' createVacantJob')
         response = gb_service_pb2.CreateVacantJob.Response()
         response.success = False
 
@@ -95,14 +100,17 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
         return response
 
     def updateJobDetails(self, request, context):
+        print(f' updateJobDetails')
         # todo update job details
-        pass
+        print(f' updateJobDetails')
 
     def uncreateJob(self, request, context):
+        print(f' uncreateJob')
         # todo uncreate job
-        pass
+        print(f' uncreateJob')
 
     def fetchBusinessPageJobIds(self, request, context):
+        # print(f' fetchBusinessPageJobIds')
         response = gb_service_pb2.FetchBusinessPageJobIds.Response()
         response.success = False
 
@@ -117,6 +125,7 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
         return response
 
     def fetchNextKVacantJobIds(self, request, context):
+        # print(f' fetchNextKVacantJobIds')
         response = gb_service_pb2.FetchNextKVacantJobIds.Response()
         response.success = False
 
@@ -134,6 +143,7 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
         return response
 
     def fetchJobDetails(self, request, context):
+        # print(f' fetchJobDetails')
         response = gb_service_pb2.FetchJobDetails.Response()
         response.success = False
 
@@ -154,6 +164,7 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
 
     # region vacancy application management module
     def createJobApplication(self, request, context):
+        print(f' createJobApplication')
         response = gb_service_pb2.CreateJobApplication.Response()
         response.success = False
 
@@ -168,14 +179,17 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
         return response
 
     def updateJobApplicationDetails(self, request, context):
+        print(f' updateJobApplicationDetails')
         # todo update vacancy application
-        pass
+        print(f' updateJobApplicationDetails')
 
     def uncreateJobApplication(self, request, context):
+        print(f' uncreateJobApplication')
         # todo uncreate vacancy application
-        pass
+        print(f' uncreateJobApplication')
 
     def fetchJobApplicationIds(self, request, context):
+        # print(f' fetchJobApplicationIds')
         response = gb_service_pb2.FetchJobApplicationIds.Response()
         response.success = False
 
@@ -190,6 +204,7 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
         return response
 
     def fetchJobApplicationDetails(self, request, context):
+        # print(f' fetchJobApplicationDetails')
         response = gb_service_pb2.FetchJobApplicationDetails.Response()
         response.success = False
 
@@ -206,6 +221,7 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
         return response
 
     def approveJobApplication(self, request, context):
+        # print(f' approveJobApplication')
         response = gb_service_pb2.ApproveJobApplication.Response()
         response.success = False
 
@@ -220,6 +236,7 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
         return response
 
     def declineJobApplication(self, request, context):
+        # print(f' declineJobApplication')
         response = gb_service_pb2.DeclineJobApplication.Response()
         response.success = False
 
@@ -237,6 +254,7 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
 
     # region business page management module
     def createBusinessPage(self, request, context):
+        print(f' createBusinessPage')
         response = gb_service_pb2.CreateBusinessPage.Response()
         response.success = False
 
@@ -250,14 +268,17 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
         return response
 
     def updateBusinessPageDetails(self, request, context):
+        print(f' updateBusinessPageDetails')
         # todo update business page details
-        pass
+        print(f' updateBusinessPageDetails')
 
     def uncreateBusinessPage(self, request, context):
+        print(f' uncreateBusinessPage')
         # todo uncreate business page
-        pass
+        print(f' uncreateBusinessPage')
 
     def fetchMyBusinessPageIds(self, request, context):
+        # print(f' fetchMyBusinessPageIds')
         response = gb_service_pb2.FetchMyBusinessPageIds.Response()
         response.success = False
 
@@ -271,6 +292,7 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
         return response
 
     def fetchBusinessPageDetails(self, request, context):
+        # print(f' fetchBusinessPageDetails')
         response = gb_service_pb2.FetchBusinessPageDetails.Response()
         response.success = False
 
@@ -285,13 +307,14 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
             response.role = db.get_user_role_in_business_page(gb_user=gb_user, gb_business_page=gb_business_page)
             response.success = True
 
-            # print(f' fetchBusinessPageDetails, success={response.success}')
+        # print(f' fetchBusinessPageDetails, success={response.success}')
         return response
 
     # endregion
 
     # region product management module
     def createProduct(self, request, context):
+        print(f' createProduct')
         response = gb_service_pb2.CreateProduct.Response()
         response.success = False
 
@@ -306,22 +329,27 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
         return response
 
     def updateProductDetails(self, request, context):
+        print(f' updateProductDetails')
         # todo update product details
-        pass
+        print(f' updateProductDetails')
 
     def uncreateProduct(self, request, context):
+        print(f' uncreateProduct')
         # todo uncreate product
-        pass
+        print(f' uncreateProduct')
 
     def publishProduct(self, request, context):
+        print(f' publishProduct')
         # todo publish product
-        pass
+        print(f' publishProduct')
 
     def unpublishProduct(self, request, context):
+        print(f' unpublishProduct')
         # todo unpublish product
-        pass
+        print(f' unpublishProduct')
 
     def fetchBusinessPageProductIds(self, request, context):
+        # print(f' fetchBusinessPageProductIds')
         response = gb_service_pb2.FetchBusinessPageProductIds.Response()
         response.success = False
 
@@ -336,6 +364,7 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
         return response
 
     def fetchProductDetails(self, request, context):
+        # print(f' fetchProductDetails')
         response = gb_service_pb2.FetchProductDetails.Response()
         response.success = False
 
@@ -355,16 +384,19 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
 
     # region purchase management module
     def logPurchase(self, request, context):
+        print(f' logPurchase')
         # todo log purchase
-        pass
+        print(f' logPurchase')
 
     def fetchPurchases(self, request, context):
+        print(f' fetchPurchases')
         # todo fetch purchases
-        pass
+        print(f' fetchPurchases')
 
     def fetchPurchaseDetails(self, request, context):
+        print(f' fetchPurchaseDetails')
         # todo fetch purchase details
-        pass
+        print(f' fetchPurchaseDetails')
 
     # endregion
 
