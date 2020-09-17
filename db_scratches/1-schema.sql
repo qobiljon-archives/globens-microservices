@@ -49,9 +49,7 @@ create table if not exists "gb_job"
     "title"            text,
     -- relations
     "user_id"          integer references "gb_user" ("id") default null,
-    "business_page_id" integer not null references "gb_business_page" ("id") on delete cascade,
-    -- constraints
-    unique ("user_id", "business_page_id")
+    "business_page_id" integer not null references "gb_business_page" ("id") on delete cascade
 );
 
 
