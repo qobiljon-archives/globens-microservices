@@ -363,6 +363,24 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
         print(f' fetchBusinessPageProductIds, success={response.success}')
         return response
 
+    def fetchNextKProductIds(self, request, context):
+        print(f' fetchNextKProductIds')
+        response = gb_service_pb2.FetchNextKProductIds.Response()
+        response.success = False
+
+        gb_user = db.get_user(session_key=request.sessionKey)
+        k = request.k
+        filter_details = request.filterDetails
+        previous_product_id = request.previousProductId
+
+        if None not in [gb_user, k, filter_details] and k <= 250:
+            for gb_product in db.get_next_k_products(previous_product_id=previous_product_id, k=k, filter_details=filter_details):
+                response.id.extend([gb_product['id']])
+            response.success = True
+
+        print(f' fetchNextKProductIds, success={response.success}')
+        return response
+
     def fetchProductDetails(self, request, context):
         print(f' fetchProductDetails')
         response = gb_service_pb2.FetchProductDetails.Response()

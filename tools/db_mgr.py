@@ -205,6 +205,37 @@ def create_product(gb_user, gb_business_page, name, picture_blob):
     get_db_connection().commit()
 
 
+def get_next_k_products(previous_product_id, k, filter_details):
+    cur = get_db_connection().cursor(cursor_factory=psycopg2_extras.DictCursor)
+
+    if filter_details.useFilter:
+        if previous_product_id is None:
+            cur.execute('select * from "gb_product" where "name" like %s order by "id" limit %s;', (
+                f'%{filter_details.filterText}%',
+                k
+            ))
+        else:
+            cur.execute('select * from "gb_product" where "id" > %s and "name" like %s order by "id" limit %s;', (
+                previous_product_id,
+                f'%{filter_details.filterText}%',
+                k
+            ))
+    else:
+        if previous_product_id is None:
+            cur.execute('select * from "gb_product" order by "id" limit %s;', (
+                k
+            ))
+        else:
+            cur.execute('select * from "gb_product" where "id" > %s order by "id" limit %s;', (
+                previous_product_id,
+                k
+            ))
+    gb_products = cur.fetchall()
+
+    cur.close()
+    return gb_products
+
+
 def get_product(product_id):
     cur = get_db_connection().cursor(cursor_factory=psycopg2_extras.DictCursor)
     cur.execute('select * from "gb_product" where "id" = %s;', (
