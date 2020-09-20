@@ -233,7 +233,7 @@ def get_next_k_products(previous_product_id, k, filter_details):
     gb_products = cur.fetchall()
 
     cur.close()
-    return gb_products
+    return [] if gb_products is None else gb_products
 
 
 def get_product(product_id):
@@ -300,7 +300,7 @@ def get_next_k_vacant_jobs(previous_vacant_job_id, k, filter_details):
     gb_vacancies = cur.fetchall()
 
     cur.close()
-    return gb_vacancies
+    return [] if gb_vacancies is None else gb_vacancies
 
 
 def get_job(job_id):
