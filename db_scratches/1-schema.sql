@@ -33,6 +33,8 @@ create table if not exists "gb_product"
     "name"             text,
     "published"        boolean default false,
     "pictureBlob"      bytea   default null,
+    "price"            float   default 0,
+    "currency_code"    varchar default 'KRW',
     -- relations
     "business_page_id" integer not null references "gb_business_page" ("id") on delete cascade
 );
