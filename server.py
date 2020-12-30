@@ -385,9 +385,8 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
         response = gb_service_pb2.FetchProductDetails.Response()
         response.success = False
 
-        gb_user = db.get_user(session_key=request.sessionKey)
         gb_product = db.get_product(product_id=request.productId)
-        if None not in [gb_user, gb_product]:
+        if None not in [gb_product]:
             response.id = gb_product['id']
             response.name = gb_product['name']
             response.published = gb_product['published']
