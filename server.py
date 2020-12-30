@@ -299,12 +299,12 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
         gb_user = db.get_user(session_key=request.sessionKey)
         gb_business_page = db.get_business_page(business_page_id=request.businessPageId)
 
-        if None not in [gb_user, gb_business_page]:
+        if None not in [gb_business_page]:
             response.id = gb_business_page['id']
             response.title = gb_business_page['title']
             response.type = gb_business_page['type']
             response.pictureBlob = bytes(gb_business_page['pictureBlob'])
-            response.role = db.get_user_role_in_business_page(gb_user=gb_user, gb_business_page=gb_business_page)
+            response.role = db.get_user_role_in_business_page(gb_user=gb_user, gb_business_page=gb_business_page) if gb_user is not None else "consumer"
             response.success = True
 
         print(f' fetchBusinessPageDetails, success={response.success}')
