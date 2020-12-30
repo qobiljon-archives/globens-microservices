@@ -184,7 +184,7 @@ def get_business_page_product_ids(gb_business_page):
 
 
 # region product management
-def create_product(gb_user, gb_business_page, name, picture_blob):
+def create_product(gb_user, gb_business_page, name, picture_blob, price, currency):
     cur = get_db_connection().cursor(cursor_factory=psycopg2_extras.DictCursor)
 
     cur.execute('insert into "gb_product"("name", "pictureBlob", "business_page_id") values (%s,%s,%s) returning "id";', (

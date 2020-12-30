@@ -1,5 +1,6 @@
 from google.auth.transport import requests as oauth_requests
 from google.oauth2 import id_token as oauth_id_token
+from tools import settings
 import requests
 import hashlib
 import time
@@ -54,3 +55,11 @@ def now_us():
 
 def md5(value):
     return hashlib.md5(value.encode()).hexdigest()
+
+
+def get_currency_str(currency):
+    return settings.currency_enum2str_map[currency]
+
+
+def get_currency_enum(currency_str):
+    return settings.currency_str2enum_map[currency_str]
