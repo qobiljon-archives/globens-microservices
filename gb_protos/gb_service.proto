@@ -170,6 +170,7 @@ message FetchProductDetails{
     string name = 3;
     bool published = 4;
     bytes pictureBlob = 5;
+    int32 businessPageId = 6;
   }
 }
 message PublishProduct{

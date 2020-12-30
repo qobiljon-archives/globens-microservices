@@ -393,6 +393,7 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
             response.name = gb_product['name']
             response.published = gb_product['published']
             response.pictureBlob = bytes(gb_product['pictureBlob'])
+            response.businessPageId = int(gb_product['business_page_id'])
             response.success = True
 
         print(f' fetchProductDetails, success={response.success}')
