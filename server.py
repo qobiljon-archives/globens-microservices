@@ -416,13 +416,13 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
         response = gb_service_pb2.FetchProductCategoryDetails.Response()
         response.success = False
 
-        db_category = db.get_product_category(category_id=response.categoryId)
+        db_category = db.get_product_category(category_id=request.categoryId)
 
         if None not in [db_category]:
             response.id = db_category['id']
             response.name = db_category['name']
             response.pictureBlob = bytes(db_category['pictureBlob'])
-            response.examples = db_category['examples']
+            response.examples.extend(db_category['examples'])
             response.success = True
 
         print(f' fetchProductCategoryDetails, success={response.success}')
