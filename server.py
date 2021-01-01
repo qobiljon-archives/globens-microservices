@@ -389,6 +389,7 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
         if None not in [gb_product]:
             response.id = gb_product['id']
             response.name = gb_product['name']
+            response.categoryId = gb_product['category_id']
             response.published = gb_product['published']
             response.pictureBlob = bytes(gb_product['pictureBlob'])
             response.businessPageId = gb_product['business_page_id']
@@ -397,6 +398,34 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
             response.success = True
 
         print(f' fetchProductDetails, success={response.success}')
+        return response
+
+    def fetchProductCategoryIds(self, request, context):
+        print(f' fetchProductDetails')
+        response = gb_service_pb2.FetchProductCategoryIds.Response()
+        response.success = True
+
+        for gb_category in db.get_product_categories():
+            response.id.extend(gb_category['id'])
+
+        print(f' fetchProductCategoryIds, success={response.success}')
+        return response
+
+    def fetchProductCategoryDetails(self, request, context):
+        print(f' fetchProductDetails')
+        response = gb_service_pb2.FetchProductCategoryIds.Response()
+        response.success = False
+
+        db_category = db.get_product_category(category_id=response.categoryId)
+
+        if None not in [db_category]:
+            response.id = db_category['id']
+            response.name = db_category['name']
+            response.pictureBlob = db_category['pictureBlob']
+            response.examples = db_category['examples']
+            response.success = True
+
+        print(f' fetchProductCategoryDetails, success={response.success}')
         return response
 
     # endregion

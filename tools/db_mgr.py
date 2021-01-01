@@ -247,6 +247,24 @@ def get_product(product_id):
     return gb_product
 
 
+def get_product_categories():
+    cur = get_db_connection().cursor(cursor_factory=psycopg2_extras.DictCursor)
+    cur.execute('select * from "gb_product_category";')
+    gb_products = cur.fetchall()
+    cur.close()
+    return gb_products
+
+
+def get_product_category(category_id):
+    cur = get_db_connection().cursor(cursor_factory=psycopg2_extras.DictCursor)
+
+    cur.execute('select * from "gb_product_category" where "id"=%s;', (category_id,))
+
+    gb_product = cur.fetchone()
+    cur.close()
+    return gb_product
+
+
 # endregion
 
 

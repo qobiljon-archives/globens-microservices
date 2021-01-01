@@ -99,6 +99,16 @@ class GlobensServiceStub(object):
             request_serializer=gb__service__pb2.FetchProductDetails.Request.SerializeToString,
             response_deserializer=gb__service__pb2.FetchProductDetails.Response.FromString,
         )
+        self.fetchProductCategoryIds = channel.unary_unary(
+            '/GlobensService/fetchProductCategoryIds',
+            request_serializer=gb__service__pb2.FetchProductCategoryIds.Request.SerializeToString,
+            response_deserializer=gb__service__pb2.FetchProductCategoryIds.Response.FromString,
+        )
+        self.fetchProductCategoryDetails = channel.unary_unary(
+            '/GlobensService/fetchProductCategoryDetails',
+            request_serializer=gb__service__pb2.FetchProductCategoryDetails.Request.SerializeToString,
+            response_deserializer=gb__service__pb2.FetchProductCategoryDetails.Response.FromString,
+        )
         self.createVacantJob = channel.unary_unary(
             '/GlobensService/createVacantJob',
             request_serializer=gb__service__pb2.CreateVacantJob.Request.SerializeToString,
@@ -304,6 +314,20 @@ class GlobensServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def fetchProductCategoryIds(self, request, context):
+        # missing associated documentation comment in .proto file
+        pass
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def fetchProductCategoryDetails(self, request, context):
+        # missing associated documentation comment in .proto file
+        pass
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def createVacantJob(self, request, context):
         """vacancy management RPCs
         """
@@ -503,6 +527,16 @@ def add_GlobensServiceServicer_to_server(servicer, server):
             servicer.fetchProductDetails,
             request_deserializer=gb__service__pb2.FetchProductDetails.Request.FromString,
             response_serializer=gb__service__pb2.FetchProductDetails.Response.SerializeToString,
+        ),
+        'fetchProductCategoryIds': grpc.unary_unary_rpc_method_handler(
+            servicer.fetchProductCategoryIds,
+            request_deserializer=gb__service__pb2.FetchProductCategoryIds.Request.FromString,
+            response_serializer=gb__service__pb2.FetchProductCategoryIds.Response.SerializeToString,
+        ),
+        'fetchProductCategoryDetails': grpc.unary_unary_rpc_method_handler(
+            servicer.fetchProductCategoryDetails,
+            request_deserializer=gb__service__pb2.FetchProductCategoryDetails.Request.FromString,
+            response_serializer=gb__service__pb2.FetchProductCategoryDetails.Response.SerializeToString,
         ),
         'createVacantJob': grpc.unary_unary_rpc_method_handler(
             servicer.createVacantJob,

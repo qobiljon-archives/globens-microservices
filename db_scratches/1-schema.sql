@@ -26,6 +26,15 @@ create table if not exists "gb_business_page"
 
 
 -- product : i.e., the good traded on the platform
+create table if not exists "gb_product_category"
+(
+    -- data
+    "id"          serial primary key,
+    "name"        varchar(128),
+    "pictureBlob" bytea default null,
+    "examples"    varchar(128)[]
+);
+-- product : i.e., the good traded on the platform
 create table if not exists "gb_product"
 (
     -- data
@@ -36,7 +45,8 @@ create table if not exists "gb_product"
     "price"            float   default 0,
     "currency"         char(3) default 'KRW',
     -- relations
-    "business_page_id" integer not null references "gb_business_page" ("id") on delete cascade
+    "category_id"      integer default 1 not null references "gb_product_category" ("id") on delete cascade,
+    "business_page_id" integer           not null references "gb_business_page" ("id") on delete cascade
 );
 
 
