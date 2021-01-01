@@ -172,14 +172,17 @@ def get_business_page_job_ids(gb_business_page):
 
 
 # region product management
-def create_product(gb_user, gb_business_page, gb_category, name, picture_blob, price, currency):
+def create_product(gb_user, gb_business_page, gb_category, name, picture_blob, price, currency, description):
     cur = get_db_connection().cursor(cursor_factory=psycopg2_extras.DictCursor)
 
-    cur.execute('insert into "gb_product"("name", "pictureBlob", "business_page_id", "category_id") values (%s,%s,%s,%s) returning "id";', (
+    cur.execute('insert into "gb_product"("name", "pictureBlob", "business_page_id", "category_id", "price", "currency", "description") values (%s,%s,%s,%s,%s,%s) returning "id";', (
         name,
         picture_blob,
         gb_business_page['id'],
-        gb_category['id']
+        gb_category['id'],
+        price,
+        currency,
+        description
     ))
     new_product_id = cur.fetchone()[0]
 
