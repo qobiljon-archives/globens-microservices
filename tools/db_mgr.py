@@ -168,18 +168,6 @@ def get_business_page_job_ids(gb_business_page):
     return job_ids
 
 
-def get_business_page_product_ids(gb_business_page):
-    cur = get_db_connection().cursor(cursor_factory=psycopg2_extras.DictCursor)
-
-    cur.execute('select "id" from "gb_product" where "business_page_id" = %s;', (
-        gb_business_page['id'],
-    ))
-    product_ids = [product_id[0] for product_id in cur.fetchall()]
-
-    cur.close()
-    return product_ids
-
-
 # endregion
 
 
@@ -223,7 +211,7 @@ def get_next_k_products(previous_product_id, k, filter_details):
                     f'%{filter_details.substring}%' if filter_details.substring else filter_details.regex,
                     k
                 ))
-        elif filter_details.categoryId != 0:
+        elif filter_details.categoryId > 0:
             # (1.2) filter by category
             if previous_product_id:
                 cur.execute('select * from "gb_product" where "id" > %s and "category_id" = %s order by "id" limit %s;', (
@@ -234,6 +222,19 @@ def get_next_k_products(previous_product_id, k, filter_details):
             else:
                 cur.execute('select * from "gb_product" where "category_id" = %s order by "id" limit %s;', (
                     filter_details.categoryId,
+                    k
+                ))
+        elif filter_details.businessPageId > 0:
+            # (1.3) filter by business page
+            if previous_product_id:
+                cur.execute('select * from "gb_product" where "id" > %s and "business_page_id" = %s order by "id" limit %s;', (
+                    previous_product_id,
+                    filter_details.businessPageId,
+                    k
+                ))
+            else:
+                cur.execute('select * from "gb_product" where "business_page_id" = %s order by "id" limit %s;', (
+                    filter_details.businessPageId,
                     k
                 ))
     else:

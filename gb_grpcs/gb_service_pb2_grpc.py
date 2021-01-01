@@ -84,11 +84,6 @@ class GlobensServiceStub(object):
             request_serializer=gb__service__pb2.UncreateProduct.Request.SerializeToString,
             response_deserializer=gb__service__pb2.UncreateProduct.Response.FromString,
         )
-        self.fetchBusinessPageProductIds = channel.unary_unary(
-            '/GlobensService/fetchBusinessPageProductIds',
-            request_serializer=gb__service__pb2.FetchBusinessPageProductIds.Request.SerializeToString,
-            response_deserializer=gb__service__pb2.FetchBusinessPageProductIds.Response.FromString,
-        )
         self.fetchNextKProductIds = channel.unary_unary(
             '/GlobensService/fetchNextKProductIds',
             request_serializer=gb__service__pb2.FetchNextKProductIds.Request.SerializeToString,
@@ -287,13 +282,6 @@ class GlobensServiceServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def uncreateProduct(self, request, context):
-        # missing associated documentation comment in .proto file
-        pass
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def fetchBusinessPageProductIds(self, request, context):
         # missing associated documentation comment in .proto file
         pass
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -512,11 +500,6 @@ def add_GlobensServiceServicer_to_server(servicer, server):
             servicer.uncreateProduct,
             request_deserializer=gb__service__pb2.UncreateProduct.Request.FromString,
             response_serializer=gb__service__pb2.UncreateProduct.Response.SerializeToString,
-        ),
-        'fetchBusinessPageProductIds': grpc.unary_unary_rpc_method_handler(
-            servicer.fetchBusinessPageProductIds,
-            request_deserializer=gb__service__pb2.FetchBusinessPageProductIds.Request.FromString,
-            response_serializer=gb__service__pb2.FetchBusinessPageProductIds.Response.SerializeToString,
         ),
         'fetchNextKProductIds': grpc.unary_unary_rpc_method_handler(
             servicer.fetchNextKProductIds,
