@@ -309,7 +309,7 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
 
         # print(f' fetchBusinessPageDetails, success={response.success}')
         return response
-    
+
     # endregion
 
     # region product management module
@@ -320,9 +320,10 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
 
         gb_user = db.get_user(session_key=request.sessionKey)
         gb_business_page = db.get_business_page(business_page_id=request.businessPageId)
+        gb_category = db.get_product_category(category_id=request.categoryId)
 
-        if None not in [gb_user, gb_business_page]:
-            db.create_product(gb_user=gb_user, gb_business_page=gb_business_page, name=request.name, picture_blob=request.pictureBlob, price=request.price, currency=utils.get_currency_str(currency=request.currency))
+        if None not in [gb_user, gb_business_page, gb_category]:
+            db.create_product(gb_user=gb_user, gb_business_page=gb_business_page, gb_category=gb_category, name=request.name, picture_blob=request.pictureBlob, price=request.price, currency=utils.get_currency_str(currency=request.currency))
             response.success = True
 
         print(f' createProduct, success={response.success}')
