@@ -406,7 +406,7 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
         response.success = True
 
         for gb_category in db.get_product_categories():
-            response.id.extend(gb_category['id'])
+            response.id.extend([gb_category['id']])
 
         print(f' fetchProductCategoryIds, success={response.success}')
         return response
