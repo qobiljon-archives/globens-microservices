@@ -369,11 +369,10 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
         response.success = False
 
         k = request.k
-        filter_details = request.filterDetails
         previous_product_id = request.previousProductId
 
-        if None not in [k, filter_details] and k <= 250:
-            for gb_product in db.get_next_k_products(previous_product_id=previous_product_id, k=k, filter_details=filter_details):
+        if None not in [k] and k <= 250:
+            for gb_product in db.get_next_k_products(previous_product_id=previous_product_id, k=k, filter_details=request.filterDetails):
                 response.id.extend([gb_product['id']])
             response.success = True
 

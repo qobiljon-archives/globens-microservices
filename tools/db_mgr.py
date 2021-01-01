@@ -208,19 +208,36 @@ def create_product(gb_user, gb_business_page, name, picture_blob, price, currenc
 def get_next_k_products(previous_product_id, k, filter_details):
     cur = get_db_connection().cursor(cursor_factory=psycopg2_extras.DictCursor)
 
-    if filter_details.useFilter:
-        if previous_product_id is None:
-            cur.execute('select * from "gb_product" where "name" like %s order by "id" limit %s;', (
-                f'%{filter_details.filterText}%',
-                k
-            ))
-        else:
-            cur.execute('select * from "gb_product" where "id" > %s and "name" like %s order by "id" limit %s;', (
-                previous_product_id,
-                f'%{filter_details.filterText}%',
-                k
-            ))
+    if filter_details:
+        # (1) filter mode
+        if filter_details.substring or filter_details.regex:
+            # (1.1) filter by regex / substring
+            if previous_product_id:
+                cur.execute('select * from "gb_product" where "id" > %s and "name" like %s order by "id" limit %s;', (
+                    previous_product_id,
+                    f'%{filter_details.filterText}%',
+                    k
+                ))
+            else:
+                cur.execute('select * from "gb_product" where "name" like %s order by "id" limit %s;', (
+                    f'%{filter_details.substring}%' if filter_details.substring else filter_details.regex,
+                    k
+                ))
+        elif filter_details.categoryId:
+            # (1.2) filter by category
+            if previous_product_id:
+                cur.execute('select * from "gb_product" where "id" > %s and "category_id" = %s order by "id" limit %s;', (
+                    previous_product_id,
+                    filter_details.categoryId,
+                    k
+                ))
+            else:
+                cur.execute('select * from "gb_product" where "category_id" = %s order by "id" limit %s;', (
+                    filter_details.categoryId,
+                    k
+                ))
     else:
+        # (2) non-filtered mode (i.e., all products)
         if previous_product_id is None:
             cur.execute('select * from "gb_product" order by "id" limit %s;', (
                 k
