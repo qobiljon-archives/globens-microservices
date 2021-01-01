@@ -278,7 +278,7 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
         print(f' uncreateBusinessPage')
 
     def fetchMyBusinessPageIds(self, request, context):
-        print(f' fetchMyBusinessPageIds')
+        # print(f' fetchMyBusinessPageIds')
         response = gb_service_pb2.FetchMyBusinessPageIds.Response()
         response.success = False
 
@@ -288,11 +288,11 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
             response.id.extend(db.get_business_page_ids(gb_user=gb_user))
             response.success = True
 
-        print(f' fetchMyBusinessPageIds, success={response.success}')
+        # print(f' fetchMyBusinessPageIds, success={response.success}')
         return response
 
     def fetchBusinessPageDetails(self, request, context):
-        print(f' fetchBusinessPageDetails')
+        # print(f' fetchBusinessPageDetails')
         response = gb_service_pb2.FetchBusinessPageDetails.Response()
         response.success = False
 
@@ -307,9 +307,9 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
             response.role = db.get_user_role_in_business_page(gb_user=gb_user, gb_business_page=gb_business_page) if gb_user is not None else "consumer"
             response.success = True
 
-        print(f' fetchBusinessPageDetails, success={response.success}')
+        # print(f' fetchBusinessPageDetails, success={response.success}')
         return response
-
+    
     # endregion
 
     # region product management module
@@ -364,7 +364,7 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
         return response
 
     def fetchNextKProductIds(self, request, context):
-        print(f' fetchNextKProductIds')
+        # print(f' fetchNextKProductIds')
         response = gb_service_pb2.FetchNextKProductIds.Response()
         response.success = False
 
@@ -377,11 +377,11 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
                 response.id.extend([gb_product['id']])
             response.success = True
 
-        print(f' fetchNextKProductIds, success={response.success}')
+        # print(f' fetchNextKProductIds, success={response.success}')
         return response
 
     def fetchProductDetails(self, request, context):
-        print(f' fetchProductDetails')
+        # print(f' fetchProductDetails')
         response = gb_service_pb2.FetchProductDetails.Response()
         response.success = False
 
@@ -397,22 +397,22 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
             response.currency = utils.get_currency_enum(currency_str=gb_product['currency'])
             response.success = True
 
-        print(f' fetchProductDetails, success={response.success}')
+        # print(f' fetchProductDetails, success={response.success}')
         return response
 
     def fetchProductCategoryIds(self, request, context):
-        print(f' fetchProductCategoryIds')
+        # print(f' fetchProductCategoryIds')
         response = gb_service_pb2.FetchProductCategoryIds.Response()
         response.success = True
 
         for gb_category in db.get_product_categories():
             response.id.extend([gb_category['id']])
 
-        print(f' fetchProductCategoryIds, success={response.success}')
+        # print(f' fetchProductCategoryIds, success={response.success}')
         return response
 
     def fetchProductCategoryDetails(self, request, context):
-        print(f' fetchProductCategoryDetails')
+        # print(f' fetchProductCategoryDetails')
         response = gb_service_pb2.FetchProductCategoryDetails.Response()
         response.success = False
 
@@ -425,7 +425,7 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
             response.examples.extend(db_category['examples'])
             response.success = True
 
-        print(f' fetchProductCategoryDetails, success={response.success}')
+        # print(f' fetchProductCategoryDetails, success={response.success}')
         return response
 
     # endregion
