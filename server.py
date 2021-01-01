@@ -401,7 +401,7 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
         return response
 
     def fetchProductCategoryIds(self, request, context):
-        print(f' fetchProductDetails')
+        print(f' fetchProductCategoryIds')
         response = gb_service_pb2.FetchProductCategoryIds.Response()
         response.success = True
 
@@ -412,8 +412,8 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
         return response
 
     def fetchProductCategoryDetails(self, request, context):
-        print(f' fetchProductDetails')
-        response = gb_service_pb2.FetchProductCategoryIds.Response()
+        print(f' fetchProductCategoryDetails')
+        response = gb_service_pb2.FetchProductCategoryDetails.Response()
         response.success = False
 
         db_category = db.get_product_category(category_id=response.categoryId)
@@ -421,7 +421,7 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
         if None not in [db_category]:
             response.id = db_category['id']
             response.name = db_category['name']
-            response.pictureBlob = db_category['pictureBlob']
+            response.pictureBlob = bytes(db_category['pictureBlob'])
             response.examples = db_category['examples']
             response.success = True
 
