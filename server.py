@@ -383,7 +383,11 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
             response.price = gb_product['price']
             response.currency = utils.get_currency_enum(currency_str=gb_product['currency'])
             response.description = gb_product['description']
-            response.content = None  # todo check permission (i.e., bought?) bytes(gb_product['description'])
+            if 'schedule' in gb_product['productType']:
+                response.content = bytes(gb_product['content'])
+            elif 'file' in gb_product['productType']:
+                # todo check permission (i.e., bought?)
+                response.content = bytes('', encoding='utf8')
             response.success = True
 
         # print(f' fetchProductDetails, success={response.success}')
