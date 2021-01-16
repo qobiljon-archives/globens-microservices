@@ -10,7 +10,28 @@ db_conn = psycopg2.connect(
 )
 
 cur = db_conn.cursor(cursor_factory=psycopg2_extras.DictCursor)
-with open('/Users/kevin/Downloads/vacancies.png', 'rb') as r:
+with open('static/others.png', 'rb') as r:
+    image = r.read()
+    cur.execute('insert into "gb_product_category"("name", "pictureBlob", "examples") values (%s,%s,%s)', (
+        "Others",
+        bytes(image),
+        '{"1-1 services", "Delivery"}'
+    ))
+with open('static/education.png', 'rb') as r:
+    image = r.read()
+    cur.execute('insert into "gb_product_category"("name", "pictureBlob", "examples") values (%s,%s,%s)', (
+        "Education",
+        bytes(image),
+        '{"Korean language", "Programming languages"}'
+    ))
+with open('static/consulting.png', 'rb') as r:
+    image = r.read()
+    cur.execute('insert into "gb_product_category"("name", "pictureBlob", "examples") values (%s,%s,%s)', (
+        "Consultation",
+        bytes(image),
+        '{"Legal matters", "Acquiring visa"}'
+    ))
+with open('static/vacancies.png', 'rb') as r:
     image = r.read()
     cur.execute('insert into "gb_product_category"("name", "pictureBlob", "examples") values (%s,%s,%s)', (
         "Vacancies",
