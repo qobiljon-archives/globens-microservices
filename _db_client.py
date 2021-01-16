@@ -3,7 +3,7 @@ import psycopg2
 import psycopg2.extras as psycopg2_extras
 
 db_conn = psycopg2.connect(
-    host='165.246.42.173',
+    host='165.246.42.172',
     database='globens_db',
     user='postgres',
     password='postgres'
