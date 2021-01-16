@@ -42,11 +42,13 @@ create table if not exists "gb_product"
     -- data
     "id"               serial primary key,
     "name"             text,
-    "product_type"     gb_product_type   not null,
-    "pictureBlob"      bytea   default null,
+    "productType"      gb_product_type,
+    "pictureBlob"      bytea             not null,
     "price"            float   default 0,
     "currency"         char(3) default 'KRW',
     "published"        boolean default false,
+    "description"      text,
+    "content"          bytea             not null,
     -- relations
     "category_id"      integer default 1 not null references "gb_product_category" ("id") on delete cascade,
     "business_page_id" integer           not null references "gb_business_page" ("id") on delete cascade

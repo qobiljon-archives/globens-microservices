@@ -323,7 +323,7 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
         gb_category = db.get_product_category(category_id=request.categoryId)
 
         if None not in [gb_user, gb_business_page, gb_category]:
-            db.create_product(gb_user=gb_user, gb_business_page=gb_business_page, gb_category=gb_category, name=request.name, picture_blob=request.pictureBlob, price=request.price, currency=utils.get_currency_str(currency=request.currency), description=request.description)
+            db.create_product(gb_user=gb_user, gb_business_page=gb_business_page, gb_category=gb_category, name=request.name, product_type=request.type, picture_blob=request.pictureBlob, price=request.price, currency=utils.get_currency_str(currency=request.currency), description=request.description, product_content=request.content)
             response.success = True
 
         print(f' createProduct, success={response.success}')
@@ -375,6 +375,7 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
         if None not in [gb_product]:
             response.id = gb_product['id']
             response.name = gb_product['name']
+            response.type = gb_product['productType']
             response.categoryId = gb_product['category_id']
             response.published = gb_product['published']
             response.pictureBlob = bytes(gb_product['pictureBlob'])
@@ -382,6 +383,7 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
             response.price = gb_product['price']
             response.currency = utils.get_currency_enum(currency_str=gb_product['currency'])
             response.description = gb_product['description']
+            response.content = None  # todo check permission (i.e., bought?) bytes(gb_product['description'])
             response.success = True
 
         # print(f' fetchProductDetails, success={response.success}')
