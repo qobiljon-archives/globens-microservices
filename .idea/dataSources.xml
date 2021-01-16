@@ -7,5 +7,12 @@
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
       <jdbc-url>jdbc:postgresql://165.246.42.173:5432/globens_db</jdbc-url>
     </data-source>
+    <data-source source="LOCAL" name="globens_db@165.246.42.172" uuid="593a2e10-a27c-4e29-aba2-7562865cbf9d">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://165.246.42.172:5432/globens_db</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
   </component>
 </project>

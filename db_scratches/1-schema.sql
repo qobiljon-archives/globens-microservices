@@ -26,7 +26,7 @@ create table if not exists "gb_business_page"
 
 
 -- product type : i.e., downloadable file, scheduled call, etc.
-create type gb_product_type as enum ('Downloadable file', 'Streamed file', 'Scheduled meetup', 'Scheduled call');
+create type gb_product_type as enum ('downloadable files', 'streamed files', 'scheduled face-to-face meeting', 'scheduled online call');
 -- product category : i.e., education, consultation, etc.
 create table if not exists "gb_product_category"
 (
