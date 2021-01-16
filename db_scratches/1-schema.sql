@@ -25,7 +25,9 @@ create table if not exists "gb_business_page"
 );
 
 
--- product : i.e., the good traded on the platform
+-- product type : i.e., downloadable file, scheduled call, etc.
+create type gb_product_type as enum ('Downloadable file', 'Streamed file', 'Scheduled meetup', 'Scheduled call');
+-- product category : i.e., education, consultation, etc.
 create table if not exists "gb_product_category"
 (
     -- data
@@ -40,10 +42,11 @@ create table if not exists "gb_product"
     -- data
     "id"               serial primary key,
     "name"             text,
-    "published"        boolean default false,
+    "product_type"     gb_product_type   not null,
     "pictureBlob"      bytea   default null,
     "price"            float   default 0,
     "currency"         char(3) default 'KRW',
+    "published"        boolean default false,
     -- relations
     "category_id"      integer default 1 not null references "gb_product_category" ("id") on delete cascade,
     "business_page_id" integer           not null references "gb_business_page" ("id") on delete cascade
