@@ -443,10 +443,10 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
 
 
 if __name__ == '__main__':
-    print('Starting gRPC server on port 50053.')
+    print('Starting gRPC server on port 50051.')
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=999))
     gb_service_pb2_grpc.add_GlobensServiceServicer_to_server(servicer=GlobensServiceServicer(), server=server)
-    server.add_insecure_port('0.0.0.0:50053')  # TODO: check the address!!!
+    server.add_insecure_port('0.0.0.0:50051')  # TODO: check the address!!!
     server.start()
 
     try:
