@@ -3,14 +3,14 @@
 create or replace function "gb_product_update_procedure"() returns trigger as
 $gb_product_update_procedure$
 begin
-    update "gb_product" set new."published" = false where "id" = new."id";
+    new."published" := false;
     return new;
 end
 $gb_product_update_procedure$ LANGUAGE plpgsql;
 
 drop trigger if exists "gb_check_product_states" on "gb_product";
 create trigger "gb_check_product_states"
-    before update of "name", "productType", "pictureBlob", "price", "currency", "description", "content"
+    before update
     on "gb_product"
     for each row
 execute procedure "gb_product_update_procedure"();
