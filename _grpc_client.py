@@ -1,46 +1,47 @@
 import grpc
 
 # import the generated classes
-from et_grpcs import et_service_pb2
-from et_grpcs import et_service_pb2_grpc
+from gb_grpcs import gb_service_pb2
+from gb_grpcs import gb_service_pb2_grpc
 
 # open a gRPC channel
-channel = grpc.insecure_channel('165.246.21.202:50051')
+channel = grpc.insecure_channel('165.246.42.172:50051')
 
 # create a stub (client)
-stub = et_service_pb2_grpc.ETServiceStub(channel)
-
-
-def create_campaign():
-    # make the call
-    request = et_service_pb2.RegisterCampaignRequestMessage(
-        userId=1,
-        email='test@test.com',
-        name='Test',
-        notes='Test',
-        configJson='{}',
-        startTimestamp=1587397248000,
-        endTimestamp=1587707248000
-    )
-    response = stub.registerCampaign(request)
-    print(response)
-
-
-def submit_records():
-    # make the call
-    req = et_service_pb2.SubmitDataRecordsRequestMessage(
-        userId=1,
-        email='nslabinha@gmail.com'
-    )
-    req.timestamp.extend([1587754742000])
-    req.dataSource.extend([33])
-    req.accuracy.extend([0.0])
-    req.values.extend(['STATIONARY'])
-    response = stub.submitDataRecords(req)
-    print(response)
-
+stub = gb_service_pb2_grpc.GlobensServiceStub(channel)
 
 if __name__ == '__main__':
-    # create_campaign()
-    submit_records()
-    channel.close()
+    req = gb_service_pb2.FetchProductDetails.Request(
+        productId=7
+    )
+    res = stub.fetchProductDetails(req)
+    content = res.content
+    print(content)
+
+    req = gb_service_pb2.FetchNextKProductIds.Request(
+        k=100
+    )
+    res = stub.fetchNextKProductIds(req)
+    if res.success:
+        for product_id in res.id:
+            sub_req = gb_service_pb2.FetchProductDetails.Request(
+                productId=product_id
+            )
+            sub_res = stub.fetchProductDetails(sub_req)
+            product_name = sub_res.name
+
+            sub_req = gb_service_pb2.UpdateProductDetails.Request(
+                sessionKey='2cd6db0319251b8113b3855936126de0',
+                productId=product_id,
+                businessPageId=sub_res.businessPageId,
+                name=sub_res.name,
+                type=sub_res.type,
+                categoryId=sub_res.categoryId,
+                pictureBlob=sub_res.pictureBlob,
+                price=sub_res.price,
+                currency=sub_res.currency,
+                description=sub_res.description,
+                content=content
+            )
+            sub_res = stub.updateProductDetails(sub_req)
+            print(product_id, product_name, sub_res.success)
