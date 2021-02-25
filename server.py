@@ -331,8 +331,20 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
 
     def updateProductDetails(self, request, context):
         print(f' updateProductDetails')
-        # todo update product details
-        print(f' updateProductDetails')
+        response = gb_service_pb2.UpdateProductDetails.Response()
+        response.success = False
+
+        gb_user = db.get_user(session_key=request.sessionKey)
+        gb_product = db.get_product(product_id=request.productId)
+        gb_business_page = db.get_business_page(business_page_id=request.businessPageId)
+        gb_category = db.get_product_category(category_id=request.categoryId)
+
+        if None not in [gb_user, gb_product, gb_category, gb_business_page]:
+            db.update_product(gb_product=gb_product, gb_business_page=gb_business_page, gb_category=gb_category, name=request.name, product_type=request.type, picture_blob=request.pictureBlob, price=request.price, currency=utils.get_currency_str(currency=request.currency), description=request.description, product_content=request.content)
+            response.success = True
+
+        print(f' updateProductDetails, success={response.success}')
+        return response
 
     def uncreateProduct(self, request, context):
         print(f' uncreateProduct')

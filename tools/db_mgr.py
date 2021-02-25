@@ -199,6 +199,26 @@ def create_product(gb_user, gb_business_page, gb_category, name, product_type, p
     get_db_connection().commit()
 
 
+def update_product(gb_product, gb_business_page, gb_category, name, product_type, picture_blob, price, currency, description, product_content):
+    cur = get_db_connection().cursor(cursor_factory=psycopg2_extras.DictCursor)
+
+    cur.execute('update "gb_product" set "name" = %s, "productType" = %s, "pictureBlob" = %s, "business_page_id" = %s, "category_id" = %s, "price" = %s, "currency" = %s, "description" = %s, "content" = %s where "id"=%s;', (
+        name,
+        product_type,
+        picture_blob,
+        gb_business_page['id'],
+        gb_category['id'],
+        price,
+        currency,
+        description,
+        product_content,
+        gb_product['id']
+    ))
+
+    cur.close()
+    get_db_connection().commit()
+
+
 def get_next_k_products(previous_product_id, k, filter_details):
     cur = get_db_connection().cursor(cursor_factory=psycopg2_extras.DictCursor)
 
