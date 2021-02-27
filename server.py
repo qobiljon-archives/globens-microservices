@@ -399,7 +399,7 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
                 response.content = bytes(gb_product['content'])
             elif 'file' in gb_product['productType']:
                 # todo check permission (i.e., bought?)
-                response.content = bytes(gb_product['content'], encoding='utf8')
+                response.content = bytes(gb_product['content'])
             response.success = True
 
         # print(f' fetchProductDetails, success={response.success}')
