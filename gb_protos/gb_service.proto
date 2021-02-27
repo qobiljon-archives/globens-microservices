@@ -363,6 +363,8 @@ message DeclineJobApplication{
 message LogPurchase{
   message Request{
     string sessionKey = 1;
+    int32 productId = 2;
+
   }
   message Response{
     bool success = 1;

@@ -37,7 +37,7 @@ create table if not exists "gb_product_category"
     "examples"    varchar(128)[]
 );
 -- product : i.e., the good traded on the platform
-create table if not exists "gb_product"
+create table if not exists "gb_pro duct"
 (
     -- data
     "id"               serial primary key,
