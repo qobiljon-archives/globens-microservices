@@ -63,3 +63,11 @@ def get_currency_str(currency):
 
 def get_currency_enum(currency_str):
     return settings.currency_str2enum_map[currency_str]
+
+
+def get_product_type_str(product_type):
+    return settings.product_type_enum2str_map[product_type]
+
+
+def get_product_type_enum(product_type_str):
+    return settings.product_type_str2enum_map[product_type_str]

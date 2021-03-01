@@ -16,3 +16,11 @@ currency_enum2str_map = {
     gb.RUB: 'RUB'
 }
 currency_str2enum_map = {currency_enum2str_map[k]: k for k in currency_enum2str_map}
+
+product_type_enum2str_map = {
+    gb.FILE_DOWNLOADABLE: 'downloadable files',
+    gb.FILE_STREAMED: 'streamed files',
+    gb.SCHEDULED_FACE_TO_FACE: 'scheduled face-to-face meeting',
+    gb.SCHEDULED_ONLINE_CALL: 'scheduled online call'
+}
+product_type_str2enum_map = {currency_enum2str_map[k]: k for k in currency_enum2str_map}
