@@ -32,9 +32,9 @@ create table if not exists "gb_product_category"
 (
     -- data
     "id"          serial primary key,
-    "name"        varchar(128),
+    "name"        varchar(1024),
     "pictureBlob" bytea default null,
-    "examples"    varchar(128)[]
+    "examples"    varchar(4096)
 );
 -- product : i.e., the good traded on the platform
 create table if not exists "gb_pro duct"
