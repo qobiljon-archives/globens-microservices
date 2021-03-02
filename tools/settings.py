@@ -23,4 +23,4 @@ product_type_enum2str_map = {
     gb.SCHEDULED_FACE_TO_FACE: 'scheduled face-to-face meeting',
     gb.SCHEDULED_ONLINE_CALL: 'scheduled online call'
 }
-product_type_str2enum_map = {currency_enum2str_map[k]: k for k in currency_enum2str_map}
+product_type_str2enum_map = {product_type_enum2str_map[k]: k for k in product_type_enum2str_map}
