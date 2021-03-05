@@ -130,7 +130,7 @@ create table gb_product_review
     -- data
     "id"         serial primary key,
     "stars"      integer,
-    "text"       integer,
+    "text"       varchar(2056),
     "timestamp"  timestamp,
     -- relations
     "user_id"    integer not null references "gb_user" ("id") on delete cascade,
@@ -144,7 +144,7 @@ create table gb_employee_review
 (
     -- data
     "id"               serial primary key,
-    "text"             integer,
+    "text"             varchar(2056),
     "timestamp"        timestamp,
     -- relations
     "business_page_id" integer not null references "gb_business_page" ("id") on delete cascade,

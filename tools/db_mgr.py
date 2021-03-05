@@ -465,7 +465,7 @@ def create_or_update_product_review(gb_user, gb_product, stars, text, timestamp)
         gb_user['id'],
         gb_product['id']
     ))
-    exists = cur.fetchone()
+    exists = cur.fetchone()[0]
 
     if exists:
         cur.execute('update "gb_product_review" set "stars" = %s, "text" = %s, "timestamp" = %s where "user_id" = %s and "product_id" = %s;', (
@@ -519,7 +519,7 @@ def create_or_update_employee_review(gb_user, gb_business_page, gb_employee_user
         gb_business_page['id'],
         gb_employee_user['id']
     ))
-    exists = cur.fetchone()
+    exists = cur.fetchone()[0]
 
     if exists:
         cur.execute('update "gb_employee_review" set "text" = %s, "timestamp" = %s where "user_id" = %s and "business_page_id" = %s and "employee_id"=%s;', (
