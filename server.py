@@ -4,6 +4,7 @@ from gb_grpcs import gb_service_pb2
 # others
 from concurrent import futures
 from tools import db_mgr as db
+from datetime import datetime
 from tools import utils
 import grpc
 import time
@@ -451,6 +452,109 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
         # todo fetch purchase details
         print(f' fetchPurchaseDetails')
 
+    # endregion
+
+    # region review management module
+    def submitProductReview(self, request, context):
+        print(f' submitProductReview')
+        response = gb_service_pb2.SubmitProductReview.Response()
+        response.success = False
+
+        gb_user = db.get_user(session_key=request.sessionKey)
+        gb_product = db.get_product(product_id=request.productId)
+
+        if None not in [gb_user, gb_product]:
+            db.create_or_update_product_review(gb_user=gb_user, gb_product=gb_product, stars=request.stars, text=request.text, timestamp=datetime.fromtimestamp(request.timestamp / 1000))
+            response.success = True
+
+        print(f' submitProductReview, success={response.success}')
+        return response
+
+    def retrieveProductReviews(self, request, context):
+        print(f' retrieveProductReviews')
+        response = gb_service_pb2.RetrieveProductReviews.Response()
+        response.success = False
+
+        gb_user = db.get_user(session_key=request.sessionKey)
+        gb_product = db.get_product(product_id=request.productId)
+
+        if None not in [gb_user, gb_product]:
+            for gb_product_review in db.get_product_reviews(gb_product=gb_product):
+                response.id.extend(gb_product_review['id'])
+                response.isMyReview.extend(gb_product_review['user_id'] == gb_user['id'])
+                response.stars.extend(gb_product_review['stars'])
+                response.text.extend(gb_product_review['text'])
+                response.timestamp.extend(int(gb_product_review['timestamp'].timestamp() * 1000))
+            response.success = True
+
+        print(f' retrieveProductReviews, success={response.success}')
+        return response
+
+    def deleteProductReview(self, request, context):
+        print(f' deleteProductReview')
+        response = gb_service_pb2.DeleteProductReview.Response()
+        response.success = False
+
+        gb_user = db.get_user(session_key=request.sessionKey)
+        gb_product_review = db.get_product_review(product_review_id=request.reviewId)
+
+        if None not in [gb_user, gb_product_review] and gb_product_review['user_id'] == gb_user['id']:
+            db.delete_product_review(gb_product_review=gb_product_review)
+            response.success = True
+
+        print(f' deleteProductReview, success={response.success}')
+        return response
+
+    def submitEmployeeReview(self, request, context):
+        print(f' submitEmployeeReview')
+        response = gb_service_pb2.SubmitEmployeeReview.Response()
+        response.success = False
+
+        gb_user = db.get_user(session_key=request.sessionKey)
+        gb_business_page = db.get_business_page(business_page_id=request.businessPageId)
+        gb_employee_user = db.get_user(user_id=request.employeeUserId)
+
+        if None not in [gb_user, gb_business_page, gb_employee_user]:
+            db.create_or_update_employee_review(gb_user=gb_user, gb_business_page=gb_business_page, gb_employee_user=gb_employee_user, text=request.text, timestamp=datetime.fromtimestamp(request.timestamp / 1000))
+            response.success = True
+
+        print(f' submitEmployeeReview, success={response.success}')
+        return response
+
+    def retrieveEmployeeReviews(self, request, context):
+        print(f' retrieveEmployeeReviews')
+        response = gb_service_pb2.RetrieveEmployeeReviews.Response()
+        response.success = False
+
+        gb_user = db.get_user(session_key=request.sessionKey)
+        gb_business_page = db.get_business_page(business_page_id=request.businessPageId)
+        gb_employee_user = db.get_user(user_id=request.employeeUserId)
+
+        if None not in [gb_user, gb_business_page, gb_employee_user]:
+            for gb_employee_review in db.get_employee_reviews(gb_business_page=gb_business_page, gb_employee_user=gb_employee_user):
+                response.id.extend(gb_employee_review['id'])
+                response.isMyReview.extend(gb_employee_review['user_id'] == gb_user['id'])
+                response.text.extend(gb_employee_review['text'])
+                response.timestamp.extend(int(gb_employee_review['timestamp'].timestamp() * 1000))
+            response.success = True
+
+        print(f' retrieveEmployeeReviews, success={response.success}')
+        return response
+
+    def deleteEmployeeReview(self, request, context):
+        print(f' deleteEmployeeReview')
+        response = gb_service_pb2.DeleteEmployeeReview.Response()
+        response.success = False
+
+        gb_user = db.get_user(session_key=request.sessionKey)
+        gb_employee_review = db.get_employee_review(employee_review_id=request.reviewId)
+
+        if None not in [gb_user, gb_employee_review] and gb_employee_review['user_id'] == gb_user['id']:
+            db.delete_employee_review(gb_employee_review=gb_employee_review)
+            response.success = True
+
+        print(f' deleteEmployeeReview, success={response.success}')
+        return response
     # endregion
 
 

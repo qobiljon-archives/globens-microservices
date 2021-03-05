@@ -37,7 +37,7 @@ create table if not exists "gb_product_category"
     "examples"    varchar(4096)
 );
 -- product : i.e., the good traded on the platform
-create table if not exists "gb_pro duct"
+create table if not exists "gb_product"
 (
     -- data
     "id"               serial primary key,
@@ -82,7 +82,6 @@ create table if not exists "gb_job_application"
     -- constraints
     unique ("job_id", "user_id")
 );
-
 -- action on product : e.g., create, edit, publish, etc.
 create type "gb_job_action" as enum ('create', 'uncreate');
 -- product log entry : e.g., created by A, edited by B, published by C, etc.
@@ -122,4 +121,35 @@ create table if not exists "gb_product_log"
     -- relations
     "product_id" integer not null references "gb_product" ("id") on delete cascade,
     "user_id"    integer references "gb_user" ("id") on delete set null
+);
+
+
+-- product reviews : e.g., stars, text
+create table gb_product_review
+(
+    -- data
+    "id"         serial primary key,
+    "stars"      integer,
+    "text"       integer,
+    "timestamp"  timestamp,
+    -- relations
+    "user_id"    integer not null references "gb_user" ("id") on delete cascade,
+    "product_id" integer not null references "gb_product" ("id") on delete cascade,
+    -- constraints
+    unique ("user_id", "product_id")
+);
+
+-- employee reviews : i.e., text
+create table gb_employee_review
+(
+    -- data
+    "id"               serial primary key,
+    "text"             integer,
+    "timestamp"        timestamp,
+    -- relations
+    "business_page_id" integer not null references "gb_business_page" ("id") on delete cascade,
+    "user_id"          integer not null references "gb_user" ("id") on delete cascade,
+    "employee_id"      integer not null references "gb_user" ("id") on delete cascade,
+    -- constraints
+    unique ("user_id", "business_page_id", "employee_id")
 );

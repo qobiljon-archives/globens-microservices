@@ -184,6 +184,36 @@ class GlobensServiceStub(object):
             request_serializer=gb__service__pb2.FetchPurchaseDetails.Request.SerializeToString,
             response_deserializer=gb__service__pb2.FetchPurchaseDetails.Response.FromString,
         )
+        self.submitProductReview = channel.unary_unary(
+            '/GlobensService/submitProductReview',
+            request_serializer=gb__service__pb2.SubmitProductReview.Request.SerializeToString,
+            response_deserializer=gb__service__pb2.SubmitProductReview.Response.FromString,
+        )
+        self.retrieveProductReviews = channel.unary_unary(
+            '/GlobensService/retrieveProductReviews',
+            request_serializer=gb__service__pb2.RetrieveProductReviews.Request.SerializeToString,
+            response_deserializer=gb__service__pb2.RetrieveProductReviews.Response.FromString,
+        )
+        self.deleteProductReview = channel.unary_unary(
+            '/GlobensService/deleteProductReview',
+            request_serializer=gb__service__pb2.DeleteProductReview.Request.SerializeToString,
+            response_deserializer=gb__service__pb2.DeleteProductReview.Response.FromString,
+        )
+        self.submitEmployeeReview = channel.unary_unary(
+            '/GlobensService/submitEmployeeReview',
+            request_serializer=gb__service__pb2.SubmitEmployeeReview.Request.SerializeToString,
+            response_deserializer=gb__service__pb2.SubmitEmployeeReview.Response.FromString,
+        )
+        self.retrieveEmployeeReviews = channel.unary_unary(
+            '/GlobensService/retrieveEmployeeReviews',
+            request_serializer=gb__service__pb2.RetrieveEmployeeReviews.Request.SerializeToString,
+            response_deserializer=gb__service__pb2.RetrieveEmployeeReviews.Response.FromString,
+        )
+        self.deleteEmployeeReview = channel.unary_unary(
+            '/GlobensService/deleteEmployeeReview',
+            request_serializer=gb__service__pb2.DeleteEmployeeReview.Request.SerializeToString,
+            response_deserializer=gb__service__pb2.DeleteEmployeeReview.Response.FromString,
+        )
 
 
 class GlobensServiceServicer(object):
@@ -428,6 +458,48 @@ class GlobensServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def submitProductReview(self, request, context):
+        """review management RPCs
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def retrieveProductReviews(self, request, context):
+        # missing associated documentation comment in .proto file
+        pass
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def deleteProductReview(self, request, context):
+        # missing associated documentation comment in .proto file
+        pass
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def submitEmployeeReview(self, request, context):
+        # missing associated documentation comment in .proto file
+        pass
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def retrieveEmployeeReviews(self, request, context):
+        # missing associated documentation comment in .proto file
+        pass
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def deleteEmployeeReview(self, request, context):
+        # missing associated documentation comment in .proto file
+        pass
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_GlobensServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -600,6 +672,36 @@ def add_GlobensServiceServicer_to_server(servicer, server):
             servicer.fetchPurchaseDetails,
             request_deserializer=gb__service__pb2.FetchPurchaseDetails.Request.FromString,
             response_serializer=gb__service__pb2.FetchPurchaseDetails.Response.SerializeToString,
+        ),
+        'submitProductReview': grpc.unary_unary_rpc_method_handler(
+            servicer.submitProductReview,
+            request_deserializer=gb__service__pb2.SubmitProductReview.Request.FromString,
+            response_serializer=gb__service__pb2.SubmitProductReview.Response.SerializeToString,
+        ),
+        'retrieveProductReviews': grpc.unary_unary_rpc_method_handler(
+            servicer.retrieveProductReviews,
+            request_deserializer=gb__service__pb2.RetrieveProductReviews.Request.FromString,
+            response_serializer=gb__service__pb2.RetrieveProductReviews.Response.SerializeToString,
+        ),
+        'deleteProductReview': grpc.unary_unary_rpc_method_handler(
+            servicer.deleteProductReview,
+            request_deserializer=gb__service__pb2.DeleteProductReview.Request.FromString,
+            response_serializer=gb__service__pb2.DeleteProductReview.Response.SerializeToString,
+        ),
+        'submitEmployeeReview': grpc.unary_unary_rpc_method_handler(
+            servicer.submitEmployeeReview,
+            request_deserializer=gb__service__pb2.SubmitEmployeeReview.Request.FromString,
+            response_serializer=gb__service__pb2.SubmitEmployeeReview.Response.SerializeToString,
+        ),
+        'retrieveEmployeeReviews': grpc.unary_unary_rpc_method_handler(
+            servicer.retrieveEmployeeReviews,
+            request_deserializer=gb__service__pb2.RetrieveEmployeeReviews.Request.FromString,
+            response_serializer=gb__service__pb2.RetrieveEmployeeReviews.Response.SerializeToString,
+        ),
+        'deleteEmployeeReview': grpc.unary_unary_rpc_method_handler(
+            servicer.deleteEmployeeReview,
+            request_deserializer=gb__service__pb2.DeleteEmployeeReview.Request.FromString,
+            response_serializer=gb__service__pb2.DeleteEmployeeReview.Response.SerializeToString,
         ),
     }
     generic_handler = grpc.method_handlers_generic_handler(

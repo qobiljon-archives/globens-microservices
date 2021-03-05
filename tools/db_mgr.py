@@ -453,4 +453,118 @@ def decline_job_application(gb_job_application):
     cur.close()
     get_db_connection().commit()
 
+
+# endregion
+
+
+# region review management
+def create_or_update_product_review(gb_user, gb_product, stars, text, timestamp):
+    cur = get_db_connection().cursor(cursor_factory=psycopg2_extras.DictCursor)
+
+    cur.execute('select exists(select * from "gb_product_review" where "user_id"=%s and "product_id"=%s);', (
+        gb_user['id'],
+        gb_product['id']
+    ))
+    exists = cur.fetchone()
+
+    if exists:
+        cur.execute('update "gb_product_review" set "stars" = %s, "text" = %s, "timestamp" = %s where "user_id" = %s and "product_id" = %s;', (
+            stars,
+            text,
+            timestamp,
+            gb_user['id'],
+            gb_product['id']
+        ))
+    else:
+        cur.execute('insert into "gb_product_review"("stars", "text", "timestamp", "user_id", "product_id") values (%s,%s,%s,%s,%s);', (
+            stars,
+            text,
+            timestamp,
+            gb_user['id'],
+            gb_product['id']
+        ))
+
+    cur.close()
+    get_db_connection().commit()
+
+
+def get_product_reviews(gb_product):
+    cur = get_db_connection().cursor(cursor_factory=psycopg2_extras.DictCursor)
+    cur.execute('select * from "gb_product_review" where "product_id"=%s', (gb_product['id'],))
+    rows = cur.fetchall()
+    cur.close()
+    return rows
+
+
+def get_product_review(product_review_id):
+    cur = get_db_connection().cursor(cursor_factory=psycopg2_extras.DictCursor)
+    cur.execute('select * from "gb_product_review" where "id" = %s;', (product_review_id,))
+    gb_product_review = cur.fetchone()
+    cur.close()
+    return gb_product_review
+
+
+def delete_product_review(gb_product_review):
+    cur = get_db_connection().cursor(cursor_factory=psycopg2_extras.DictCursor)
+    cur.execute('delete from "gb_product_review" where "id"=%s;', (gb_product_review['id'],))
+    cur.close()
+    get_db_connection().commit()
+
+
+def create_or_update_employee_review(gb_user, gb_business_page, gb_employee_user, text, timestamp):
+    cur = get_db_connection().cursor(cursor_factory=psycopg2_extras.DictCursor)
+
+    cur.execute('select exists(select * from "gb_employee_review" where "user_id"=%s and "business_page_id"=%s and "employee_id"=%s);', (
+        gb_user['id'],
+        gb_business_page['id'],
+        gb_employee_user['id']
+    ))
+    exists = cur.fetchone()
+
+    if exists:
+        cur.execute('update "gb_employee_review" set "text" = %s, "timestamp" = %s where "user_id" = %s and "business_page_id" = %s and "employee_id"=%s;', (
+            text,
+            timestamp,
+            gb_user['id'],
+            gb_business_page['id'],
+            gb_employee_user['id']
+        ))
+    else:
+        cur.execute('insert into "gb_employee_review"("text", "timestamp", "user_id", "business_page_id", "employee_id") values (%s,%s,%s,%s,%s);', (
+            text,
+            timestamp,
+            gb_user['id'],
+            gb_business_page['id'],
+            gb_employee_user['id'],
+        ))
+
+    cur.close()
+    get_db_connection().commit()
+
+
+def get_employee_reviews(gb_business_page, gb_employee_user):
+    cur = get_db_connection().cursor(cursor_factory=psycopg2_extras.DictCursor)
+    cur.execute('select * from "gb_employee_review" where "business_page_id"=%s and "employee_id"=%s', (
+        gb_business_page['id'],
+        gb_employee_user['id']
+    ))
+    rows = cur.fetchall()
+    cur.close()
+    return rows
+
+
+def get_employee_review(employee_review_id):
+    cur = get_db_connection().cursor(cursor_factory=psycopg2_extras.DictCursor)
+    cur.execute('select * from "gb_employee_review" where "id" = %s;', (employee_review_id,))
+    gb_employee_review = cur.fetchone()
+    cur.close()
+    return gb_employee_review
+
+
+def delete_employee_review(gb_employee_review):
+    cur = get_db_connection().cursor(cursor_factory=psycopg2_extras.DictCursor)
+    cur.execute('delete from "gb_employee_review" where "id"=%s;', (gb_employee_review['id'],))
+    cur.close()
+    get_db_connection().commit()
+
 # endregion
