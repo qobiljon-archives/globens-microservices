@@ -4,6 +4,7 @@ from gb_grpcs import gb_service_pb2
 # others
 from concurrent import futures
 from tools import db_mgr as db
+from datetime import datetime
 from tools import utils
 import grpc
 import time
@@ -451,6 +452,44 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
         # todo fetch purchase details
         print(f' fetchPurchaseDetails')
 
+    # endregion
+
+    # region review management module
+    def submitProductReview(self, request, context):
+        print(f' submitProductReview')
+        response = gb_service_pb2.SubmitProductReview.Response()
+        response.success = False
+
+        gb_user = db.get_user(session_key=request.sessionKey)
+        gb_product = db.get_product(product_id=request.productId)
+
+        if None not in [gb_user, gb_product]:
+            db.create_product_review(gb_user=gb_user, gb_product=gb_product, stars=request.stars, text=request.text, timestamp=datetime.fromtimestamp(request.timestamp))
+            response.success = True
+
+        print(f' submitProductReview, success={response.success}')
+        return response
+
+    def retrieveProductReviews(self, request, context):
+        pass
+
+    def editProductReview(self, request, context):
+        pass
+
+    def deleteProductReview(self, request, context):
+        pass
+
+    def submitEmployeeReview(self, request, context):
+        pass
+
+    def retrieveEmployeeReviews(self, request, context):
+        pass
+
+    def editEmployeeReview(self, request, context):
+        pass
+
+    def deleteEmployeeReview(self, request, context):
+        pass
     # endregion
 
 

@@ -453,4 +453,49 @@ def decline_job_application(gb_job_application):
     cur.close()
     get_db_connection().commit()
 
+
+# endregion
+
+# region review management
+def create_product_review(gb_user, gb_product, stars, text, timestamp):
+    cur = get_db_connection().cursor(cursor_factory=psycopg2_extras.DictCursor)
+
+    cur.execute('insert into "gb_product_review"("name", "productType", "pictureBlob", "business_page_id", "category_id", "price", "currency", "description", "content") values (%s,%s,%s,%s,%s,%s,%s,%s,%s) returning "id";', (
+        name,
+        product_type,
+        picture_blob,
+        gb_business_page['id'],
+        gb_category['id'],
+        price,
+        currency,
+        description,
+        product_content
+    ))
+    new_product_id = cur.fetchone()[0]
+
+    cur.execute('insert into "gb_product_log"("timestamp", "action", "product_id", "user_id") values (%s,%s,%s,%s);', (
+        datetime.now(),
+        'create',
+        new_product_id,
+        gb_user['id']
+    ))
+
+    cur.close()
+    get_db_connection().commit()
+
+
+def get_product_reviews(gb_product):
+    pass
+
+
+def edit_product_review(gb_product_review, stars, text, timestamp):
+    pass
+
+
+def delete_product_review(gb_product_review):
+    pass
+
+
+def create_product_review(gb_user, gb_product, stars, text, timestamp):
+    pass
 # endregion
