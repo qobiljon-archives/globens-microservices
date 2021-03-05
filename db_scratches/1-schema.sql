@@ -134,17 +134,22 @@ create table gb_product_review
     "timestamp"  timestamp,
     -- relations
     "user_id"    integer not null references "gb_user" ("id") on delete cascade,
-    "product_id" integer not null references "gb_product" ("id") on delete cascade
+    "product_id" integer not null references "gb_product" ("id") on delete cascade,
+    -- constraints
+    unique ("user_id", "product_id")
 );
 
 -- employee reviews : i.e., text
 create table gb_employee_review
 (
     -- data
-    "id"          serial primary key,
-    "text"        integer,
-    "timestamp"   timestamp,
+    "id"               serial primary key,
+    "text"             integer,
+    "timestamp"        timestamp,
     -- relations
-    "user_id"     integer not null references "gb_user" ("id") on delete cascade,
-    "employee_id" integer not null references "gb_user" ("id") on delete cascade
+    "business_page_id" integer not null references "gb_business_page" ("id") on delete cascade,
+    "user_id"          integer not null references "gb_user" ("id") on delete cascade,
+    "employee_id"      integer not null references "gb_user" ("id") on delete cascade,
+    -- constraints
+    unique ("user_id", "business_page_id", "employee_id")
 );
