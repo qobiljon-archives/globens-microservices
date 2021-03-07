@@ -194,9 +194,10 @@ message FetchProductDetails{
     int32 businessPageId = 8;
     float price = 9;
     double stars = 10;
-    Currency currency = 11;
-    string description = 12;
-    bytes content = 13;
+    int32 reviewsCount = 11;
+    Currency currency = 12;
+    string description = 13;
+    bytes content = 14;
   }
 }
 message PublishProduct{
