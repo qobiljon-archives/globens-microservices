@@ -76,6 +76,7 @@ create table if not exists "gb_job_application"
     -- data
     "id"      serial primary key,
     "message" text,
+    "content" bytea default null,
     -- relations
     "user_id" integer not null references "gb_user" ("id") on delete cascade,
     "job_id"  integer not null references gb_job ("id") on delete cascade,
