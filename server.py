@@ -153,6 +153,7 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
 
         if None not in [gb_user, gb_job]:
             response.id = gb_job['id']
+            response.businessPageId = gb_job['business_page_id']
             response.role = gb_job['role']
             response.title = gb_job['title']
             response.hiredUserId = gb_job['user_id'] if gb_job['user_id'] is not None else -1
