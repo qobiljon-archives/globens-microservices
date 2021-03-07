@@ -45,6 +45,10 @@ create table if not exists "gb_product"
     "productType"      gb_product_type,
     "pictureBlob"      bytea             not null,
     "price"            float   default 0,
+
+    "stars"            float8  default 0,
+    "reviewsCount"     int     default 0,
+
     "currency"         char(3) default 'KRW',
     "published"        boolean default false,
     "description"      text,

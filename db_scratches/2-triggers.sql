@@ -92,3 +92,33 @@ create trigger "gb_check_previous_job_application"
     for each row
 execute procedure "gb_remove_old_job_application"();
 -- endregion
+
+-- region 5. trigger : product review submission --> update stars
+create or replace function "gb_update_product_stars"() returns trigger as
+$gb_update_product_stars$
+declare
+    reviewsCount integer;
+begin
+    if tg_op == 'INSERT' then
+        update "gb_product" set "stars" = ("stars" * "reviewsCount" + new."stars") / ("reviewsCount" + 1), "reviewsCount" = "reviewsCount" + 1 where "id" = "new"."product_id";
+    elsif tg_op == 'DELETE' then
+        reviewsCount := (select count(*) from "gb_product_review" where "product_id" = old."product_id");
+        if reviewsCount == 1 then
+            update "gb_product" set "stars" = 0.0, "reviewsCount" = 0 where "id" = "old"."product_id";
+        else
+            update "gb_product" set "stars" = ("stars" * "reviewsCount" - old."stars") / ("reviewsCount" - 1), "reviewsCount" = "reviewsCount" - 1 where "id" = "old"."product_id";
+        end if;
+    elsif tg_op == 'UPDATE' then
+        update "gb_product" set "stars" = "stars" + (new."stars" - old."stars") / "reviewsCount" where "id" = "new"."product_id";
+    end if;
+    return new;
+end
+$gb_update_product_stars$ language plpgsql;
+
+drop trigger if exists "gb_recalculate_product_stars" on "gb_user";
+create trigger "gb_recalculate_product_stars"
+    before insert or delete or update
+    on "gb_product_review"
+    for each row
+execute procedure "gb_update_product_stars"();
+-- endregion

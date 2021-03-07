@@ -193,9 +193,10 @@ message FetchProductDetails{
     bytes pictureBlob = 7;
     int32 businessPageId = 8;
     float price = 9;
-    Currency currency = 10;
-    string description = 11;
-    bytes content = 12;
+    double stars = 10;
+    Currency currency = 11;
+    string description = 12;
+    bytes content = 13;
   }
 }
 message PublishProduct{

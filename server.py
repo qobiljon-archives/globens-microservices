@@ -396,6 +396,7 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
             response.pictureBlob = bytes(gb_product['pictureBlob'])
             response.businessPageId = gb_product['business_page_id']
             response.price = gb_product['price']
+            response.stars = gb_product['stars']
             response.currency = utils.get_currency_enum(currency_str=gb_product['currency'])
             response.description = gb_product['description']
             if 'schedule' in gb_product['productType']:
