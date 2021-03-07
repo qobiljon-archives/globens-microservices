@@ -467,23 +467,18 @@ def create_or_update_product_review(gb_user, gb_product, stars, text, timestamp)
         gb_product['id']
     ))
     exists = cur.fetchone()[0]
-
     if exists:
-        cur.execute('update "gb_product_review" set "stars" = %s, "text" = %s, "timestamp" = %s where "user_id" = %s and "product_id" = %s;', (
-            stars,
-            text,
-            timestamp,
+        cur.execute('delete from "gb_product_review" where "user_id" = %s and "product_id" = %s;', (
             gb_user['id'],
             gb_product['id']
         ))
-    else:
-        cur.execute('insert into "gb_product_review"("stars", "text", "timestamp", "user_id", "product_id") values (%s,%s,%s,%s,%s);', (
-            stars,
-            text,
-            timestamp,
-            gb_user['id'],
-            gb_product['id']
-        ))
+    cur.execute('insert into "gb_product_review"("stars", "text", "timestamp", "user_id", "product_id") values (%s,%s,%s,%s,%s);', (
+        stars,
+        text,
+        timestamp,
+        gb_user['id'],
+        gb_product['id']
+    ))
 
     cur.close()
     get_db_connection().commit()

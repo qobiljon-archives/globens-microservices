@@ -110,9 +110,6 @@ begin
             update "gb_product" set "stars" = ("stars" * "reviewsCount" - old."stars") / ("reviewsCount" - 1), "reviewsCount" = "reviewsCount" - 1 where "id" = "old"."product_id";
         end if;
         return old;
-    elsif (tg_op = 'UPDATE') then
-        update "gb_product" set "stars" = "stars" + ((new."stars" - old."stars") / float("reviewsCount")) where "id" = "new"."product_id";
-        return new;
     end if;
     return null;
 end
@@ -120,8 +117,8 @@ $gb_update_product_stars$ language plpgsql;
 
 drop trigger if exists "gb_recalculate_product_stars" on "gb_product_review";
 create trigger "gb_recalculate_product_stars"
-    before insert or delete or update
-    of "stars" on "gb_product_review"
+    before insert or delete
+    on "gb_product_review"
     for each row
 execute procedure "gb_update_product_stars"();
 -- endregion
