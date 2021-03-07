@@ -216,7 +216,8 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
         if None not in [gb_user, gb_job_application]:
             response.id = gb_job_application['id']
             response.message = gb_job_application['message']
-            response.content = gb_job_application['content']
+            if gb_job_application['content'] is not None:
+                response.content = gb_job_application['content']
             response.applicantId = gb_job_application['user_id']
             response.success = True
 
