@@ -111,7 +111,7 @@ begin
         end if;
         return old;
     elsif tg_op = 'UPDATE' then
-        update "gb_product" set "stars" = "stars" + (new."stars" - old."stars") / "reviewsCount" where "id" = "new"."product_id";
+        update "gb_product" set "stars" = "stars" + ((new."stars" - "stars") / "reviewsCount") where "id" = "new"."product_id";
         return new;
     end if;
 end
