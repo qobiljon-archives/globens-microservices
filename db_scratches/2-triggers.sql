@@ -105,13 +105,13 @@ begin
     elsif (tg_op = 'DELETE') then
         reviewsCount := (select count(*) from "gb_product_review" where "product_id" = old."product_id");
         if reviewsCount = 1 then
-            update "gb_product" set "stars" = 0.0, "reviewsCount" = 0 where "id" = "old"."product_id";
+            update "gb_product" set "stars" = 0.0, "reviewsCount" = 0 where "id" = old."product_id";
         else
             update "gb_product" set "stars" = ("stars" * "reviewsCount" - old."stars") / ("reviewsCount" - 1), "reviewsCount" = "reviewsCount" - 1 where "id" = "old"."product_id";
         end if;
         return old;
     elsif (tg_op = 'UPDATE') then
-        update "gb_product" set "stars" = "stars" + ((new."stars" - "stars") / "reviewsCount") where "id" = "new"."product_id";
+        update "gb_product" set "stars" = "stars" + ((new."stars" - old."stars") / float("reviewsCount")) where "id" = "new"."product_id";
         return new;
     end if;
     return null;
