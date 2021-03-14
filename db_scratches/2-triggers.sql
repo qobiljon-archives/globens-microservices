@@ -10,7 +10,7 @@ $gb_product_update_procedure$ LANGUAGE plpgsql;
 
 drop trigger if exists "gb_check_product_states" on "gb_product";
 create trigger "gb_check_product_states"
-    before update
+    before update of "name", "productType", "pictureBlob", "price", "currency", "description", "content", "category_id", "business_page_id"
     on "gb_product"
     for each row
 execute procedure "gb_product_update_procedure"();
