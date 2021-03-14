@@ -222,58 +222,34 @@ def update_product(gb_product, gb_business_page, gb_category, name, product_type
 def get_next_k_products(previous_product_id, k, filter_details):
     cur = get_db_connection().cursor(cursor_factory=psycopg2_extras.DictCursor)
 
+    sql_filter_map = {}
     if filter_details.useFilter:
         # (1) filter mode
-        if filter_details.substring or filter_details.regex:
-            # (1.1) filter by regex / substring
-            if previous_product_id:
-                cur.execute('select * from "gb_product" where "id" > %s and "name" like %s order by "id" limit %s;', (
-                    previous_product_id,
-                    f'%{filter_details.substring}%' if filter_details.substring else filter_details.regex,
-                    k
-                ))
-            else:
-                cur.execute('select * from "gb_product" where "name" like %s order by "id" limit %s;', (
-                    f'%{filter_details.substring}%' if filter_details.substring else filter_details.regex,
-                    k
-                ))
-        elif filter_details.categoryId > 0:
-            # (1.2) filter by category
-            if previous_product_id:
-                cur.execute('select * from "gb_product" where "id" > %s and "category_id" = %s order by "id" limit %s;', (
-                    previous_product_id,
-                    filter_details.categoryId,
-                    k
-                ))
-            else:
-                cur.execute('select * from "gb_product" where "category_id" = %s order by "id" limit %s;', (
-                    filter_details.categoryId,
-                    k
-                ))
-        elif filter_details.businessPageId > 0:
-            # (1.3) filter by business page
-            if previous_product_id:
-                cur.execute('select * from "gb_product" where "id" > %s and "business_page_id" = %s order by "id" limit %s;', (
-                    previous_product_id,
-                    filter_details.businessPageId,
-                    k
-                ))
-            else:
-                cur.execute('select * from "gb_product" where "business_page_id" = %s order by "id" limit %s;', (
-                    filter_details.businessPageId,
-                    k
-                ))
-    else:
-        # (2) no filter (i.e., all products)
-        if previous_product_id is None:
-            cur.execute('select * from "gb_product" order by "id" limit %s;', (
-                k
-            ))
-        else:
-            cur.execute('select * from "gb_product" where "id" > %s order by "id" limit %s;', (
-                previous_product_id,
-                k
-            ))
+        if previous_product_id > -1:
+            sql_filter_map['"id" > %s'] = previous_product_id
+        if filter_details.categoryId > -1:
+            sql_filter_map['"category_id" = %s'] = filter_details.categoryId
+        if filter_details.publishedProductsOnly:
+            sql_filter_map['published = %s'] = filter_details.publishedProductsOnly
+        if filter_details.substring:
+            sql_filter_map['"name" like %s'] = filter_details.substring
+        if filter_details.regex:
+            sql_filter_map['"name" like %s'] = filter_details.regex
+        if filter_details.businessPageId > -1:
+            sql_filter_map['"business_page_id" = %s'] = filter_details.businessPageId
+
+    sql_command_args = (k,)
+    sql_where_clause_str = ''
+    if len(sql_filter_map) == 1:
+        key = next(iter(sql_filter_map.keys()))
+        sql_where_clause_str = f'where {key}'
+        sql_command_args += (sql_filter_map[key],)
+    elif len(sql_filter_map) > 1:
+        keys = list(sql_filter_map.keys())
+        sql_where_clause_str = f'where {" and ".join(keys)}'
+        for key in keys:
+            sql_command_args += (sql_filter_map[key],)
+    cur.execute(f'select * from "gb_product" {sql_where_clause_str} order by "id" limit %s;', sql_command_args)
     gb_products = cur.fetchall()
 
     cur.close()
