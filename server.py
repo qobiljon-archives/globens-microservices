@@ -484,11 +484,11 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
 
         if None not in [gb_user, gb_product]:
             for gb_product_review in db.get_product_reviews(gb_product=gb_product):
-                response.id.extend(gb_product_review['id'])
-                response.isMyReview.extend(gb_product_review['user_id'] == gb_user['id'])
-                response.stars.extend(gb_product_review['stars'])
-                response.text.extend(gb_product_review['text'])
-                response.timestamp.extend(int(gb_product_review['timestamp'].timestamp() * 1000))
+                response.id.extend([gb_product_review['id']])
+                response.isMyReview.extend([gb_product_review['user_id'] == gb_user['id']])
+                response.stars.extend([gb_product_review['stars']])
+                response.text.extend([gb_product_review['text']])
+                response.timestamp.extend([int(gb_product_review['timestamp'].timestamp() * 1000)])
             response.success = True
 
         print(f' retrieveProductReviews, success={response.success}')
