@@ -18,6 +18,6 @@ if __name__ == '__main__':
         for category_id in res.id:
             sub_req = gb_service_pb2.FetchProductCategoryDetails.Request(categoryId=category_id)
             sub_res = stub.fetchProductCategoryDetails(sub_req)
-            category_name = sub_res.name
-            category_examples = sub_res.examples
+            category_name = sub_res.nameJsonStr
+            category_examples = sub_res.examplesJsonStr
             print(category_id, category_name, category_examples)
