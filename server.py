@@ -356,13 +356,39 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
 
     def publishProduct(self, request, context):
         print(f' publishProduct')
-        # todo publish product
-        print(f' publishProduct')
+        response = gb_service_pb2.PublishProduct.Response()
+        response.success = False
+
+        gb_user = db.get_user(session_key=request.sessionKey)
+        gb_product = db.get_product(product_id=request.productId)
+        gb_product_business_page = None
+        if gb_product:
+            gb_product_business_page = db.get_business_page(business_page_id=gb_product['business_page_id'])
+
+        if None not in [gb_user, gb_product, gb_product_business_page] and db.get_user_role_in_business_page(gb_user=gb_user, gb_business_page=gb_product_business_page) == 'business owner':
+            db.publish_product(gb_product=gb_product)
+            response.success = True
+
+        print(f' publishProduct, success={response.success}')
+        return response
 
     def unpublishProduct(self, request, context):
         print(f' unpublishProduct')
-        # todo unpublish product
-        print(f' unpublishProduct')
+        response = gb_service_pb2.UnpublishProduct.Response()
+        response.success = False
+
+        gb_user = db.get_user(session_key=request.sessionKey)
+        gb_product = db.get_product(product_id=request.productId)
+        gb_product_business_page = None
+        if gb_product:
+            gb_product_business_page = db.get_business_page(business_page_id=gb_product['business_page_id'])
+
+        if None not in [gb_user, gb_product, gb_product_business_page] and db.get_user_role_in_business_page(gb_user=gb_user, gb_business_page=gb_product_business_page) == 'business owner':
+            db.unpublish_product(gb_product=gb_product)
+            response.success = True
+
+        print(f' unpublishProduct, success={response.success}')
+        return response
 
     def fetchNextKProductIds(self, request, context):
         # print(f' fetchNextKProductIds')

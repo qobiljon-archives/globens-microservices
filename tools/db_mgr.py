@@ -219,6 +219,30 @@ def update_product(gb_product, gb_business_page, gb_category, name, product_type
     get_db_connection().commit()
 
 
+def publish_product(gb_product):
+    cur = get_db_connection().cursor(cursor_factory=psycopg2_extras.DictCursor)
+
+    cur.execute('update "gb_product" set "published" = %s where "id"=%s;', (
+        True,
+        gb_product['id']
+    ))
+
+    cur.close()
+    get_db_connection().commit()
+
+
+def unpublish_product(gb_product):
+    cur = get_db_connection().cursor(cursor_factory=psycopg2_extras.DictCursor)
+
+    cur.execute('update "gb_product" set "published" = %s where "id"=%s;', (
+        False,
+        gb_product['id']
+    ))
+
+    cur.close()
+    get_db_connection().commit()
+
+
 def get_next_k_products(previous_product_id, k, filter_details):
     cur = get_db_connection().cursor(cursor_factory=psycopg2_extras.DictCursor)
 
