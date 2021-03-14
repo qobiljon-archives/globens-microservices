@@ -226,7 +226,7 @@ def get_next_k_products(previous_product_id, k, filter_details):
     if filter_details.useFilter:
         # (1) filter mode
         if previous_product_id > -1:
-            sql_filter_map['"id" > %s'] = previous_product_id
+            sql_filter_map['"id" >= %s'] = previous_product_id
         if filter_details.categoryId > -1:
             sql_filter_map['"category_id" = %s'] = filter_details.categoryId
         if filter_details.publishedProductsOnly is True:
@@ -238,7 +238,7 @@ def get_next_k_products(previous_product_id, k, filter_details):
         if filter_details.businessPageId > -1:
             sql_filter_map['"business_page_id" = %s'] = filter_details.businessPageId
 
-    sql_command_args = (k,)
+    sql_command_args = tuple()
     sql_where_clause_str = ''
     if len(sql_filter_map) == 1:
         key = next(iter(sql_filter_map.keys()))
@@ -249,6 +249,7 @@ def get_next_k_products(previous_product_id, k, filter_details):
         sql_where_clause_str = f'where {" and ".join(keys)}'
         for key in keys:
             sql_command_args += (sql_filter_map[key],)
+    sql_command_args += (k,)
     cur.execute(f'select * from "gb_product" {sql_where_clause_str} order by "id" limit %s;', sql_command_args)
     gb_products = cur.fetchall()
 
