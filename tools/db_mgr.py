@@ -229,8 +229,8 @@ def get_next_k_products(previous_product_id, k, filter_details):
             sql_filter_map['"id" > %s'] = previous_product_id
         if filter_details.categoryId > -1:
             sql_filter_map['"category_id" = %s'] = filter_details.categoryId
-        if filter_details.publishedProductsOnly:
-            sql_filter_map['published = %s'] = filter_details.publishedProductsOnly
+        if filter_details.publishedProductsOnly is True:
+            sql_filter_map['published = %s'] = True
         if filter_details.substring:
             sql_filter_map['"name" like %s'] = filter_details.substring
         if filter_details.regex:
