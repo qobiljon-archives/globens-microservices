@@ -224,7 +224,8 @@ message CreateNewContent {
   message Request {
     string sessionKey = 1;
     string title = 2;
-    string url = 3;
+    string fileId = 3;
+    string url = 4;
   }
   message Response {
     bool success = 1;
@@ -236,7 +237,8 @@ message UpdateContent {
     string sessionKey = 1;
     int32 contentId = 2;
     string title = 3;
-    string url = 4;
+    string fileId = 4;
+    string url = 5;
   }
   message Response {
     bool success = 1;
@@ -251,7 +253,8 @@ message FetchContentDetails {
     bool success = 1;
     int32 id = 2;
     string title = 3;
-    string url = 4;
+    string fileId = 4;
+    string url = 5;
   }
 }
 message DeleteContent {

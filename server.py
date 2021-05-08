@@ -398,7 +398,7 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
         gb_user = db.get_user(session_key=request.sessionKey)
 
         if gb_user is not None:
-            response.contentId = db.create_content(title=request.title, url=request.url)
+            response.contentId = db.create_content(title=request.title, file_id=request.fileId, url=request.url)
             response.success = True
 
         print(f' createNewContent, success={response.success}')
@@ -413,7 +413,7 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
         gb_content = db.get_content(content_id=request.contentId)
 
         if None not in [gb_user, gb_content]:
-            db.update_content(gb_content=gb_content, title=request.title, url=request.url)
+            db.update_content(gb_content=gb_content, title=request.title, file_id=request.fileId, url=request.url)
             response.success = True
 
         print(f' updateContent, success={response.success}')
@@ -428,6 +428,7 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
         if None not in [gb_content]:
             response.id = gb_content['id']
             response.title = gb_content['title']
+            response.fileId = gb_content['file_id']
             response.url = gb_content['url']
             response.success = True
 

@@ -39,9 +39,10 @@ create table if not exists "gb_product_category"
 -- product content : i.e., schedule json, stream file, etc.
 create table "gb_content"
 (
-    "id"    serial primary key,
-    "title" text,
-    "url"   text
+    "id"     serial primary key,
+    "title"  text,
+    "fileId" text,
+    "url"    text
 );
 -- product : i.e., the good traded on the platform
 create table if not exists "gb_product"

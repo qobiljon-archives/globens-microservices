@@ -244,11 +244,12 @@ def unpublish_product(gb_product):
     get_db_connection().commit()
 
 
-def create_content(title, url):
+def create_content(title, file_id, url):
     cur = get_db_connection().cursor(cursor_factory=psycopg2_extras.DictCursor)
 
-    cur.execute('insert into "gb_content"("title", "url") values (%s,%s) returning "id";', (
+    cur.execute('insert into "gb_content"("title", "fileId", "url") values (%s,%s,%s) returning "id";', (
         title,
+        file_id,
         url,
     ))
     new_content_id = cur.fetchone()[0]
@@ -268,11 +269,12 @@ def get_content(content_id):
     return gb_content
 
 
-def update_content(gb_content, title, url):
+def update_content(gb_content, title, file_id, url):
     cur = get_db_connection().cursor(cursor_factory=psycopg2_extras.DictCursor)
 
-    cur.execute('update "gb_content" set "title" = %s, "url" = %s where "id"=%s;', (
+    cur.execute('update "gb_content" set "title" = %s, "fileId" = %s, "url" = %s where "id"=%s;', (
         title,
+        file_id,
         url,
         gb_content['id'],
     ))
