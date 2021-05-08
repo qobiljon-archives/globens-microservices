@@ -94,6 +94,11 @@ class GlobensServiceStub(object):
             request_serializer=gb__service__pb2.UpdateContent.Request.SerializeToString,
             response_deserializer=gb__service__pb2.UpdateContent.Response.FromString,
         )
+        self.fetchContentDetails = channel.unary_unary(
+            '/GlobensService/fetchContentDetails',
+            request_serializer=gb__service__pb2.FetchContentDetails.Request.SerializeToString,
+            response_deserializer=gb__service__pb2.FetchContentDetails.Response.FromString,
+        )
         self.deleteContent = channel.unary_unary(
             '/GlobensService/deleteContent',
             request_serializer=gb__service__pb2.DeleteContent.Request.SerializeToString,
@@ -351,6 +356,13 @@ class GlobensServiceServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def updateContent(self, request, context):
+        # missing associated documentation comment in .proto file
+        pass
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def fetchContentDetails(self, request, context):
         # missing associated documentation comment in .proto file
         pass
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -642,6 +654,11 @@ def add_GlobensServiceServicer_to_server(servicer, server):
             servicer.updateContent,
             request_deserializer=gb__service__pb2.UpdateContent.Request.FromString,
             response_serializer=gb__service__pb2.UpdateContent.Response.SerializeToString,
+        ),
+        'fetchContentDetails': grpc.unary_unary_rpc_method_handler(
+            servicer.fetchContentDetails,
+            request_deserializer=gb__service__pb2.FetchContentDetails.Request.FromString,
+            response_serializer=gb__service__pb2.FetchContentDetails.Response.SerializeToString,
         ),
         'deleteContent': grpc.unary_unary_rpc_method_handler(
             servicer.deleteContent,

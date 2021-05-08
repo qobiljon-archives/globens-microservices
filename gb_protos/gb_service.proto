@@ -242,6 +242,18 @@ message UpdateContent {
     bool success = 1;
   }
 }
+message FetchContentDetails {
+  message Request {
+    string sessionKey = 1;
+    int32 contentId = 2;
+  }
+  message Response {
+    bool success = 1;
+    int32 id = 2;
+    string title = 3;
+    string url = 4;
+  }
+}
 message DeleteContent {
   message Request {
     string sessionKey = 1;
@@ -550,6 +562,7 @@ service GlobensService {
   rpc uncreateProduct(UncreateProduct.Request) returns (UncreateProduct.Response) {}
   rpc createNewContent(CreateNewContent.Request) returns (CreateNewContent.Response) {}
   rpc updateContent(UpdateContent.Request) returns (UpdateContent.Response) {}
+  rpc fetchContentDetails(FetchContentDetails.Request) returns (FetchContentDetails.Response) {}
   rpc deleteContent(DeleteContent.Request) returns (DeleteContent.Response) {}
   rpc fetchNextKProductIds(FetchNextKProductIds.Request) returns (FetchNextKProductIds.Response) {}
   rpc fetchProductDetails(FetchProductDetails.Request) returns (FetchProductDetails.Response) {}

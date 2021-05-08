@@ -419,6 +419,21 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
         print(f' updateContent, success={response.success}')
         return response
 
+    def fetchContentDetails(self, request, context):
+        # print(f' fetchContentDetails')
+        response = gb_service_pb2.FetchContentDetails.Response()
+        response.success = False
+
+        gb_content = db.get_content(content_id=request.contentId)
+        if None not in [gb_content]:
+            response.id = gb_content['id']
+            response.title = gb_content['title']
+            response.url = gb_content['url']
+            response.success = True
+
+        # print(f' fetchContentDetails, success={response.success}')
+        return response
+
     def deleteContent(self, request, context):
         print(f' deleteContent')
         response = gb_service_pb2.DeleteContent.Response()
