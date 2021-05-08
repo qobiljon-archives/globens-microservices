@@ -172,19 +172,19 @@ def get_business_page_job_ids(gb_business_page):
 
 
 # region product management
-def create_product(gb_user, gb_business_page, gb_category, name, product_type, picture_blob, price, currency, description, product_content):
+def create_product(gb_user, gb_business_page, gb_category, name, product_type, picture_blob, price, currency, description, contents):
     cur = get_db_connection().cursor(cursor_factory=psycopg2_extras.DictCursor)
 
-    cur.execute('insert into "gb_product"("name", "productType", "pictureBlob", "business_page_id", "category_id", "price", "currency", "description", "content") values (%s,%s,%s,%s,%s,%s,%s,%s,%s) returning "id";', (
+    cur.execute('insert into "gb_product"("name", "productType", "pictureBlob", "price", "currency", "description", "contents", "business_page_id", "category_id") values (%s,%s,%s,%s,%s,%s,%s,%s,%s) returning "id";', (
         name,
         product_type,
         picture_blob,
-        gb_business_page['id'],
-        gb_category['id'],
         price,
         currency,
         description,
-        product_content
+        contents,
+        gb_business_page['id'],
+        gb_category['id'],
     ))
     new_product_id = cur.fetchone()[0]
 
@@ -197,12 +197,13 @@ def create_product(gb_user, gb_business_page, gb_category, name, product_type, p
 
     cur.close()
     get_db_connection().commit()
+    return new_product_id
 
 
-def update_product(gb_product, gb_business_page, gb_category, name, product_type, picture_blob, price, currency, description, product_content):
+def update_product(gb_product, gb_business_page, gb_category, name, product_type, picture_blob, price, currency, description, contents):
     cur = get_db_connection().cursor(cursor_factory=psycopg2_extras.DictCursor)
 
-    cur.execute('update "gb_product" set "name" = %s, "productType" = %s, "pictureBlob" = %s, "business_page_id" = %s, "category_id" = %s, "price" = %s, "currency" = %s, "description" = %s, "content" = %s where "id"=%s;', (
+    cur.execute('update "gb_product" set "name" = %s, "productType" = %s, "pictureBlob" = %s, "business_page_id" = %s, "category_id" = %s, "price" = %s, "currency" = %s, "description" = %s, "contents" = %s where "id"=%s;', (
         name,
         product_type,
         picture_blob,
@@ -211,7 +212,7 @@ def update_product(gb_product, gb_business_page, gb_category, name, product_type
         price,
         currency,
         description,
-        product_content,
+        contents,
         gb_product['id']
     ))
 
@@ -239,6 +240,50 @@ def unpublish_product(gb_product):
         gb_product['id']
     ))
 
+    cur.close()
+    get_db_connection().commit()
+
+
+def create_content(title, url):
+    cur = get_db_connection().cursor(cursor_factory=psycopg2_extras.DictCursor)
+
+    cur.execute('insert into "gb_content"("title", "url") values (%s,%s) returning "id";', (
+        title,
+        url,
+    ))
+    new_content_id = cur.fetchone()[0]
+
+    cur.close()
+    get_db_connection().commit()
+    return new_content_id
+
+
+def get_content(content_id):
+    cur = get_db_connection().cursor(cursor_factory=psycopg2_extras.DictCursor)
+
+    cur.execute('select * from "gb_content" where "id"=%s;', (content_id,))
+    gb_content = cur.fetchone()
+
+    cur.close()
+    return gb_content
+
+
+def update_content(gb_content, title, url):
+    cur = get_db_connection().cursor(cursor_factory=psycopg2_extras.DictCursor)
+
+    cur.execute('update "gb_content" set "title" = %s, "url" = %s where "id"=%s;', (
+        title,
+        url,
+        gb_content['id'],
+    ))
+
+    cur.close()
+    get_db_connection().commit()
+
+
+def delete_content(gb_content):
+    cur = get_db_connection().cursor(cursor_factory=psycopg2_extras.DictCursor)
+    cur.execute('delete from "gb_content" where "id"=%s;', (gb_content['id'],))
     cur.close()
     get_db_connection().commit()
 

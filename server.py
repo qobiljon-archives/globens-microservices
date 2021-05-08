@@ -326,7 +326,7 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
         gb_category = db.get_product_category(category_id=request.categoryId)
 
         if None not in [gb_user, gb_business_page, gb_category]:
-            db.create_product(gb_user=gb_user, gb_business_page=gb_business_page, gb_category=gb_category, name=request.name, product_type=utils.get_product_type_str(request.type), picture_blob=request.pictureBlob, price=request.price, currency=utils.get_currency_str(currency=request.currency), description=request.description, product_content=request.content)
+            response.productId = db.create_product(gb_user=gb_user, gb_business_page=gb_business_page, gb_category=gb_category, name=request.name, product_type=utils.get_product_type_str(request.type), picture_blob=request.pictureBlob, price=request.price, currency=utils.get_currency_str(currency=request.currency), description=request.description, contents=request.contents)
             response.success = True
 
         print(f' createProduct, success={response.success}')
@@ -343,7 +343,7 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
         gb_category = db.get_product_category(category_id=request.categoryId)
 
         if None not in [gb_user, gb_product, gb_category, gb_business_page]:
-            db.update_product(gb_product=gb_product, gb_business_page=gb_business_page, gb_category=gb_category, name=request.name, product_type=utils.get_product_type_str(request.type), picture_blob=request.pictureBlob, price=request.price, currency=utils.get_currency_str(currency=request.currency), description=request.description, product_content=request.content)
+            db.update_product(gb_product=gb_product, gb_business_page=gb_business_page, gb_category=gb_category, name=request.name, product_type=utils.get_product_type_str(request.type), picture_blob=request.pictureBlob, price=request.price, currency=utils.get_currency_str(currency=request.currency), description=request.description, contents=request.contents)
             response.success = True
 
         print(f' updateProductDetails, success={response.success}')
@@ -390,6 +390,50 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
         print(f' unpublishProduct, success={response.success}')
         return response
 
+    def createNewContent(self, request, context):
+        print(f' createNewContent')
+        response = gb_service_pb2.CreateProduct.Response()
+        response.success = False
+
+        gb_user = db.get_user(session_key=request.sessionKey)
+
+        if gb_user is not None:
+            response.contentId = db.create_content(title=request.title, url=request.url)
+            response.success = True
+
+        print(f' createNewContent, success={response.success}')
+        return response
+
+    def updateContent(self, request, context):
+        print(f' updateContent')
+        response = gb_service_pb2.UpdateContent.Response()
+        response.success = False
+
+        gb_user = db.get_user(session_key=request.sessionKey)
+        gb_content = db.get_content(content_id=request.contentId)
+
+        if None not in [gb_user, gb_content]:
+            db.update_content(gb_content=gb_content, title=request.title, url=request.url)
+            response.success = True
+
+        print(f' updateContent, success={response.success}')
+        return response
+
+    def deleteContent(self, request, context):
+        print(f' deleteContent')
+        response = gb_service_pb2.DeleteContent.Response()
+        response.success = False
+
+        gb_user = db.get_user(session_key=request.sessionKey)
+        gb_content = db.get_content(content_id=request.contentId)
+
+        if None not in [gb_user, gb_content]:
+            db.delete_content(gb_content=gb_content)
+            response.success = True
+
+        print(f' deleteContent, success={response.success}')
+        return response
+
     def fetchNextKProductIds(self, request, context):
         # print(f' fetchNextKProductIds')
         response = gb_service_pb2.FetchNextKProductIds.Response()
@@ -427,10 +471,10 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
             response.currency = utils.get_currency_enum(currency_str=gb_product['currency'])
             response.description = gb_product['description']
             if 'schedule' in gb_product['productType']:
-                response.content = bytes(gb_product['content'])
+                response.contents = bytes(gb_product['content'])
             elif 'file' in gb_product['productType']:
                 # todo check permission (i.e., bought?)
-                response.content = bytes(gb_product['content'])
+                response.contents = bytes(gb_product['content'])
             response.success = True
 
         # print(f' fetchProductDetails, success={response.success}')

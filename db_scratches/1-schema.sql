@@ -36,6 +36,13 @@ create table if not exists "gb_product_category"
     "pictureBlob" bytea default null,
     "examples"    varchar(4096)
 );
+-- product content : i.e., schedule json, stream file, etc.
+create table "gb_content"
+(
+    "id"    serial primary key,
+    "title" text,
+    "url"   text
+);
 -- product : i.e., the good traded on the platform
 create table if not exists "gb_product"
 (
@@ -50,7 +57,7 @@ create table if not exists "gb_product"
     "currency"         char(3) default 'KRW',
     "published"        boolean default false,
     "description"      text,
-    "content"          bytea             not null,
+    "contents"         text,
     -- relations
     "category_id"      integer default 1 not null references "gb_product_category" ("id") on delete cascade,
     "business_page_id" integer           not null references "gb_business_page" ("id") on delete cascade
