@@ -365,10 +365,6 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
         if gb_product:
             gb_product_business_page = db.get_business_page(business_page_id=gb_product['business_page_id'])
 
-        print(gb_user is not None)
-        print(gb_product is not None)
-        print(gb_product_business_page is not None)
-
         if None not in [gb_user, gb_product, gb_product_business_page]:
             role = db.get_user_role_in_business_page(gb_user=gb_user, gb_business_page=gb_product_business_page)
             if role == 'individual entrepreneur' or role == 'business owner':
