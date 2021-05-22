@@ -19,18 +19,22 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
         response.success = False
 
         tokens = json.loads(s=request.tokensJson)
-
         user_profile = utils.load_google_profile(id_token=tokens['idToken'])
-        gb_user, session_key = db.create_user(
-            email=user_profile['email'],
-            name=user_profile['name'],
-            picture=user_profile['picture'],
-            tokens=request.tokensJson
-        )
-        if gb_user is not None:
-            response.userId = gb_user['id']
-            response.sessionKey = session_key
-            response.success = True
+        gb_user = db.get_user(email=user_profile['email'])
+
+        if gb_user is None:
+            gb_user, session_key = db.create_user(
+                email=user_profile['email'],
+                name=user_profile['name'],
+                picture=user_profile['picture'],
+                tokens=request.tokensJson
+            )
+        else:
+            session_key = utils.md5(value=f'{user_profile["email"]}{utils.now_us()}')
+        
+        response.userId = gb_user['id']
+        response.sessionKey = session_key
+        response.success = True
 
         print(f' authenticateUser, success={response.success}')
         return response
