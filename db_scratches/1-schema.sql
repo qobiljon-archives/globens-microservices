@@ -8,7 +8,8 @@ create table if not exists "gb_user"
     "picture"     text         default null,
     "pictureBlob" bytea        default null,
     "tokens"      text,
-    "sessionKey"  varchar(300) default null
+    "sessionKey"  varchar(300) default null,
+    "countryCode" varchar(2)   default 'KOR'
 );
 
 
@@ -21,7 +22,8 @@ create table if not exists "gb_business_page"
     "id"          serial primary key,
     "type"        "gb_business_page_type",
     "title"       text,
-    "pictureBlob" bytea default null
+    "pictureBlob" bytea default null,
+    "countryCode" varchar(2)
 );
 
 

@@ -45,36 +45,34 @@ def get_user(email=None, user_id=None, session_key=None):
     return gb_user
 
 
-def create_or_update_user(email, name, picture, tokens):
+def create_user(email, name, picture, tokens):
     cur = get_db_connection().cursor(cursor_factory=psycopg2_extras.DictCursor)
 
     session_key = utils.md5(value=f'{email}{utils.now_us()}')
-    if get_user(email=email) is not None:
-        cur.execute(
-            'update "gb_user" set name = %s, "picture" = %s, "pictureBlob" = %s, "tokens" = %s, "sessionKey" = %s where "email"=%s;',
-            (
-                name,
-                picture,
-                utils.load_picture_bytes(picture=picture),
-                tokens,
-                session_key,
-                email
-            ))
-    else:
-        cur.execute(
-            'insert into "gb_user"("email", "name", "picture","pictureBlob","tokens","sessionKey") values (%s,%s,%s,%s,%s,%s);',
-            (
-                email,
-                name,
-                picture,
-                utils.load_picture_bytes(picture=picture),
-                tokens,
-                session_key
-            ))
+    cur.execute('insert into "gb_user"("email", "name", "picture","pictureBlob","tokens","sessionKey") values (%s,%s,%s,%s,%s,%s);', (
+        email,
+        name,
+        picture,
+        utils.load_picture_bytes(picture=picture),
+        tokens,
+        session_key
+    ))
 
     cur.close()
     get_db_connection().commit()
     return get_user(email=email), session_key
+
+
+def update_user(gb_user, country_code):
+    cur = get_db_connection().cursor(cursor_factory=psycopg2_extras.DictCursor)
+
+    cur.execute('update "gb_user" set "countryCode" = %s where "id"=%s;', (
+        country_code,
+        gb_user['id']
+    ))
+
+    cur.close()
+    get_db_connection().commit()
 
 
 # endregion
@@ -127,14 +125,15 @@ def get_user_role_in_business_page(gb_user, gb_business_page):
     return "consumer" if gb_job is None else gb_job[0]
 
 
-def create_business_page(gb_user, title, picture_blob):
+def create_business_page(gb_user, title, picture_blob, country_code):
     cur = get_db_connection().cursor(cursor_factory=psycopg2_extras.DictCursor)
 
     # create a large business page
-    cur.execute('insert into "gb_business_page"("title", "type", "pictureBlob") values (%s,%s,%s) returning "id";', (
+    cur.execute('insert into "gb_business_page"("title", "type", "pictureBlob", "countryCode") values (%s,%s,%s,%s) returning "id";', (
         title,
         'large business',
-        psycopg2.Binary(picture_blob)
+        psycopg2.Binary(picture_blob),
+        country_code
     ))
     business_page_id = cur.fetchone()[0]
 
@@ -166,6 +165,20 @@ def get_business_page_job_ids(gb_business_page):
 
     cur.close()
     return job_ids
+
+
+def update_business_page_details(gb_business_page, title, picture_blob, country_code):
+    cur = get_db_connection().cursor(cursor_factory=psycopg2_extras.DictCursor)
+
+    cur.execute('update "gb_business_page" set "title" = %s, "pictureBlob" = %s, "countryCode" = %s where "id"=%s;', (
+        title,
+        picture_blob,
+        country_code,
+        gb_business_page['id']
+    ))
+
+    cur.close()
+    get_db_connection().commit()
 
 
 # endregion

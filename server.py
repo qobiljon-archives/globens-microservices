@@ -18,37 +18,18 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
         response = gb_service_pb2.AuthenticateUser.Response()
         response.success = False
 
-        method = request.method
         tokens = json.loads(s=request.tokensJson)
 
-        if method == gb_service_pb2.AuthenticateUser.AuthMethod.GOOGLE:
-            user_profile = utils.load_google_profile(id_token=tokens['idToken'])
-            gb_user, session_key = db.create_or_update_user(
-                email=user_profile['email'],
-                name=user_profile['name'],
-                picture=user_profile['picture'],
-                tokens=request.tokensJson
-            )
-            response.userId = gb_user['id']
-            response.sessionKey = session_key
-            response.success = True
-        elif method == gb_service_pb2.AuthenticateUser.AuthMethod.FACEBOOK:
-            user_profile = utils.load_facebook_profile(access_token=tokens['accessToken'])
-            gb_user, session_key = db.create_or_update_user(
-                email=user_profile['email'],
-                name=user_profile['name'],
-                picture=user_profile['picture'],
-                tokens=request.tokensJson
-            )
-            response.userId = gb_user['id']
-            response.sessionKey = session_key
-            response.success = True
-        elif method == gb_service_pb2.AuthenticateUser.AuthMethod.KAKAOTALK:
-            print(tokens['accessToken'])
-        elif method == gb_service_pb2.AuthenticateUser.AuthMethod.PHONE:
-            print(tokens)
-        elif method == gb_service_pb2.AuthenticateUser.AuthMethod.APPLE:
-            print(tokens)
+        user_profile = utils.load_google_profile(id_token=tokens['idToken'])
+        gb_user, session_key = db.create_user(
+            email=user_profile['email'],
+            name=user_profile['name'],
+            picture=user_profile['picture'],
+            tokens=request.tokensJson
+        )
+        response.userId = gb_user['id']
+        response.sessionKey = session_key
+        response.success = True
 
         print(f' authenticateUser, success={response.success}')
         return response
@@ -60,8 +41,17 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
 
     def updateUserDetails(self, request, context):
         print(f' updateUserDetails')
-        # todo update user details
-        print(f' updateUserDetails')
+        response = gb_service_pb2.UpdateUserDetails.Response()
+        response.success = False
+
+        gb_user = db.get_user(session_key=request.sessionKey)
+
+        if gb_user is not None:
+            db.update_user(gb_user=gb_user, country_code=request.countryCode)
+            response.success = True
+
+        print(f' updateUserDetails, success={response.success}')
+        return response
 
     def fetchUserDetails(self, request, context):
         # print(f' fetchUserDetails')
@@ -264,7 +254,7 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
         gb_user = db.get_user(session_key=request.sessionKey)
 
         if gb_user is not None:
-            db.create_business_page(gb_user=gb_user, title=request.title, picture_blob=request.pictureBlob)
+            db.create_business_page(gb_user=gb_user, title=request.title, picture_blob=request.pictureBlob, country_code=request.countryCode)
             response.success = True
 
         print(f' createBusinessPage, success={response.success}')
@@ -272,8 +262,18 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
 
     def updateBusinessPageDetails(self, request, context):
         print(f' updateBusinessPageDetails')
-        # todo update business page details
-        print(f' updateBusinessPageDetails')
+        response = gb_service_pb2.UpdateBusinessPageDetails.Response()
+        response.success = False
+
+        gb_user = db.get_user(session_key=request.sessionKey)
+        gb_business_page = db.get_business_page(business_page_id=request.businessPageId)
+
+        if None not in [gb_user, gb_business_page] and db.get_user_role_in_business_page(gb_user=gb_user, gb_business_page=gb_business_page) in ['business owner', 'individual entrepreneur']:
+            db.update_business_page_details(gb_business_page=gb_business_page, title=request.title, picture_blob=request.pictureBlob, country_code=request.countryCode)
+            response.success = True
+
+        print(f' updateBusinessPageDetails, success={response.success}')
+        return response
 
     def uncreateBusinessPage(self, request, context):
         print(f' uncreateBusinessPage')
@@ -307,6 +307,7 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
             response.title = gb_business_page['title']
             response.type = gb_business_page['type']
             response.pictureBlob = bytes(gb_business_page['pictureBlob'])
+            response.countryCode = bytes(gb_business_page['countryCode'])
             response.role = db.get_user_role_in_business_page(gb_user=gb_user, gb_business_page=gb_business_page) if gb_user is not None else "consumer"
             response.success = True
 
