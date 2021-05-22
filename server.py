@@ -31,7 +31,7 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
             )
         else:
             session_key = utils.md5(value=f'{user_profile["email"]}{utils.now_us()}')
-        
+
         response.userId = gb_user['id']
         response.sessionKey = session_key
         response.success = True
@@ -286,7 +286,7 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
         print(f' uncreateBusinessPage')
 
     def fetchMyBusinessPageIds(self, request, context):
-        # print(f' fetchMyBusinessPageIds')
+        print(f' fetchMyBusinessPageIds')
         response = gb_service_pb2.FetchMyBusinessPageIds.Response()
         response.success = False
 
@@ -296,11 +296,11 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
             response.id.extend(db.get_business_page_ids(gb_user=gb_user))
             response.success = True
 
-        # print(f' fetchMyBusinessPageIds, success={response.success}')
+        print(f' fetchMyBusinessPageIds, success={response.success}')
         return response
 
     def fetchBusinessPageDetails(self, request, context):
-        # print(f' fetchBusinessPageDetails')
+        print(f' fetchBusinessPageDetails')
         response = gb_service_pb2.FetchBusinessPageDetails.Response()
         response.success = False
 
@@ -316,7 +316,7 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
             response.role = db.get_user_role_in_business_page(gb_user=gb_user, gb_business_page=gb_business_page) if gb_user is not None else "consumer"
             response.success = True
 
-        # print(f' fetchBusinessPageDetails, success={response.success}')
+        print(f' fetchBusinessPageDetails, success={response.success}')
         return response
 
     # endregion
