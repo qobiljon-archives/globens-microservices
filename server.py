@@ -312,7 +312,7 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
             response.title = gb_business_page['title']
             response.type = gb_business_page['type']
             response.pictureBlob = bytes(gb_business_page['pictureBlob'])
-            response.countryCode = bytes(gb_business_page['countryCode'])
+            response.countryCode = gb_business_page['countryCode']
             response.role = db.get_user_role_in_business_page(gb_user=gb_user, gb_business_page=gb_business_page) if gb_user is not None else "consumer"
             response.success = True
 
