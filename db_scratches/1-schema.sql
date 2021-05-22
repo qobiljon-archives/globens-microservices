@@ -23,7 +23,7 @@ create table if not exists "gb_business_page"
     "type"        "gb_business_page_type",
     "title"       text,
     "pictureBlob" bytea default null,
-    "countryCode" varchar(2)
+    "countryCode" varchar(3)
 );
 
 
