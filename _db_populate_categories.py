@@ -4,10 +4,10 @@ import psycopg2.extras as psycopg2_extras
 import json
 
 db_conn = psycopg2.connect(
-    host='165.246.42.172',
-    database='globens_db',
-    user='postgres',
-    password='postgres'
+    host=settings.db_settings['host'],
+    database=settings.db_settings['database'],
+    user=settings.db_settings['user'],
+    password=settings.db_settings['password']
 )
 
 cur = db_conn.cursor(cursor_factory=psycopg2_extras.DictCursor)
