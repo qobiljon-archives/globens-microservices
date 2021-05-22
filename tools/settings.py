@@ -1,7 +1,7 @@
 from gb_grpcs import gb_service_pb2 as gb
 
 db_settings = {
-    'host': 'localhost',
+    'host': 'globens-db.cssqpqimlbjy.ap-northeast-2.rds.amazonaws.com',
     'database': 'globens_db',
     'user': 'postgres',
     'password': 'postgres'
