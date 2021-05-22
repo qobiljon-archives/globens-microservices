@@ -30,7 +30,7 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
                 tokens=request.tokensJson
             )
         else:
-            session_key = utils.md5(value=f'{user_profile["email"]}{utils.now_us()}')
+            session_key = gb_user['sessionKey']
 
         response.userId = gb_user['id']
         response.sessionKey = session_key
