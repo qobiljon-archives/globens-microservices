@@ -365,9 +365,11 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
         if gb_product:
             gb_product_business_page = db.get_business_page(business_page_id=gb_product['business_page_id'])
 
-        if None not in [gb_user, gb_product, gb_product_business_page] and db.get_user_role_in_business_page(gb_user=gb_user, gb_business_page=gb_product_business_page) == 'business owner':
-            db.publish_product(gb_product=gb_product)
-            response.success = True
+        if None not in [gb_user, gb_product, gb_product_business_page]:
+            role = db.get_user_role_in_business_page(gb_user=gb_user, gb_business_page=gb_product_business_page)
+            if role == 'individual entrepreneur' or role == 'business owner':
+                db.publish_product(gb_product=gb_product)
+                response.success = True
 
         print(f' publishProduct, success={response.success}')
         return response
@@ -392,7 +394,7 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
 
     def createNewContent(self, request, context):
         print(f' createNewContent')
-        response = gb_service_pb2.CreateProduct.Response()
+        response = gb_service_pb2.CreateNewContent.Response()
         response.success = False
 
         gb_user = db.get_user(session_key=request.sessionKey)
@@ -486,11 +488,7 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
             response.reviewsCount = gb_product['reviewsCount']
             response.currency = utils.get_currency_enum(currency_str=gb_product['currency'])
             response.description = gb_product['description']
-            if 'schedule' in gb_product['productType']:
-                response.contents = bytes(gb_product['content'])
-            elif 'file' in gb_product['productType']:
-                # todo check permission (i.e., bought?)
-                response.contents = bytes(gb_product['content'])
+            response.contents = gb_product['contents']
             response.success = True
 
         # print(f' fetchProductDetails, success={response.success}')
