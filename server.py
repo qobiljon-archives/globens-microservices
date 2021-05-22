@@ -27,9 +27,10 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
             picture=user_profile['picture'],
             tokens=request.tokensJson
         )
-        response.userId = gb_user['id']
-        response.sessionKey = session_key
-        response.success = True
+        if gb_user is not None:
+            response.userId = gb_user['id']
+            response.sessionKey = session_key
+            response.success = True
 
         print(f' authenticateUser, success={response.success}')
         return response
