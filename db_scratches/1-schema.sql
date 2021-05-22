@@ -9,7 +9,7 @@ create table if not exists "gb_user"
     "pictureBlob" bytea        default null,
     "tokens"      text,
     "sessionKey"  varchar(300) default null,
-    "countryCode" varchar(2)   default 'KOR'
+    "countryCode" varchar(3)   default 'KOR'
 );
 
 
