@@ -22,16 +22,18 @@ $gb_user_create_procedure$
 declare
     userId             "gb_user"."id"%type;
     pictureBlob        "gb_user"."pictureBlob"%type;
+    countryCode        "gb_user"."countryCode"%type;
     businessPageId     "gb_business_page"."id"%type;
     businessOwnerJobId "gb_job"."id"%type;
 begin
     -- load new user's details for individual business page
     userId = new."id";
     pictureBlob = new."pictureBlob";
+    countryCode = new."countryCode";
 
     -- create an individual/small business page
-    insert into "gb_business_page"("title", "type", "pictureBlob")
-    values (E'Individual entrepreneur\'s page', 'small business', pictureBlob)
+    insert into "gb_business_page"("title", "type", "pictureBlob", "countryCode")
+    values (E'Individual entrepreneur\'s page', 'small business', pictureBlob, countryCode)
     returning "id" into businessPageId;
 
     -- create business owner job position for the business page
