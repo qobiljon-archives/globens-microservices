@@ -451,12 +451,12 @@ def get_job(job_id):
 
 
 # region job/vacancy application management
-def create_job_application(gb_user, gb_job, message, content):
+def create_job_application(gb_user, gb_job, message, contents):
     cur = get_db_connection().cursor(cursor_factory=psycopg2_extras.DictCursor)
 
-    cur.execute('insert into "gb_job_application"("message", "content", "user_id", "job_id") values (%s,%s,%s,%s);', (
+    cur.execute('insert into "gb_job_application"("message", "contents", "user_id", "job_id") values (%s,%s,%s,%s);', (
         message,
-        content,
+        contents,
         gb_user['id'],
         gb_job['id']
     ))

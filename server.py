@@ -159,7 +159,7 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
 
     # endregion
 
-    # region vacancy application management module
+    # region job application management module
     def createJobApplication(self, request, context):
         print(f' createJobApplication')
         response = gb_service_pb2.CreateJobApplication.Response()
@@ -169,7 +169,7 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
         gb_job = db.get_job(job_id=request.jobId)
 
         if None not in [gb_user, gb_job] and gb_job['user_id'] is None and not db.job_application_exists(gb_user=gb_user, gb_job=gb_job):
-            db.create_job_application(gb_user=gb_user, gb_job=gb_job, message=request.message, content=request.content)
+            db.create_job_application(gb_user=gb_user, gb_job=gb_job, message=request.message, contents=request.contents)
             response.success = True
 
         print(f' createJobApplication, success={response.success}')
@@ -211,7 +211,7 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
         if None not in [gb_user, gb_job_application]:
             response.id = gb_job_application['id']
             response.message = gb_job_application['message']
-            response.content = bytes(gb_job_application['content'])
+            response.contents = gb_job_application['contents']
             response.applicantId = gb_job_application['user_id']
             response.success = True
 
