@@ -168,7 +168,10 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
         gb_user = db.get_user(session_key=request.sessionKey)
         gb_job = db.get_job(job_id=request.jobId)
 
-        if None not in [gb_user, gb_job] and gb_job['user_id'] is None and not db.job_application_exists(gb_user=gb_user, gb_job=gb_job):
+        if None not in [gb_user, gb_job] and gb_job['user_id'] is None:
+            if db.job_application_exists(gb_user=gb_user, gb_job=gb_job):
+                gb_job_application = db.get_job_application(gb_job=gb_job, gb_user=gb_user)
+                db.decline_job_application(gb_job_application=gb_job_application)
             db.create_job_application(gb_user=gb_user, gb_job=gb_job, message=request.message, contents=request.contents)
             response.success = True
 

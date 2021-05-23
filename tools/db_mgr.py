@@ -477,14 +477,20 @@ def get_job_application_ids(gb_job):
     return job_ids
 
 
-def get_job_application(job_application_id):
+def get_job_application(job_application_id=None, gb_user=None, gb_job=None):
     cur = get_db_connection().cursor(cursor_factory=psycopg2_extras.DictCursor)
 
-    cur.execute('select * from "gb_job_application" where "id" = %s;', (
-        job_application_id,
-    ))
-    gb_job = cur.fetchone()
+    if job_application_id is not None:
+        cur.execute('select * from "gb_job_application" where "id" = %s;', (
+            job_application_id,
+        ))
+    elif None not in [gb_user, gb_job]:
+        cur.execute('select * from "gb_job_application" where "user_id"=%s and "job_id"=%s;', (
+            gb_user['id'],
+            gb_job['id']
+        ))
 
+    gb_job = cur.fetchone()
     cur.close()
     return gb_job
 
