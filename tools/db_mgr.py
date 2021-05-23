@@ -236,7 +236,7 @@ def update_product(gb_product, gb_business_page, gb_category, name, product_type
 def create_product_publish_request(gb_product, gb_product_business_page, gb_requester_user):
     cur = get_db_connection().cursor(cursor_factory=psycopg2_extras.DictCursor)
     cur.execute('insert into "gb_product_publish_request"("timestamp", "countryCode", "product_id", "business_page_id", "requester_user_id") values(%s,%s,%s,%s,%s);', (
-        utils.get_timestamp_ms(),
+        datetime.now(),
         gb_product_business_page['countryCode'],
         gb_product['id'],
         gb_product_business_page['id'],
