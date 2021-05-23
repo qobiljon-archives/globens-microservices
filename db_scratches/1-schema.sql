@@ -65,6 +65,17 @@ create table if not exists "gb_product"
     "category_id"      integer default 1 not null references "gb_product_category" ("id") on delete cascade,
     "business_page_id" integer           not null references "gb_business_page" ("id") on delete cascade
 );
+-- publish product requests
+create table "gb_product_publish_request"
+(
+    -- data
+    "timestamp"         timestamp,
+    "countryCode"       varchar(3),
+    -- relations
+    "product_id"        int primary key references "gb_product" ("id") on delete cascade,
+    "business_page_id"  int references "gb_business_page" ("id") on delete cascade,
+    "requester_user_id" int references "gb_user" ("id") on delete cascade
+);
 
 
 -- job role : i.e., business owner, employee, or individual entrepreneur

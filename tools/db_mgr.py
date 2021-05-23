@@ -233,16 +233,25 @@ def update_product(gb_product, gb_business_page, gb_category, name, product_type
     get_db_connection().commit()
 
 
-def publish_product(gb_product):
+def create_product_publish_request(gb_product, gb_product_business_page, gb_requester_user):
     cur = get_db_connection().cursor(cursor_factory=psycopg2_extras.DictCursor)
-
-    cur.execute('update "gb_product" set "published" = %s where "id"=%s;', (
-        True,
-        gb_product['id']
+    cur.execute('insert into "gb_product_publish_request"("timestamp", "countryCode", "product_id", "business_page_id", "requester_user_id") values(%s,%s,%s,%s,%s);', (
+        utils.get_timestamp_ms(),
+        gb_product_business_page['countryCode'],
+        gb_product['id'],
+        gb_product_business_page['id'],
+        gb_requester_user['id']
     ))
-
     cur.close()
     get_db_connection().commit()
+
+
+def get_product_publish_request(gb_product):
+    cur = get_db_connection().cursor(cursor_factory=psycopg2_extras.DictCursor)
+    cur.execute('select * from "gb_product_publish_request" where "product_id"=%s;', (gb_product['id'],))
+    gb_request = cur.fetchone()
+    cur.close()
+    return gb_request
 
 
 def unpublish_product(gb_product):

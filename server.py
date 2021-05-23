@@ -372,10 +372,12 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
             gb_product_business_page = db.get_business_page(business_page_id=gb_product['business_page_id'])
 
         if None not in [gb_user, gb_product, gb_product_business_page]:
-            role = db.get_user_role_in_business_page(gb_user=gb_user, gb_business_page=gb_product_business_page)
-            if role == 'individual entrepreneur' or role == 'business owner':
-                db.publish_product(gb_product=gb_product)
-                response.success = True
+            # role = db.get_user_role_in_business_page(gb_user=gb_user, gb_business_page=gb_product_business_page)
+            # if role == 'individual entrepreneur' or role == 'business owner':
+            # db.publish_product(gb_product=gb_product)
+            if db.get_product_publish_request(gb_product=gb_product) is None:
+                db.create_product_publish_request(gb_product=gb_product, gb_product_business_page=gb_product_business_page, gb_requester_user=gb_user)
+            response.success = True
 
         print(f' publishProduct, success={response.success}')
         return response
