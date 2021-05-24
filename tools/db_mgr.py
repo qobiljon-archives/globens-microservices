@@ -185,10 +185,10 @@ def update_business_page_details(gb_business_page, title, picture_blob, country_
 
 
 # region product management
-def create_product(gb_user, gb_business_page, gb_category, name, product_type, picture_blob, price, currency, description, contents):
+def create_product(gb_user, gb_business_page, gb_category, name, product_type, picture_blob, price, currency, description, contents, dynamic_link):
     cur = get_db_connection().cursor(cursor_factory=psycopg2_extras.DictCursor)
 
-    cur.execute('insert into "gb_product"("name", "productType", "pictureBlob", "price", "currency", "description", "contents", "business_page_id", "category_id") values (%s,%s,%s,%s,%s,%s,%s,%s,%s) returning "id";', (
+    cur.execute('insert into "gb_product"("name", "productType", "pictureBlob", "price", "currency", "description", "contents", "dynamicLink", "business_page_id", "category_id") values (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s) returning "id";', (
         name,
         product_type,
         picture_blob,
@@ -196,6 +196,7 @@ def create_product(gb_user, gb_business_page, gb_category, name, product_type, p
         currency,
         description,
         contents,
+        dynamic_link,
         gb_business_page['id'],
         gb_category['id'],
     ))

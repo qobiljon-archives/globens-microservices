@@ -61,6 +61,7 @@ create table if not exists "gb_product"
     "published"        boolean default false,
     "description"      text,
     "contents"         text,
+    "dynamicLink"      text,
     -- relations
     "category_id"      integer default 1 not null references "gb_product_category" ("id") on delete cascade,
     "business_page_id" integer           not null references "gb_business_page" ("id") on delete cascade

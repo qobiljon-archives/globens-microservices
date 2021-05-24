@@ -1,7 +1,5 @@
-# import the generated gRPCs
 from gb_grpcs import gb_service_pb2_grpc
 from gb_grpcs import gb_service_pb2
-# others
 from concurrent import futures
 from tools import db_mgr as db
 from datetime import datetime
@@ -189,7 +187,7 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
         print(f' uncreateJobApplication')
 
     def fetchJobApplicationIds(self, request, context):
-        print(f' fetchJobApplicationIds')
+        # print(f' fetchJobApplicationIds')
         response = gb_service_pb2.FetchJobApplicationIds.Response()
         response.success = False
 
@@ -200,11 +198,11 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
             response.id.extend(db.get_job_application_ids(gb_job=gb_job))
             response.success = True
 
-        print(f' fetchJobApplicationIds, success={response.success}')
+        # print(f' fetchJobApplicationIds, success={response.success}')
         return response
 
     def fetchJobApplicationDetails(self, request, context):
-        print(f' fetchJobApplicationDetails')
+        # print(f' fetchJobApplicationDetails')
         response = gb_service_pb2.FetchJobApplicationDetails.Response()
         response.success = False
 
@@ -218,7 +216,7 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
             response.applicantId = gb_job_application['user_id']
             response.success = True
 
-        print(f' fetchJobApplicationDetails, success={response.success}')
+        # print(f' fetchJobApplicationDetails, success={response.success}')
         return response
 
     def approveJobApplication(self, request, context):
@@ -289,7 +287,7 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
         print(f' uncreateBusinessPage')
 
     def fetchMyBusinessPageIds(self, request, context):
-        print(f' fetchMyBusinessPageIds')
+        # print(f' fetchMyBusinessPageIds')
         response = gb_service_pb2.FetchMyBusinessPageIds.Response()
         response.success = False
 
@@ -299,11 +297,11 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
             response.id.extend(db.get_business_page_ids(gb_user=gb_user))
             response.success = True
 
-        print(f' fetchMyBusinessPageIds, success={response.success}')
+        # print(f' fetchMyBusinessPageIds, success={response.success}')
         return response
 
     def fetchBusinessPageDetails(self, request, context):
-        print(f' fetchBusinessPageDetails')
+        # print(f' fetchBusinessPageDetails')
         response = gb_service_pb2.FetchBusinessPageDetails.Response()
         response.success = False
 
@@ -319,7 +317,7 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
             response.role = db.get_user_role_in_business_page(gb_user=gb_user, gb_business_page=gb_business_page) if gb_user is not None else "consumer"
             response.success = True
 
-        print(f' fetchBusinessPageDetails, success={response.success}')
+        # print(f' fetchBusinessPageDetails, success={response.success}')
         return response
 
     # endregion
@@ -335,7 +333,7 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
         gb_category = db.get_product_category(category_id=request.categoryId)
 
         if None not in [gb_user, gb_business_page, gb_category]:
-            response.productId = db.create_product(gb_user=gb_user, gb_business_page=gb_business_page, gb_category=gb_category, name=request.name, product_type=utils.get_product_type_str(request.type), picture_blob=request.pictureBlob, price=request.price, currency=utils.get_currency_str(currency=request.currency), description=request.description, contents=request.contents)
+            response.productId = db.create_product(gb_user=gb_user, gb_business_page=gb_business_page, gb_category=gb_category, name=request.name, product_type=utils.get_product_type_str(request.type), picture_blob=request.pictureBlob, price=request.price, currency=utils.get_currency_str(currency=request.currency), description=request.description, contents=request.contents, dynamic_link=request.dynamicLink)
             response.success = True
 
         print(f' createProduct, success={response.success}')
@@ -403,6 +401,80 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
         print(f' unpublishProduct, success={response.success}')
         return response
 
+    def fetchNextKProductIds(self, request, context):
+        # print(f' fetchNextKProductIds')
+        response = gb_service_pb2.FetchNextKProductIds.Response()
+        response.success = False
+
+        k = request.k
+        filter_details = request.filterDetails
+        previous_product_id = request.previousProductId
+
+        if None not in [k, filter_details] and k <= 250:
+            for gb_product in db.get_next_k_products(previous_product_id=previous_product_id, k=k, filter_details=filter_details):
+                response.id.extend([gb_product['id']])
+            response.success = True
+
+        # print(f' fetchNextKProductIds, success={response.success}')
+        return response
+
+    def fetchProductDetails(self, request, context):
+        # print(f' fetchProductDetails')
+        response = gb_service_pb2.FetchProductDetails.Response()
+        response.success = False
+
+        gb_product = db.get_product(product_id=request.productId)
+        if None not in [gb_product]:
+            response.id = gb_product['id']
+            response.name = gb_product['name']
+            response.type = utils.get_product_type_enum(gb_product['productType'])
+            response.categoryId = gb_product['category_id']
+            response.published = gb_product['published']
+            response.pictureBlob = bytes(gb_product['pictureBlob'])
+            response.businessPageId = gb_product['business_page_id']
+            response.price = gb_product['price']
+            response.stars = gb_product['stars']
+            response.reviewsCount = gb_product['reviewsCount']
+            response.currency = utils.get_currency_enum(currency_str=gb_product['currency'])
+            response.description = gb_product['description']
+            response.contents = gb_product['contents']
+            response.dynamicLink = gb_product['dynamicLink']
+            response.success = True
+
+        # print(f' fetchProductDetails, success={response.success}')
+        return response
+
+    def fetchProductCategoryIds(self, request, context):
+        # print(f' fetchProductCategoryIds')
+        response = gb_service_pb2.FetchProductCategoryIds.Response()
+        response.success = True
+
+        for gb_category in db.get_product_categories():
+            response.id.extend([gb_category['id']])
+
+        # print(f' fetchProductCategoryIds, success={response.success}')
+        return response
+
+    def fetchProductCategoryDetails(self, request, context):
+        # print(f' fetchProductCategoryDetails')
+        response = gb_service_pb2.FetchProductCategoryDetails.Response()
+        response.success = False
+
+        db_category = db.get_product_category(category_id=request.categoryId)
+
+        if None not in [db_category]:
+            response.id = db_category['id']
+            response.nameJsonStr = db_category['name']
+            response.pictureBlob = bytes(db_category['pictureBlob'])
+            response.examplesJsonStr = db_category['examples']
+            response.success = True
+
+        # print(f' fetchProductCategoryDetails, success={response.success}')
+        return response
+
+    # endregion
+
+    # region content management module
     def createNewContent(self, request, context):
         print(f' createNewContent')
         response = gb_service_pb2.CreateNewContent.Response()
@@ -463,76 +535,6 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
         print(f' deleteContent, success={response.success}')
         return response
 
-    def fetchNextKProductIds(self, request, context):
-        # print(f' fetchNextKProductIds')
-        response = gb_service_pb2.FetchNextKProductIds.Response()
-        response.success = False
-
-        k = request.k
-        filter_details = request.filterDetails
-        previous_product_id = request.previousProductId
-
-        if None not in [k, filter_details] and k <= 250:
-            for gb_product in db.get_next_k_products(previous_product_id=previous_product_id, k=k, filter_details=filter_details):
-                response.id.extend([gb_product['id']])
-            response.success = True
-
-        # print(f' fetchNextKProductIds, success={response.success}')
-        return response
-
-    def fetchProductDetails(self, request, context):
-        # print(f' fetchProductDetails')
-        response = gb_service_pb2.FetchProductDetails.Response()
-        response.success = False
-
-        gb_product = db.get_product(product_id=request.productId)
-        if None not in [gb_product]:
-            response.id = gb_product['id']
-            response.name = gb_product['name']
-            response.type = utils.get_product_type_enum(gb_product['productType'])
-            response.categoryId = gb_product['category_id']
-            response.published = gb_product['published']
-            response.pictureBlob = bytes(gb_product['pictureBlob'])
-            response.businessPageId = gb_product['business_page_id']
-            response.price = gb_product['price']
-            response.stars = gb_product['stars']
-            response.reviewsCount = gb_product['reviewsCount']
-            response.currency = utils.get_currency_enum(currency_str=gb_product['currency'])
-            response.description = gb_product['description']
-            response.contents = gb_product['contents']
-            response.success = True
-
-        # print(f' fetchProductDetails, success={response.success}')
-        return response
-
-    def fetchProductCategoryIds(self, request, context):
-        # print(f' fetchProductCategoryIds')
-        response = gb_service_pb2.FetchProductCategoryIds.Response()
-        response.success = True
-
-        for gb_category in db.get_product_categories():
-            response.id.extend([gb_category['id']])
-
-        # print(f' fetchProductCategoryIds, success={response.success}')
-        return response
-
-    def fetchProductCategoryDetails(self, request, context):
-        # print(f' fetchProductCategoryDetails')
-        response = gb_service_pb2.FetchProductCategoryDetails.Response()
-        response.success = False
-
-        db_category = db.get_product_category(category_id=request.categoryId)
-
-        if None not in [db_category]:
-            response.id = db_category['id']
-            response.nameJsonStr = db_category['name']
-            response.pictureBlob = bytes(db_category['pictureBlob'])
-            response.examplesJsonStr = db_category['examples']
-            response.success = True
-
-        # print(f' fetchProductCategoryDetails, success={response.success}')
-        return response
-
     # endregion
 
     # region purchase management module
@@ -570,7 +572,7 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
         return response
 
     def retrieveProductReviews(self, request, context):
-        print(f' retrieveProductReviews')
+        # print(f' retrieveProductReviews')
         response = gb_service_pb2.RetrieveProductReviews.Response()
         response.success = False
 
@@ -586,7 +588,7 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
                 response.timestamp.extend([int(gb_product_review['timestamp'].timestamp() * 1000)])
             response.success = True
 
-        print(f' retrieveProductReviews, success={response.success}')
+        # print(f' retrieveProductReviews, success={response.success}')
         return response
 
     def deleteProductReview(self, request, context):
@@ -621,7 +623,7 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
         return response
 
     def retrieveEmployeeReviews(self, request, context):
-        print(f' retrieveEmployeeReviews')
+        # print(f' retrieveEmployeeReviews')
         response = gb_service_pb2.RetrieveEmployeeReviews.Response()
         response.success = False
 
@@ -637,7 +639,7 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
                 response.timestamp.extend(int(gb_employee_review['timestamp'].timestamp() * 1000))
             response.success = True
 
-        print(f' retrieveEmployeeReviews, success={response.success}')
+        # print(f' retrieveEmployeeReviews, success={response.success}')
         return response
 
     def deleteEmployeeReview(self, request, context):
