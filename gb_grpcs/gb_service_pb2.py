@@ -17,7 +17,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
     package='',
     syntax='proto3',
     serialized_options=b'\n\nuz.globens',
-    serialized_pb=b'\n\x10gb_service.proto\"\x8f\x01\n\rFilterDetails\x12\x11\n\tuseFilter\x18\x01 \x01(\x08\x12\x1d\n\x15publishedProductsOnly\x18\x02 \x01(\x08\x12\x11\n\tsubstring\x18\x03 \x01(\t\x12\r\n\x05regex\x18\x04 \x01(\t\x12\x12\n\ncategoryId\x18\x05 \x01(\x05\x12\x16\n\x0e\x62usinessPageId\x18\x06 \x01(\x05\"r\n\x10\x41uthenticateUser\x1a\x1d\n\x07Request\x12\x12\n\ntokensJson\x18\x02 \x01(\t\x1a?\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\x12\x0e\n\x06userId\x18\x02 \x01(\x05\x12\x12\n\nsessionKey\x18\x03 \x01(\t\"L\n\x0e\x44\x65\x61\x63tivateUser\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\x05\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"d\n\x11UpdateUserDetails\x1a\x32\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x12\x13\n\x0b\x63ountryCode\x18\x02 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"\xc2\x01\n\x10\x46\x65tchUserDetails\x1a-\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x12\x0e\n\x06userId\x18\x02 \x01(\x05\x1a\x7f\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\x12\n\n\x02id\x18\x02 \x01(\x05\x12\r\n\x05\x65mail\x18\x03 \x01(\t\x12\x0c\n\x04name\x18\x04 \x01(\t\x12\x0f\n\x07picture\x18\x05 \x01(\t\x12\x13\n\x0bpictureBlob\x18\x06 \x01(\x0c\x12\x13\n\x0b\x63ountryCode\x18\x07 \x01(\t\"\x89\x01\n\x12\x43reateBusinessPage\x1aV\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x12\r\n\x05title\x18\x02 \x01(\t\x12\x13\n\x0bpictureBlob\x18\x03 \x01(\x0c\x12\x13\n\x0b\x63ountryCode\x18\x04 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"\xa8\x01\n\x19UpdateBusinessPageDetails\x1an\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x12\x16\n\x0e\x62usinessPageId\x18\x02 \x01(\x05\x12\r\n\x05title\x18\x03 \x01(\t\x12\x13\n\x0bpictureBlob\x18\x04 \x01(\x0c\x12\x13\n\x0b\x63ountryCode\x18\x05 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"R\n\x14UncreateBusinessPage\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"`\n\x16\x46\x65tchMyBusinessPageIds\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\'\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\x12\n\n\x02id\x18\x02 \x03(\x05\"\xcf\x01\n\x18\x46\x65tchBusinessPageDetails\x1a\x35\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x12\x16\n\x0e\x62usinessPageId\x18\x02 \x01(\x05\x1a|\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\x12\n\n\x02id\x18\x02 \x01(\x05\x12\r\n\x05title\x18\x03 \x01(\t\x12\x0c\n\x04type\x18\x04 \x01(\t\x12\x13\n\x0bpictureBlob\x18\x05 \x01(\x0c\x12\x13\n\x0b\x63ountryCode\x18\x06 \x01(\t\x12\x0c\n\x04role\x18\x07 \x01(\t\"\xba\x02\n\rCreateProduct\x1a\xf8\x01\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x12\x16\n\x0e\x62usinessPageId\x18\x02 \x01(\x05\x12\x0c\n\x04name\x18\x03 \x01(\t\x12\"\n\x04type\x18\x04 \x01(\x0e\x32\x14.ProductDeliveryType\x12\x12\n\ncategoryId\x18\x05 \x01(\x05\x12\x13\n\x0bpictureBlob\x18\x06 \x01(\x0c\x12\r\n\x05price\x18\x07 \x01(\x02\x12\x1b\n\x08\x63urrency\x18\x08 \x01(\x0e\x32\t.Currency\x12\x13\n\x0b\x64\x65scription\x18\t \x01(\t\x12\x10\n\x08\x63ontents\x18\n \x01(\t\x12\x13\n\x0b\x64ynamicLink\x18\x0b \x01(\t\x1a.\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\x12\x11\n\tproductId\x18\x02 \x01(\x05\"\xac\x02\n\x14UpdateProductDetails\x1a\xf6\x01\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x12\x11\n\tproductId\x18\x02 \x01(\x05\x12\x16\n\x0e\x62usinessPageId\x18\x03 \x01(\x05\x12\x0c\n\x04name\x18\x04 \x01(\t\x12\"\n\x04type\x18\x05 \x01(\x0e\x32\x14.ProductDeliveryType\x12\x12\n\ncategoryId\x18\x06 \x01(\x05\x12\x13\n\x0bpictureBlob\x18\x07 \x01(\x0c\x12\r\n\x05price\x18\x08 \x01(\x02\x12\x1b\n\x08\x63urrency\x18\t \x01(\x0e\x32\t.Currency\x12\x13\n\x0b\x64\x65scription\x18\n \x01(\t\x12\x10\n\x08\x63ontents\x18\x0b \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"M\n\x0fUncreateProduct\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"\x97\x01\n\x14\x46\x65tchNextKProductIds\x1aV\n\x07Request\x12\t\n\x01k\x18\x01 \x01(\x05\x12\x19\n\x11previousProductId\x18\x02 \x01(\x05\x12%\n\rfilterDetails\x18\x03 \x01(\x0b\x32\x0e.FilterDetails\x1a\'\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\x12\n\n\x02id\x18\x02 \x03(\x05\"\xf0\x02\n\x13\x46\x65tchProductDetails\x1a\x1c\n\x07Request\x12\x11\n\tproductId\x18\x01 \x01(\x05\x1a\xba\x02\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\x12\n\n\x02id\x18\x02 \x01(\x05\x12\x0c\n\x04name\x18\x03 \x01(\t\x12\"\n\x04type\x18\x04 \x01(\x0e\x32\x14.ProductDeliveryType\x12\x12\n\ncategoryId\x18\x05 \x01(\x05\x12\x11\n\tpublished\x18\x06 \x01(\x08\x12\x13\n\x0bpictureBlob\x18\x07 \x01(\x0c\x12\x16\n\x0e\x62usinessPageId\x18\x08 \x01(\x05\x12\r\n\x05price\x18\t \x01(\x02\x12\r\n\x05stars\x18\n \x01(\x01\x12\x14\n\x0creviewsCount\x18\x0b \x01(\x05\x12\x1b\n\x08\x63urrency\x18\x0c \x01(\x0e\x32\t.Currency\x12\x13\n\x0b\x64\x65scription\x18\r \x01(\t\x12\x10\n\x08\x63ontents\x18\x0e \x01(\t\x12\x13\n\x0b\x64ynamicLink\x18\x0f \x01(\t\"_\n\x0ePublishProduct\x1a\x30\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x12\x11\n\tproductId\x18\x02 \x01(\x05\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"a\n\x10UnpublishProduct\x1a\x30\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x12\x11\n\tproductId\x18\x02 \x01(\x05\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"M\n\x17\x46\x65tchProductCategoryIds\x1a\t\n\x07Request\x1a\'\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\x12\n\n\x02id\x18\x02 \x03(\x05\"\xa8\x01\n\x1b\x46\x65tchProductCategoryDetails\x1a\x1d\n\x07Request\x12\x12\n\ncategoryId\x18\x01 \x01(\x05\x1aj\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\x12\n\n\x02id\x18\x02 \x01(\x05\x12\x13\n\x0bnameJsonStr\x18\x03 \x01(\t\x12\x13\n\x0bpictureBlob\x18\x04 \x01(\x0c\x12\x17\n\x0f\x65xamplesJsonStr\x18\x05 \x01(\t\"\x8d\x01\n\x10\x43reateNewContent\x1aI\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x12\r\n\x05title\x18\x02 \x01(\t\x12\x0e\n\x06\x66ileId\x18\x03 \x01(\t\x12\x0b\n\x03url\x18\x04 \x01(\t\x1a.\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\x12\x11\n\tcontentId\x18\x02 \x01(\x05\"\x8a\x01\n\rUpdateContent\x1a\\\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x12\x11\n\tcontentId\x18\x02 \x01(\x05\x12\r\n\x05title\x18\x03 \x01(\t\x12\x0e\n\x06\x66ileId\x18\x04 \x01(\t\x12\x0b\n\x03url\x18\x05 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"\x9c\x01\n\x13\x46\x65tchContentDetails\x1a\x30\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x12\x11\n\tcontentId\x18\x02 \x01(\x05\x1aS\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\x12\n\n\x02id\x18\x02 \x01(\x05\x12\r\n\x05title\x18\x03 \x01(\t\x12\x0e\n\x06\x66ileId\x18\x04 \x01(\t\x12\x0b\n\x03url\x18\x05 \x01(\t\"^\n\rDeleteContent\x1a\x30\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x12\x11\n\tcontentId\x18\x02 \x01(\x05\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"t\n\x0f\x43reateVacantJob\x1a\x44\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x12\x16\n\x0e\x62usinessPageId\x18\x02 \x01(\x05\x12\r\n\x05title\x18\x03 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"N\n\x10UpdateJobDetails\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"I\n\x0bUncreateJob\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"y\n\x17\x46\x65tchBusinessPageJobIds\x1a\x35\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x12\x16\n\x0e\x62usinessPageId\x18\x02 \x01(\x05\x1a\'\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\x12\n\n\x02id\x18\x02 \x03(\x05\"\xaf\x01\n\x16\x46\x65tchNextKVacantJobIds\x1al\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x12\t\n\x01k\x18\x02 \x01(\x05\x12\x1b\n\x13previousVacantJobId\x18\x03 \x01(\x05\x12%\n\rfilterDetails\x18\x04 \x01(\x0b\x32\x0e.FilterDetails\x1a\'\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\x12\n\n\x02id\x18\x02 \x03(\x05\"\xb2\x01\n\x0f\x46\x65tchJobDetails\x1a,\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x12\r\n\x05jobId\x18\x02 \x01(\x05\x1aq\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\x12\n\n\x02id\x18\x02 \x01(\x05\x12\x16\n\x0e\x62usinessPageId\x18\x03 \x01(\x05\x12\x0c\n\x04role\x18\x04 \x01(\t\x12\r\n\x05title\x18\x05 \x01(\t\x12\x13\n\x0bhiredUserId\x18\x06 \x01(\x05\"\x84\x01\n\x14\x43reateJobApplication\x1aO\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x12\r\n\x05jobId\x18\x02 \x01(\x05\x12\x0f\n\x07message\x18\x03 \x01(\t\x12\x10\n\x08\x63ontents\x18\x04 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"Y\n\x1bUpdateJobApplicationDetails\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"T\n\x16UncreateJobApplication\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"o\n\x16\x46\x65tchJobApplicationIds\x1a,\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x12\r\n\x05jobId\x18\x02 \x01(\x05\x1a\'\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\x12\n\n\x02id\x18\x02 \x03(\x05\"\xb6\x01\n\x1a\x46\x65tchJobApplicationDetails\x1a\x37\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x12\x18\n\x10jobApplicationId\x18\x02 \x01(\x05\x1a_\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\x12\n\n\x02id\x18\x02 \x01(\x05\x12\x0f\n\x07message\x18\x03 \x01(\t\x12\x13\n\x0b\x61pplicantId\x18\x04 \x01(\x05\x12\x10\n\x08\x63ontents\x18\x05 \x01(\t\"m\n\x15\x41pproveJobApplication\x1a\x37\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x12\x18\n\x10jobApplicationId\x18\x02 \x01(\x05\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"m\n\x15\x44\x65\x63lineJobApplication\x1a\x37\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x12\x18\n\x10jobApplicationId\x18\x02 \x01(\x05\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"I\n\x0bLogPurchase\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"L\n\x0e\x46\x65tchPurchases\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"R\n\x14\x46\x65tchPurchaseDetails\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"\x94\x01\n\x13SubmitProductReview\x1a`\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x12\x11\n\tproductId\x18\x02 \x01(\x05\x12\r\n\x05stars\x18\x03 \x01(\x05\x12\x0c\n\x04text\x18\x04 \x01(\t\x12\x11\n\ttimestamp\x18\x05 \x01(\x03\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"\xb7\x01\n\x16RetrieveProductReviews\x1a\x30\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x12\x11\n\tproductId\x18\x02 \x01(\x05\x1ak\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\x12\n\n\x02id\x18\x02 \x03(\x05\x12\x12\n\nisMyReview\x18\x03 \x03(\x08\x12\r\n\x05stars\x18\x04 \x03(\x05\x12\x0c\n\x04text\x18\x05 \x03(\t\x12\x11\n\ttimestamp\x18\x06 \x03(\x03\"\x91\x01\n\x11\x45\x64itProductReview\x1a_\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x12\x10\n\x08reviewId\x18\x02 \x01(\x05\x12\r\n\x05stars\x18\x03 \x01(\x05\x12\x0c\n\x04text\x18\x04 \x01(\t\x12\x11\n\ttimestamp\x18\x05 \x01(\x03\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"c\n\x13\x44\x65leteProductReview\x1a/\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x12\x10\n\x08reviewId\x18\x02 \x01(\x05\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"\xa3\x01\n\x14SubmitEmployeeReview\x1an\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x12\x16\n\x0e\x65mployeeUserId\x18\x02 \x01(\x05\x12\x16\n\x0e\x62usinessPageId\x18\x03 \x01(\x05\x12\x0c\n\x04text\x18\x04 \x01(\t\x12\x11\n\ttimestamp\x18\x05 \x01(\x03\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"\xb2\x01\n\x17RetrieveEmployeeReviews\x1aM\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x12\x16\n\x0e\x65mployeeUserId\x18\x02 \x01(\x05\x12\x16\n\x0e\x62usinessPageId\x18\x03 \x01(\x05\x1aH\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\x12\n\n\x02id\x18\x02 \x03(\x05\x12\x0c\n\x04text\x18\x03 \x03(\t\x12\x11\n\ttimestamp\x18\x04 \x03(\x03\"\x83\x01\n\x12\x45\x64itEmployeeReview\x1aP\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x12\x10\n\x08reviewId\x18\x02 \x01(\x05\x12\x0c\n\x04text\x18\x03 \x01(\t\x12\x11\n\ttimestamp\x18\x04 \x01(\x03\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"d\n\x14\x44\x65leteEmployeeReview\x1a/\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x12\x10\n\x08reviewId\x18\x02 \x01(\x05\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08*.\n\x08\x43urrency\x12\x07\n\x03KRW\x10\x00\x12\x07\n\x03USD\x10\x01\x12\x07\n\x03UZS\x10\x03\x12\x07\n\x03RUB\x10\x04*v\n\x13ProductDeliveryType\x12\x15\n\x11\x46ILE_DOWNLOADABLE\x10\x00\x12\x11\n\rFILE_STREAMED\x10\x01\x12\x1a\n\x16SCHEDULED_FACE_TO_FACE\x10\x03\x12\x19\n\x15SCHEDULED_ONLINE_CALL\x10\x04\x32\xe6\x1e\n\x0eGlobensService\x12K\n\x10\x61uthenticateUser\x12\x19.AuthenticateUser.Request\x1a\x1a.AuthenticateUser.Response\"\x00\x12\x45\n\x0e\x64\x65\x61\x63tivateUser\x12\x17.DeactivateUser.Request\x1a\x18.DeactivateUser.Response\"\x00\x12N\n\x11updateUserDetails\x12\x1a.UpdateUserDetails.Request\x1a\x1b.UpdateUserDetails.Response\"\x00\x12K\n\x10\x66\x65tchUserDetails\x12\x19.FetchUserDetails.Request\x1a\x1a.FetchUserDetails.Response\"\x00\x12Q\n\x12\x63reateBusinessPage\x12\x1b.CreateBusinessPage.Request\x1a\x1c.CreateBusinessPage.Response\"\x00\x12\x66\n\x19updateBusinessPageDetails\x12\".UpdateBusinessPageDetails.Request\x1a#.UpdateBusinessPageDetails.Response\"\x00\x12W\n\x14uncreateBusinessPage\x12\x1d.UncreateBusinessPage.Request\x1a\x1e.UncreateBusinessPage.Response\"\x00\x12]\n\x16\x66\x65tchMyBusinessPageIds\x12\x1f.FetchMyBusinessPageIds.Request\x1a .FetchMyBusinessPageIds.Response\"\x00\x12\x63\n\x18\x66\x65tchBusinessPageDetails\x12!.FetchBusinessPageDetails.Request\x1a\".FetchBusinessPageDetails.Response\"\x00\x12\x42\n\rcreateProduct\x12\x16.CreateProduct.Request\x1a\x17.CreateProduct.Response\"\x00\x12W\n\x14updateProductDetails\x12\x1d.UpdateProductDetails.Request\x1a\x1e.UpdateProductDetails.Response\"\x00\x12\x45\n\x0epublishProduct\x12\x17.PublishProduct.Request\x1a\x18.PublishProduct.Response\"\x00\x12K\n\x10unpublishProduct\x12\x19.UnpublishProduct.Request\x1a\x1a.UnpublishProduct.Response\"\x00\x12H\n\x0funcreateProduct\x12\x18.UncreateProduct.Request\x1a\x19.UncreateProduct.Response\"\x00\x12W\n\x14\x66\x65tchNextKProductIds\x12\x1d.FetchNextKProductIds.Request\x1a\x1e.FetchNextKProductIds.Response\"\x00\x12T\n\x13\x66\x65tchProductDetails\x12\x1c.FetchProductDetails.Request\x1a\x1d.FetchProductDetails.Response\"\x00\x12`\n\x17\x66\x65tchProductCategoryIds\x12 .FetchProductCategoryIds.Request\x1a!.FetchProductCategoryIds.Response\"\x00\x12l\n\x1b\x66\x65tchProductCategoryDetails\x12$.FetchProductCategoryDetails.Request\x1a%.FetchProductCategoryDetails.Response\"\x00\x12K\n\x10\x63reateNewContent\x12\x19.CreateNewContent.Request\x1a\x1a.CreateNewContent.Response\"\x00\x12\x42\n\rupdateContent\x12\x16.UpdateContent.Request\x1a\x17.UpdateContent.Response\"\x00\x12T\n\x13\x66\x65tchContentDetails\x12\x1c.FetchContentDetails.Request\x1a\x1d.FetchContentDetails.Response\"\x00\x12\x42\n\rdeleteContent\x12\x16.DeleteContent.Request\x1a\x17.DeleteContent.Response\"\x00\x12H\n\x0f\x63reateVacantJob\x12\x18.CreateVacantJob.Request\x1a\x19.CreateVacantJob.Response\"\x00\x12K\n\x10updateJobDetails\x12\x19.UpdateJobDetails.Request\x1a\x1a.UpdateJobDetails.Response\"\x00\x12<\n\x0buncreateJob\x12\x14.UncreateJob.Request\x1a\x15.UncreateJob.Response\"\x00\x12`\n\x17\x66\x65tchBusinessPageJobIds\x12 .FetchBusinessPageJobIds.Request\x1a!.FetchBusinessPageJobIds.Response\"\x00\x12]\n\x16\x66\x65tchNextKVacantJobIds\x12\x1f.FetchNextKVacantJobIds.Request\x1a .FetchNextKVacantJobIds.Response\"\x00\x12H\n\x0f\x66\x65tchJobDetails\x12\x18.FetchJobDetails.Request\x1a\x19.FetchJobDetails.Response\"\x00\x12W\n\x14\x63reateJobApplication\x12\x1d.CreateJobApplication.Request\x1a\x1e.CreateJobApplication.Response\"\x00\x12l\n\x1bupdateJobApplicationDetails\x12$.UpdateJobApplicationDetails.Request\x1a%.UpdateJobApplicationDetails.Response\"\x00\x12]\n\x16uncreateJobApplication\x12\x1f.UncreateJobApplication.Request\x1a .UncreateJobApplication.Response\"\x00\x12]\n\x16\x66\x65tchJobApplicationIds\x12\x1f.FetchJobApplicationIds.Request\x1a .FetchJobApplicationIds.Response\"\x00\x12i\n\x1a\x66\x65tchJobApplicationDetails\x12#.FetchJobApplicationDetails.Request\x1a$.FetchJobApplicationDetails.Response\"\x00\x12Z\n\x15\x61pproveJobApplication\x12\x1e.ApproveJobApplication.Request\x1a\x1f.ApproveJobApplication.Response\"\x00\x12Z\n\x15\x64\x65\x63lineJobApplication\x12\x1e.DeclineJobApplication.Request\x1a\x1f.DeclineJobApplication.Response\"\x00\x12<\n\x0blogPurchase\x12\x14.LogPurchase.Request\x1a\x15.LogPurchase.Response\"\x00\x12\x45\n\x0e\x66\x65tchPurchases\x12\x17.FetchPurchases.Request\x1a\x18.FetchPurchases.Response\"\x00\x12W\n\x14\x66\x65tchPurchaseDetails\x12\x1d.FetchPurchaseDetails.Request\x1a\x1e.FetchPurchaseDetails.Response\"\x00\x12T\n\x13submitProductReview\x12\x1c.SubmitProductReview.Request\x1a\x1d.SubmitProductReview.Response\"\x00\x12]\n\x16retrieveProductReviews\x12\x1f.RetrieveProductReviews.Request\x1a .RetrieveProductReviews.Response\"\x00\x12N\n\x11\x65\x64itProductReview\x12\x1a.EditProductReview.Request\x1a\x1b.EditProductReview.Response\"\x00\x12T\n\x13\x64\x65leteProductReview\x12\x1c.DeleteProductReview.Request\x1a\x1d.DeleteProductReview.Response\"\x00\x12W\n\x14submitEmployeeReview\x12\x1d.SubmitEmployeeReview.Request\x1a\x1e.SubmitEmployeeReview.Response\"\x00\x12`\n\x17retrieveEmployeeReviews\x12 .RetrieveEmployeeReviews.Request\x1a!.RetrieveEmployeeReviews.Response\"\x00\x12Q\n\x12\x65\x64itEmployeeReview\x12\x1b.EditEmployeeReview.Request\x1a\x1c.EditEmployeeReview.Response\"\x00\x12W\n\x14\x64\x65leteEmployeeReview\x12\x1d.DeleteEmployeeReview.Request\x1a\x1e.DeleteEmployeeReview.Response\"\x00\x42\x0c\n\nuz.globensb\x06proto3'
+    serialized_pb=b'\n\x10gb_service.proto\"\x8f\x01\n\rFilterDetails\x12\x11\n\tuseFilter\x18\x01 \x01(\x08\x12\x1d\n\x15publishedProductsOnly\x18\x02 \x01(\x08\x12\x11\n\tsubstring\x18\x03 \x01(\t\x12\r\n\x05regex\x18\x04 \x01(\t\x12\x12\n\ncategoryId\x18\x05 \x01(\x05\x12\x16\n\x0e\x62usinessPageId\x18\x06 \x01(\x05\"r\n\x10\x41uthenticateUser\x1a\x1d\n\x07Request\x12\x12\n\ntokensJson\x18\x02 \x01(\t\x1a?\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\x12\x0e\n\x06userId\x18\x02 \x01(\x05\x12\x12\n\nsessionKey\x18\x03 \x01(\t\"L\n\x0e\x44\x65\x61\x63tivateUser\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\x05\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"d\n\x11UpdateUserDetails\x1a\x32\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x12\x13\n\x0b\x63ountryCode\x18\x02 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"\xc2\x01\n\x10\x46\x65tchUserDetails\x1a-\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x12\x0e\n\x06userId\x18\x02 \x01(\x05\x1a\x7f\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\x12\n\n\x02id\x18\x02 \x01(\x05\x12\r\n\x05\x65mail\x18\x03 \x01(\t\x12\x0c\n\x04name\x18\x04 \x01(\t\x12\x0f\n\x07picture\x18\x05 \x01(\t\x12\x13\n\x0bpictureBlob\x18\x06 \x01(\x0c\x12\x13\n\x0b\x63ountryCode\x18\x07 \x01(\t\"\x89\x01\n\x12\x43reateBusinessPage\x1aV\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x12\r\n\x05title\x18\x02 \x01(\t\x12\x13\n\x0bpictureBlob\x18\x03 \x01(\x0c\x12\x13\n\x0b\x63ountryCode\x18\x04 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"\xa8\x01\n\x19UpdateBusinessPageDetails\x1an\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x12\x16\n\x0e\x62usinessPageId\x18\x02 \x01(\x05\x12\r\n\x05title\x18\x03 \x01(\t\x12\x13\n\x0bpictureBlob\x18\x04 \x01(\x0c\x12\x13\n\x0b\x63ountryCode\x18\x05 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"R\n\x14UncreateBusinessPage\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"`\n\x16\x46\x65tchMyBusinessPageIds\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\'\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\x12\n\n\x02id\x18\x02 \x03(\x05\"\xcf\x01\n\x18\x46\x65tchBusinessPageDetails\x1a\x35\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x12\x16\n\x0e\x62usinessPageId\x18\x02 \x01(\x05\x1a|\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\x12\n\n\x02id\x18\x02 \x01(\x05\x12\r\n\x05title\x18\x03 \x01(\t\x12\x0c\n\x04type\x18\x04 \x01(\t\x12\x13\n\x0bpictureBlob\x18\x05 \x01(\x0c\x12\x13\n\x0b\x63ountryCode\x18\x06 \x01(\t\x12\x0c\n\x04role\x18\x07 \x01(\t\"\xba\x02\n\rCreateProduct\x1a\xf8\x01\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x12\x16\n\x0e\x62usinessPageId\x18\x02 \x01(\x05\x12\x0c\n\x04name\x18\x03 \x01(\t\x12\"\n\x04type\x18\x04 \x01(\x0e\x32\x14.ProductDeliveryType\x12\x12\n\ncategoryId\x18\x05 \x01(\x05\x12\x13\n\x0bpictureBlob\x18\x06 \x01(\x0c\x12\r\n\x05price\x18\x07 \x01(\x02\x12\x1b\n\x08\x63urrency\x18\x08 \x01(\x0e\x32\t.Currency\x12\x13\n\x0b\x64\x65scription\x18\t \x01(\t\x12\x10\n\x08\x63ontents\x18\n \x01(\t\x12\x13\n\x0b\x64ynamicLink\x18\x0b \x01(\t\x1a.\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\x12\x11\n\tproductId\x18\x02 \x01(\x05\"\xc1\x02\n\x14UpdateProductDetails\x1a\x8b\x02\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x12\x11\n\tproductId\x18\x02 \x01(\x05\x12\x16\n\x0e\x62usinessPageId\x18\x03 \x01(\x05\x12\x0c\n\x04name\x18\x04 \x01(\t\x12\"\n\x04type\x18\x05 \x01(\x0e\x32\x14.ProductDeliveryType\x12\x12\n\ncategoryId\x18\x06 \x01(\x05\x12\x13\n\x0bpictureBlob\x18\x07 \x01(\x0c\x12\r\n\x05price\x18\x08 \x01(\x02\x12\x1b\n\x08\x63urrency\x18\t \x01(\x0e\x32\t.Currency\x12\x13\n\x0b\x64\x65scription\x18\n \x01(\t\x12\x10\n\x08\x63ontents\x18\x0b \x01(\t\x12\x13\n\x0b\x64ynamicLink\x18\x0c \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"M\n\x0fUncreateProduct\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"\x97\x01\n\x14\x46\x65tchNextKProductIds\x1aV\n\x07Request\x12\t\n\x01k\x18\x01 \x01(\x05\x12\x19\n\x11previousProductId\x18\x02 \x01(\x05\x12%\n\rfilterDetails\x18\x03 \x01(\x0b\x32\x0e.FilterDetails\x1a\'\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\x12\n\n\x02id\x18\x02 \x03(\x05\"\xf0\x02\n\x13\x46\x65tchProductDetails\x1a\x1c\n\x07Request\x12\x11\n\tproductId\x18\x01 \x01(\x05\x1a\xba\x02\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\x12\n\n\x02id\x18\x02 \x01(\x05\x12\x0c\n\x04name\x18\x03 \x01(\t\x12\"\n\x04type\x18\x04 \x01(\x0e\x32\x14.ProductDeliveryType\x12\x12\n\ncategoryId\x18\x05 \x01(\x05\x12\x11\n\tpublished\x18\x06 \x01(\x08\x12\x13\n\x0bpictureBlob\x18\x07 \x01(\x0c\x12\x16\n\x0e\x62usinessPageId\x18\x08 \x01(\x05\x12\r\n\x05price\x18\t \x01(\x02\x12\r\n\x05stars\x18\n \x01(\x01\x12\x14\n\x0creviewsCount\x18\x0b \x01(\x05\x12\x1b\n\x08\x63urrency\x18\x0c \x01(\x0e\x32\t.Currency\x12\x13\n\x0b\x64\x65scription\x18\r \x01(\t\x12\x10\n\x08\x63ontents\x18\x0e \x01(\t\x12\x13\n\x0b\x64ynamicLink\x18\x0f \x01(\t\"_\n\x0ePublishProduct\x1a\x30\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x12\x11\n\tproductId\x18\x02 \x01(\x05\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"a\n\x10UnpublishProduct\x1a\x30\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x12\x11\n\tproductId\x18\x02 \x01(\x05\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"M\n\x17\x46\x65tchProductCategoryIds\x1a\t\n\x07Request\x1a\'\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\x12\n\n\x02id\x18\x02 \x03(\x05\"\xa8\x01\n\x1b\x46\x65tchProductCategoryDetails\x1a\x1d\n\x07Request\x12\x12\n\ncategoryId\x18\x01 \x01(\x05\x1aj\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\x12\n\n\x02id\x18\x02 \x01(\x05\x12\x13\n\x0bnameJsonStr\x18\x03 \x01(\t\x12\x13\n\x0bpictureBlob\x18\x04 \x01(\x0c\x12\x17\n\x0f\x65xamplesJsonStr\x18\x05 \x01(\t\"\x8d\x01\n\x10\x43reateNewContent\x1aI\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x12\r\n\x05title\x18\x02 \x01(\t\x12\x0e\n\x06\x66ileId\x18\x03 \x01(\t\x12\x0b\n\x03url\x18\x04 \x01(\t\x1a.\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\x12\x11\n\tcontentId\x18\x02 \x01(\x05\"\x8a\x01\n\rUpdateContent\x1a\\\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x12\x11\n\tcontentId\x18\x02 \x01(\x05\x12\r\n\x05title\x18\x03 \x01(\t\x12\x0e\n\x06\x66ileId\x18\x04 \x01(\t\x12\x0b\n\x03url\x18\x05 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"\x9c\x01\n\x13\x46\x65tchContentDetails\x1a\x30\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x12\x11\n\tcontentId\x18\x02 \x01(\x05\x1aS\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\x12\n\n\x02id\x18\x02 \x01(\x05\x12\r\n\x05title\x18\x03 \x01(\t\x12\x0e\n\x06\x66ileId\x18\x04 \x01(\t\x12\x0b\n\x03url\x18\x05 \x01(\t\"^\n\rDeleteContent\x1a\x30\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x12\x11\n\tcontentId\x18\x02 \x01(\x05\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"t\n\x0f\x43reateVacantJob\x1a\x44\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x12\x16\n\x0e\x62usinessPageId\x18\x02 \x01(\x05\x12\r\n\x05title\x18\x03 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"N\n\x10UpdateJobDetails\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"I\n\x0bUncreateJob\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"y\n\x17\x46\x65tchBusinessPageJobIds\x1a\x35\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x12\x16\n\x0e\x62usinessPageId\x18\x02 \x01(\x05\x1a\'\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\x12\n\n\x02id\x18\x02 \x03(\x05\"\xaf\x01\n\x16\x46\x65tchNextKVacantJobIds\x1al\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x12\t\n\x01k\x18\x02 \x01(\x05\x12\x1b\n\x13previousVacantJobId\x18\x03 \x01(\x05\x12%\n\rfilterDetails\x18\x04 \x01(\x0b\x32\x0e.FilterDetails\x1a\'\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\x12\n\n\x02id\x18\x02 \x03(\x05\"\xb2\x01\n\x0f\x46\x65tchJobDetails\x1a,\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x12\r\n\x05jobId\x18\x02 \x01(\x05\x1aq\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\x12\n\n\x02id\x18\x02 \x01(\x05\x12\x16\n\x0e\x62usinessPageId\x18\x03 \x01(\x05\x12\x0c\n\x04role\x18\x04 \x01(\t\x12\r\n\x05title\x18\x05 \x01(\t\x12\x13\n\x0bhiredUserId\x18\x06 \x01(\x05\"\x84\x01\n\x14\x43reateJobApplication\x1aO\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x12\r\n\x05jobId\x18\x02 \x01(\x05\x12\x0f\n\x07message\x18\x03 \x01(\t\x12\x10\n\x08\x63ontents\x18\x04 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"Y\n\x1bUpdateJobApplicationDetails\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"T\n\x16UncreateJobApplication\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"o\n\x16\x46\x65tchJobApplicationIds\x1a,\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x12\r\n\x05jobId\x18\x02 \x01(\x05\x1a\'\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\x12\n\n\x02id\x18\x02 \x03(\x05\"\xb6\x01\n\x1a\x46\x65tchJobApplicationDetails\x1a\x37\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x12\x18\n\x10jobApplicationId\x18\x02 \x01(\x05\x1a_\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\x12\n\n\x02id\x18\x02 \x01(\x05\x12\x0f\n\x07message\x18\x03 \x01(\t\x12\x13\n\x0b\x61pplicantId\x18\x04 \x01(\x05\x12\x10\n\x08\x63ontents\x18\x05 \x01(\t\"m\n\x15\x41pproveJobApplication\x1a\x37\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x12\x18\n\x10jobApplicationId\x18\x02 \x01(\x05\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"m\n\x15\x44\x65\x63lineJobApplication\x1a\x37\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x12\x18\n\x10jobApplicationId\x18\x02 \x01(\x05\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"I\n\x0bLogPurchase\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"L\n\x0e\x46\x65tchPurchases\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"R\n\x14\x46\x65tchPurchaseDetails\x1a\x1d\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"\x94\x01\n\x13SubmitProductReview\x1a`\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x12\x11\n\tproductId\x18\x02 \x01(\x05\x12\r\n\x05stars\x18\x03 \x01(\x05\x12\x0c\n\x04text\x18\x04 \x01(\t\x12\x11\n\ttimestamp\x18\x05 \x01(\x03\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"\xb7\x01\n\x16RetrieveProductReviews\x1a\x30\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x12\x11\n\tproductId\x18\x02 \x01(\x05\x1ak\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\x12\n\n\x02id\x18\x02 \x03(\x05\x12\x12\n\nisMyReview\x18\x03 \x03(\x08\x12\r\n\x05stars\x18\x04 \x03(\x05\x12\x0c\n\x04text\x18\x05 \x03(\t\x12\x11\n\ttimestamp\x18\x06 \x03(\x03\"\x91\x01\n\x11\x45\x64itProductReview\x1a_\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x12\x10\n\x08reviewId\x18\x02 \x01(\x05\x12\r\n\x05stars\x18\x03 \x01(\x05\x12\x0c\n\x04text\x18\x04 \x01(\t\x12\x11\n\ttimestamp\x18\x05 \x01(\x03\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"c\n\x13\x44\x65leteProductReview\x1a/\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x12\x10\n\x08reviewId\x18\x02 \x01(\x05\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"\xa3\x01\n\x14SubmitEmployeeReview\x1an\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x12\x16\n\x0e\x65mployeeUserId\x18\x02 \x01(\x05\x12\x16\n\x0e\x62usinessPageId\x18\x03 \x01(\x05\x12\x0c\n\x04text\x18\x04 \x01(\t\x12\x11\n\ttimestamp\x18\x05 \x01(\x03\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"\xb2\x01\n\x17RetrieveEmployeeReviews\x1aM\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x12\x16\n\x0e\x65mployeeUserId\x18\x02 \x01(\x05\x12\x16\n\x0e\x62usinessPageId\x18\x03 \x01(\x05\x1aH\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\x12\n\n\x02id\x18\x02 \x03(\x05\x12\x0c\n\x04text\x18\x03 \x03(\t\x12\x11\n\ttimestamp\x18\x04 \x03(\x03\"\x83\x01\n\x12\x45\x64itEmployeeReview\x1aP\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x12\x10\n\x08reviewId\x18\x02 \x01(\x05\x12\x0c\n\x04text\x18\x03 \x01(\t\x12\x11\n\ttimestamp\x18\x04 \x01(\x03\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08\"d\n\x14\x44\x65leteEmployeeReview\x1a/\n\x07Request\x12\x12\n\nsessionKey\x18\x01 \x01(\t\x12\x10\n\x08reviewId\x18\x02 \x01(\x05\x1a\x1b\n\x08Response\x12\x0f\n\x07success\x18\x01 \x01(\x08*.\n\x08\x43urrency\x12\x07\n\x03KRW\x10\x00\x12\x07\n\x03USD\x10\x01\x12\x07\n\x03UZS\x10\x03\x12\x07\n\x03RUB\x10\x04*v\n\x13ProductDeliveryType\x12\x15\n\x11\x46ILE_DOWNLOADABLE\x10\x00\x12\x11\n\rFILE_STREAMED\x10\x01\x12\x1a\n\x16SCHEDULED_FACE_TO_FACE\x10\x03\x12\x19\n\x15SCHEDULED_ONLINE_CALL\x10\x04\x32\xe6\x1e\n\x0eGlobensService\x12K\n\x10\x61uthenticateUser\x12\x19.AuthenticateUser.Request\x1a\x1a.AuthenticateUser.Response\"\x00\x12\x45\n\x0e\x64\x65\x61\x63tivateUser\x12\x17.DeactivateUser.Request\x1a\x18.DeactivateUser.Response\"\x00\x12N\n\x11updateUserDetails\x12\x1a.UpdateUserDetails.Request\x1a\x1b.UpdateUserDetails.Response\"\x00\x12K\n\x10\x66\x65tchUserDetails\x12\x19.FetchUserDetails.Request\x1a\x1a.FetchUserDetails.Response\"\x00\x12Q\n\x12\x63reateBusinessPage\x12\x1b.CreateBusinessPage.Request\x1a\x1c.CreateBusinessPage.Response\"\x00\x12\x66\n\x19updateBusinessPageDetails\x12\".UpdateBusinessPageDetails.Request\x1a#.UpdateBusinessPageDetails.Response\"\x00\x12W\n\x14uncreateBusinessPage\x12\x1d.UncreateBusinessPage.Request\x1a\x1e.UncreateBusinessPage.Response\"\x00\x12]\n\x16\x66\x65tchMyBusinessPageIds\x12\x1f.FetchMyBusinessPageIds.Request\x1a .FetchMyBusinessPageIds.Response\"\x00\x12\x63\n\x18\x66\x65tchBusinessPageDetails\x12!.FetchBusinessPageDetails.Request\x1a\".FetchBusinessPageDetails.Response\"\x00\x12\x42\n\rcreateProduct\x12\x16.CreateProduct.Request\x1a\x17.CreateProduct.Response\"\x00\x12W\n\x14updateProductDetails\x12\x1d.UpdateProductDetails.Request\x1a\x1e.UpdateProductDetails.Response\"\x00\x12\x45\n\x0epublishProduct\x12\x17.PublishProduct.Request\x1a\x18.PublishProduct.Response\"\x00\x12K\n\x10unpublishProduct\x12\x19.UnpublishProduct.Request\x1a\x1a.UnpublishProduct.Response\"\x00\x12H\n\x0funcreateProduct\x12\x18.UncreateProduct.Request\x1a\x19.UncreateProduct.Response\"\x00\x12W\n\x14\x66\x65tchNextKProductIds\x12\x1d.FetchNextKProductIds.Request\x1a\x1e.FetchNextKProductIds.Response\"\x00\x12T\n\x13\x66\x65tchProductDetails\x12\x1c.FetchProductDetails.Request\x1a\x1d.FetchProductDetails.Response\"\x00\x12`\n\x17\x66\x65tchProductCategoryIds\x12 .FetchProductCategoryIds.Request\x1a!.FetchProductCategoryIds.Response\"\x00\x12l\n\x1b\x66\x65tchProductCategoryDetails\x12$.FetchProductCategoryDetails.Request\x1a%.FetchProductCategoryDetails.Response\"\x00\x12K\n\x10\x63reateNewContent\x12\x19.CreateNewContent.Request\x1a\x1a.CreateNewContent.Response\"\x00\x12\x42\n\rupdateContent\x12\x16.UpdateContent.Request\x1a\x17.UpdateContent.Response\"\x00\x12T\n\x13\x66\x65tchContentDetails\x12\x1c.FetchContentDetails.Request\x1a\x1d.FetchContentDetails.Response\"\x00\x12\x42\n\rdeleteContent\x12\x16.DeleteContent.Request\x1a\x17.DeleteContent.Response\"\x00\x12H\n\x0f\x63reateVacantJob\x12\x18.CreateVacantJob.Request\x1a\x19.CreateVacantJob.Response\"\x00\x12K\n\x10updateJobDetails\x12\x19.UpdateJobDetails.Request\x1a\x1a.UpdateJobDetails.Response\"\x00\x12<\n\x0buncreateJob\x12\x14.UncreateJob.Request\x1a\x15.UncreateJob.Response\"\x00\x12`\n\x17\x66\x65tchBusinessPageJobIds\x12 .FetchBusinessPageJobIds.Request\x1a!.FetchBusinessPageJobIds.Response\"\x00\x12]\n\x16\x66\x65tchNextKVacantJobIds\x12\x1f.FetchNextKVacantJobIds.Request\x1a .FetchNextKVacantJobIds.Response\"\x00\x12H\n\x0f\x66\x65tchJobDetails\x12\x18.FetchJobDetails.Request\x1a\x19.FetchJobDetails.Response\"\x00\x12W\n\x14\x63reateJobApplication\x12\x1d.CreateJobApplication.Request\x1a\x1e.CreateJobApplication.Response\"\x00\x12l\n\x1bupdateJobApplicationDetails\x12$.UpdateJobApplicationDetails.Request\x1a%.UpdateJobApplicationDetails.Response\"\x00\x12]\n\x16uncreateJobApplication\x12\x1f.UncreateJobApplication.Request\x1a .UncreateJobApplication.Response\"\x00\x12]\n\x16\x66\x65tchJobApplicationIds\x12\x1f.FetchJobApplicationIds.Request\x1a .FetchJobApplicationIds.Response\"\x00\x12i\n\x1a\x66\x65tchJobApplicationDetails\x12#.FetchJobApplicationDetails.Request\x1a$.FetchJobApplicationDetails.Response\"\x00\x12Z\n\x15\x61pproveJobApplication\x12\x1e.ApproveJobApplication.Request\x1a\x1f.ApproveJobApplication.Response\"\x00\x12Z\n\x15\x64\x65\x63lineJobApplication\x12\x1e.DeclineJobApplication.Request\x1a\x1f.DeclineJobApplication.Response\"\x00\x12<\n\x0blogPurchase\x12\x14.LogPurchase.Request\x1a\x15.LogPurchase.Response\"\x00\x12\x45\n\x0e\x66\x65tchPurchases\x12\x17.FetchPurchases.Request\x1a\x18.FetchPurchases.Response\"\x00\x12W\n\x14\x66\x65tchPurchaseDetails\x12\x1d.FetchPurchaseDetails.Request\x1a\x1e.FetchPurchaseDetails.Response\"\x00\x12T\n\x13submitProductReview\x12\x1c.SubmitProductReview.Request\x1a\x1d.SubmitProductReview.Response\"\x00\x12]\n\x16retrieveProductReviews\x12\x1f.RetrieveProductReviews.Request\x1a .RetrieveProductReviews.Response\"\x00\x12N\n\x11\x65\x64itProductReview\x12\x1a.EditProductReview.Request\x1a\x1b.EditProductReview.Response\"\x00\x12T\n\x13\x64\x65leteProductReview\x12\x1c.DeleteProductReview.Request\x1a\x1d.DeleteProductReview.Response\"\x00\x12W\n\x14submitEmployeeReview\x12\x1d.SubmitEmployeeReview.Request\x1a\x1e.SubmitEmployeeReview.Response\"\x00\x12`\n\x17retrieveEmployeeReviews\x12 .RetrieveEmployeeReviews.Request\x1a!.RetrieveEmployeeReviews.Response\"\x00\x12Q\n\x12\x65\x64itEmployeeReview\x12\x1b.EditEmployeeReview.Request\x1a\x1c.EditEmployeeReview.Response\"\x00\x12W\n\x14\x64\x65leteEmployeeReview\x12\x1d.DeleteEmployeeReview.Request\x1a\x1e.DeleteEmployeeReview.Response\"\x00\x42\x0c\n\nuz.globensb\x06proto3'
 )
 
 _CURRENCY = _descriptor.EnumDescriptor(
@@ -45,8 +45,8 @@ _CURRENCY = _descriptor.EnumDescriptor(
     ],
     containing_type=None,
     serialized_options=None,
-    serialized_start=6565,
-    serialized_end=6611,
+    serialized_start=6586,
+    serialized_end=6632,
 )
 _sym_db.RegisterEnumDescriptor(_CURRENCY)
 
@@ -76,8 +76,8 @@ _PRODUCTDELIVERYTYPE = _descriptor.EnumDescriptor(
     ],
     containing_type=None,
     serialized_options=None,
-    serialized_start=6613,
-    serialized_end=6731,
+    serialized_start=6634,
+    serialized_end=6752,
 )
 _sym_db.RegisterEnumDescriptor(_PRODUCTDELIVERYTYPE)
 
@@ -1322,6 +1322,13 @@ _UPDATEPRODUCTDETAILS_REQUEST = _descriptor.Descriptor(
             message_type=None, enum_type=None, containing_type=None,
             is_extension=False, extension_scope=None,
             serialized_options=None, file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='dynamicLink', full_name='UpdateProductDetails.Request.dynamicLink', index=11,
+            number=12, type=9, cpp_type=9, label=1,
+            has_default_value=False, default_value=b"".decode('utf-8'),
+            message_type=None, enum_type=None, containing_type=None,
+            is_extension=False, extension_scope=None,
+            serialized_options=None, file=DESCRIPTOR),
     ],
     extensions=[
     ],
@@ -1335,7 +1342,7 @@ _UPDATEPRODUCTDETAILS_REQUEST = _descriptor.Descriptor(
     oneofs=[
     ],
     serialized_start=1705,
-    serialized_end=1951,
+    serialized_end=1972,
 )
 
 _UPDATEPRODUCTDETAILS_RESPONSE = _descriptor.Descriptor(
@@ -1388,7 +1395,7 @@ _UPDATEPRODUCTDETAILS = _descriptor.Descriptor(
     oneofs=[
     ],
     serialized_start=1680,
-    serialized_end=1980,
+    serialized_end=2001,
 )
 
 _UNCREATEPRODUCT_REQUEST = _descriptor.Descriptor(
@@ -1470,8 +1477,8 @@ _UNCREATEPRODUCT = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=1982,
-    serialized_end=2059,
+    serialized_start=2003,
+    serialized_end=2080,
 )
 
 _FETCHNEXTKPRODUCTIDS_REQUEST = _descriptor.Descriptor(
@@ -1514,8 +1521,8 @@ _FETCHNEXTKPRODUCTIDS_REQUEST = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=2086,
-    serialized_end=2172,
+    serialized_start=2107,
+    serialized_end=2193,
 )
 
 _FETCHNEXTKPRODUCTIDS_RESPONSE = _descriptor.Descriptor(
@@ -1574,8 +1581,8 @@ _FETCHNEXTKPRODUCTIDS = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=2062,
-    serialized_end=2213,
+    serialized_start=2083,
+    serialized_end=2234,
 )
 
 _FETCHPRODUCTDETAILS_REQUEST = _descriptor.Descriptor(
@@ -1604,8 +1611,8 @@ _FETCHPRODUCTDETAILS_REQUEST = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=2239,
-    serialized_end=2267,
+    serialized_start=2260,
+    serialized_end=2288,
 )
 
 _FETCHPRODUCTDETAILS_RESPONSE = _descriptor.Descriptor(
@@ -1732,8 +1739,8 @@ _FETCHPRODUCTDETAILS_RESPONSE = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=2270,
-    serialized_end=2584,
+    serialized_start=2291,
+    serialized_end=2605,
 )
 
 _FETCHPRODUCTDETAILS = _descriptor.Descriptor(
@@ -1755,8 +1762,8 @@ _FETCHPRODUCTDETAILS = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=2216,
-    serialized_end=2584,
+    serialized_start=2237,
+    serialized_end=2605,
 )
 
 _PUBLISHPRODUCT_REQUEST = _descriptor.Descriptor(
@@ -1845,8 +1852,8 @@ _PUBLISHPRODUCT = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=2586,
-    serialized_end=2681,
+    serialized_start=2607,
+    serialized_end=2702,
 )
 
 _UNPUBLISHPRODUCT_REQUEST = _descriptor.Descriptor(
@@ -1935,8 +1942,8 @@ _UNPUBLISHPRODUCT = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=2683,
-    serialized_end=2780,
+    serialized_start=2704,
+    serialized_end=2801,
 )
 
 _FETCHPRODUCTCATEGORYIDS_REQUEST = _descriptor.Descriptor(
@@ -2018,8 +2025,8 @@ _FETCHPRODUCTCATEGORYIDS = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=2782,
-    serialized_end=2859,
+    serialized_start=2803,
+    serialized_end=2880,
 )
 
 _FETCHPRODUCTCATEGORYDETAILS_REQUEST = _descriptor.Descriptor(
@@ -2048,8 +2055,8 @@ _FETCHPRODUCTCATEGORYDETAILS_REQUEST = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=2893,
-    serialized_end=2922,
+    serialized_start=2914,
+    serialized_end=2943,
 )
 
 _FETCHPRODUCTCATEGORYDETAILS_RESPONSE = _descriptor.Descriptor(
@@ -2106,8 +2113,8 @@ _FETCHPRODUCTCATEGORYDETAILS_RESPONSE = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=2924,
-    serialized_end=3030,
+    serialized_start=2945,
+    serialized_end=3051,
 )
 
 _FETCHPRODUCTCATEGORYDETAILS = _descriptor.Descriptor(
@@ -2129,8 +2136,8 @@ _FETCHPRODUCTCATEGORYDETAILS = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=2862,
-    serialized_end=3030,
+    serialized_start=2883,
+    serialized_end=3051,
 )
 
 _CREATENEWCONTENT_REQUEST = _descriptor.Descriptor(
@@ -2180,8 +2187,8 @@ _CREATENEWCONTENT_REQUEST = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=3053,
-    serialized_end=3126,
+    serialized_start=3074,
+    serialized_end=3147,
 )
 
 _CREATENEWCONTENT_RESPONSE = _descriptor.Descriptor(
@@ -2217,8 +2224,8 @@ _CREATENEWCONTENT_RESPONSE = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=3128,
-    serialized_end=3174,
+    serialized_start=3149,
+    serialized_end=3195,
 )
 
 _CREATENEWCONTENT = _descriptor.Descriptor(
@@ -2240,8 +2247,8 @@ _CREATENEWCONTENT = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=3033,
-    serialized_end=3174,
+    serialized_start=3054,
+    serialized_end=3195,
 )
 
 _UPDATECONTENT_REQUEST = _descriptor.Descriptor(
@@ -2298,8 +2305,8 @@ _UPDATECONTENT_REQUEST = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=3194,
-    serialized_end=3286,
+    serialized_start=3215,
+    serialized_end=3307,
 )
 
 _UPDATECONTENT_RESPONSE = _descriptor.Descriptor(
@@ -2351,8 +2358,8 @@ _UPDATECONTENT = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=3177,
-    serialized_end=3315,
+    serialized_start=3198,
+    serialized_end=3336,
 )
 
 _FETCHCONTENTDETAILS_REQUEST = _descriptor.Descriptor(
@@ -2388,8 +2395,8 @@ _FETCHCONTENTDETAILS_REQUEST = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=3194,
-    serialized_end=3242,
+    serialized_start=3215,
+    serialized_end=3263,
 )
 
 _FETCHCONTENTDETAILS_RESPONSE = _descriptor.Descriptor(
@@ -2446,8 +2453,8 @@ _FETCHCONTENTDETAILS_RESPONSE = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=3391,
-    serialized_end=3474,
+    serialized_start=3412,
+    serialized_end=3495,
 )
 
 _FETCHCONTENTDETAILS = _descriptor.Descriptor(
@@ -2469,8 +2476,8 @@ _FETCHCONTENTDETAILS = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=3318,
-    serialized_end=3474,
+    serialized_start=3339,
+    serialized_end=3495,
 )
 
 _DELETECONTENT_REQUEST = _descriptor.Descriptor(
@@ -2506,8 +2513,8 @@ _DELETECONTENT_REQUEST = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=3194,
-    serialized_end=3242,
+    serialized_start=3215,
+    serialized_end=3263,
 )
 
 _DELETECONTENT_RESPONSE = _descriptor.Descriptor(
@@ -2559,8 +2566,8 @@ _DELETECONTENT = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=3476,
-    serialized_end=3570,
+    serialized_start=3497,
+    serialized_end=3591,
 )
 
 _CREATEVACANTJOB_REQUEST = _descriptor.Descriptor(
@@ -2656,8 +2663,8 @@ _CREATEVACANTJOB = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=3572,
-    serialized_end=3688,
+    serialized_start=3593,
+    serialized_end=3709,
 )
 
 _UPDATEJOBDETAILS_REQUEST = _descriptor.Descriptor(
@@ -2739,8 +2746,8 @@ _UPDATEJOBDETAILS = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=3690,
-    serialized_end=3768,
+    serialized_start=3711,
+    serialized_end=3789,
 )
 
 _UNCREATEJOB_REQUEST = _descriptor.Descriptor(
@@ -2822,8 +2829,8 @@ _UNCREATEJOB = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=3770,
-    serialized_end=3843,
+    serialized_start=3791,
+    serialized_end=3864,
 )
 
 _FETCHBUSINESSPAGEJOBIDS_REQUEST = _descriptor.Descriptor(
@@ -2919,8 +2926,8 @@ _FETCHBUSINESSPAGEJOBIDS = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=3845,
-    serialized_end=3966,
+    serialized_start=3866,
+    serialized_end=3987,
 )
 
 _FETCHNEXTKVACANTJOBIDS_REQUEST = _descriptor.Descriptor(
@@ -2970,8 +2977,8 @@ _FETCHNEXTKVACANTJOBIDS_REQUEST = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=3995,
-    serialized_end=4103,
+    serialized_start=4016,
+    serialized_end=4124,
 )
 
 _FETCHNEXTKVACANTJOBIDS_RESPONSE = _descriptor.Descriptor(
@@ -3030,8 +3037,8 @@ _FETCHNEXTKVACANTJOBIDS = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=3969,
-    serialized_end=4144,
+    serialized_start=3990,
+    serialized_end=4165,
 )
 
 _FETCHJOBDETAILS_REQUEST = _descriptor.Descriptor(
@@ -3067,8 +3074,8 @@ _FETCHJOBDETAILS_REQUEST = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=4166,
-    serialized_end=4210,
+    serialized_start=4187,
+    serialized_end=4231,
 )
 
 _FETCHJOBDETAILS_RESPONSE = _descriptor.Descriptor(
@@ -3132,8 +3139,8 @@ _FETCHJOBDETAILS_RESPONSE = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=4212,
-    serialized_end=4325,
+    serialized_start=4233,
+    serialized_end=4346,
 )
 
 _FETCHJOBDETAILS = _descriptor.Descriptor(
@@ -3155,8 +3162,8 @@ _FETCHJOBDETAILS = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=4147,
-    serialized_end=4325,
+    serialized_start=4168,
+    serialized_end=4346,
 )
 
 _CREATEJOBAPPLICATION_REQUEST = _descriptor.Descriptor(
@@ -3206,8 +3213,8 @@ _CREATEJOBAPPLICATION_REQUEST = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=4352,
-    serialized_end=4431,
+    serialized_start=4373,
+    serialized_end=4452,
 )
 
 _CREATEJOBAPPLICATION_RESPONSE = _descriptor.Descriptor(
@@ -3259,8 +3266,8 @@ _CREATEJOBAPPLICATION = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=4328,
-    serialized_end=4460,
+    serialized_start=4349,
+    serialized_end=4481,
 )
 
 _UPDATEJOBAPPLICATIONDETAILS_REQUEST = _descriptor.Descriptor(
@@ -3342,8 +3349,8 @@ _UPDATEJOBAPPLICATIONDETAILS = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=4462,
-    serialized_end=4551,
+    serialized_start=4483,
+    serialized_end=4572,
 )
 
 _UNCREATEJOBAPPLICATION_REQUEST = _descriptor.Descriptor(
@@ -3425,8 +3432,8 @@ _UNCREATEJOBAPPLICATION = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=4553,
-    serialized_end=4637,
+    serialized_start=4574,
+    serialized_end=4658,
 )
 
 _FETCHJOBAPPLICATIONIDS_REQUEST = _descriptor.Descriptor(
@@ -3462,8 +3469,8 @@ _FETCHJOBAPPLICATIONIDS_REQUEST = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=4166,
-    serialized_end=4210,
+    serialized_start=4187,
+    serialized_end=4231,
 )
 
 _FETCHJOBAPPLICATIONIDS_RESPONSE = _descriptor.Descriptor(
@@ -3522,8 +3529,8 @@ _FETCHJOBAPPLICATIONIDS = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=4639,
-    serialized_end=4750,
+    serialized_start=4660,
+    serialized_end=4771,
 )
 
 _FETCHJOBAPPLICATIONDETAILS_REQUEST = _descriptor.Descriptor(
@@ -3559,8 +3566,8 @@ _FETCHJOBAPPLICATIONDETAILS_REQUEST = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=4783,
-    serialized_end=4838,
+    serialized_start=4804,
+    serialized_end=4859,
 )
 
 _FETCHJOBAPPLICATIONDETAILS_RESPONSE = _descriptor.Descriptor(
@@ -3617,8 +3624,8 @@ _FETCHJOBAPPLICATIONDETAILS_RESPONSE = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=4840,
-    serialized_end=4935,
+    serialized_start=4861,
+    serialized_end=4956,
 )
 
 _FETCHJOBAPPLICATIONDETAILS = _descriptor.Descriptor(
@@ -3640,8 +3647,8 @@ _FETCHJOBAPPLICATIONDETAILS = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=4753,
-    serialized_end=4935,
+    serialized_start=4774,
+    serialized_end=4956,
 )
 
 _APPROVEJOBAPPLICATION_REQUEST = _descriptor.Descriptor(
@@ -3677,8 +3684,8 @@ _APPROVEJOBAPPLICATION_REQUEST = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=4783,
-    serialized_end=4838,
+    serialized_start=4804,
+    serialized_end=4859,
 )
 
 _APPROVEJOBAPPLICATION_RESPONSE = _descriptor.Descriptor(
@@ -3730,8 +3737,8 @@ _APPROVEJOBAPPLICATION = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=4937,
-    serialized_end=5046,
+    serialized_start=4958,
+    serialized_end=5067,
 )
 
 _DECLINEJOBAPPLICATION_REQUEST = _descriptor.Descriptor(
@@ -3767,8 +3774,8 @@ _DECLINEJOBAPPLICATION_REQUEST = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=4783,
-    serialized_end=4838,
+    serialized_start=4804,
+    serialized_end=4859,
 )
 
 _DECLINEJOBAPPLICATION_RESPONSE = _descriptor.Descriptor(
@@ -3820,8 +3827,8 @@ _DECLINEJOBAPPLICATION = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=5048,
-    serialized_end=5157,
+    serialized_start=5069,
+    serialized_end=5178,
 )
 
 _LOGPURCHASE_REQUEST = _descriptor.Descriptor(
@@ -3903,8 +3910,8 @@ _LOGPURCHASE = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=5159,
-    serialized_end=5232,
+    serialized_start=5180,
+    serialized_end=5253,
 )
 
 _FETCHPURCHASES_REQUEST = _descriptor.Descriptor(
@@ -3986,8 +3993,8 @@ _FETCHPURCHASES = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=5234,
-    serialized_end=5310,
+    serialized_start=5255,
+    serialized_end=5331,
 )
 
 _FETCHPURCHASEDETAILS_REQUEST = _descriptor.Descriptor(
@@ -4069,8 +4076,8 @@ _FETCHPURCHASEDETAILS = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=5312,
-    serialized_end=5394,
+    serialized_start=5333,
+    serialized_end=5415,
 )
 
 _SUBMITPRODUCTREVIEW_REQUEST = _descriptor.Descriptor(
@@ -4127,8 +4134,8 @@ _SUBMITPRODUCTREVIEW_REQUEST = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=5420,
-    serialized_end=5516,
+    serialized_start=5441,
+    serialized_end=5537,
 )
 
 _SUBMITPRODUCTREVIEW_RESPONSE = _descriptor.Descriptor(
@@ -4180,8 +4187,8 @@ _SUBMITPRODUCTREVIEW = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=5397,
-    serialized_end=5545,
+    serialized_start=5418,
+    serialized_end=5566,
 )
 
 _RETRIEVEPRODUCTREVIEWS_REQUEST = _descriptor.Descriptor(
@@ -4282,8 +4289,8 @@ _RETRIEVEPRODUCTREVIEWS_RESPONSE = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=5624,
-    serialized_end=5731,
+    serialized_start=5645,
+    serialized_end=5752,
 )
 
 _RETRIEVEPRODUCTREVIEWS = _descriptor.Descriptor(
@@ -4305,8 +4312,8 @@ _RETRIEVEPRODUCTREVIEWS = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=5548,
-    serialized_end=5731,
+    serialized_start=5569,
+    serialized_end=5752,
 )
 
 _EDITPRODUCTREVIEW_REQUEST = _descriptor.Descriptor(
@@ -4363,8 +4370,8 @@ _EDITPRODUCTREVIEW_REQUEST = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=5755,
-    serialized_end=5850,
+    serialized_start=5776,
+    serialized_end=5871,
 )
 
 _EDITPRODUCTREVIEW_RESPONSE = _descriptor.Descriptor(
@@ -4416,8 +4423,8 @@ _EDITPRODUCTREVIEW = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=5734,
-    serialized_end=5879,
+    serialized_start=5755,
+    serialized_end=5900,
 )
 
 _DELETEPRODUCTREVIEW_REQUEST = _descriptor.Descriptor(
@@ -4453,8 +4460,8 @@ _DELETEPRODUCTREVIEW_REQUEST = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=5755,
-    serialized_end=5802,
+    serialized_start=5776,
+    serialized_end=5823,
 )
 
 _DELETEPRODUCTREVIEW_RESPONSE = _descriptor.Descriptor(
@@ -4506,8 +4513,8 @@ _DELETEPRODUCTREVIEW = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=5881,
-    serialized_end=5980,
+    serialized_start=5902,
+    serialized_end=6001,
 )
 
 _SUBMITEMPLOYEEREVIEW_REQUEST = _descriptor.Descriptor(
@@ -4564,8 +4571,8 @@ _SUBMITEMPLOYEEREVIEW_REQUEST = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=6007,
-    serialized_end=6117,
+    serialized_start=6028,
+    serialized_end=6138,
 )
 
 _SUBMITEMPLOYEEREVIEW_RESPONSE = _descriptor.Descriptor(
@@ -4617,8 +4624,8 @@ _SUBMITEMPLOYEEREVIEW = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=5983,
-    serialized_end=6146,
+    serialized_start=6004,
+    serialized_end=6167,
 )
 
 _RETRIEVEEMPLOYEEREVIEWS_REQUEST = _descriptor.Descriptor(
@@ -4661,8 +4668,8 @@ _RETRIEVEEMPLOYEEREVIEWS_REQUEST = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=6007,
-    serialized_end=6084,
+    serialized_start=6028,
+    serialized_end=6105,
 )
 
 _RETRIEVEEMPLOYEEREVIEWS_RESPONSE = _descriptor.Descriptor(
@@ -4712,8 +4719,8 @@ _RETRIEVEEMPLOYEEREVIEWS_RESPONSE = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=6255,
-    serialized_end=6327,
+    serialized_start=6276,
+    serialized_end=6348,
 )
 
 _RETRIEVEEMPLOYEEREVIEWS = _descriptor.Descriptor(
@@ -4735,8 +4742,8 @@ _RETRIEVEEMPLOYEEREVIEWS = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=6149,
-    serialized_end=6327,
+    serialized_start=6170,
+    serialized_end=6348,
 )
 
 _EDITEMPLOYEEREVIEW_REQUEST = _descriptor.Descriptor(
@@ -4786,8 +4793,8 @@ _EDITEMPLOYEEREVIEW_REQUEST = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=6352,
-    serialized_end=6432,
+    serialized_start=6373,
+    serialized_end=6453,
 )
 
 _EDITEMPLOYEEREVIEW_RESPONSE = _descriptor.Descriptor(
@@ -4839,8 +4846,8 @@ _EDITEMPLOYEEREVIEW = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=6330,
-    serialized_end=6461,
+    serialized_start=6351,
+    serialized_end=6482,
 )
 
 _DELETEEMPLOYEEREVIEW_REQUEST = _descriptor.Descriptor(
@@ -4876,8 +4883,8 @@ _DELETEEMPLOYEEREVIEW_REQUEST = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=5755,
-    serialized_end=5802,
+    serialized_start=5776,
+    serialized_end=5823,
 )
 
 _DELETEEMPLOYEEREVIEW_RESPONSE = _descriptor.Descriptor(
@@ -4929,8 +4936,8 @@ _DELETEEMPLOYEEREVIEW = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[
     ],
-    serialized_start=6463,
-    serialized_end=6563,
+    serialized_start=6484,
+    serialized_end=6584,
 )
 
 _AUTHENTICATEUSER_REQUEST.containing_type = _AUTHENTICATEUSER
@@ -6157,8 +6164,8 @@ _GLOBENSSERVICE = _descriptor.ServiceDescriptor(
     file=DESCRIPTOR,
     index=0,
     serialized_options=None,
-    serialized_start=6734,
-    serialized_end=10676,
+    serialized_start=6755,
+    serialized_end=10697,
     methods=[
         _descriptor.MethodDescriptor(
             name='authenticateUser',

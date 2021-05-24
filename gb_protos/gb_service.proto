@@ -158,6 +158,7 @@ message UpdateProductDetails{
     Currency currency = 9;
     string description = 10;
     string contents = 11;
+    string dynamicLink = 12;
   }
   message Response{
     bool success = 1;

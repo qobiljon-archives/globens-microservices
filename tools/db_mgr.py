@@ -214,10 +214,10 @@ def create_product(gb_user, gb_business_page, gb_category, name, product_type, p
     return new_product_id
 
 
-def update_product(gb_product, gb_business_page, gb_category, name, product_type, picture_blob, price, currency, description, contents):
+def update_product(gb_product, gb_business_page, gb_category, name, product_type, picture_blob, price, currency, description, contents, dynamic_link):
     cur = get_db_connection().cursor(cursor_factory=psycopg2_extras.DictCursor)
 
-    cur.execute('update "gb_product" set "name" = %s, "productType" = %s, "pictureBlob" = %s, "business_page_id" = %s, "category_id" = %s, "price" = %s, "currency" = %s, "description" = %s, "contents" = %s where "id"=%s;', (
+    cur.execute('update "gb_product" set "name" = %s, "productType" = %s, "pictureBlob" = %s, "business_page_id" = %s, "category_id" = %s, "price" = %s, "currency" = %s, "description" = %s, "contents" = %s, "dynamicLink" = %s where "id"=%s;', (
         name,
         product_type,
         picture_blob,
@@ -227,6 +227,7 @@ def update_product(gb_product, gb_business_page, gb_category, name, product_type
         currency,
         description,
         contents,
+        dynamic_link,
         gb_product['id']
     ))
 
