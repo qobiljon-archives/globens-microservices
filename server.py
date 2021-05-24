@@ -441,7 +441,7 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
         if None not in [gb_content]:
             response.id = gb_content['id']
             response.title = gb_content['title']
-            response.fileId = gb_content['file_id']
+            response.fileId = gb_content['fileId']
             response.url = gb_content['url']
             response.success = True
 
