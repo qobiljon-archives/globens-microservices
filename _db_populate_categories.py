@@ -16,7 +16,7 @@ with open('static/others.png', 'rb') as r:
     cur.execute('insert into "gb_product_category"("name", "pictureBlob", "examples") values (%s,%s,%s)', (
         json.dumps({'en': 'Others', 'ru': 'Прочие', 'uz': 'Boshqalar', 'kr': '기타'}),
         bytes(image),
-        json.dumps({'en': ["1-1 services", "Delivery"], 'ru': ['', ''], 'uz': ['', ''], 'kr': ['1-1 서비스', '배달']})
+        json.dumps({'en': ["1-1 services", "Delivery"], 'ru': ['1-1 сервисы', 'Доставка'], 'uz': ['1-1 hizmatlar', 'Yetkazib berish'], 'kr': ['1-1 서비스', '배달']})
     ))
 with open('static/education.png', 'rb') as r:
     image = r.read()
