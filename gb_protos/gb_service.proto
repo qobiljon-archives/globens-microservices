@@ -138,7 +138,7 @@ message CreateProduct{
     Currency currency = 8;
     string description = 9;
     string contents = 10;
-    int32 dynamicLink = 11;
+    string dynamicLink = 11;
   }
   message Response{
     bool success = 1;
@@ -201,7 +201,7 @@ message FetchProductDetails{
     Currency currency = 12;
     string description = 13;
     string contents = 14;
-    int32 dynamicLink = 15;
+    string dynamicLink = 15;
   }
 }
 message PublishProduct{

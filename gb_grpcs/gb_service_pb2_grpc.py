@@ -84,26 +84,6 @@ class GlobensServiceStub(object):
             request_serializer=gb__service__pb2.UncreateProduct.Request.SerializeToString,
             response_deserializer=gb__service__pb2.UncreateProduct.Response.FromString,
         )
-        self.createNewContent = channel.unary_unary(
-            '/GlobensService/createNewContent',
-            request_serializer=gb__service__pb2.CreateNewContent.Request.SerializeToString,
-            response_deserializer=gb__service__pb2.CreateNewContent.Response.FromString,
-        )
-        self.updateContent = channel.unary_unary(
-            '/GlobensService/updateContent',
-            request_serializer=gb__service__pb2.UpdateContent.Request.SerializeToString,
-            response_deserializer=gb__service__pb2.UpdateContent.Response.FromString,
-        )
-        self.fetchContentDetails = channel.unary_unary(
-            '/GlobensService/fetchContentDetails',
-            request_serializer=gb__service__pb2.FetchContentDetails.Request.SerializeToString,
-            response_deserializer=gb__service__pb2.FetchContentDetails.Response.FromString,
-        )
-        self.deleteContent = channel.unary_unary(
-            '/GlobensService/deleteContent',
-            request_serializer=gb__service__pb2.DeleteContent.Request.SerializeToString,
-            response_deserializer=gb__service__pb2.DeleteContent.Response.FromString,
-        )
         self.fetchNextKProductIds = channel.unary_unary(
             '/GlobensService/fetchNextKProductIds',
             request_serializer=gb__service__pb2.FetchNextKProductIds.Request.SerializeToString,
@@ -123,6 +103,26 @@ class GlobensServiceStub(object):
             '/GlobensService/fetchProductCategoryDetails',
             request_serializer=gb__service__pb2.FetchProductCategoryDetails.Request.SerializeToString,
             response_deserializer=gb__service__pb2.FetchProductCategoryDetails.Response.FromString,
+        )
+        self.createNewContent = channel.unary_unary(
+            '/GlobensService/createNewContent',
+            request_serializer=gb__service__pb2.CreateNewContent.Request.SerializeToString,
+            response_deserializer=gb__service__pb2.CreateNewContent.Response.FromString,
+        )
+        self.updateContent = channel.unary_unary(
+            '/GlobensService/updateContent',
+            request_serializer=gb__service__pb2.UpdateContent.Request.SerializeToString,
+            response_deserializer=gb__service__pb2.UpdateContent.Response.FromString,
+        )
+        self.fetchContentDetails = channel.unary_unary(
+            '/GlobensService/fetchContentDetails',
+            request_serializer=gb__service__pb2.FetchContentDetails.Request.SerializeToString,
+            response_deserializer=gb__service__pb2.FetchContentDetails.Response.FromString,
+        )
+        self.deleteContent = channel.unary_unary(
+            '/GlobensService/deleteContent',
+            request_serializer=gb__service__pb2.DeleteContent.Request.SerializeToString,
+            response_deserializer=gb__service__pb2.DeleteContent.Response.FromString,
         )
         self.createVacantJob = channel.unary_unary(
             '/GlobensService/createVacantJob',
@@ -348,34 +348,6 @@ class GlobensServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def createNewContent(self, request, context):
-        # missing associated documentation comment in .proto file
-        pass
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def updateContent(self, request, context):
-        # missing associated documentation comment in .proto file
-        pass
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def fetchContentDetails(self, request, context):
-        # missing associated documentation comment in .proto file
-        pass
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def deleteContent(self, request, context):
-        # missing associated documentation comment in .proto file
-        pass
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
     def fetchNextKProductIds(self, request, context):
         # missing associated documentation comment in .proto file
         pass
@@ -398,6 +370,34 @@ class GlobensServiceServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def fetchProductCategoryDetails(self, request, context):
+        # missing associated documentation comment in .proto file
+        pass
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def createNewContent(self, request, context):
+        """content management RPCs
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def updateContent(self, request, context):
+        # missing associated documentation comment in .proto file
+        pass
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def fetchContentDetails(self, request, context):
+        # missing associated documentation comment in .proto file
+        pass
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def deleteContent(self, request, context):
         # missing associated documentation comment in .proto file
         pass
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -645,26 +645,6 @@ def add_GlobensServiceServicer_to_server(servicer, server):
             request_deserializer=gb__service__pb2.UncreateProduct.Request.FromString,
             response_serializer=gb__service__pb2.UncreateProduct.Response.SerializeToString,
         ),
-        'createNewContent': grpc.unary_unary_rpc_method_handler(
-            servicer.createNewContent,
-            request_deserializer=gb__service__pb2.CreateNewContent.Request.FromString,
-            response_serializer=gb__service__pb2.CreateNewContent.Response.SerializeToString,
-        ),
-        'updateContent': grpc.unary_unary_rpc_method_handler(
-            servicer.updateContent,
-            request_deserializer=gb__service__pb2.UpdateContent.Request.FromString,
-            response_serializer=gb__service__pb2.UpdateContent.Response.SerializeToString,
-        ),
-        'fetchContentDetails': grpc.unary_unary_rpc_method_handler(
-            servicer.fetchContentDetails,
-            request_deserializer=gb__service__pb2.FetchContentDetails.Request.FromString,
-            response_serializer=gb__service__pb2.FetchContentDetails.Response.SerializeToString,
-        ),
-        'deleteContent': grpc.unary_unary_rpc_method_handler(
-            servicer.deleteContent,
-            request_deserializer=gb__service__pb2.DeleteContent.Request.FromString,
-            response_serializer=gb__service__pb2.DeleteContent.Response.SerializeToString,
-        ),
         'fetchNextKProductIds': grpc.unary_unary_rpc_method_handler(
             servicer.fetchNextKProductIds,
             request_deserializer=gb__service__pb2.FetchNextKProductIds.Request.FromString,
@@ -684,6 +664,26 @@ def add_GlobensServiceServicer_to_server(servicer, server):
             servicer.fetchProductCategoryDetails,
             request_deserializer=gb__service__pb2.FetchProductCategoryDetails.Request.FromString,
             response_serializer=gb__service__pb2.FetchProductCategoryDetails.Response.SerializeToString,
+        ),
+        'createNewContent': grpc.unary_unary_rpc_method_handler(
+            servicer.createNewContent,
+            request_deserializer=gb__service__pb2.CreateNewContent.Request.FromString,
+            response_serializer=gb__service__pb2.CreateNewContent.Response.SerializeToString,
+        ),
+        'updateContent': grpc.unary_unary_rpc_method_handler(
+            servicer.updateContent,
+            request_deserializer=gb__service__pb2.UpdateContent.Request.FromString,
+            response_serializer=gb__service__pb2.UpdateContent.Response.SerializeToString,
+        ),
+        'fetchContentDetails': grpc.unary_unary_rpc_method_handler(
+            servicer.fetchContentDetails,
+            request_deserializer=gb__service__pb2.FetchContentDetails.Request.FromString,
+            response_serializer=gb__service__pb2.FetchContentDetails.Response.SerializeToString,
+        ),
+        'deleteContent': grpc.unary_unary_rpc_method_handler(
+            servicer.deleteContent,
+            request_deserializer=gb__service__pb2.DeleteContent.Request.FromString,
+            response_serializer=gb__service__pb2.DeleteContent.Response.SerializeToString,
         ),
         'createVacantJob': grpc.unary_unary_rpc_method_handler(
             servicer.createVacantJob,
