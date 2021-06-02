@@ -7,14 +7,23 @@ import psycopg2
 
 # region commons
 def get_db_connection():
-    if settings.db_conn is None:
+    reconnect = settings.db_conn is None
+
+    if not reconnect:
+        try:
+            settings.db_conn.cursor().execute('select 1;')
+        except psycopg2.OperationalError:
+            reconnect = True
+
+    if reconnect:
         settings.db_conn = psycopg2.connect(
             host=settings.db_settings['host'],
             database=settings.db_settings['database'],
             user=settings.db_settings['user'],
             password=settings.db_settings['password']
         )
-        print('database initialized', settings.db_conn)
+        print('database (re)initialized', settings.db_conn)
+
     return settings.db_conn
 
 
