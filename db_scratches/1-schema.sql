@@ -1,3 +1,5 @@
+-- auth mode : i.e., apple/google
+create type "gb_auth_mode" as enum ('apple', 'google');
 -- user : i..e, consumer/producer
 create table if not exists "gb_user"
 (
@@ -5,11 +7,12 @@ create table if not exists "gb_user"
     "id"          serial primary key,
     "email"       text unique,
     "name"        varchar(300),
-    "picture"     text         default null,
-    "pictureBlob" bytea        default null,
+    "picture"     text           default null,
+    "pictureBlob" bytea          default null,
     "tokens"      text,
-    "sessionKey"  varchar(300) default null,
-    "countryCode" varchar(3)   default 'KOR'
+    "sessionKey"  varchar(300)   default null,
+    "countryCode" varchar(3)     default 'KOR',
+    "authMode"    "gb_auth_mode" default 'google'
 );
 
 

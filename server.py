@@ -16,23 +16,33 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
         response = gb_service_pb2.AuthenticateUser.Response()
         response.success = False
 
-        tokens = json.loads(s=request.tokensJson)
-        user_profile = utils.load_google_profile(id_token=tokens['idToken'])
-        gb_user = db.get_user(email=user_profile['email'])
+        gb_user, email, name, picture, auth_mode = None, None, None, None, None
+        if request.authMethod == gb_service_pb2.AuthMethod.APPLE:
+            print(f'apple auth : {request.tokensJson}')  # todo fix apple sign in
+            email, name, picture = None, None, None
+            gb_user = db.get_user(email=email)
+            auth_mode = 'apple'
+            response.success = False  # todo flip this boolean
+        elif request.authMethod == gb_service_pb2.AuthMethod.GOOGLE:
+            google_profile = utils.load_google_profile(id_token=json.loads(s=request.tokensJson)['idToken'])
+            email, name, picture = google_profile['email'], google_profile['name'], google_profile['picture']
+            gb_user = db.get_user(email=email)
+            auth_mode = 'google'
+            response.success = True
 
-        if gb_user is None:
-            gb_user, session_key = db.create_user(
-                email=user_profile['email'],
-                name=user_profile['name'],
-                picture=user_profile['picture'],
-                tokens=request.tokensJson
-            )
-        else:
-            session_key = gb_user['sessionKey']
-
-        response.userId = gb_user['id']
-        response.sessionKey = session_key
-        response.success = True
+        if response.success:
+            if gb_user:
+                session_key = gb_user['sessionKey']
+            else:
+                gb_user, session_key = db.create_user(
+                    email=email,
+                    name=name,
+                    picture=picture,
+                    tokens=request.tokensJson,
+                    auth_mode=auth_mode
+                )
+            response.userId = gb_user['id']
+            response.sessionKey = session_key
 
         print(f' authenticateUser, success={response.success}')
         return response
@@ -333,7 +343,8 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
         gb_category = db.get_product_category(category_id=request.categoryId)
 
         if None not in [gb_user, gb_business_page, gb_category]:
-            response.productId = db.create_product(gb_user=gb_user, gb_business_page=gb_business_page, gb_category=gb_category, name=request.name, product_type=utils.get_product_type_str(request.type), picture_blob=request.pictureBlob, price=request.price, currency=utils.get_currency_str(currency=request.currency), description=request.description, contents=request.contents, dynamic_link=request.dynamicLink)
+            response.productId = db.create_product(gb_user=gb_user, gb_business_page=gb_business_page, gb_category=gb_category, name=request.name, product_type=utils.get_product_type_str(request.type), picture_blob=request.pictureBlob, price=request.price, currency=utils.get_currency_str(currency=request.currency), description=request.description, contents=request.contents,
+                                                   dynamic_link=request.dynamicLink)
             response.success = True
 
         print(f' createProduct, success={response.success}')

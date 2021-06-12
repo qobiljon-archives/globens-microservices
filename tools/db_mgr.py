@@ -54,17 +54,18 @@ def get_user(email=None, user_id=None, session_key=None):
     return gb_user
 
 
-def create_user(email, name, picture, tokens):
+def create_user(email, name, picture, tokens, auth_mode):
     cur = get_db_connection().cursor(cursor_factory=psycopg2_extras.DictCursor)
 
     session_key = utils.md5(value=f'{email}{utils.now_us()}')
-    cur.execute('insert into "gb_user"("email", "name", "picture","pictureBlob","tokens","sessionKey") values (%s,%s,%s,%s,%s,%s);', (
+    cur.execute('insert into "gb_user"("email", "name", "picture","pictureBlob","tokens","sessionKey","authMode") values (%s,%s,%s,%s,%s,%s,%s);', (
         email,
         name,
         picture,
         utils.load_picture_bytes(picture=picture),
         tokens,
-        session_key
+        session_key,
+        auth_mode
     ))
 
     cur.close()

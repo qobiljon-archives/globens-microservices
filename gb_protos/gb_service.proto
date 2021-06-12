@@ -13,8 +13,13 @@ message FilterDetails{
 }
 
 // user management requests/responses
+enum AuthMethod {
+  APPLE = 0;
+  GOOGLE = 1;
+}
 message AuthenticateUser {
   message Request{
+    AuthMethod authMethod = 1;
     string tokensJson = 2;
   }
   message Response{
