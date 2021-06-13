@@ -37,7 +37,7 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
                     email=profile['email'],
                     name=profile['name'],
                     picture=profile['picture'],
-                    token=request.tokensJson,
+                    token=request.token,
                     auth_mode=auth_mode
                 )
             response.userId = gb_user['id']
