@@ -40,6 +40,8 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
                     token=request.token,
                     auth_mode=auth_mode
                 )
+                if request.method == gb_service_pb2.AuthMethod.GOOGLE:
+                    db.update_user(gb_user=gb_user, google_drive_email=profile['email'])
             response.userId = gb_user['id']
             response.sessionKey = session_key
 
