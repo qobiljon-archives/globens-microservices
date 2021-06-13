@@ -1,9 +1,11 @@
 from gb_grpcs import gb_service_pb2_grpc
+from firebase_admin import credentials
 from gb_grpcs import gb_service_pb2
 from concurrent import futures
 from tools import db_mgr as db
 from datetime import datetime
 from tools import utils
+import firebase_admin
 import grpc
 import time
 import json
@@ -16,29 +18,26 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
         response = gb_service_pb2.AuthenticateUser.Response()
         response.success = False
 
-        gb_user, email, name, picture, auth_mode = None, None, None, None, None
-        if request.authMethod == gb_service_pb2.AuthMethod.APPLE:
-            print(f'apple auth : {request.tokensJson}')  # todo fix apple sign in
-            email, name, picture = None, None, None
-            gb_user = db.get_user(email=email)
+        profile, auth_mode = None, None
+        if request.method == gb_service_pb2.AuthMethod.APPLE:
+            profile = utils.load_apple_profile(token=request.token)
             auth_mode = 'apple'
-            response.success = False  # todo flip this boolean
-        elif request.authMethod == gb_service_pb2.AuthMethod.GOOGLE:
-            google_profile = utils.load_google_profile(id_token=json.loads(s=request.tokensJson)['idToken'])
-            email, name, picture = google_profile['email'], google_profile['name'], google_profile['picture']
-            gb_user = db.get_user(email=email)
+            response.success = True
+        elif request.method == gb_service_pb2.AuthMethod.GOOGLE:
+            profile = utils.load_google_profile(id_token=json.loads(s=request.token)['idToken'])
             auth_mode = 'google'
             response.success = True
 
         if response.success:
+            gb_user = db.get_user(email=profile['email'])
             if gb_user:
                 session_key = gb_user['sessionKey']
             else:
                 gb_user, session_key = db.create_user(
-                    email=email,
-                    name=name,
-                    picture=picture,
-                    tokens=request.tokensJson,
+                    email=profile['email'],
+                    name=profile['name'],
+                    picture=profile['picture'],
+                    token=request.tokensJson,
                     auth_mode=auth_mode
                 )
             response.userId = gb_user['id']
@@ -60,7 +59,7 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
         gb_user = db.get_user(session_key=request.sessionKey)
 
         if gb_user is not None:
-            db.update_user(gb_user=gb_user, country_code=request.countryCode)
+            db.update_user(gb_user=gb_user, country_code=request.countryCode, google_drive_email=request.googleDriveEmail)
             response.success = True
 
         print(f' updateUserDetails, success={response.success}')
@@ -671,6 +670,9 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
 
 
 if __name__ == '__main__':
+    certificate = credentials.Certificate(cert='globensFirebaseAdminServiceAccountKey.json')
+    firebase_admin.initialize_app(credential=certificate)
+
     print('Starting gRPC server on port 50051.')
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=999))
     gb_service_pb2_grpc.add_GlobensServiceServicer_to_server(servicer=GlobensServiceServicer(), server=server)

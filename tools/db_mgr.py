@@ -54,7 +54,7 @@ def get_user(email=None, user_id=None, session_key=None):
     return gb_user
 
 
-def create_user(email, name, picture, tokens, auth_mode):
+def create_user(email, name, picture, token, auth_mode):
     cur = get_db_connection().cursor(cursor_factory=psycopg2_extras.DictCursor)
 
     session_key = utils.md5(value=f'{email}{utils.now_us()}')
@@ -63,7 +63,7 @@ def create_user(email, name, picture, tokens, auth_mode):
         name,
         picture,
         utils.load_picture_bytes(picture=picture),
-        tokens,
+        token,
         session_key,
         auth_mode
     ))
@@ -73,16 +73,21 @@ def create_user(email, name, picture, tokens, auth_mode):
     return get_user(email=email), session_key
 
 
-def update_user(gb_user, country_code):
+def update_user(gb_user, country_code=None, google_drive_email=None):
     cur = get_db_connection().cursor(cursor_factory=psycopg2_extras.DictCursor)
 
-    cur.execute('update "gb_user" set "countryCode" = %s where "id"=%s;', (
-        country_code,
-        gb_user['id']
-    ))
+    sql_set_cols, sql_set_values = [], ()
+    if country_code:
+        sql_set_cols += ['countryCode']
+        sql_set_values += (country_code,)
+    if google_drive_email:
+        sql_set_cols += ['googleDriveEmail']
+        sql_set_values += (google_drive_email,)
 
-    cur.close()
-    get_db_connection().commit()
+    if len(sql_set_cols) + len(sql_set_values) > 0:
+        cur.execute(f'update "gb_user" set {", ".join([f"{col} = %s" for col in sql_set_cols])} where "id"=%s;', sql_set_values + (gb_user['id'],))
+        cur.close()
+        get_db_connection().commit()
 
 
 # endregion

@@ -1,10 +1,11 @@
+from firebase_admin.auth import InvalidIdTokenError, ExpiredIdTokenError, RevokedIdTokenError, CertificateFetchError
 from google.auth.transport import requests as oauth_requests
 from google.oauth2 import id_token as oauth_id_token
+from firebase_admin import auth
 from tools import settings
 import requests
 import hashlib
 import time
-import json
 
 
 def get_timestamp_ms():
@@ -19,22 +20,24 @@ def load_google_profile(id_token):
             'email': google_id_details['email'],
             'picture': google_id_details['picture'],
         }
-
-    print('google auth failure, wrong issuer')
+    else:
+        print('google auth failure, wrong issuer')
     return None
 
 
-def load_facebook_profile(access_token):
-    req = requests.request(method='GET', url='https://graph.facebook.com/v2.12/me?fields=name,first_name,last_name,picture,email&access_token=' + access_token)
-    if req.status_code == 200:
-        user = json.loads(s=req.text)
+def load_apple_profile(token):
+    try:
+        name = '[fullName]'
+        if ',' in token:
+            token, name = token.split(',')
+        apple_profile = auth.verify_id_token(id_token=token)
         return {
-            'name': user["name"],
-            'email': user["email"],
-            'picture': user["picture"]["data"]["url"],
+            'name': name,
+            'email': apple_profile['email'],
+            'picture': 'http://54.180.83.68/static/appleProfileImage.png',
         }
-
-    print(f'facebook auth failure, status_code={req.status_code}')
+    except (ValueError, InvalidIdTokenError, ExpiredIdTokenError, RevokedIdTokenError, CertificateFetchError):
+        print('apple auth failure')
     return None
 
 

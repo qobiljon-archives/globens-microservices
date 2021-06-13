@@ -4,15 +4,16 @@ create type "gb_auth_mode" as enum ('apple', 'google');
 create table if not exists "gb_user"
 (
     -- data
-    "id"          serial primary key,
-    "email"       text unique,
-    "name"        varchar(300),
-    "picture"     text           default null,
-    "pictureBlob" bytea          default null,
-    "tokens"      text,
-    "sessionKey"  varchar(300)   default null,
-    "countryCode" varchar(3)     default 'KOR',
-    "authMode"    "gb_auth_mode" default 'google'
+    "id"               serial primary key,
+    "email"            text unique,
+    "googleDriveEmail" text           default null,
+    "name"             varchar(300),
+    "picture"          text           default null,
+    "pictureBlob"      bytea          default null,
+    "tokens"           text,
+    "sessionKey"       varchar(300)   default null,
+    "countryCode"      varchar(3)     default 'KOR',
+    "authMode"         "gb_auth_mode" default 'google'
 );
 
 
