@@ -76,6 +76,7 @@ class GlobensServiceServicer(gb_service_pb2_grpc.GlobensServiceServicer):
         if None not in [gb_user, gb_target_user]:
             response.id = gb_target_user['id']
             response.email = gb_target_user['email']
+            response.googleDriveEmail = gb_target_user['googleDriveEmail']
             response.name = gb_target_user['name']
             response.picture = gb_target_user['picture']
             response.pictureBlob = bytes(gb_target_user['pictureBlob'])
